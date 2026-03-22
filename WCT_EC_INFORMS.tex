@@ -1,0 +1,573 @@
+% ============================================================
+% Electronic Companion for:
+% "When Front-Stage Innovation Overloads Back-Stage Workers"
+% Submitted to Service Science
+% ============================================================
+
+\documentclass[serv,dblanonrev]{informs4}
+\usepackage{eqndefns-left}
+\RequirePackage{tgtermes}
+\RequirePackage{newtxtext}
+\RequirePackage{newtxmath}
+\RequirePackage{bm}
+\RequirePackage{endnotes}
+
+\OneAndAHalfSpacedXII
+
+% Natbib setup for author-date style
+\usepackage{natbib}
+\bibpunct[, ]{(}{)}{,}{a}{}{,}%
+\def\bibfont{\small}%
+\def\bibsep{\smallskipamount}%
+\def\bibhang{24pt}%
+\def\newblock{\ }%
+\def\BIBand{and}%
+
+% Setup of equation and theorem numbering
+\EquationsNumberedThrough
+\TheoremsNumberedThrough
+\ECRepeatTheorems
+
+% Additional packages
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% Notation
+\newcommand{\Gp}{[G]^{+}}
+\newcommand{\Gm}{[-G]^{+}}
+\newcommand{\Keff}{K_{\mathrm{eff}}}
+
+% Manuscript number
+\MANUSCRIPTNO{}
+
+\begin{document}
+
+% Running author and title
+\RUNAUTHOR{Authors suppressed}
+\RUNTITLE{Front-Stage Innovation Overloads Back-Stage Workers -- EC}
+
+% Full title
+\TITLE{Electronic Companion to ``When Front-Stage Innovation Overloads Back-Stage Workers''}
+
+% Authors and affiliations
+\ARTICLEAUTHORS{%
+\AUTHOR{Authors suppressed for double-blind review}
+\AFF{Affiliations suppressed, \EMAIL{suppressed}}
+}
+
+% Abstract
+\ABSTRACT{This electronic companion provides full proofs, robustness analyses, and calibration details for the main paper.}%
+
+\KEYWORDS{electronic companion}
+
+\maketitle
+
+\section{Full Proofs}\label{sec:ec:proofs}
+
+We restate each result for convenience and provide complete proofs. The model equations are:
+\begin{align}
+D &= (1 + aT) \cdot F^b, \label{ec:demand} \\
+G &= D - K \cdot h(W), \quad h(W) = (1-p) + pW, \label{ec:gap} \\
+\frac{dK}{dt} &= r\,\Gp\, W - \delta K + u, \label{ec:dK} \\
+\frac{dW}{dt} &= (\Gm + f)(1-W) - (\mu + \sigma\,\Gp)\,W, \label{ec:dW} \\
+\frac{dT}{dt} &= \beta\,\Gm\,(1-T) - \eta\beta\,\Gp\, T - \lambda T. \label{ec:dT}
+\end{align}
+Customer lifetime value is denoted CLV throughout; starred variables ($K^*$, $W^*$, $T^*$) denote steady-state equilibrium values.
+
+\subsection{State-Space Invariance}\label{sec:ec:invariance}
+
+\begin{lemma}[Forward Invariance]\label{lem:invariance}
+The set $\Omega = \{(K, W, T) : K > 0,\; W \in [0,1],\; T \in [0,1]\}$ is forward-invariant under the flow of the ordinary differential equation (ODE) system \eqref{ec:dK}--\eqref{ec:dT} for all $t \geq 0$, provided $u > 0$, $f \geq 0$, and all parameters are non-negative.
+\end{lemma}
+
+\begin{proof}
+We verify each boundary by checking the sign of the directional derivative.
+
+\textit{Workforce well-being.} At $W = 0$: $\dot{W} = (\Gm + f)(1 - 0) - (\mu + \sigma\Gp)\cdot 0 = \Gm + f \geq 0$, since $\Gm \geq 0$ and $f \geq 0$. Hence $W$ cannot exit below zero. At $W = 1$: $\dot{W} = (\Gm + f)(1 - 1) - (\mu + \sigma\Gp)\cdot 1 = -(\mu + \sigma\Gp) \leq 0$, since $\mu > 0$ and $\sigma, \Gp \geq 0$. Hence $W$ cannot exit above one.
+
+\textit{Customer trust.} At $T = 0$: $\dot{T} = \beta\Gm(1 - 0) - \eta\beta\Gp\cdot 0 - \lambda\cdot 0 = \beta\Gm \geq 0$. At $T = 1$: $\dot{T} = \beta\Gm\cdot 0 - \eta\beta\Gp\cdot 1 - \lambda\cdot 1 = -(\eta\beta\Gp + \lambda) \leq 0$.
+
+\textit{Capability stock.} At $K = 0$: $\dot{K} = r\Gp W - \delta\cdot 0 + u = r\Gp W + u \geq u > 0$. Thus $K$ cannot reach zero while $u > 0$.
+
+In each case, the vector field points strictly into $\Omega$ (or is tangent to the boundary), so $\Omega$ is forward-invariant by the standard barrier argument. All state variables therefore remain in their economically meaningful domains for all $t \geq 0$.\Halmos
+\end{proof}
+
+\subsection{Equilibrium Existence and Uniqueness}\label{sec:ec:existence}
+
+Before proving the main theorems, we establish that the surplus equilibrium invoked by Theorems~1--3 exists and is unique. The equilibrium expressions derived in \S4.1 of the main paper are conditional on a surplus $S^* > 0$, but $S^*$ itself depends on the equilibrium values $W^*$ and $T^*$ through $S^* = K^* h(W^*) - D(T^*, F)$, creating a fixed-point problem. We resolve this by reducing the system to a single implicit equation in $S^*$ and establishing that it has exactly one positive solution.
+
+\begin{lemma}[Surplus Equilibrium Existence; Uniqueness under C2]\label{lem:existence}
+For any $F < F_{\mathrm{crit}}$, a surplus equilibrium $(K^*, W^*, T^*)$ with $S^* > 0$ exists. Under Regularity Condition C2 (single-crossing condition C2-SC: $\beta(f+\mu)<\lambda$; analytic, see Step~3 above), this equilibrium is unique.
+\end{lemma}
+
+\begin{proof}
+At the surplus equilibrium, $\Gp = 0$ and $\Gm = S^*$, so from (\ref{ec:dK}): $K^* = u/\delta$, which depends only on exogenous parameters. The remaining equilibrium conditions yield:
+\[
+W^*(S) = \frac{S + f}{S + f + \mu}, \qquad T^*(S) = \frac{\beta S}{\beta S + \lambda}.
+\]
+Both are continuous, strictly increasing functions of $S$ on $(0, \infty)$, with $W^*(0) = f/(f+\mu) \in (0,1)$, $W^*(S) \to 1$ as $S \to \infty$, $T^*(0) = 0$, and $T^*(S) \to 1$ as $S \to \infty$.
+
+Define the surplus residual:
+\begin{align}\label{ec:Phi}
+\Phi(S) &= \frac{u}{\delta}\bigl[(1-p) + p\,W^*(S)\bigr] \notag\\
+  &\quad -\; \bigl(1 + a\,T^*(S)\bigr)F^b \;-\; S.
+\end{align}
+The equilibrium condition $S^* = K^*h(W^*) - D(T^*, F)$ is equivalent to $\Phi(S^*) = 0$.
+
+\textbf{Step 1 (Boundary behaviour).}
+\[
+\Phi(0) \;=\; \frac{u}{\delta}\Bigl[(1-p) + \frac{pf}{f+\mu}\Bigr] - F^b.
+\]
+This is strictly positive when $F < F_{\mathrm{crit}} = \bigl((u/\delta)\,h\bigl(f/(f+\mu)\bigr)\bigr)^{1/b}$, which is exactly the condition defining the surplus regime.
+
+As $S \to \infty$: $W^*(S) \to 1$ and $T^*(S) \to 1$, so $\Phi(S) \to (u/\delta) - (1+a)F^b - S \to -\infty$, since the linear term $-S$ dominates.
+
+\textbf{Step 2 (Continuity and existence).} Since $W^*(S)$ and $T^*(S)$ are continuous, $\Phi$ is continuous on $[0, \infty)$. By the Intermediate Value Theorem, $\Phi(0) > 0$ and $\Phi(S) \to -\infty$ imply the existence of at least one $S^* > 0$ with $\Phi(S^*) = 0$.
+
+\textbf{Step 3 (Uniqueness).} Differentiating (\ref{ec:Phi}): $\Phi'(S) = \tau_1(S) - \tau_2(S) - 1$, where $\tau_1(S) = (u/\delta)\,p\mu\,(S{+}f{+}\mu)^{-2}$ and $\tau_2(S) = aF^b\beta\lambda\,(\beta S{+}\lambda)^{-2}$ are both strictly positive and decreasing.
+
+\noindent\textit{Analytic sufficient condition (C2-SC): $\beta(f+\mu) < \lambda$.} Under C2-SC, the ratio $\tau_1(S)/\tau_2(S) \propto [(\beta S{+}\lambda)/(S{+}f{+}\mu)]^2$ is strictly decreasing in $S$: its derivative's numerator is proportional to $\beta(f{+}\mu)-\lambda < 0$. Since $\tau_2$ is strictly decreasing, $1/\tau_2$ is strictly increasing, so $1+1/\tau_2$ is strictly increasing. The equation $\Phi'(S)=0$ is equivalent to $\tau_1/\tau_2 = 1+1/\tau_2$: a strictly decreasing function equals a strictly increasing function, which has at most one solution. Combined with $\Phi(0)>0$ and $\Phi(S)\to-\infty$ (IVT gives existence), $\Phi$ therefore has exactly one positive root.
+
+C2-SC holds throughout the empirically relevant parameter space: $\beta(f{+}\mu) \leq 0.12{\times}0.15 = 0.018 < 0.025 = \lambda$ for all $f\in[0,0.10]$, independent of $b$, $p$, and $\sigma$. \Halmos
+\end{proof}
+
+\begin{remark}[Low-Trust Interior Attractor]\label{rem:low_trust}
+The model admits a second, low-trust fixed point whenever $F$ is sufficiently large. At this attractor, $T^* = 0$ (since $dT/dt = -T(\eta\beta G + \lambda) < 0$ for all $T > 0$ when $G > 0$). With $T^* = 0$, demand is $D = F^b$, and the workforce equation (\ref{ec:dW}) at steady state with $\Gp = G^* > 0$, $\Gm = 0$ gives
+\[
+    W^*_{\mathrm{low}} \;=\; \frac{f}{f + \mu + \sigma\, G^*},
+\]
+which is strictly positive for $f > 0$. Substituting into the capability equation yields $K^*_{\mathrm{low}} = (r\,G^*\,W^*_{\mathrm{low}} + u)/\delta$, with $G^*$ determined self-consistently from $G^* = F^b - K^*_{\mathrm{low}}\,h(W^*_{\mathrm{low}})$.
+
+\textbf{Local stability.} The $3 \times 3$ Jacobian evaluated at the low-trust fixed point has all eigenvalues with strictly negative real parts, confirmed numerically across $F \in [1.0, 1.5]$. A sufficient condition for the stability of $W^*_{\mathrm{low}}$ is that the net depletion rate exceeds the sensing-driven recovery rate:
+\[
+    \mu + \sigma G^* \;>\; r\,W^*_{\mathrm{low}},
+\]
+which is satisfied at baseline (left side $\approx 0.29$, right side $\approx 0.06$ at $F = 1.2$) and holds robustly across the parameter space. The existence of this interior attractor jointly with the surplus equilibrium of Lemma~\ref{lem:existence} establishes the bistability invoked by Theorem~3.
+\end{remark}
+
+\begin{lemma}[Forward-Boundedness of Trajectories]\label{lem:bounded}
+For any finite $F$ and any initial condition $(K_0, W_0, T_0) \in \mathbb{R}_{>0} \times [0,1] \times [0,1]$, the solution satisfies $K(t) \leq \max(K_0,\, C(F)/\delta)$ for all $t \geq 0$, where $C(F) = r(1+a)F^b + u$. Combined with $W(t)\in[0,1]$ and $T(t)\in[0,1]$ (both preserved by the ODE structure), the state space is forward-invariant and bounded.
+\end{lemma}
+
+\begin{proof}
+Under overload ($G > 0$), we bound $G^+ = D(T,F) - K\,h(W) \leq D(T,F) \leq (1+a)F^b$ (since $T \leq 1$) and $W \leq 1$. Therefore
+\begin{align*}
+  \dot{K} &= r G^+ W - \delta K + u \\
+    &\leq r(1+a)F^b - \delta K + u = C(F) - \delta K.
+\end{align*}
+By Gronwall's lemma, $K(t) \leq \max(K_0,\, C(F)/\delta)$ for all $t \geq 0$. Under surplus ($G \leq 0$), $G^+=0$ and $\dot{K} = -\delta K + u \leq 0$ whenever $K \geq u/\delta$, so $K$ is bounded above by $\max(K_0, u/\delta)$. In both regimes the upper bound $\max(K_0, C(F)/\delta)$ holds. At baseline parameters with $F = 1.2$, this gives $K_{\max} \approx 25.3$, far above the operating range $K^* = 1.67$. Since $W$ and $T$ are bounded to $[0,1]$ by construction, the full state space is forward-invariant and compact for all finite $F$. \Halmos
+\end{proof}
+
+\begin{remark}[Scope of global convergence]\label{rem:global_conv}
+Lemma~\ref{lem:bounded} ensures all trajectories remain in a bounded compact set, a necessary condition for LaSalle's invariance principle. Which attractor a trajectory reaches depends on its initial condition relative to the basin boundary (Figure~2, main paper). For $F \geq F_{\mathrm{crit}}$, only the low-trust attractor is stable (Remark~\ref{rem:low_trust}). A complete global Lyapunov proof is left to future work: the principal obstacle is the switching manifold $\mathcal{M} = \{G=0\}$, at which the vector field is discontinuous and the standard LaSalle invariance argument does not apply directly. A complete proof would require either a Filippov-specific Lyapunov construction~\citep{filippov1988differential} or a smooth-approximation argument; both are non-trivial for three-dimensional piecewise-smooth systems and constitute a natural extension of the present framework.
+\end{remark}
+
+\begin{remark}[Maintained Conditions]\label{rem:conditions}
+Four conditions are maintained throughout: (C1)~$\Phi(0) > 0$ (i.e., $F < F_{\mathrm{crit}}$; analytic via IVT); (C2)~uniqueness of $S^*$, established analytically under C2-SC ($\beta(f+\mu)<\lambda$, which holds for all $f\in[0,0.10]$ independent of $b$, $p$, $\sigma$; see Step~3 above); (C3)~regularity $\Phi'(S^*) < 0$, a consequence of~(C1)--(C2), required for the implicit function theorem in Theorems~1--2; and (C4)~low-trust attractor existence $F^b > (u/\delta)\,h(W^*_{\mathrm{low}})$, verified numerically (Jacobian eigenvalues across $F \in [1.0, 1.5]$).
+\end{remark}
+
+\begin{remark}[Bifurcation Classification at $F_{\mathrm{crit}}$]\label{rem:bifurcation}
+The transition at $F_{\mathrm{crit}}$ is a saddle-node (fold) bifurcation in the effective one-dimensional dynamics of the surplus variable $S$: the stable surplus equilibrium and the separating saddle coalesce and disappear as $F \nearrow F_{\mathrm{crit}}$. The Jacobian of the full system at the surplus equilibrium has one eigenvalue $-\delta < 0$ (decoupled $K$-equation) and two eigenvalues from the $(W,T)$ sub-system with strictly negative real parts throughout $F \in [0, F_{\mathrm{crit}}]$, confirmed numerically (baseline: two complex-conjugate eigenvalues with real part $\approx -0.07$; constant term of the characteristic polynomial $\approx 0.021 > 0$ at $F = 0.90$). No Hopf bifurcation occurs: both eigenvalues retain strictly negative real parts up to and including the limit $S^* \to 0$ (constant term $\to 0.004 > 0$ at $F_{\mathrm{crit}}$). The zero eigenvalue of the full system at $F_{\mathrm{crit}}$ belongs to the one-dimensional manifold along which $S^*$ vanishes, consistent with a saddle-node in the reduced dynamics.
+\end{remark}
+
+\subsection{Proof of Theorem 1 (Front-Stage Trap)}\label{sec:ec:proof1}
+
+\begin{theorem}[Front-Stage Trap, restated]
+Suppose $b > 1$ and $p > 0$. Define the threshold $F_{\mathrm{crit}} = \bigl((u/\delta)\,h(f/(f+\mu))\bigr)^{1/b}$. Then: (i)~for $F < F_{\mathrm{crit}}$, the unique surplus equilibrium exists with $T^* > 0$ and $\mathrm{CLV}^* > \mathrm{CLV}_{\mathrm{low}}$; (ii)~for $F \geq F_{\mathrm{crit}}$, no surplus equilibrium exists; all forward trajectories remain bounded (Lemma~\ref{lem:bounded}) and converge numerically to the low-trust attractor with $\mathrm{CLV} \approx \mathrm{CLV}_{\mathrm{low}}$.
+\end{theorem}
+
+\begin{proof}
+We show that the surplus equilibrium exists if and only if $F < F_{\mathrm{crit}}$, and that beyond this threshold the system is attracted to the low-trust fixed point.
+
+\textbf{Step 1: Surplus equilibrium requires $\Phi(0) > 0$.} From Lemma~\ref{lem:existence}, the surplus equilibrium exists if and only if $\Phi(0) = (u/\delta)\,h(f/(f+\mu)) - F^b > 0$, which rearranges to $F < F_{\mathrm{crit}} = \bigl((u/\delta)\,h(f/(f+\mu))\bigr)^{1/b}$. (Here we use the fact that at $S^* = 0$, $T^* \to 0$ and $W^* \to f/(f+\mu)$.)
+
+\textbf{Step 2: Within the surplus regime, surplus decreases in $F$.} At the surplus equilibrium, $K^* = u/\delta$ is independent of $F$. Differentiating the surplus residual, $dS^*/dF < 0$ for $F$ near $F_{\mathrm{crit}}$ because the demand derivative $b(1+aT^*)F^{b-1}$ dominates the indirect effects through $W^*$ and $T^*$. As $F \to F_{\mathrm{crit}}$, $S^* \to 0$.
+
+\textbf{Step 3: Beyond $F_{\mathrm{crit}}$, overload drives collapse.} For $F \geq F_{\mathrm{crit}}$, $G > 0$, and from (\ref{ec:dT}):
+\[
+\frac{dT}{dt} = -T(\eta\beta G + \lambda) < 0 \quad \text{for all } T > 0.
+\]
+Trust declines monotonically. Through Loop R2 ($W\!\downarrow \to h(W)\!\downarrow \to G\!\uparrow$), the gap widens, accelerating trust decline. The convexity of demand in $F$ ($\partial^2 D/\partial F^2 > 0$ for $b > 1$) ensures the gap widens super-linearly, making the collapse irreversible under the reinforcing loop R2. The system converges to the low-trust interior attractor (Remark~\ref{rem:low_trust}).
+
+\textbf{Boundary conditions.} When $b \leq 1$: demand is concave in $F$; the balancing loop B1 can compensate and the regime shift does not occur. When $p = 0$: $h(W) = 1$, severing Loop R2; the system may still experience trust decline through the direct overload channel but without the workforce-mediated amplification.
+\end{proof}
+
+
+\subsection{Proof of Theorem 2 (Good Jobs Buffer)}\label{sec:ec:proof2}
+
+\begin{theorem}[Good Jobs Buffer, restated]
+Suppose $p > 0$ and the surplus equilibrium is unique and stable (Regularity Condition: $\Phi'(S^*) < 0$; Lemma~\ref{lem:existence}). Then $\partial\,\mathrm{CLV}^*/\partial f > 0$ for all $f \geq 0$.
+\end{theorem}
+
+\begin{proof}
+We show that each link in the chain $f \to W^* \to h(W^*) \to \Keff \to S^* \to T^* \to \mathrm{CLV}^*$ is strictly positive.
+
+\textbf{Link 1: $\partial W^*/\partial f > 0$.} At the surplus equilibrium, from (\ref{ec:dW}) with $\Gp = 0$:
+\begin{align*}
+0 &= S^*(1-W^*) + f(1 - W^*) - \mu W^* \\
+  &= (S^*+f)(1-W^*) - \mu W^*.
+\end{align*}
+Solving: $W^* = (S^* + f)/(S^* + f + \mu)$.
+Differentiating: $\partial W^*/\partial f = \mu / (S^* + f + \mu)^2 > 0$. This is positive, decreasing in $f$ (diminishing returns), and increasing in $\mu$ (higher natural decay amplifies the marginal benefit of investment).
+
+\textbf{Link 2: $\partial h / \partial W = p > 0$.} By construction of $h(W) = (1-p) + pW$.
+
+\textbf{Link 3: $\partial S^*/\partial h = K^* > 0$.} Since $S^* = K^* h(W^*) - D(T^*, F)$ and $K^* = u/\delta > 0$.
+
+\textbf{Link 4: $\partial T^*/\partial S^* > 0$.} From the equilibrium expression $T^* = \beta S^* / (\beta S^* + \lambda)$: $\partial T^*/\partial S^* = \beta\lambda / (\beta S^* + \lambda)^2 > 0$.
+
+\textbf{Link 5: $\partial\,\mathrm{CLV}/\partial T^* > 0$.} By assumption on the CLV functional form ($w$ and $\rho$ both increasing in $T$).
+
+\textbf{Combining links via the chain rule:}
+\[
+\frac{\partial\,\mathrm{CLV}^*}{\partial f} = \underbrace{\frac{\partial\,\mathrm{CLV}}{\partial T^*}}_{>0} \cdot \underbrace{\frac{\partial T^*}{\partial S^*}}_{>0} \cdot \underbrace{K^*}_{>0} \cdot \underbrace{p}_{>0} \cdot \underbrace{\frac{\partial W^*}{\partial f}}_{>0} > 0.
+\]
+Diminishing returns: $\partial^2\,\mathrm{CLV}^*/\partial f^2 < 0$ follows from the concavity of $W^*$ in $f$ (the $(S^*+f+\mu)^{-2}$ factor is decreasing in $f$) propagated through the chain.
+
+\textbf{General-equilibrium correction.} The full equilibrium embeds a feedback loop $f \to W^* \to h \to S^* \to T^* \to D$, which partially offsets the direct surplus gain by raising demand through higher trust. To establish that this feedback does not reverse the sign, we apply the implicit function theorem directly.
+
+\textit{Sign established analytically.} The equilibrium condition $\Phi(S^*) = 0$ defines $S^*$ implicitly as a function of $f$. Differentiating:
+\[
+\frac{dS^*}{df} = -\frac{\partial\Phi/\partial f}{\Phi'(S^*)}.
+\]
+Since $\partial\Phi/\partial f = (u/\delta)\,p\,\mu/(S^*\!+\!f\!+\!\mu)^2 > 0$ and $\Phi'(S^*) < 0$ (Regularity Condition C3), we have $dS^*/df > 0$ for all $f \geq 0$. The sign of $d\,\mathrm{CLV}^*/df$ is therefore analytically established; it does not depend on the magnitude of the trust-demand feedback.
+
+\textit{Magnitude of the GE correction (numerically confirmed).} The trust-demand feedback damps the surplus gain by a factor proportional to $aF^b\,\beta\lambda/(\beta S^*+\lambda)^2 / |\Phi'(S^*)|$, which we refer to as the GE correction ratio. At baseline parameters this ratio is approximately 0.09, confirmed across 100 parameter configurations spanning the empirically relevant range. The correction dampens but does not reverse the direct effect; $d\,\mathrm{CLV}^*/df > 0$ throughout.
+\end{proof}
+
+
+\subsection{Proof of Theorem 3 (Burnout Cliff)}\label{sec:ec:proof3}
+
+\begin{theorem}[Burnout Cliff, restated]
+Suppose $\sigma > 1$, $p > 0$, and $F_0 < F_{\mathrm{crit}}$ (a surplus equilibrium exists at $F_0$). Consider a firm at the surplus equilibrium that implements a step increase in $F$ from $F_0$ to $F_0 + \Delta F$. The outcome is governed by two thresholds:
+\begin{enumerate}
+    \item[(i)] \emph{Safety threshold (permanent-collapse onset).} For
+    \begin{align*}
+       \Delta F &\;\geq\; \Delta F_{\mathrm{collapse}} = F_{\mathrm{crit}}(f) - F_0 \\
+         &= \Bigl(\frac{u}{\delta}\,h\!\Bigl(\frac{f}{f+\mu}\Bigr)\Bigr)^{\!1/b} \!- F_0,
+    \end{align*}
+    no surplus equilibrium exists at the post-upgrade level; the low-trust attractor is the only locally stable state (Remark~\ref{rem:low_trust}), and convergence to it is confirmed numerically across the studied initial conditions. For $\Delta F < \Delta F_{\mathrm{collapse}}$, a new surplus equilibrium exists at the post-upgrade level. Convergence to this equilibrium is basin-dependent; numerical verification confirms recovery from pre-shock equilibrium initial conditions across the parameter space studied (EC~\S EC.4.2).
+    \item[(ii)] \emph{Speed diagnostic (instantaneous-overload onset).} A secondary threshold
+    \[
+       \Delta F_{\mathrm{rapid}} \;=\; \frac{S_0}{b\,F_0^{b-1}(1+aT^*)}
+    \]
+    marks the boundary above which the service gap turns positive at $t = 0^+$, initiating a rapid self-reinforcing collapse to the low-trust attractor. Because $\Delta F_{\mathrm{rapid}} > \Delta F_{\mathrm{collapse}}$ at baseline ($0.40$ vs.\ $0.31$), a firm upgrading by $\Delta F \in [\Delta F_{\mathrm{collapse}}, \Delta F_{\mathrm{rapid}})$ collapses permanently but through a \emph{slow} trajectory invisible on a standard fiscal-quarter horizon. The safety threshold is $\Delta F_{\mathrm{collapse}}$; $\Delta F_{\mathrm{rapid}}$ characterises collapse speed, not safety.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{Step 1: Two thresholds.} The permanent-collapse threshold follows directly from Theorem~1: for $F_0 + \Delta F \geq F_{\mathrm{crit}}$, equation~(\ref{ec:Phi}) at $S=0$ gives $\Phi(0) \leq 0$, so no surplus equilibrium exists. Therefore
+\[
+   \Delta F_{\mathrm{collapse}} = F_{\mathrm{crit}} - F_0
+     = \Bigl(\frac{u}{\delta}\,h\!\Bigl(\frac{f}{f+\mu}\Bigr)\Bigr)^{1/b} - F_0.
+\]
+At baseline ($F_0=0.80$): $\Delta F_{\mathrm{collapse}} = 1.1104 - 0.80 = 0.310$.
+
+For $\Delta F < \Delta F_{\mathrm{collapse}}$, the post-upgrade $F_0+\Delta F < F_{\mathrm{crit}}$, so a new surplus equilibrium exists (Lemma~\ref{lem:existence}). Convergence to this equilibrium is basin-dependent; Remark~\ref{rem:global_conv} establishes boundedness, and numerical verification confirms convergence from pre-shock equilibrium initial conditions across the parameter configurations studied.
+
+\textbf{Step 2: Instantaneous-overload diagnostic.} The first-order demand increment after the upgrade is $\Delta D \approx (1+aT^*)\,b\,F_0^{b-1}\,\Delta F$. Setting $\Delta D = S_0$ (the pre-upgrade surplus):
+\begin{equation}\label{ec:DFrapid}
+   \Delta F_{\mathrm{rapid}} = \frac{S_0}{b\,F_0^{b-1}(1+aT^*)}.
+\end{equation}
+At baseline: $\Delta F_{\mathrm{rapid}} = 0.401$. Since $\Delta F_{\mathrm{rapid}} > \Delta F_{\mathrm{collapse}}$ (0.401 vs.\ 0.310), the interval $[\Delta F_{\mathrm{collapse}},\Delta F_{\mathrm{rapid}})$ defines a \emph{slow-collapse zone}: the surplus equilibrium is gone, but $G(t_0^+) < 0$, so collapse proceeds through a gradual erosion of surplus rather than immediate overload. For $\Delta F \geq \Delta F_{\mathrm{rapid}}$, $G(t_0^+) > 0$ and collapse is rapid.
+
+\textbf{Steps 3--4: Well-being dynamics and timescales.} Under overload ($G > 0$), the tipping threshold $W_{\mathrm{tip}} = f/(f+\mu+\sigma G_0^+)$ marks the level below which depletion exceeds recovery. In the slow-collapse zone ($G_0^+ = 0$ at $t_0^+$), $W_{\mathrm{tip}}$ is crossed gradually as surplus erodes. Two timescales govern speed: $\tau_{\mathrm{adapt}} = 1/r \approx 2.5$ mo (Loop B1) and $\tau_{\mathrm{deplete}} = 1/(\mu+\sigma G_0^+) \in [1.5,4]$ mo (Loop R3). Near $\Delta F_{\mathrm{collapse}}$, both are comparable, so convergence to the low-trust attractor may require hundreds of months (explaining why simulated cliffs for low-$f$ scenarios exceed the analytic threshold — a slow-convergence artefact, not a model error).
+
+\textbf{Step 5: Three-threshold characterisation and numerical verification.} Starting from the surplus equilibrium $(K^*, W^*, T^*)$ at $F_0$, a step upgrade $\Delta F$ produces the following structure. Let $\Delta F_{\mathrm{collapse}} = F_{\mathrm{crit}}(f) - F_0$ be the saddle-node threshold (Theorem~1) and let $\Delta F_{\mathrm{rapid}} = S_0 / [b F_0^{b-1}(1+aT^*)]$ be the instantaneous-overload threshold. At the baseline scenario ($f=0.03$: $0.401 > 0.310$), $\Delta F_{\mathrm{rapid}} > \Delta F_{\mathrm{collapse}}$ and they define three distinct zones:
+\begin{itemize}
+    \item \textbf{Safe zone} ($\Delta F < \Delta F_{\mathrm{collapse}}$): surplus equilibrium exists at $F_0+\Delta F$; trajectories recover after transient overload.
+    \item \textbf{Slow-collapse zone} ($\Delta F_{\mathrm{collapse}} \leq \Delta F < \Delta F_{\mathrm{rapid}}$): surplus equilibrium gone; $G(t_0^+) < 0$, so collapse proceeds gradually; convergence to the low-trust attractor may require hundreds of months near the boundary.
+    \item \textbf{Rapid-collapse zone} ($\Delta F \geq \Delta F_{\mathrm{rapid}}$): $G(t_0^+) > 0$ immediately; the death spiral begins from $t=0^+$.
+\end{itemize}
+\noindent\textit{Note on ordering.} The ordering $\Delta F_{\mathrm{rapid}} > \Delta F_{\mathrm{collapse}}$ depends on $f$; it reverses at high $f$ (e.g., $f=0.10$: $\Delta F_{\mathrm{collapse}} = 0.49 > \Delta F_{\mathrm{rapid}} \approx 0.40$), where the slow-collapse zone disappears.
+Simulations ($t_{\mathrm{end}}=500$ months, collapse criterion $T(\infty) < 0.15$; the gap between the two attractors renders this threshold unambiguous) confirm collapse boundaries for three workforce-investment scenarios starting from their surplus equilibria at $F_0=0.80$:
+
+
+For $f=0.01$ the simulated cliff (0.27) exceeds $\Delta F_{\mathrm{collapse}}$ (0.179): the surplus equilibrium disappears at $\Delta F=0.179$, but the trajectory takes $>500$ months to converge for $\Delta F \in [0.179, 0.26]$, reflecting the long transients of the slow-collapse zone. For $f=0.03$, the simulated cliff (0.29) falls slightly \emph{below} $\Delta F_{\mathrm{collapse}}$ (0.310), consistent with basin-boundary effects: the trajectory escapes the surplus attractor's basin for $\Delta F \in [0.29, 0.31)$ even though the equilibrium formally exists.
+
+\noindent\textit{Note on the two-threshold interpretation.} The Burnout Cliff involves two distinct thresholds that are easily conflated. $\Delta F_{\mathrm{collapse}} = F_{\mathrm{crit}}(f) - F_0$ is the \emph{safety boundary}: the maximum upgrade size beyond which no surplus equilibrium exists and permanent collapse is certain. $\Delta F_{\mathrm{rapid}}$ is a \emph{diagnostic}: the upgrade size above which the service gap turns positive at $t = 0^+$, triggering an immediate death spiral rather than a slow erosion. Because $\Delta F_{\mathrm{rapid}} > \Delta F_{\mathrm{collapse}}$ at the baseline scenario (0.40 vs.\ 0.31), a firm in the zone $\Delta F \in [\Delta F_{\mathrm{collapse}}, \Delta F_{\mathrm{rapid}})$ is already in permanent-collapse territory but experiences only gradual deterioration, making the collapse invisible on a standard fiscal-quarter horizon. The correct safety threshold is $\Delta F_{\mathrm{collapse}}$; $\Delta F_{\mathrm{rapid}}$ characterises collapse speed, not safety. \Halmos
+\end{proof}
+
+
+\subsection{Proof of Proposition 1 (Complementarity)}\label{sec:ec:proof4}
+
+\begin{proposition}[Digitalisation-Workforce Complementarity, restated]
+$\partial \Keff / \partial W = pK > 0$ and $\partial^2 \Keff / \partial W \partial K = p > 0$. Workforce well-being determines $F_{\max}(W) = (K^* h(W))^{1/b}$, which is strictly increasing in $W$.
+\end{proposition}
+
+\begin{proof}
+\textbf{Part 1: Cross-partial.} From $\Keff = K \cdot [(1-p) + pW]$: $\partial \Keff / \partial W = pK$ and $\partial^2 \Keff / \partial W \partial K = p$. Both are strictly positive for $p > 0$.
+
+\textbf{Part 2: $F_{\max}(W)$ at the regime boundary.} $F_{\max}(W)$ is defined as the value of $F$ at which the surplus equilibrium of Lemma~1 ceases to exist, i.e., at which $S^* = 0$. From Lemma~1, at $S^* = 0$:
+\[
+T^*(S) = \frac{\beta S}{\beta S + \lambda} \;\xrightarrow{S \to 0}\; 0.
+\]
+Therefore, substituting $T^* = 0$ into the $F_{\mathrm{crit}}$ formula from Theorem~1 (Eq.~\ref{ec:demand} at $S^* = 0$):
+\begin{align*}
+F_{\max}(W) &= \Bigl(K^* \cdot [(1-p) + pW]\Bigr)^{1/b} \\
+  &= (K^*\,h(W))^{1/b}.
+\end{align*}
+This boundary formula is exact at $S^* = 0$ because $T^* \to 0$ is a direct consequence of the equilibrium structure, not an approximation.
+
+\textbf{Full implicit differentiation at interior equilibria ($S^* > 0$).} At interior equilibria, $T^* > 0$ and $F_{\max}$ solves the fixed-point equation $(K^* h(W))/(1 + aT^*(W,F_{\max})) = F_{\max}^b$. Total differentiation with respect to $W$ yields:
+\[
+\frac{dF_{\max}}{dW} = \frac{1}{b}\,F_{\max}^{1-b}\,\frac{d}{dW}\!\left[\frac{K^* h(W)}{1 + aT^*}\right],
+\]
+where
+\[
+\frac{d}{dW}\!\left[\frac{K^* h(W)}{1 + aT^*}\right] = \frac{K^* p}{1+aT^*} - \frac{K^* h(W)\,a}{(1+aT^*)^2}\,\frac{dT^*}{dW}.
+\]
+Since $T^*(S^*)$ is increasing in $S^*$ and $dS^*/dW > 0$ (Theorem~2, Link~2--Link~3), the correction term $-K^* h(W) a\,(dT^*/dW)/(1+aT^*)^2$ is negative, meaning the interior-equilibrium slope $dF_{\max}/dW$ is somewhat smaller than the boundary-formula slope $(p/b)\,(K^*)^{1/b}[h(W)]^{1/b-1}$. However, the sign remains positive: $dF_{\max}/dW > 0$ for all $p > 0$, $K^* > 0$. The boundary formula therefore provides a conservative upper bound on the interior slope: the interior slope is smaller (by approximately 8\% at baseline parameters), so the formula overstates how rapidly $F_{\max}$ increases with $W$ at positive trust levels. \Halmos
+\end{proof}
+
+
+\subsection{Proof of Corollary 5 (Budget-Constrained Trap)}\label{sec:ec:proof5}
+
+\begin{proof}
+Let $B_{\min} \equiv c_F \cdot F_{\mathrm{crit}}$ denote the budget at which the all-$F$ corner exactly attains the Trap threshold.
+
+\textit{Case 1: $B \geq B_{\min}$.} The all-$F$ corner allocates $F = B/c_F \geq F_{\mathrm{crit}}$, where Theorem~1 implies $\partial\,\mathrm{CLV}/\partial F \leq 0$ (the surplus equilibrium has ceased to exist and the system is at or beyond the Trap threshold). Theorem~2 simultaneously guarantees $\partial\,\mathrm{CLV}^*/\partial f > 0$ for all $f \geq 0$. Therefore, reallocating the marginal dollar from $F$ to $f$ produces a strict first-order gain in CLV. The all-$F$ corner is strictly dominated and the optimum satisfies $f^* > 0$ and $F^* < B/c_F$.
+
+\textit{Case 2: $B < B_{\min}$.} The all-$F$ corner allocates $F = B/c_F < F_{\mathrm{crit}}$, so the Trap is not binding and a surplus equilibrium exists. Theorem~2 guarantees $\partial\,\mathrm{CLV}^*/\partial f > 0$, so the all-$F$ corner ($f = 0$) forgoes a positive return to workforce investment.
+
+\textit{Near-$B_{\min}$ sub-case (analytic).} The per-dollar returns to $F$ and $f$ are continuous in $F$ on $\{F < F_{\mathrm{crit}}\}$: both follow from the explicit equilibrium formulae for $W^*(S)$, $T^*(S)$, and Theorems~1--2 via the implicit function theorem. At $B = B_{\min}$ (i.e., $F = F_{\mathrm{crit}}$), Case~1 establishes $\partial\,\mathrm{CLV}/\partial F = 0$ analytically while $\partial\,\mathrm{CLV}^*/\partial f > 0$ (Theorem~2). By continuity, strict dominance of $f$ over $F$ per dollar persists throughout a neighbourhood $B \in (B_{\min}-\varepsilon, B_{\min})$ for some $\varepsilon > 0$.
+
+\textit{Interior sub-case (computational).} For $B \in [B_{\min}/2,\, B_{\min}-\varepsilon)$, strict dominance of $f$ holds computationally across cost ratios $c_F/c_f \in [0.5, 5]$ (the range spanning realistic investment cost structures).
+
+In Case~1 and near $B_{\min}$ in Case~2, $f^* > 0$ follows analytically; the interior of Case~2 is a computational finding. \Halmos
+\end{proof}
+
+
+\subsection{Smoothing Robustness}\label{sec:ec:smoothing}
+
+The theoretical analysis uses the exact piecewise-smooth operators $[\cdot]^+ = \max(\cdot, 0)$. Table~\ref{tab:ec:smooth} verifies that replacing $[G]^+$ with a tanh-smoothed approximation $[G]^+_\varepsilon = G/2 + G\tanh(G/\varepsilon)/2$ across bandwidths $\varepsilon \in \{0.001, 0.005, 0.01, 0.05\}$ shifts $F_{\mathrm{crit}}$ by less than 1\% for practically relevant bandwidths ($\varepsilon \leq 0.01$), confirming that all three theorems are invariant to smoothing in this range.
+
+\begin{table}
+\TABLE
+{Sensitivity of $F_{\mathrm{crit}}$ to tanh smoothing bandwidth $\varepsilon$.\label{tab:ec:smooth}}
+{\begin{tabular}{@{}lcc@{}}
+\toprule
+Smoothing $\varepsilon$ & $F_{\mathrm{crit}}$ & Change vs.\ exact (\%) \\
+\midrule
+Exact ($\varepsilon = 0$) & 1.110 & -- \\
+$\varepsilon = 0.001$ & 1.106 & $-0.09$ \\
+$\varepsilon = 0.005$ & 1.104 & $-0.27$ \\
+$\varepsilon = 0.010$ & 1.100 & $-0.63$ \\
+$\varepsilon = 0.050$ & 1.078 & $-2.62$ \\
+\bottomrule
+\end{tabular}}
+{Notes.}
+\end{table}
+
+
+
+\section{Structural Mapping: WCT and Oliva--Sterman (2001)}\label{sec:ec:nesting}
+
+The WCT model recovers the core dynamics of \citeauthor{oliva2001cutting} (\citeyear{oliva2001cutting}) as a special case under three parameter restrictions: (i) $p = 0$ (workforce does not affect $\Keff$, so $h(W)=1$); (ii) $a = 0$ (no trust-demand feedback, so $D = F^b$); and (iii) $F$ constant (no cross-domain dynamics). Under these settings, the trust ODE remains active but effectively decouples from demand; setting additionally $\beta \to \infty$ and $\lambda = 0$ collapses $T$ into the demand function, recovering the O-S perceived-quality attractiveness mechanism. Table~\ref{tab:ec:mapping} provides the term-by-term correspondence.
+
+\begin{table}
+\TABLE
+{Structural mapping between WCT (restricted) and Oliva--Sterman (2001).\label{tab:ec:mapping}}
+{\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{WCT term} & \textbf{O\&S counterpart} & \textbf{Correspondence} \\
+\midrule
+$r\,\Gp\,W$ & Learning from failures & Product of gap and workforce effort \\
+$\delta K$ & Depreciation & Constant-rate technology decay \\
+$(\Gm + f)(1-W)$ & Recovery + staffing & Surplus and investment raise effort; saturates at $W{=}1$ \\
+$(\mu + \sigma\,\Gp)\,W$ & Corner-cutting + fatigue & Overload and decay deplete effort; vanishes at $W{=}0$ \\
+\addlinespace
+Trust stock $T$ & No O\&S counterpart & Collapses to demand at $\beta \to \infty$, $\lambda = 0$ \\
+\bottomrule
+\end{tabular}}
+{Notes.}
+\end{table}
+
+The $(1-W)$ saturation factor replaces O-S's nonlinear lookup table; qualitative behaviour is identical. The 2:1 overload asymmetry ($\sigma = 2$) transfers exactly and, with the three restrictions lifted, generates Loops R1, R2, and the cross-domain Front-Stage Trap.
+
+
+\section{Sensitivity Analysis}\label{sec:ec:sensitivity}
+
+Table~\ref{tab:ec:sensitivity} reports how each theorem's qualitative result responds to $\pm 50\%$ perturbations of each parameter from its baseline value. For each perturbation, we recompute the relevant threshold ($F_{\mathrm{crit}}$, $\partial\,\mathrm{CLV}^*/\partial f$, or $\Delta F_{\mathrm{collapse}}$) and record whether the theorem's qualitative prediction holds, weakens, strengthens, or disappears.
+
+\begin{table}
+\TABLE
+{Sensitivity of theorem predictions to $\pm 50\%$ parameter perturbations. $^{\dagger}$Slower sensing ($r\downarrow$) allows overload more time to erode $W$ before the self-correction loop activates, steepening the cliff.\label{tab:ec:sensitivity}}
+{\begin{tabular}{@{}lccc@{}}
+\toprule
+Parameter perturbation & Thm 1 (Trap) & Thm 2 (Buffer) & Thm 3 (Cliff) \\
+\midrule
+$b$: 1.3 $\to$ 1.0 & Disappears & Holds & Weakens \\
+$b$: 1.3 $\to$ 1.6 & Strengthens & Holds & Strengthens \\
+$a$: 0.4 $\to$ 0.2 & Weakens & Holds & Holds \\
+$a$: 0.4 $\to$ 0.6 & Strengthens & Holds & Holds \\
+$p$: 0.5 $\to$ 0.25 & Weakens & Weakens & Weakens \\
+$p$: 0.5 $\to$ 0.75 & Strengthens & Strengthens & Strengthens \\
+$\sigma$: 2.0 $\to$ 1.0 & Weakens & Holds & Weakens \\
+$\sigma$: 2.0 $\to$ 3.0 & Strengthens & Holds & Strengthens \\
+$\eta$: 2.0 $\to$ 1.0 & Weakens & Holds & Holds \\
+$\eta$: 2.0 $\to$ 3.0 & Strengthens & Holds & Holds \\
+$r$: 0.4 $\to$ 0.2 & Holds & Holds & Strengthens$^{\dagger}$ \\
+$r$: 0.4 $\to$ 0.8 & Holds & Holds & Weakens \\
+$\delta$: 0.03 $\to$ 0.015 & Weakens & Strengthens & Weakens \\
+$\delta$: 0.03 $\to$ 0.06 & Strengthens & Weakens & Strengthens \\
+\bottomrule
+\end{tabular}}
+{Notes.}
+\end{table}
+
+\textbf{Key observations.} The parameter $p$ is the most uniformly influential: reducing it weakens all three theorems simultaneously, confirming the workforce capacity multiplier as the model's structural driver. The parameter $b$ is critical for Theorem~1: at $b = 1$ the Trap disappears entirely, as linear demand allows the back-stage to absorb growth through Loop B1. The parameter $\sigma$ is critical for Theorem~3: at $\sigma = 1$, symmetric overload and recovery eliminate the bistability that produces the tipping point. No single perturbation simultaneously kills all three results.
+
+\begin{table}
+\TABLE
+{Supplementary sensitivity: leading-indicator lag and direct-channel share across key parameter ranges.\label{tab:ec:sensitivity2}}
+{\begin{tabular}{@{}llccc@{}}
+\toprule
+\textbf{Outcome} & \textbf{Parameter varied} & \textbf{Low} & \textbf{Baseline} & \textbf{High} \\
+\midrule
+\multirow{2}{*}{Leading-indicator lag (months)$^{\dagger}$}
+  & $\beta \in \{0.06, 0.12, 0.24\}$, $\sigma = 2.0$ & 21 & 12 & 6 \\
+  & $\sigma \in \{1.0, 2.0, 3.0\}$, $\beta = 0.12$   & 11 & 12 & 12 \\[4pt]
+\multirow{1}{*}{Indirect-channel share (\%)}
+  & $p \in \{0.25, 0.50, 0.75\}$     & $<$1 & $<$1 & $<$1 \\
+\bottomrule
+\end{tabular}}
+{$^{\dagger}$Leading-indicator lag: months by which $W$ leads $T$ before $T$ crosses the 0.10 crisis threshold. Scenario: step upgrade $\Delta F = 0.40$ from $F_0 = 0.80$ (above $\Delta F_{\mathrm{collapse}} = 0.31$), no workforce investment, starting from the surplus equilibrium. Lower $\beta$ (stickier customer trust) lengthens the warning window; $\sigma$ variation contributes less than two months at fixed $\beta$. Indirect-channel share: fraction of CLV uplift from $f$ via the sensing channel ($p{=}0$ counterfactual) at $F = 0.85$; values $<1\%$ confirm the capacity-multiplier channel dominates. See \S 6.1 of the main paper.}
+\end{table}
+
+
+\section{Calibration Protocol}\label{sec:ec:calibration}
+
+\subsection{Parameter Sources}
+
+All time units are months. Rate parameters are expressed in months$^{-1}$; implied half-lives are $\ln(2)/\theta$. The calibration follows the partial-model testing and pattern-oriented fitting protocol of \citet{homer1993partial} and satisfies the validity criteria of \citet{barlas1996formal}. Three parameters warrant additional discussion beyond Table~\ref{tab:ec:paramsource}; the remaining seven are fully documented there.
+
+\begin{table}
+\TABLE
+{Parameter calibration summary.\label{tab:ec:paramsource}}
+{{\footnotesize\setlength{\tabcolsep}{3pt}%
+\begin{tabular}{@{}lp{0.06\textwidth}cp{0.28\textwidth}p{0.26\textwidth}@{}}
+\toprule
+Parameter & Base & $\tau_{1/2}$ & Basis & Sensitivity \\
+\midrule
+$b$ (demand super-lin.) & 1.30 & -- & \citet{bell2018inventory}; \citet{acimovic2015fulfillment} & Trap requires $b>1$; robust \\
+$a$ (trust--demand) & 0.40 & -- & \citet{mcknight2002developing}; \citet{sirdeshmukh2002consumer} & Weakens Trap at $a{=}0.2$; holds \\
+$p$ (complementarity) & 0.50 & -- & Illustrative; \citet{krusell2000capital} & All 3 weaken at $p{=}0.25$ \\
+$\sigma$ (overload asym.) & 2.00 & -- & \citeauthor{oliva2001cutting} (\citeyear{oliva2001cutting}) & Cliff disappears at $\sigma{=}1$ \\
+$\eta$ (trust erosion asym.) & 2.00 & -- & \citet{sirdeshmukh2002consumer} & Weakens Trap at $\eta{=}1$ \\
+$r$ (sensing-adapt.) & 0.40 & 1.7\,mo & \citet{tucker2007operational}; \citet{argote1990learning} & Robust \\
+$\delta$ (depreciation) & 0.03 & 23\,mo & Illustrative & Robust ($\pm50\%$) \\
+$\beta$ (trust-update) & 0.12 & 5.8\,mo & Illustrative & Primary lag driver (EC Tab.~EC.4) \\
+$\mu$ (nat.\ $W$ decay) & 0.05 & 14\,mo & \citet{demerouti2001job}; \citet{dube2020minimum} & Robust \\
+$\lambda$ (nat.\ $T$ decay) & 0.025 & 28\,mo & Illustrative & Robust \\
+\bottomrule
+\end{tabular}}}
+{$\tau_{1/2}$: implied half-life $= \ln(2)/\theta$.}
+\end{table}
+
+\textbf{Demand super-linearity ($b = 1.3$).} \citet{bell2018inventory} and \citet{acimovic2015fulfillment} document fulfilment patterns consistent with error rates rising super-linearly with omnichannel combinations. We set $b = 1.3$ as an illustrative, conservative baseline motivated by this literature: a 10\% front-stage increase raises back-stage demand by approximately 13\%. The Trap requires only $b > 1$; the sensitivity range $b \in [1.0, 1.6]$ is in Table~\ref{tab:ec:sensitivity}.
+
+\textbf{Workforce-technology complementarity ($p = 0.5$).} We set $p = 0.5$ as a moderate illustrative value: a burned-out workforce ($W = 0$) delivers 50\% of design capacity. The capital-skill complementarity estimates of \citet{krusell2000capital} support a mid-range starting point. The central testable prediction is the interaction coefficient in a store-level CLV regression on $K$, $W$, and $K \times W$, requiring instrumental variables to address simultaneity (see \S 6.2 of the main paper). All results hold for any $p \in (0,1)$.
+
+\textbf{Overload-recovery asymmetry ($\sigma = 2.0$).} Set as a magnitude comparator consistent with \citeauthor{oliva2001cutting}'s (\citeyear{oliva2001cutting}) finding that workers are roughly twice as willing to cut corners as to work overtime. This is a comparator from a professional-service study, not a direct structural estimate for retail; the Job Demands-Resources (JD-R) literature \citep{bakker2007job} provides additional support. The Cliff disappears only at $\sigma = 1$; all theorems hold across $\sigma \in [1.0, 3.0]$ (Table~\ref{tab:ec:sensitivity}).
+
+\subsection{Simulation Initial Conditions}
+
+Table~\ref{tab:ec:simparams} reports the initial conditions and control parameters for each figure. All simulations use the baseline model parameters from Table~2 of the main paper. Initial conditions are chosen so that each simulation begins in the surplus regime ($\Keff > D$), representing a retailer with adequate but not excessive back-stage capacity.
+
+\textbf{Basin-of-attraction map (referenced in \S5.2 of main paper).} We sweep $W_0 \in \{0.08, 0.10, \ldots, 0.80\}$ (37 points) and $F \in \{0.70, 0.75, \ldots, 1.95\}$ (26 points) on a grid, starting each trajectory at $K_0$ such that $G = 0$ and $T_0 = 0.50$. Terminal CLV $> 600$ marks convergence to the surplus attractor (green); CLV $< 600$ marks the low-trust attractor (red). The separatrix boundary is consistent with the analytic $\Delta F_{\mathrm{collapse}}$ threshold from Theorem~3. Convergence is validated by a full doubled-grid recomputation: the basin is re-run at $73{\times}51 = 3{,}723$ trajectories (step $\Delta W_0 = 0.01$, $\Delta F = 0.025$, half the original grid spacing in each dimension), and the separatrix $W_0$-position is compared at each common $F$-slice. The maximum shift across all $F$-slices is $0.0075$ $W_0$-units (fewer than 1 coarse grid step; tolerance $\Delta W < 0.04$), confirming that the boundary position is numerically stable. For the Burnout Cliff simulation (Figure~5), permanent collapse is defined as $T(t=500) < 0.15$ (surplus attractor: $T^* > 0.40$; low-trust: $T^* < 0.10$; confirmed stable at $t=500$ months).
+
+\begin{table}
+\TABLE
+{Simulation initial conditions and controls by figure.\label{tab:ec:simparams}}
+{{\footnotesize\setlength{\tabcolsep}{2.5pt}%
+\begin{tabular}{@{}lp{0.20\textwidth}ccccp{0.18\textwidth}@{}}
+\toprule
+Fig. & $(K_0, W_0, T_0)$ & $F_0$ & $u$ & $f$ & $t_{\max}$ & Notes \\
+\midrule
+2 & balance$^{\dagger}$ & varies & 0.05 & 0.03 & 500 & $37{\times}26$ grid; CLV thr.\ $=600$ \\
+3 & \multicolumn{5}{c}{Analytical: $F_{\max}(W)=(K^* h(W))^{1/b}$; $K^*=u/\delta$} & Boundary formula \\
+4 & $(1.60, 0.55, 0.50)$ & 0.80 & 0.05 & varies & 120 & Three scenarios (A,B,C) \\
+5 & $(K^*\!,W^*\!,T^*)$ & 0.80 & --- & 0.01--0.10 & 500 & 61-pt $\Delta F$ sweep \\
+EC & eq.~IC at $F{=}0.85$ & 0.85 & 0.05 & 0.00--0.20 & 120 & Study~3: Thm~2 decomp.; $p{=}0$ counterfactual confirms structural-zero \\
+\bottomrule
+\end{tabular}}}
+{$^{\dagger}$Balance manifold: $K_0 h(W_0)=(1{+}a{\cdot}0.5)F^b$, $T_0{=}0.50$. Grid: $37{\times}26$ (962~pts). Collapse: $T(500){<}0.15$.}
+\end{table}
+
+\subsection{CLV Functional Form}
+
+We model CLV using the geometric-series structure of \citet{gupta2004valuing}: $\mathrm{CLV} = w(T) / (1 - \rho(T))$, where $\rho(T)$ is an annual retention probability and $w(T)$ an annualised per-customer margin. We adopt the specification $\rho(T) = 0.80 + 0.18T$ and $w(T) = 80(1 + 0.25\max(T-0.15, 0))$. The retention endpoints ($\rho(0) = 0.80$, $\rho(1) = 0.98$) match the 70--90\% annual range in \citet{gupta2004valuing}; \pounds 80 is an illustrative annual margin for UK omnichannel grocery. The model's analytical results require only that CLV is increasing in $T$, which holds for any $\rho'(T) > 0$, $w'(T) \geq 0$.
+
+The kink in $w(T)$ at $T = 0.15$ does not affect any analytical result: Theorem~2 requires only $\partial\,\mathrm{CLV}/\partial T^* > 0$, which holds everywhere since $\partial\,\mathrm{CLV}/\partial T^* \geq w(T^*)\rho'(T^*)/(1-\rho(T^*))^2 > 0$ even at the kink. A softplus replacement produces CLV values within 0.5\% and qualitatively identical outputs.
+
+
+% ============================================================
+% EC BIBLIOGRAPHY (subset of main paper references cited in EC)
+% ============================================================
+
+\begin{thebibliography}{99}
+
+\bibitem[Acimovic and Graves(2015)]{acimovic2015fulfillment}
+Acimovic J, Graves SC (2015) Making better fulfillment decisions on the fly in an online retail environment.
+\textit{Manufacturing \& Service Operations Management} 17(1):34--51.
+
+\bibitem[Argote and Epple(1990)]{argote1990learning}
+Argote L, Epple D (1990) Learning curves in manufacturing.
+\textit{Science} 247(4945):920--924.
+
+\bibitem[Bakker and Demerouti(2007)]{bakker2007job}
+Bakker AB, Demerouti E (2007) The Job Demands-Resources model: State of the art.
+\textit{Journal of Managerial Psychology} 22(3):309--328.
+
+\bibitem[Barlas(1996)]{barlas1996formal}
+Barlas Y (1996) Formal aspects of model validity and validation in system dynamics.
+\textit{System Dynamics Review} 12(3):183--210.
+
+\bibitem[Bell et~al.(2018)]{bell2018inventory}
+Bell DR, Gallino S, Moreno A (2018) Offline showrooms in omnichannel retail: Demand and operational benefits.
+\textit{Management Science} 64(4):1629--1651.
+
+\bibitem[Demerouti et~al.(2001)]{demerouti2001job}
+Demerouti E, Bakker AB, Nachreiner F, Schaufeli WB (2001) The Job Demands-Resources model of burnout.
+\textit{Journal of Applied Psychology} 86(3):499--512.
+
+\bibitem[Dub{\'{e}} et~al.(2020)]{dube2020minimum}
+Dub{\'{e}} A, Reich A, Shierholz H, West M (2020) Minimum wage shocks, employment flows and labor market frictions.
+\textit{Journal of Labor Economics} 38(4):1009--1052.
+
+\bibitem[Filippov(1988)]{filippov1988differential}
+Filippov AF (1988) \textit{Differential Equations with Discontinuous Righthand Sides}.
+Dordrecht: Kluwer Academic Publishers.
+
+\bibitem[Gupta et~al.(2004)]{gupta2004valuing}
+Gupta S, Lehmann DR, Stuart JA (2004) Valuing customers.
+\textit{Journal of Marketing Research} 41(1):7--18.
+
+\bibitem[Homer(1993)]{homer1993partial}
+Homer JB (1993) Partial-model testing as a validation tool for system dynamics.
+\textit{System Dynamics Review} 9(2):127--147.
+
+\bibitem[Krusell et~al.(2000)]{krusell2000capital}
+Krusell P, Ohanian LE, R\'ios-Rull JV, Violante GL (2000) Capital-skill complementarity and inequality: A macroeconomic analysis.
+\textit{Econometrica} 68(5):1029--1053.
+
+\bibitem[McKnight et~al.(2002)]{mcknight2002developing}
+McKnight DH, Choudhury V, Kacmar C (2002) Developing and validating trust measures for e-commerce: An integrative typology.
+\textit{Information Systems Research} 13(3):334--359.
+
+\bibitem[Oliva and Sterman(2001)]{oliva2001cutting}
+Oliva R, Sterman JD (2001) Cutting corners and working overtime: Quality erosion in the service industry.
+\textit{Management Science} 47(7):894--914.
+
+\bibitem[Sirdeshmukh et~al.(2002)]{sirdeshmukh2002consumer}
+Sirdeshmukh D, Singh J, Sabol B (2002) Consumer trust, value, and loyalty in relational exchanges.
+\textit{Journal of Marketing} 66(1):15--37.
+
+\bibitem[Tucker(2007)]{tucker2007operational}
+Tucker AL (2007) An empirical study of system improvement by frontline employees in hospital units.
+\textit{Manufacturing \& Service Operations Management} 9(4):492--505.
+
+\end{thebibliography}
+
+\end{document}
