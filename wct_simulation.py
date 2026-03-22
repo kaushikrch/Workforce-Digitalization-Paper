@@ -122,7 +122,7 @@ def clv(T, rho0=0.80, rho_slope=0.18, w0=80.0, w_slope=0.25, T_kink=0.15):
     Customer lifetime value (geometric-series form of Gupta et al. 2004).
 
     rho(T) = rho0 + rho_slope * T   (retention probability)
-    w(T)   = w0 * (1 + w_slope * max(T - T_kink, 0))   (wallet share, GBP/month)
+    w(T)   = w0 * (1 + w_slope * max(T - T_kink, 0))   (wallet share, USD/year)
     CLV    = w(T) / (1 - rho(T))
     """
     rho  = rho0 + rho_slope * T
@@ -840,7 +840,7 @@ def plot_study1(res, t_policy=24, save_path="fig4_hidden_cost.pdf"):
         ax.plot(t, clv_ts, color=colours[sc], lw=2,
                 linestyle='-' if sc=='C' else ('--' if sc=='B' else ':'))
     ax.axvline(t_policy, color='grey', lw=1, linestyle='--', alpha=0.6)
-    ax.set_xlabel("Time (months)"); ax.set_ylabel("CLV (£)")
+    ax.set_xlabel("Time (months)"); ax.set_ylabel("CLV ($)")
     ax.set_title("(b) Customer Lifetime Value")
     for sc, col in colours.items():
         ax.plot([], [], color=col, lw=2, label=sc)
@@ -937,7 +937,7 @@ def plot_study3(res, save_path="fig_study3_roi_decomp.pdf"):
     ax.plot(f_range, res['uplift_total'], 'k-', lw=2, label='Total uplift')
 
     ax.set_xlabel("Workforce Investment Rate $f$", fontsize=11)
-    ax.set_ylabel("CLV Uplift over $f=0$ baseline (£)", fontsize=11)
+    ax.set_ylabel("CLV Uplift over $f=0$ baseline ($)", fontsize=11)
     ax.set_title("Decomposing Workforce ROI\n"
                  "Capacity multiplier is the dominant channel", fontsize=11)
     ax.legend(fontsize=9); ax.grid(alpha=0.3)
