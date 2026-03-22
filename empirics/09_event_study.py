@@ -164,9 +164,7 @@ def main():
         print(f"  Insufficient data ({len(w4)} obs)")
 
     # ── Event-time coefficients (parallel trends check) ──
-    print("\n" + "="*65)
-    print("PARALLEL TRENDS CHECK: Event-time dummies × pre-workforce")
-    print("="*65)
+    # Two checks: (A) level DID pre-trends, (B) moderation pre-trends
 
     # Create event-time dummies (omit t=-1 as reference)
     for t in range(-3, 4):
@@ -181,11 +179,48 @@ def main():
     ppt = wpt.set_index(['ticker', 'year'])
 
     if len(wpt) >= 30:
+        # --- (A) LEVEL DID: Pre-trends for the basic post-shock effect ---
+        print("\n" + "="*65)
+        print("PARALLEL TRENDS CHECK (A): Level DID — event-time dummies only")
+        print("  Tests whether ACSI was already trending differently pre-shock")
+        print("="*65)
+
+        mod_pt_level = PanelOLS(ppt['acsi_score'],
+                                ppt[evt_cols],
+                                entity_effects=True, check_rank=False)
+        r_pt_level = mod_pt_level.fit(cov_type='clustered', cluster_entity=True)
+        n_pt = wpt['ticker'].nunique()
+
+        print(f"  {'Event time':<12} {'ACSI coef':>12} {'t-stat':>10} {'p-value':>10}")
+        print("  " + "-"*46)
+        for t in range(-3, 4):
+            if t == -1:
+                print(f"  {'t=-1 (ref)':<12} {'0.000':>12} {'—':>10} {'—':>10}")
+                continue
+            b_level = r_pt_level.params[f'evt_{t}']
+            t_level = r_pt_level.tstats[f'evt_{t}']
+            p_level = 2 * (1 - t_dist.cdf(abs(t_level), n_pt - 1))
+            sig = '***' if p_level < 0.01 else '**' if p_level < 0.05 else '*' if p_level < 0.10 else ''
+            print(f"  t={t:<9} {b_level:>12.3f} {t_level:>10.3f} {p_level:>10.4f} {sig}")
+
+        # Pre-trend check: t=-3, t=-2 coefficients for level DID
+        print(f"\n  Level DID pre-trend check (t=-3, t=-2 coefficients):")
+        for v in [f'evt_{-3}', f'evt_{-2}']:
+            b = r_pt_level.params[v]
+            t_v = r_pt_level.tstats[v]
+            p_v = 2 * (1 - t_dist.cdf(abs(t_v), n_pt - 1))
+            print(f"    {v}: b={b:.3f}, t={t_v:.3f}, p={p_v:.3f}")
+
+        # --- (B) MODERATION: Pre-trends for the interaction model ---
+        print("\n" + "="*65)
+        print("PARALLEL TRENDS CHECK (B): Moderation — event-time × pre-W")
+        print("  Tests whether the workforce-moderation effect pre-existed")
+        print("="*65)
+
         mod_pt = PanelOLS(ppt['acsi_score'],
                           ppt[evt_cols + evt_xW_cols],
                           entity_effects=True, check_rank=False)
         r_pt = mod_pt.fit(cov_type='clustered', cluster_entity=True)
-        n_pt = wpt['ticker'].nunique()
 
         print(f"  {'Event time':<12} {'ACSI level':>12} {'× pre-W':>12} {'p(×W)':>10}")
         print("  " + "-"*50)
@@ -200,15 +235,13 @@ def main():
             sig = '***' if p_xW < 0.01 else '**' if p_xW < 0.05 else '*' if p_xW < 0.10 else ''
             print(f"  t={t:<9} {b_level:>12.3f} {b_xW:>12.3f} {p_xW:>10.4f} {sig}")
 
-        # Check pre-trends: joint F-test on pre-period interactions
-        pre_xW = [f'evt_{t}_xW' for t in [-3, -2, 0]]  # pre-period (excl. ref)
-        pre_coefs = [r_pt.params[v] for v in pre_xW[:2]]  # only t=-3, t=-2
-        print(f"\n  Pre-trend check (t=-3, t=-2 × W coefficients):")
+        # Pre-trend check for interaction: t=-3, t=-2 × W coefficients
+        print(f"\n  Moderation pre-trend check (t=-3, t=-2 × W coefficients):")
         for v in [f'evt_{-3}_xW', f'evt_{-2}_xW']:
             b = r_pt.params[v]
             t_v = r_pt.tstats[v]
             p_v = 2 * (1 - t_dist.cdf(abs(t_v), n_pt - 1))
-            print(f"    {v}: b={b:.3f}, p={p_v:.3f}")
+            print(f"    {v}: b={b:.3f}, t={t_v:.3f}, p={p_v:.3f}")
 
     print("\n[DONE] Event study complete.")
 
