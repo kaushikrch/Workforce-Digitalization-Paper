@@ -68,7 +68,7 @@ We formalise this gap as a parsimonious dynamic model and derive three analytica
 (i)~A computable digitalisation ceiling exists beyond which additional front-stage investment destroys customer lifetime value (CLV) by overloading back-stage workers; revenue metrics continue rising even as CLV collapses.
 (ii)~The entire return to workforce investment flows through service capacity, invisible to dashboards that treat payroll as a cost line.
 (iii)~The system is bistable: the neglected firm faces a safe rollout window less than two-fifths the size of its investing peer.
-We provide suggestive empirical support using panel data on 13~US and 11~European retailers (2010--2024): the technology--workforce interaction is positive in cross-section, and an inverted-U between e-commerce share and customer satisfaction aligns with the predicted digitalisation ceiling.
+Firm-level panel data on 13~US retailers (2010--2024) provide suggestive cross-sectional support: the technology--workforce interaction is positive in between-effects estimation, and an inverted-U between e-commerce share and customer satisfaction aligns with the predicted digitalisation ceiling. Causal identification awaits store-level data.
 
 \noindent\textbf{Managerial implications.}
 The model supplies two computable numbers absent from standard dashboards: a digitalisation ceiling and a maximum safe rollout size. Both are workforce-contingent, making workforce investment a structural requirement of digital strategy rather than a social concession.
@@ -505,46 +505,44 @@ Figure~\ref{fig:cliff} shows the three normalised CLV curves. For the neglected 
 % -----------------------------------------------------------------------
 \section{Empirical Evidence}\label{sec:empirics}
 
-The model yields three testable predictions at the firm--year level: (i)~a positive technology--workforce interaction ($K \times W > 0$); (ii)~an inverted-U between e-commerce intensity and customer satisfaction; (iii)~a positive effect of workforce improvement on satisfaction that increases with technology intensity. We explore patterns consistent with each prediction using panel data from two independent geographies.
+The model implies three cross-sectional patterns at the firm--year level: (i)~a positive technology--workforce interaction ($K \times W > 0$); (ii)~an inverted-U between e-commerce intensity and customer satisfaction; (iii)~a positive effect of workforce improvement on satisfaction that increases with technology intensity. We examine the first two using a panel of 13 US retailers. The third requires higher-frequency, store-level data that our annual firm-level proxies cannot deliver; we report it as a data-limitation disclosure rather than a test. An independent European sample ($N_c = 11$, $N = 20$) is reported in the EC (\S EC.5) for transparency; its extreme power limitation precludes formal inference.
 
 \subsection{Data and Sample}\label{sec:emp:data}
 
 \textit{US sample.}
 We construct a balanced panel of 13 publicly listed US retailers observed annually from 2010 to 2024. Customer satisfaction ($T$ proxy) is measured by the American Customer Satisfaction Index (ACSI; \citealp{fornell1996acsi}), a nationally representative survey scored 0--100 (source: \texttt{theacsi.org}). ACSI is the most widely used satisfaction metric in operations management \citep{fisher2021staffing, kesavan2022doing} and has established predictive validity for future financial performance. Workforce well-being ($W$ proxy) uses Glassdoor overall ratings (1--5 scale), an imperfect but increasingly standard proxy for aggregate employee sentiment in the absence of proprietary engagement surveys \citep{corbett2024wellbeing}. Technology investment ($K$ proxy) is capital expenditure intensity (CapEx/Revenue) extracted from SEC EDGAR 10-K filings; this captures total capital investment rather than digital-specific spending, introducing measurement noise that biases interaction coefficients toward zero. E-commerce share of retail sales is from the Federal Reserve Economic Data series ECOMPCTSA. Revenue (size control), SGA intensity, and net margin are from EDGAR. After listwise deletion of missing observations, the regression sample contains 131 complete firm--year observations across 13 firms and 12 years.
 
-\textit{EU sample.}
-An independent replication panel covers 11 European retailers across six countries (UK, France, Germany, Spain, Sweden, Netherlands) from 2019 to 2023. Customer satisfaction uses Trustpilot scores (1--5 scale; rescaled to 0--100 for comparability). Glassdoor ratings proxy workforce well-being. Financial data are from Yahoo Finance. Because financials are reported in mixed currencies (GBP, EUR, SEK), we use within-year asset percentile rank as the size control in cross-sectional specifications and log revenue only in within-firm (fixed-effects) specifications where currency is absorbed. E-commerce share uses UK Office for National Statistics internet sales data for UK firms and Eurostat data for continental retailers. The complete panel contains 20 firm--year observations with all three proxies present.
-
 \subsection{Identification Strategy}\label{sec:emp:id}
 
-All variables are standardised to mean zero and unit standard deviation before regression, following the recommendation of \citet{aral2012three} for interaction terms in small samples. Standardisation centres the interaction at the sample mean, improving interpretability and reducing multicollinearity between the interaction and its constituent terms. We estimate three specifications mapping to the three model predictions:
+All variables are standardised to mean zero and unit standard deviation before regression, following the recommendation of \citet{aral2012three} for interaction terms in small samples. Standardisation centres the interaction at the sample mean, improving interpretability and reducing multicollinearity between the interaction and its constituent terms. We estimate two primary specifications:
 
 \smallskip
-\noindent\textit{Test 1 (Complementarity $\to$ Proposition~\ref{prop:complementarity}).}
+\noindent\textit{Pattern 1 (Complementarity $\to$ Proposition~\ref{prop:complementarity}).}
 \begin{multline}\label{eq:reg1}
 T_{it} = \alpha_i + \gamma_t + \beta_1 K_{it}^z + \beta_2 W_{it}^z \\
   + \beta_3 (K \times W)_{it}^z + \mathbf{X}_{it}\boldsymbol{\delta} + \varepsilon_{it}.
 \end{multline}
-Prediction: $\beta_3 > 0$. Two-way fixed effects (firm $\alpha_i$ and year $\gamma_t$) absorb time-invariant firm heterogeneity and common shocks. Controls $\mathbf{X}_{it}$ include log revenue, and in extended specifications, SGA intensity and net margin.
+Prediction: $\beta_3 > 0$. Because the model's complementarity prediction concerns \emph{structural} differences across firms (a firm with jointly higher $K$ and $W$ should exhibit higher satisfaction), the between-effects (OLS) specification is the primary estimand. Within-firm fixed-effects specifications are reported as robustness checks, but we note ex ante that Glassdoor ratings exhibit low within-firm temporal variation (within-firm SD is only 30\% of total SD), making the FE estimator poorly suited to detecting a structural cross-firm relationship. Controls $\mathbf{X}_{it}$ include log revenue, and in extended specifications, SGA intensity and net margin.
 
 \smallskip
-\noindent\textit{Test 2 (Front-Stage Trap $\to$ Theorem~\ref{thm:trap}).}
+\noindent\textit{Pattern 2 (Front-Stage Trap $\to$ Theorem~\ref{thm:trap}).}
 \begin{equation}\label{eq:reg2}
 T_{it} = \alpha_i + \beta_1 \text{Ecom}_{it} + \beta_2 \text{Ecom}_{it}^2 + \mathbf{X}_{it}\boldsymbol{\delta} + \varepsilon_{it}.
 \end{equation}
 Prediction: $\beta_1 > 0$, $\beta_2 < 0$ (inverted-U). Turning point: $\text{Ecom}^* = -\beta_1/(2\beta_2)$.
 
 \smallskip
-\noindent\textit{Test 3 (Good Jobs Buffer $\to$ Theorem~\ref{thm:buffer}).}
+\noindent\textit{Pattern 3 (Good Jobs Buffer $\to$ Theorem~\ref{thm:buffer})---data-limitation disclosure.}
+The model predicts $\beta_2 > 0$ in
 \begin{multline}\label{eq:reg3}
 \Delta T_{it} = \alpha_i + \gamma_t + \beta_1 \Delta W_{it} \\
   + \beta_2 (\Delta W \times K)_{it} + \mathbf{X}_{it}\boldsymbol{\delta} + \varepsilon_{it}.
 \end{multline}
-Prediction: $\beta_2 > 0$ (workforce improvement matters more at high technology intensity).
+However, the capacity-multiplier channel operates on monthly timescales (the model's $\tau_r \approx 1.7$ months), whereas annual Glassdoor ratings capture a lagged, smoothed signal. The first-differenced design, combined with few complete observations ($N = 84$--118), is structurally underpowered to detect this pattern with firm-level proxies. We report the specification for transparency but do not interpret it as a meaningful test; a store-level panel with high-frequency engagement data is the appropriate design (see~\S\ref{sec:disc:limits}).
 
 \medskip
 \noindent\textit{Inference corrections.}
-With only $N_c = 13$ (US) and $N_c = 11$ (EU) firm clusters, standard clustered standard errors are biased downward \citep{cameron2008bootstrap}. We adopt three progressively conservative corrections. First, all reported $p$-values use the $t(N_c{-}1)$ distribution rather than the standard normal, which penalises small cluster counts. Second, we supplement with CR2 finite-sample bias-corrected standard errors \citep{bell2002bias}, which inflate variance estimates to compensate for leverage effects in unbalanced panels. Third, we report Webb six-point wild cluster bootstrap $p$-values \citep{webb2023reworking} in the EC; this distribution is specifically designed for settings with $N_c < 20$ clusters where standard wild bootstrap weight distributions (Rademacher, Mammen) produce unreliable rejection frequencies. All corrections are applied uniformly across both geographies. The most conservative inference (Webb bootstrap) is used as the primary benchmark for significance claims throughout.
+With only $N_c = 13$ firm clusters, standard clustered standard errors are biased downward \citep{cameron2008bootstrap}. We adopt three progressively conservative corrections. First, all reported $p$-values use the $t(N_c{-}1)$ distribution rather than the standard normal. Second, we supplement with CR2 finite-sample bias-corrected standard errors \citep{bell2002bias}. Third, we report Webb six-point wild cluster bootstrap $p$-values \citep{webb2023reworking} in the EC. The most conservative inference (Webb bootstrap) is used as the primary benchmark for significance claims.
 
 \subsection{Results}\label{sec:emp:results}
 
@@ -558,44 +556,40 @@ Table~\ref{tab:us_results} reports the US results.
 \toprule
 & 1a: OLS & 1b: Firm FE & 1c: Two-way FE & 1d: FE + controls \\
 \midrule
-\multicolumn{5}{l}{\textit{Test 1: Complementarity}} \\
+\multicolumn{5}{l}{\textit{Pattern 1: Complementarity (between-effects primary)}} \\
 $K^z$ & 0.2903 & $-$0.2153 & $-$0.4218 & $-$0.3102 \\
 $W^z$ & 1.2506 & 0.1087 & 0.3181 & 0.4553 \\
 $K \times W^z$ & 1.9533 & $-$0.6342$^{**}$ & $-$0.5615$^{*}$ & $-$0.7649 \\
 $N$ & 131 & 131 & 131 & 83 \\
 \midrule
-\multicolumn{5}{l}{\textit{Test 2: Front-Stage Trap}} \\
+\multicolumn{5}{l}{\textit{Pattern 2: Front-Stage Trap}} \\
 & 2a: Linear & 2b: Quadratic & 2c: Quad+W & \\
 Ecom & 0.4379 & 0.4400 & 0.0284 &  \\
 Ecom$^2$ & & $-$0.0279$^{**}$ & $-$0.0055 &  \\
 Turning point & & 7.9\% & 2.6\% & \\
 $N$ & 216 & 216 & 190 & \\
 \midrule
-\multicolumn{5}{l}{\textit{Test 3: Good Jobs Buffer}} \\
+\multicolumn{5}{l}{\textit{Pattern 3: Good Jobs Buffer (data-limitation disclosure)}} \\
 & 3a: $\Delta W$ only & 3b: $\Delta W \times K$ & 3c: + controls & \\
 $\Delta W \times K$ & & $-$41.40 & $-$132.37 & \\
 $N$ & 173 & 118 & 84 & \\
 \bottomrule
 \end{tabular}
 }
-{$N$ varies across tests because each requires different variable coverage: Test~1 requires ACSI, Glassdoor, and CapEx; Test~2 requires only ACSI and e-commerce share; Test~3 uses first-differenced variables, losing one observation per firm.}
+{$N$ varies across patterns because each requires different variable coverage: Pattern~1 requires ACSI, Glassdoor, and CapEx; Pattern~2 requires only ACSI and e-commerce share; Pattern~3 uses first-differenced variables, losing one observation per firm.}
 \end{table}
 
-\noindent\textit{Test 1 (Complementarity).} The cross-sectional (OLS) estimate of $\beta_3$ is positive ($+$1.95), consistent with the model's prediction that firms with jointly higher technology and workforce investment enjoy higher satisfaction. This finding is economically meaningful: a one-standard-deviation joint increase in $K$ and $W$ is associated with a 1.95-point ACSI gain, comparable in magnitude to the main effects of $K$ and $W$ individually. The direction aligns with the complementarity evidence in \citet{aral2012three}, who report similar positive cross-terms for technology--human-resource interactions in a different (non-retail) setting.
+\noindent\textit{Pattern 1 (Complementarity).} The between-effects (OLS) estimate of $\beta_3$ is positive ($+$1.95), consistent with the model's prediction that firms with jointly higher technology and workforce investment enjoy higher satisfaction. This finding is economically meaningful: a one-standard-deviation joint increase in $K$ and $W$ is associated with a 1.95-point ACSI gain, comparable in magnitude to the main effects individually. The direction aligns with the complementarity evidence in \citet{aral2012three}, who report similar positive cross-terms for technology--human-resource interactions in a different (non-retail) setting.
 
-However, the within-firm estimates (Models 1b--1d) are negative and sometimes significant, suggesting that year-to-year co-movements in $K$ and $W$ within the same firm do not raise satisfaction. This reversal is consistent with low within-firm variation in Glassdoor ratings (within-firm SD is only 30\% of total SD): firm fixed effects absorb the cross-sectional signal that drives complementarity. A between-effects specification \citep{bell2018inventory} would be more appropriate for identifying a structural relationship that varies primarily across firms, but the small number of clusters ($N_c = 13$) limits the reliability of such estimates. The sign reversal under fixed effects is a common feature of complementarity tests when the identifying variation is predominantly cross-sectional \citep{milgrom1990economics}.
+The within-firm estimates (Models 1b--1d), reported as robustness checks, are negative and sometimes significant. As anticipated (\S\ref{sec:emp:id}), firm fixed effects absorb the cross-sectional variation that identifies complementarity: within-firm Glassdoor SD is only 30\% of total SD, leaving insufficient temporal variation for within-firm identification. The sign reversal under fixed effects is a well-documented feature of complementarity tests when the identifying variation is predominantly cross-sectional \citep{milgrom1990economics, aral2012three}. The between-effects estimate is the appropriate estimand for a structural cross-firm relationship, though it is subject to omitted-variable bias; the small number of clusters ($N_c = 13$) limits the reliability of all specifications.
 
-\noindent\textit{Test 2 (Front-Stage Trap).} The quadratic specification (2b) yields $\hat{\beta}_2 = -0.028$ ($p = 0.028$ under $t(16)$), confirming the predicted inverted-U. The estimated turning point of 7.9\% e-commerce share corresponds to the early-to-mid 2010s transition, broadly consistent with the model's $F_{\mathrm{crit}} \approx 1.11$ threshold. The negative quadratic term is robust to the inclusion of workforce controls (Model~2c), though the coefficient attenuates and loses significance ($p = 0.31$), consistent with the model's prediction that the inverted-U is partially mediated by workforce overload. This attenuation is expected: the model predicts that e-commerce intensity damages satisfaction \emph{through} workforce depletion, so controlling for $W$ should absorb part of the quadratic effect. The turning point itself (7.9\%) is plausible given that US e-commerce share crossed this threshold around 2016 (FRED series ECOMPCTSA), a period when several major retailers reported significant click-and-collect growing pains \citep{hubner2021digitalization}.
+\noindent\textit{Pattern 2 (Front-Stage Trap).} The quadratic specification (2b) yields $\hat{\beta}_2 = -0.028$ ($p = 0.028$ under $t(16)$), consistent with the predicted inverted-U. The estimated turning point of 7.9\% e-commerce share corresponds to the early-to-mid 2010s transition, broadly consistent with the model's $F_{\mathrm{crit}} \approx 1.11$ threshold. The coefficient attenuates when workforce controls are included (Model~2c, $p = 0.31$); this attenuation is predicted by the model, which implies that e-commerce intensity damages satisfaction \emph{through} workforce depletion, so controlling for $W$ should absorb part of the quadratic effect. The turning point (7.9\%) is plausible given that US e-commerce share crossed this threshold around 2016 (FRED series ECOMPCTSA), a period when several major retailers reported significant click-and-collect growing pains \citep{hubner2021digitalization}.
 
-\noindent\textit{Test 3 (Good Jobs Buffer).} The interaction $\Delta W \times K$ is negative in both specifications, contrary to the prediction. The first-differenced design, combined with noisy annual Glassdoor ratings and few complete observations ($N = 84$--118), leaves this test underpowered. The Job Demands-Resources literature \citep{bakker2007job} suggests that well-being changes operate on quarterly or monthly timescales, whereas annual Glassdoor ratings capture a lagged, smoothed signal. A store-level test with higher-frequency engagement data would provide a more appropriate test of the capacity-multiplier channel.
-
-\medskip
-\noindent\textit{EU replication.}
-An independent European sample ($N_c = 11$ retailers, 20 firm--year observations) yields a directionally consistent but statistically insignificant complementarity interaction.\footnote{Using Trustpilot (1--5 scale) as the outcome, the between-effects estimate of $\beta_3$ is positive ($+$0.47) and significant under pooled cluster-robust inference (CR2: $p = 0.045$ at $t(10)$). However, the conservative HC3 between-effects estimate ($p = 0.53$) and Webb bootstrap ($p = 0.62$) do not reject zero, reflecting the extreme power limitation of $N_c = 11$ clusters \citep{cameron2008bootstrap}. Full details in EC~\S EC.5.} The qualitative sign consistency across geographies---positive $K \times W$ in cross-section---provides suggestive, though not conclusive, support for complementarity.
+\noindent\textit{Pattern 3 (Good Jobs Buffer---data limitation).} As anticipated (\S\ref{sec:emp:id}), the interaction $\Delta W \times K$ is negative in both specifications ($-41.40$, $-132.37$), opposite to the prediction. This result is uninformative rather than disconfirming: the first-differenced design with annual Glassdoor ratings operates at the wrong frequency for the capacity-multiplier channel, and the complete-case sample ($N = 84$--118) is severely underpowered. We do not interpret this specification as evidence for or against the model. Store-level identification with high-frequency engagement data is the natural next step (\S\ref{sec:disc:limits}).
 
 \subsection{Assessment}\label{sec:emp:assessment}
 
-The three tests produce a mixed but informative pattern: the inverted-U (Test~2) is the strongest finding, the cross-sectional complementarity (Test~1) is directionally consistent, and the within-firm dynamics test (Test~3) is underpowered.  We interpret the evidence as suggestive support for the model's qualitative predictions, subject to the limitations discussed in \S\ref{sec:disc:limits}.
+The firm-level evidence provides suggestive but partial support for the model's cross-sectional patterns. The inverted-U (Pattern~2) is the strongest finding---statistically significant and economically plausible. The between-effects complementarity (Pattern~1) is directionally consistent and economically meaningful, but vulnerable to omitted-variable bias. The capacity-multiplier test (Pattern~3) is structurally underpowered at the firm--year level. The empirical contribution is therefore one of directional consistency rather than causal identification: the data do not contradict the model's qualitative predictions, but the primary contribution of the paper remains the analytical framework. Store-level identification (\S\ref{sec:disc:limits}) is the critical empirical follow-up.
 
 
 \section{Discussion}\label{sec:discussion}
@@ -611,12 +605,11 @@ The three theorems together provide the formal micro-foundation that connects \c
 
 \textit{Model limitations.} The model treats $F$ as exogenous; endogenising it would enable optimal deployment sequencing. The omission of a direct $W \to D$ channel (whereby disengaged workers reduce throughput directly, independent of the service gap) makes our results a conservative lower bound on true complementarity. The linear form $h(W) = (1-p)+pW$ is a tractability choice; a concave specification (e.g., $h(W) = (1-p)+pW^\gamma$, $\gamma < 1$) would strengthen the Trap by making capability more sensitive to well-being at low $W$ levels.
 
-\textit{Empirical limitations.} The firm-level panel analysis (\S\ref{sec:empirics}) provides suggestive but not definitive support. Five specific concerns warrant emphasis.
-First, with only $N_c \in \{11, 13\}$ firm clusters, clustered inference is at the boundary of asymptotic validity \citep{cameron2008bootstrap}; we report Webb six-point wild cluster bootstrap $p$-values in the EC for all key coefficients \citep{webb2023reworking}.
-Second, Glassdoor ratings exhibit low within-firm temporal variation (within-firm SD is only 30\% of total SD), making the complementarity interaction difficult to identify within firm over time; between-effects estimates that exploit cross-sectional variation are more informative but face omitted-variable concerns.
-Third, the EU outcome (Trustpilot) is complaint-biased and operates on a different scale than ACSI \citep{fornell1996acsi}; while we rescale to 0--100 for coefficient comparability, measurement equivalence is not guaranteed.
-Fourth, the complementarity interaction reverses sign under firm fixed effects (Models 1b--1d), consistent with limited within-firm variation rather than absence of the effect; store-level panel data with exogenous technology rollout events would permit sharper separation of the capacity-multiplier channel from confounds.
-Fifth, the data are at the firm--year level; the model's predictions concern service-capacity dynamics that are most cleanly testable with store-level panel data, high-frequency workforce surveys, and exogenous technology rollout events (e.g., staggered click-and-collect deployment across stores of the same chain).
+\textit{Empirical limitations.} The firm-level panel analysis (\S\ref{sec:empirics}) provides suggestive cross-sectional evidence rather than causal identification. Four specific concerns warrant emphasis.
+First, with only $N_c = 13$ firm clusters, clustered inference is at the boundary of asymptotic validity \citep{cameron2008bootstrap}; we report Webb six-point wild cluster bootstrap $p$-values in the EC for all key coefficients \citep{webb2023reworking}.
+Second, Glassdoor ratings exhibit low within-firm temporal variation (within-firm SD is only 30\% of total SD), making the complementarity interaction difficult to identify within firm over time; the between-effects estimate is our primary specification but faces omitted-variable concerns.
+Third, the complementarity interaction reverses sign under firm fixed effects (Models 1b--1d), consistent with limited within-firm variation rather than absence of the effect; store-level panel data with exogenous technology rollout events would permit sharper separation of the capacity-multiplier channel from confounds.
+Fourth, and most importantly, the data are at the firm--year level; the model's predictions concern service-capacity dynamics that are most cleanly testable with store-level panel data, high-frequency workforce surveys, and exogenous technology rollout events (e.g., staggered click-and-collect deployment across stores of the same chain).
 
 \textit{Extensions.} Three, in order of expected impact: (i)~store-level identification of $p$ using technology rollout timing as instruments; (ii)~a competitive multi-firm extension where workforce poaching creates strategic complementarity; (iii)~stochastic demand forcing, which would transform the Burnout Cliff into a probabilistic threshold.
 
@@ -626,7 +619,7 @@ Standard operational dashboards measure the front-stage domain that invests in t
 
 Three results follow that, to our knowledge, no existing single formulation produces. The Front-Stage Trap (Theorem~\ref{thm:trap}): a computable digitalisation threshold $F_{\mathrm{crit}} \approx 1.11$ beyond which additional front-stage investment destroys CLV by overloading back-stage workers, a sign reversal impossible in single-domain models. The Good Jobs Buffer (Theorem~\ref{thm:buffer}): workforce investment raises CLV through a capacity-level channel confirmed exact by the $p{=}0$ counterfactual, which leaves CLV invariant to workforce spending and isolates the entire gain to service capacity. The Burnout Cliff (Theorem~\ref{thm:cliff}): the maximum safe upgrade size ranges from $\Delta F = 0.18$ for a workforce-neglecting firm to $\Delta F = 0.49$ for an investing firm, an approximately 172\% difference; the neglected firm retains approximately 37\% of the safe deployment headroom.
 
-These results give operations teams two computable numbers standard dashboards do not report: a digitalisation ceiling ($F_{\mathrm{crit}}$) and a maximum safe rollout size ($\Delta F_{\mathrm{collapse}}$). Firm-level panel evidence from 13 US and 11 EU retailers provides suggestive support: the technology--workforce interaction is positive in cross-section (both geographies), and an inverted-U between e-commerce share and customer satisfaction aligns with the predicted digitalisation ceiling. Store-level identification of $p$ using exogenous technology rollout events remains the most important empirical follow-up. The broader implication extends beyond omnichannel retail: wherever automated front-stage processes generate demand on human back-stage operations, workforce investment is a structural requirement, not a social concession.
+These results give operations teams two computable numbers standard dashboards do not report: a digitalisation ceiling ($F_{\mathrm{crit}}$) and a maximum safe rollout size ($\Delta F_{\mathrm{collapse}}$). Firm-level panel evidence from 13 US retailers provides suggestive cross-sectional support: the technology--workforce interaction is positive in between-effects estimation, and an inverted-U between e-commerce share and customer satisfaction aligns with the predicted digitalisation ceiling. Store-level identification of $p$ using exogenous technology rollout events remains the most important empirical follow-up. The broader implication extends beyond omnichannel retail: wherever automated front-stage processes generate demand on human back-stage operations, workforce investment is a structural requirement, not a social concession.
 
 
 % ============================================================

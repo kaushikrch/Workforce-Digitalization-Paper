@@ -478,20 +478,16 @@ The kink in $w(T)$ at $T = 0.15$ does not affect any analytical result: Theorem~
 {\small\setlength{\parskip}{2pt}
 This appendix supplements the empirical analysis in \S5 of the main paper.
 
+\subsection*{US Data and Robustness}
+
 \textit{US data sources.}
 ACSI scores (0--100, \texttt{theacsi.org}); Glassdoor ratings (1--5, min 5 reviews/firm-year); SEC EDGAR 10-K financials via XBRL API; FRED series ECOMPCTSA (e-commerce share); BLS JOLTS (turnover/wages).
 
-\textit{EU data sources.}
-Trustpilot (1--5, complaint-biased); Glassdoor (1--5); Yahoo Finance (\texttt{yfinance}); UK ONS internet sales (J4MC); Eurostat (\texttt{isoc\_ec\_eseln2}).
-
 \textit{Variables.}
-$K{=}$CapEx/Revenue; $W{=}$Glassdoor overall; $T{=}$ACSI or Trustpilot (rescaled: $(s{-}1){\times}25$); $K{\times}W{=}$standardised interaction; Assets rank${=}$within-year percentile (currency-neutral).
+$K{=}$CapEx/Revenue; $W{=}$Glassdoor overall; $T{=}$ACSI (0--100); $K{\times}W{=}$standardised interaction.
 
 \textit{US merge.}
 EDGAR backbone (276 obs, 17 firms, 2008--2024); left-join ACSI, Glassdoor, macro. Complete: 131 obs (47\%). No duplicate keys.
-
-\textit{EU merge.}
-yfinance backbone (50 obs, 11 firms; 4 duplicate rows dropped). Trustpilot/Glassdoor merged with 1:1 validation. Complete: 20 obs (40\%). Fiscal-year offsets ${\leq}$3 months (Tesco Feb, Next Jan, ABF Sep, H\&M Nov).
 
 \textit{US robustness.}
 (i)~Between-effects: $K{\times}W{=}+1.95$, $p{=}0.41$;
@@ -501,6 +497,19 @@ yfinance backbone (50 obs, 11 firms; 4 duplicate rows dropped). Trustpilot/Glass
 (v)~Leave-one-out;
 (vi)~Wild bootstrap (9,999 reps);
 (vii)~CR3 with $\mathrm{df}{=}G{-}k{=}9$.
+
+\subsection*{EU Replication (Exploratory)}
+
+An independent replication panel covers 11 European retailers across six countries (UK, France, Germany, Spain, Sweden, Netherlands) from 2019 to 2023. Customer satisfaction uses Trustpilot scores (1--5 scale; rescaled to 0--100 for comparability). Glassdoor ratings proxy workforce well-being. Financial data are from Yahoo Finance. Because financials are reported in mixed currencies (GBP, EUR, SEK), we use within-year asset percentile rank as the size control in cross-sectional specifications and log revenue only in within-firm (fixed-effects) specifications where currency is absorbed. E-commerce share uses UK Office for National Statistics internet sales data for UK firms and Eurostat data for continental retailers. The complete panel contains 20 firm--year observations with all three proxies present.
+
+\textit{EU data sources.}
+Trustpilot (1--5, complaint-biased); Glassdoor (1--5); Yahoo Finance (\texttt{yfinance}); UK ONS internet sales (J4MC); Eurostat (\texttt{isoc\_ec\_eseln2}). Assets rank${=}$within-year percentile (currency-neutral).
+
+\textit{EU merge.}
+yfinance backbone (50 obs, 11 firms; 4 duplicate rows dropped). Trustpilot/Glassdoor merged with 1:1 validation. Complete: 20 obs (40\%). Fiscal-year offsets ${\leq}$3 months (Tesco Feb, Next Jan, ABF Sep, H\&M Nov).
+
+\textit{EU results.}
+Using Trustpilot (1--5 scale) as the outcome, the between-effects estimate of $\beta_3$ is positive ($+$0.47) and significant under pooled cluster-robust inference (CR2: $p = 0.045$ at $t(10)$). However, the conservative HC3 between-effects estimate ($p = 0.53$) and Webb bootstrap ($p = 0.62$) do not reject zero, reflecting the extreme power limitation of $N_c = 11$ clusters \citep{cameron2008bootstrap}. The qualitative sign consistency across geographies---positive $K \times W$ in cross-section---provides suggestive, though not conclusive, support for complementarity. With only $N{=}20$ observations and $N_c{=}11$ clusters, this sample is below any standard threshold for panel regression and is reported for transparency rather than inferential purposes.
 
 \textit{EU robustness.}
 (i)~Currency-neutral controls (assets rank);
