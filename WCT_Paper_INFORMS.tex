@@ -65,10 +65,10 @@ Digital investment in omnichannel retail generates back-stage demand on workers 
 
 \noindent\textbf{Methodology/results.}
 We formalise this gap as a parsimonious dynamic model and derive three analytically characterised results.
-(i)~A computable digitalisation ceiling exists beyond which additional front-stage investment destroys customer lifetime value (CLV) by overloading back-stage workers; revenue metrics continue rising even as CLV collapses.
+(i)~A computable digitalisation ceiling exists beyond which additional front-stage investment destroys customer lifetime value by overloading back-stage workers; revenue metrics continue rising even as lifetime value collapses.
 (ii)~The entire return to workforce investment flows through service capacity, invisible to dashboards that treat payroll as a cost line.
 (iii)~The system is bistable: the neglected firm faces a safe rollout window less than two-fifths the size of its investing peer.
-Three empirical tests provide convergent support. An inverted-U between e-commerce share and customer satisfaction ($p = 0.028$) and a post-shock ACSI decline following major omnichannel launches ($p = 0.037$) support the digitalisation ceiling. County-level BLS data ($N = 30{,}876$ US counties, 2015--2024) confirm the Good Jobs Buffer: counties with higher initial retail wages show significantly more resilient employment as e-commerce grows ($p = 0.008$).
+Three empirical tests provide convergent support. An inverted-U between e-commerce share and customer satisfaction ($p = 0.028$) and a post-shock decline in the American Customer Satisfaction Index following major omnichannel launches ($p = 0.037$) support the digitalisation ceiling. County-level wage and employment data from the Bureau of Labor Statistics ($N = 30{,}876$ US counties, 2015--2024) confirm the Good Jobs Buffer: counties with higher initial retail wages show significantly more resilient employment as e-commerce grows ($p = 0.008$).
 
 \noindent\textbf{Managerial implications.}
 The model supplies two computable numbers absent from standard dashboards: a digitalisation ceiling and a maximum safe rollout size. Both are workforce-contingent, making workforce investment a structural requirement of digital strategy rather than a social concession.
@@ -470,7 +470,7 @@ We illustrate the analytical results through calibrated simulations using the ba
 
 Three deployment strategies span the critical threshold $F_{\mathrm{crit}} \approx 1.11$. All begin from $(K_0, W_0, T_0) = (1.60, 0.55, 0.50)$ with $F_0 = 0.80$. Scenario~A ramps aggressively to $F_{\mathrm{end}} = 1.15$ with no workforce investment; Scenario~B ramps to $F_{\mathrm{end}} = 1.05$ with concurrent support ($f=0.06$); Scenario~C pre-invests in workforce ($f=0.10$, months 1--12, after which $f$ returns to $0.0$) before ramping to $F_{\mathrm{end}} = 1.15$.
 
-All three appear profitable in front-stage KPIs (panel~a), yet CLV diverges sharply (panel~b): by month~24, Scenario~C sustains CLV approximately 40\% above Scenario~A. Workforce collapse precedes trust collapse (panels~c,~d), confirming the cross-domain cost invisible in the technology business case.
+All three appear profitable on front-stage metrics (panel~a), yet CLV diverges sharply (panel~b): by month~24, Scenario~C sustains CLV approximately 40\% above Scenario~A. Workforce collapse precedes trust collapse (panels~c,~d), confirming the cross-domain cost invisible in the technology business case.
 
 \begin{figure}
 \FIGURE
@@ -505,15 +505,15 @@ Figure~\ref{fig:cliff} shows the three normalised CLV curves. For the neglected 
 % -----------------------------------------------------------------------
 \section{Empirical Evidence}\label{sec:empirics}
 
-We examine the model's predictions using three complementary identification strategies at different levels of aggregation: (i)~firm-level cross-sectional and event-study evidence using ACSI and Glassdoor data ($N = 131$--$216$, 13--17 firms); (ii)~county-level panel evidence using BLS retail employment and wages ($N = 30{,}876$, 3{,}115 US counties). The firm-level analysis tests the Front-Stage Trap (inverted-U in e-commerce) and complementarity (technology--workforce interaction). The county-level analysis tests the Good Jobs Buffer at a different margin: whether counties with higher initial retail wages show more resilient retail employment as e-commerce penetration grows. An independent European sample ($N_c = 11$, $N = 20$) is reported in the EC (\S EC.5) for transparency.
+We examine the model's predictions using three complementary identification strategies at different levels of aggregation: (i)~firm-level cross-sectional and event-study evidence using customer satisfaction and Glassdoor data ($N = 131$--$216$, 13--17 firms); (ii)~county-level panel evidence using Bureau of Labor Statistics (BLS) retail employment and wages ($N = 30{,}876$, 3{,}115 US counties). The firm-level analysis tests the Front-Stage Trap (inverted-U in e-commerce) and complementarity (technology--workforce interaction). The county-level analysis tests the Good Jobs Buffer at a different margin: whether counties with higher initial retail wages show more resilient retail employment as e-commerce penetration grows. An independent European sample ($N_c = 11$, $N = 20$) is reported in the EC (\S EC.5) for transparency.
 
 \subsection{Data and Samples}\label{sec:emp:data}
 
 \textit{Firm-level sample.}
-A balanced panel of 13 publicly listed US retailers observed annually from 2010 to 2024. Customer satisfaction ($T$ proxy) is measured by the ACSI \citep{fornell1996acsi}. Workforce well-being ($W$ proxy) uses Glassdoor overall ratings (1--5 scale) \citep{corbett2024wellbeing}. Technology investment ($K$ proxy) is CapEx/Revenue from SEC EDGAR 10-K filings. E-commerce share is from FRED series ECOMPCTSA. After listwise deletion, the regression sample contains 131 complete firm--year observations.
+A balanced panel of 13 publicly listed US retailers observed annually from 2010 to 2024. Customer satisfaction ($T$ proxy) is measured by the American Customer Satisfaction Index (ACSI; \citealp{fornell1996acsi}). Workforce well-being ($W$ proxy) uses Glassdoor overall ratings (1--5 scale) \citep{corbett2024wellbeing}. Technology investment ($K$ proxy) is capital expenditure as a share of revenue from annual 10-K filings. E-commerce share is from the Federal Reserve (FRED series ECOMPCTSA). After listwise deletion, the regression sample contains 131 complete firm--year observations.
 
 \textit{County-level sample.}
-BLS Quarterly Census of Employment and Wages (QCEW) provides county-level annual average retail employment, weekly wages, and establishment counts for NAICS 44--45 (Retail Trade), 2015--2024. We retain counties with baseline retail employment exceeding 50 and weekly wage exceeding \$200, yielding 30{,}876 county--year observations across 3{,}115 counties.
+The BLS Quarterly Census of Employment and Wages provides county-level annual average retail employment, weekly wages, and establishment counts for the retail trade sector (NAICS 44--45), 2015--2024. We retain counties with baseline retail employment exceeding 50 and weekly wage exceeding \$200, yielding 30{,}876 county--year observations across 3{,}115 counties.
 
 \subsection{Firm-Level Results}\label{sec:emp:firm}
 
