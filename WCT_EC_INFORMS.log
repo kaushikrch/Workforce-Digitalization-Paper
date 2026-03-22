@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.22)  22 MAR 2026 09:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.22)  22 MAR 2026 10:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -884,10 +884,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--130
  []
 
 [3] [4] [5] [6]
-
-LaTeX Warning: Reference `ec:Phi' on page 7 undefined on input line 222.
-
-
 Underfull \hbox (badness 2261) in paragraph at lines 234--236
 \OT1/qtm/m/n/12 At base-line: $\OT1/cmr/m/n/12 ^^A\OML/cmm/m/it/12 F[] \OT1/cmr
 /m/n/12 = 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 401$\OT1/qtm/m/n/12 . Since $\OT1/
@@ -896,67 +892,67 @@ OT1/qtm/m/n/12 (0.401 vs. 0.310), the inter-val
  []
 
 [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 258--259
+Underfull \hbox (badness 10000) in paragraph at lines 259--260
 []$\OML/cmm/m/it/12 @K[]=@W \OT1/cmr/m/n/12 =
  []
 
 [9] [10] [11]
-Underfull \hbox (badness 2253) in paragraph at lines 428--428
+Underfull \hbox (badness 2253) in paragraph at lines 429--429
 []|\OT1/qtm/m/n/8 McKnight et al. (2002); Sird-esh-mukh
  []
 
 
-Underfull \hbox (badness 2401) in paragraph at lines 428--428
+Underfull \hbox (badness 2401) in paragraph at lines 429--429
 []|\OT1/qtm/m/n/8 Demerouti et al. (2001); Dub[]e et al.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 428--428
+Underfull \hbox (badness 10000) in paragraph at lines 429--429
 []|\OT1/qtm/m/n/8 Primary lag driver (EC
  []
 
 [12]
-Underfull \hbox (badness 2050) in paragraph at lines 458--458
+Underfull \hbox (badness 2050) in paragraph at lines 459--459
 \OML/cmm/m/it/8 p[]\OT1/cmr/m/n/8 0$ \OT1/qtm/m/n/8 coun-ter-fac-tual con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--458
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
 []|$\OT1/cmr/m/n/8 37[]26$ \OT1/qtm/m/n/8 grid;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--458
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
 []|\OT1/qtm/m/n/8 Boundary for-
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 458--458
+Underfull \hbox (badness 5475) in paragraph at lines 459--459
 []|\OT1/qtm/m/n/8 Three sce-nar-ios
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--458
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
 \OT1/qtm/m/n/8 decomp.; $\OML/cmm/m/it/8 p[]\OT1/cmr/m/n/8 0$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--458
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
 \OT1/qtm/m/n/8 coun-ter-fac-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--458
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
 \OT1/qtm/m/n/8 tual con-firms
  []
 
 [13]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 4
-81.
+82.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 486--488
+Underfull \hbox (badness 10000) in paragraph at lines 487--489
 []\OT1/qtm/m/it/10 Variables. $\OML/cmm/m/it/10 K[]$\OT1/qtm/m/n/10 CapEx/Reven
 ue; $\OML/cmm/m/it/10 W[]$\OT1/qtm/m/n/10 Glassdoor over-all; $\OML/cmm/m/it/10
  T[]$\OT1/qtm/m/n/10 ACSI or Trust-pi-lot (rescaled: $\OT1/cmr/m/n/10 (\OML/cmm
@@ -973,15 +969,12 @@ L3 programming layer <2024-01-22>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 22913 strings out of 476106
- 475871 string characters out of 5793933
+ 22912 strings out of 476106
+ 475863 string characters out of 5793933
  1947975 words of memory out of 5000000
- 44471 multiletter control sequences out of 15000+600000
+ 44470 multiletter control sequences out of 15000+600000
  653011 words of font info for 136 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  108i,15n,113p,1087b,493s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1007,7 +1000,7 @@ ve/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvet
 ic/uhvr8a.pfb>
-Output written on WCT_EC_INFORMS.pdf (15 pages, 387925 bytes).
+Output written on WCT_EC_INFORMS.pdf (15 pages, 387799 bytes).
 PDF statistics:
  231 PDF objects out of 1000 (max. 8388607)
  135 compressed objects within 2 object streams

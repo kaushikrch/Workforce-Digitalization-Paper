@@ -213,7 +213,7 @@ Observable field proxies include: app feature index for front-stage capability (
 
 Figure~\ref{fig:loops} shows the causal-loop architecture of the three ODEs, using the conventions of \citet{sterman2000business}. The diagram contains four feedback loops, each traceable from the state-variable arrows.
 
-\textbf{Loop R1} ($T \to D \to G \to T$, reinforcing): trust raises demand, which changes the service gap, feeding back to trust.
+\textbf{Loop R1} ($T \to D \to G \to T$, regime-dependent: balancing in surplus, reinforcing under overload): trust raises demand, which changes the service gap, feeding back to trust.
 \textbf{Loop R2} ($G \to W \to K_{\mathrm{eff}} \to G$, reinforcing): overload depletes well-being, reducing effective capability and widening the gap further --- the deterioration loop behind the Front-Stage Trap.
 \textbf{Loop R3} ($W \to K_{\mathrm{eff}} \to G \to W$, reinforcing): capability degradation escalates workforce depletion --- the loop behind the Burnout Cliff.
 \textbf{Loop B1} ($G \to K \to K_{\mathrm{eff}} \to G$, balancing): overload triggers sensing investment that raises capability and closes the gap.
@@ -258,7 +258,7 @@ Loops R2 and R3, created by the capacity multiplier $h(W)$, have no counterpart 
 
     % Loop labels: positioned at loop centroids with polarity signs
     % Use text= for explicit text color, draw= for border, fill=white for background
-    \node[looplabel, text=orange!80!black, draw=orange!80!black] at (5.5, 2.2) {R1 $(+)$};
+    \node[looplabel, text=orange!80!black, draw=orange!80!black] at (5.5, 2.2) {R1 $(\pm)$};
     \node[looplabel, text=purple!80!black, draw=purple!80!black] at (2.1, 1.5) {R2 $(+)$};
     \node[looplabel, text=red!80!black, draw=red!80!black] at (1.2, 0.6) {R3 $(+)$};
     \node[looplabel, text=blue!70!black, draw=blue!70!black] at (1.0, 2.6) {B1 $(-)$};
@@ -331,9 +331,9 @@ Thm~2: $\partial\,\mathrm{CLV}^*/\partial f > 0$ (sign) & B & IFT chain; GE feed
 Thm~2: GE feedback magnitude (${\approx}0.09$) & C & Confirmed across 100 configurations \\
 Thm~3(i): $\Delta F_{\mathrm{collapse}}$ threshold & A & Direct from Thm~1 \\
 Thm~3(i): convergence from pre-shock IC & C & Numerical; basin-dependent \\
-Prop~1 cross-partial & A & Analytic ($\Keff = Kh(W)$) \\
-Prop~1 $F_{\max}(W)$ boundary formula & A & Exact at $S^*\to 0$ \\
-Prop~1 $F_{\max}(W)$ interior upper bound & B & Analytic sign; ${\approx}8\%$ correction numeric \\
+Prop~4 cross-partial & A & Analytic ($\Keff = Kh(W)$) \\
+Prop~4 $F_{\max}(W)$ boundary formula & A & Exact at $S^*\to 0$ \\
+Prop~4 $F_{\max}(W)$ interior upper bound & B & Analytic sign; ${\approx}8\%$ correction numeric \\
 Corollary~5, Case~1 & B & Thm~1 + Thm~2 directly \\
 Corollary~5, Case~2 near $B_{\min}$ & B & Continuity from Case~1 (IFT; EC~\S EC.1.7) \\
 Corollary~5, Case~2 interior & C & Computational; $c_F/c_f\in[0.5,5]$ \\
@@ -424,8 +424,9 @@ Part (i) follows directly from Theorem~\ref{thm:trap}: for $F_0+\Delta F \geq F_
 Workforce investment $f$ raises $F_{\mathrm{crit}}$ and enlarges the safe upgrade zone. Before each deployment phase, the firm should compute $\Delta F_{\mathrm{collapse}} = F_{\mathrm{crit}}(f) - F_0$ as a hard ceiling on planned upgrade size; this ceiling is set entirely by $f$.
 
 
-\subsection{Proposition 1: Digitalisation-Workforce Complementarity}\label{sec:analysis:comp}
+\subsection{Proposition 4: Digitalisation-Workforce Complementarity}\label{sec:analysis:comp}
 
+\setcounter{proposition}{3}
 \begin{proposition}[Digitalisation-Workforce Complementarity]\label{prop:complementarity}
 The marginal value of workforce improvement is strictly increasing in the technology base:
 \begin{align}\label{eq:complementarity}
@@ -454,8 +455,12 @@ Figure~\ref{fig:complementarity} illustrates: the gap between a stressed firm ($
 {}
 \end{figure}
 
-\medskip
-Under a fixed budget constraint $c_F F + c_f f \leq B$, the CLV-maximising allocation always includes positive workforce investment $f^* > 0$: the all-$F$ corner is strictly dominated whenever the budget reaches or exceeds the Trap threshold (proof in EC~\S EC.1.7).
+\setcounter{corollary}{4}
+\begin{corollary}[Budget-Constrained Trap]\label{cor:budget}
+Under a fixed budget constraint $c_F F + c_f f \leq B$, the CLV-maximising allocation always includes positive workforce investment $f^* > 0$: the all-$F$ corner is strictly dominated whenever the budget reaches or exceeds the Trap threshold.
+\end{corollary}
+
+\noindent\textit{Proof.} See EC~\S EC.1.7. \Halmos
 
 \section{Computational Study}\label{sec:simulation}
 
@@ -463,7 +468,7 @@ We illustrate the analytical results through calibrated simulations using the ba
 
 \subsection{The Hidden Cost of App Innovation (Figure~\ref{fig:hidden_cost})}\label{sec:sim:fig4_hidden}
 
-Three deployment strategies span the critical threshold $F_{\mathrm{crit}} \approx 1.11$. All begin from $(K_0, W_0, T_0) = (1.60, 0.55, 0.50)$ with $F_0 = 0.80$. Scenario~A ramps aggressively to $F_{\mathrm{end}} = 1.15$ with no workforce investment; Scenario~B ramps to $F_{\mathrm{end}} = 1.05$ with concurrent support ($f=0.06$); Scenario~C pre-invests in workforce ($f=0.10$, months 1--12) before ramping to $F_{\mathrm{end}} = 1.15$.
+Three deployment strategies span the critical threshold $F_{\mathrm{crit}} \approx 1.11$. All begin from $(K_0, W_0, T_0) = (1.60, 0.55, 0.50)$ with $F_0 = 0.80$. Scenario~A ramps aggressively to $F_{\mathrm{end}} = 1.15$ with no workforce investment; Scenario~B ramps to $F_{\mathrm{end}} = 1.05$ with concurrent support ($f=0.06$); Scenario~C pre-invests in workforce ($f=0.10$, months 1--12, after which $f$ returns to $0.0$) before ramping to $F_{\mathrm{end}} = 1.15$.
 
 All three appear profitable in front-stage KPIs (panel~a), yet CLV diverges sharply (panel~b): by month~24, Scenario~C sustains CLV approximately 40\% above Scenario~A. Workforce collapse precedes trust collapse (panels~c,~d), confirming the cross-domain cost invisible in the technology business case.
 
@@ -471,7 +476,7 @@ All three appear profitable in front-stage KPIs (panel~a), yet CLV diverges shar
 \FIGURE
 % Production filename: fig4_hidden_cost.png
 {\includegraphics[width=\textwidth]{fig4_hidden_cost.pdf}}
-{The hidden cost of app innovation. Panel~(a): front-stage KPIs rise for all three scenarios. Panel~(b): CLV diverges sharply by month~24. Panels~(c,d): workforce collapse precedes trust collapse in the no-investment scenario.\label{fig:hidden_cost}}
+{The hidden cost of app innovation. Panel~(a): the demand-volume index $F \cdot D(T(t),F(t))$ rises for all three scenarios, masking divergent back-stage outcomes. Panel~(b): CLV diverges sharply by month~24. Panels~(c,d): workforce collapse precedes trust collapse in the no-investment scenario.\label{fig:hidden_cost}}
 {}
 \end{figure}
 
@@ -500,12 +505,12 @@ Figure~\ref{fig:cliff} shows the three normalised CLV curves. For the neglected 
 % -----------------------------------------------------------------------
 \section{Empirical Evidence}\label{sec:empirics}
 
-The model yields three testable predictions at the firm--year level: (i)~a positive technology--workforce interaction ($K \times W > 0$); (ii)~an inverted-U between e-commerce intensity and customer satisfaction; (iii)~a positive effect of workforce improvement on satisfaction that increases with technology intensity. We test each using panel data from two independent geographies.
+The model yields three testable predictions at the firm--year level: (i)~a positive technology--workforce interaction ($K \times W > 0$); (ii)~an inverted-U between e-commerce intensity and customer satisfaction; (iii)~a positive effect of workforce improvement on satisfaction that increases with technology intensity. We explore patterns consistent with each prediction using panel data from two independent geographies.
 
 \subsection{Data and Sample}\label{sec:emp:data}
 
 \textit{US sample.}
-We construct a balanced panel of 13 publicly listed US retailers observed annually from 2010 to 2024. Customer satisfaction ($T$ proxy) is measured by the American Customer Satisfaction Index (ACSI; \citealp{mittal1998asymmetric}), a nationally representative survey scored 0--100 (source: \texttt{theacsi.org}). ACSI is the most widely used satisfaction metric in operations management \citep{fisher2021staffing, kesavan2022doing} and has established predictive validity for future financial performance. Workforce well-being ($W$ proxy) uses Glassdoor overall ratings (1--5 scale), an imperfect but increasingly standard proxy for aggregate employee sentiment in the absence of proprietary engagement surveys \citep{corbett2024wellbeing}. Technology investment ($K$ proxy) is capital expenditure intensity (CapEx/Revenue) extracted from SEC EDGAR 10-K filings; this captures total capital investment rather than digital-specific spending, introducing measurement noise that biases interaction coefficients toward zero. E-commerce share of retail sales is from the Federal Reserve Economic Data series ECOMPCTSA. Revenue (size control), SGA intensity, and net margin are from EDGAR. After listwise deletion of missing observations, the regression sample contains 131 complete firm--year observations across 13 firms and 12 years.
+We construct a balanced panel of 13 publicly listed US retailers observed annually from 2010 to 2024. Customer satisfaction ($T$ proxy) is measured by the American Customer Satisfaction Index (ACSI; \citealp{fornell1996acsi}), a nationally representative survey scored 0--100 (source: \texttt{theacsi.org}). ACSI is the most widely used satisfaction metric in operations management \citep{fisher2021staffing, kesavan2022doing} and has established predictive validity for future financial performance. Workforce well-being ($W$ proxy) uses Glassdoor overall ratings (1--5 scale), an imperfect but increasingly standard proxy for aggregate employee sentiment in the absence of proprietary engagement surveys \citep{corbett2024wellbeing}. Technology investment ($K$ proxy) is capital expenditure intensity (CapEx/Revenue) extracted from SEC EDGAR 10-K filings; this captures total capital investment rather than digital-specific spending, introducing measurement noise that biases interaction coefficients toward zero. E-commerce share of retail sales is from the Federal Reserve Economic Data series ECOMPCTSA. Revenue (size control), SGA intensity, and net margin are from EDGAR. After listwise deletion of missing observations, the regression sample contains 131 complete firm--year observations across 13 firms and 12 years.
 
 \textit{EU sample.}
 An independent replication panel covers 11 European retailers across six countries (UK, France, Germany, Spain, Sweden, Netherlands) from 2019 to 2023. Customer satisfaction uses Trustpilot scores (1--5 scale; rescaled to 0--100 for comparability). Glassdoor ratings proxy workforce well-being. Financial data are from Yahoo Finance. Because financials are reported in mixed currencies (GBP, EUR, SEK), we use within-year asset percentile rank as the size control in cross-sectional specifications and log revenue only in within-firm (fixed-effects) specifications where currency is absorbed. E-commerce share uses UK Office for National Statistics internet sales data for UK firms and Eurostat data for continental retailers. The complete panel contains 20 firm--year observations with all three proxies present.
@@ -586,7 +591,7 @@ However, the within-firm estimates (Models 1b--1d) are negative and sometimes si
 
 \medskip
 \noindent\textit{EU replication.}
-The European sample provides an independent out-of-sample test. Using Trustpilot (1--5 scale) as the outcome, the between-effects estimate of $\beta_3$ is positive ($+$0.47) and significant under pooled cluster-robust inference (CR2: $p = 0.045$ at $t(10)$). However, the conservative HC3 between-effects estimate ($p = 0.53$) and Webb bootstrap ($p = 0.62$) do not reject zero, reflecting the extreme power limitation of $N_c = 11$ clusters \citep{cameron2008bootstrap}. The qualitative sign consistency across geographies---positive $K \times W$ in cross-section---provides suggestive, though not conclusive, support for complementarity. That the direction replicates in an independent sample with different outcome measures (Trustpilot vs.\ ACSI), different labour market institutions, and different retail structures is encouraging, even if the statistical precision is insufficient for formal inference.
+An independent European sample ($N_c = 11$ retailers, 20 firm--year observations) yields a directionally consistent but statistically insignificant complementarity interaction.\footnote{Using Trustpilot (1--5 scale) as the outcome, the between-effects estimate of $\beta_3$ is positive ($+$0.47) and significant under pooled cluster-robust inference (CR2: $p = 0.045$ at $t(10)$). However, the conservative HC3 between-effects estimate ($p = 0.53$) and Webb bootstrap ($p = 0.62$) do not reject zero, reflecting the extreme power limitation of $N_c = 11$ clusters \citep{cameron2008bootstrap}. Full details in EC~\S EC.5.} The qualitative sign consistency across geographies---positive $K \times W$ in cross-section---provides suggestive, though not conclusive, support for complementarity.
 
 \subsection{Assessment}\label{sec:emp:assessment}
 
@@ -609,7 +614,7 @@ The three theorems together provide the formal micro-foundation that connects \c
 \textit{Empirical limitations.} The firm-level panel analysis (\S\ref{sec:empirics}) provides suggestive but not definitive support. Five specific concerns warrant emphasis.
 First, with only $N_c \in \{11, 13\}$ firm clusters, clustered inference is at the boundary of asymptotic validity \citep{cameron2008bootstrap}; we report Webb six-point wild cluster bootstrap $p$-values in the EC for all key coefficients \citep{webb2023reworking}.
 Second, Glassdoor ratings exhibit low within-firm temporal variation (within-firm SD is only 30\% of total SD), making the complementarity interaction difficult to identify within firm over time; between-effects estimates that exploit cross-sectional variation are more informative but face omitted-variable concerns.
-Third, the EU outcome (Trustpilot) is complaint-biased and operates on a different scale than ACSI \citep{mittal1998asymmetric}; while we rescale to 0--100 for coefficient comparability, measurement equivalence is not guaranteed.
+Third, the EU outcome (Trustpilot) is complaint-biased and operates on a different scale than ACSI \citep{fornell1996acsi}; while we rescale to 0--100 for coefficient comparability, measurement equivalence is not guaranteed.
 Fourth, the complementarity interaction reverses sign under firm fixed effects (Models 1b--1d), consistent with limited within-firm variation rather than absence of the effect; store-level panel data with exogenous technology rollout events would permit sharper separation of the capacity-multiplier channel from confounds.
 Fifth, the data are at the firm--year level; the model's predictions concern service-capacity dynamics that are most cleanly testable with store-level panel data, high-frequency workforce surveys, and exogenous technology rollout events (e.g., staggered click-and-collect deployment across stores of the same chain).
 
@@ -651,6 +656,10 @@ All simulation code (\texttt{wct\_simulation.py}), empirical analysis scripts (\
 Acimovic J, Graves SC (2015) Making better fulfillment decisions on the fly in an online retail environment.
 \textit{Manufacturing \& Service Operations Management} 17(1):34--51.
 
+\bibitem[Aral et~al.(2012)]{aral2012three}
+Aral S, Brynjolfsson E, Wu L (2012) Three-way complementarities: Performance pay, human resource analytics, and information technology.
+\textit{Management Science} 58(5):913--931.
+
 \bibitem[Argote and Epple(1990)]{argote1990learning}
 Argote L, Epple D (1990) Learning curves in manufacturing.
 \textit{Science} 247(4945):920--924.
@@ -659,13 +668,13 @@ Argote L, Epple D (1990) Learning curves in manufacturing.
 Bainbridge L (1983) Ironies of automation.
 \textit{Automatica} 19(6):775--779.
 
-\bibitem[Bell and McCaffrey(2002)]{bell2002bias}
-Bell RM, McCaffrey DF (2002) Bias reduction in standard errors for linear regression with multi-stage samples.
-\textit{Survey Methodology} 28(2):169--181.
-
 \bibitem[Bakker and Demerouti(2007)]{bakker2007job}
 Bakker AB, Demerouti E (2007) The Job Demands-Resources model: State of the art.
 \textit{Journal of Managerial Psychology} 22(3):309--328.
+
+\bibitem[Bell and McCaffrey(2002)]{bell2002bias}
+Bell RM, McCaffrey DF (2002) Bias reduction in standard errors for linear regression with multi-stage samples.
+\textit{Survey Methodology} 28(2):169--181.
 
 \bibitem[Bell et~al.(2018)]{bell2018inventory}
 Bell DR, Gallino S, Moreno A (2018) Offline showrooms in omnichannel retail: Demand and operational benefits.
@@ -679,21 +688,17 @@ Bijmolt THA, Broekhuis M, de~Leeuw S, Hirche C, Rooderkerk RP, Sousa R, Zhu SX (
 Cameron AC, Gelbach JB, Miller DL (2008) Bootstrap-based improvements for inference with clustered errors.
 \textit{Review of Economics and Statistics} 90(3):414--427.
 
-\bibitem[Aral et~al.(2012)]{aral2012three}
-Aral S, Brynjolfsson E, Wu L (2012) Three-way complementarities: Performance pay, human resource analytics, and information technology.
-\textit{Management Science} 58(5):913--931.
-
 \bibitem[Corbett(2024)]{corbett2024wellbeing}
 Corbett CJ (2024) OM Forum: The operations of well-being: An operational take on happiness, equity, and sustainability.
 \textit{Manufacturing \& Service Operations Management} 26(2):409--430.
 
-\bibitem[Dub{\'{e}} et~al.(2020)]{dube2020minimum}
-Dub{\'{e}} A, Reich A, Shierholz H, West M (2020) Minimum wage shocks, employment flows and labor market frictions.
-\textit{Journal of Labor Economics} 38(4):1009--1052.
-
 \bibitem[Demerouti et~al.(2001)]{demerouti2001job}
 Demerouti E, Bakker AB, Nachreiner F, Schaufeli WB (2001) The Job Demands-Resources model of burnout.
 \textit{Journal of Applied Psychology} 86(3):499--512.
+
+\bibitem[Dub{\'{e}} et~al.(2020)]{dube2020minimum}
+Dub{\'{e}} A, Reich A, Shierholz H, West M (2020) Minimum wage shocks, employment flows and labor market frictions.
+\textit{Journal of Labor Economics} 38(4):1009--1052.
 
 \bibitem[Filippov(1988)]{filippov1988differential}
 Filippov AF (1988) \textit{Differential Equations with Discontinuous Righthand Sides}.
@@ -702,6 +707,10 @@ Dordrecht: Kluwer Academic Publishers.
 \bibitem[Fisher et~al.(2021)]{fisher2021staffing}
 Fisher ML, Gallino S, Netessine S (2021) Setting retail staffing levels: A methodology validated with implementation.
 \textit{Manufacturing \& Service Operations Management} 23(6):1562--1579.
+
+\bibitem[Fornell et~al.(1996)]{fornell1996acsi}
+Fornell C, Johnson MD, Anderson EW, Cha J, Bryant BE (1996) The American Customer Satisfaction Index: Nature, purpose, and findings.
+\textit{Journal of Marketing} 60(4):7--18.
 
 \bibitem[Gans and Goldfarb(2026)]{gans2026oring}
 Gans JS, Goldfarb A (2026) O-ring automation.
@@ -714,7 +723,6 @@ Gupta S, Lehmann DR, Stuart JA (2004) Valuing customers.
 \bibitem[Heskett et~al.(1994)]{heskett1994putting}
 Heskett JL, Jones TO, Loveman GW, Sasser Jr WE, Schlesinger LA (1994) Putting the service-profit chain to work.
 \textit{Harvard Business Review} 72(2):164--174.
-
 
 \bibitem[H{\"u}bner et~al.(2021)]{hubner2021digitalization}
 H{\"u}bner A, Amorim P, Fransoo JC, Honhon D, Kuhn H, Martinez~de~Albeniz V, Robb D (2021) Digitalization and omnichannel retailing: Innovative OR approaches for retail operations.

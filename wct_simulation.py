@@ -386,7 +386,8 @@ def run_study1(params=None, t_end=120, t_policy=24, n_points=1000):
 
     return dict(t=t_eval, solA=solA, solB=solB, solC=solC,
                 clvA=clvA, clvB=clvB, clvC=clvC,
-                FA=F_A_ts, FB=F_B_ts, FC=F_C_ts)
+                FA=F_A_ts, FB=F_B_ts, FC=F_C_ts,
+                a=params['a'], b=params['b'])
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -819,14 +820,19 @@ def plot_study1(res, t_policy=24, save_path="fig4_hidden_cost.pdf"):
                'B': 'Scenario B: Moderate ramp + concurrent WF',
                'C': 'Scenario C: WF-first, then ramp'}
 
-    # Panel (a): Front-Stage Capability Ramp F(t)
+    # Panel (a): Demand-Volume Index F·D(T(t),F(t))
     ax = axes[0, 0]
-    ax.plot(t, res['FA'], color=colours['A'], lw=2, label='A')
-    ax.plot(t, res['FB'], color=colours['B'], lw=2, linestyle='--', label='B')
-    ax.plot(t, res['FC'], color=colours['C'], lw=2, linestyle=':', label='C')
+    a_param, b_param = res.get('a', 0.4), res.get('b', 1.3)
+    for sc, F_ts, sol, col, ls in [
+        ('A', res['FA'], res['solA'], colours['A'], '-'),
+        ('B', res['FB'], res['solB'], colours['B'], '--'),
+        ('C', res['FC'], res['solC'], colours['C'], ':')]:
+        T_ts = sol.y[2]
+        demand_vol = F_ts * (1 + a_param * T_ts) * F_ts**b_param
+        ax.plot(t, demand_vol, color=col, lw=2, linestyle=ls, label=sc)
     ax.axvline(t_policy, color='grey', lw=1, linestyle='--', alpha=0.6)
-    ax.set_xlabel("Time (months)"); ax.set_ylabel("Front-Stage Capability $F(t)$")
-    ax.set_title("(a) Front-Stage Capability Ramp"); ax.legend(fontsize=8)
+    ax.set_xlabel("Time (months)"); ax.set_ylabel(r"Demand-Volume Index $F \cdot D(T,F)$")
+    ax.set_title("(a) Front-Stage Demand Volume"); ax.legend(fontsize=8)
 
     # Panel (b): CLV
     ax = axes[0, 1]

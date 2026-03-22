@@ -97,7 +97,7 @@ The implicit balance condition $K^*h(W^*)=(1+aT^*)F^b+S^*$ rearranges to $F=(K^*
 Before proving the main theorems, we establish that the surplus equilibrium invoked by Theorems~1--3 exists and is unique. The equilibrium expressions derived in \S4.1 of the main paper are conditional on a surplus $S^* > 0$, but $S^*$ itself depends on the equilibrium values $W^*$ and $T^*$ through $S^* = K^* h(W^*) - D(T^*, F)$, creating a fixed-point problem. We resolve this by reducing the system to a single implicit equation in $S^*$ and establishing that it has exactly one positive solution.
 
 \begin{lemma}[Surplus Equilibrium Existence; Uniqueness under C2]\label{lem:existence}
-For any $F < F_{\mathrm{crit}}$, a surplus equilibrium $(K^*, W^*, T^*)$ with $S^* > 0$ exists. Under Regularity Condition C2 (single-crossing condition C2-SC: $\beta(f+\mu)<\lambda$; analytic, see Step~3 above), this equilibrium is unique.
+For any $F < F_{\mathrm{crit}}$, a surplus equilibrium $(K^*, W^*, T^*)$ with $S^* > 0$ exists. Under Regularity Condition C2 (single-crossing condition C2-SC: $\beta(f+\mu)<\lambda$; analytic, see Step~1 of the Theorem~1 proof, EC~\S EC.1.3), this equilibrium is unique.
 \end{lemma}
 
 \begin{proof}
@@ -126,7 +126,7 @@ Lemma~\ref{lem:bounded} ensures all trajectories remain in a bounded compact set
 \end{remark}
 
 \begin{remark}[Maintained Conditions]\label{rem:conditions}
-Four conditions are maintained throughout: (C1)~$\Phi(0) > 0$ (i.e., $F < F_{\mathrm{crit}}$; analytic via IVT); (C2)~uniqueness of $S^*$, established analytically under C2-SC ($\beta(f+\mu)<\lambda$, which holds for all $f\in[0,0.10]$ independent of $b$, $p$, $\sigma$; see Step~3 above); (C3)~regularity $\Phi'(S^*) < 0$, a consequence of~(C1)--(C2), required for the implicit function theorem in Theorems~1--2; and (C4)~low-trust attractor existence $F^b > (u/\delta)\,h(W^*_{\mathrm{low}})$, verified numerically (Jacobian eigenvalues across $F \in [1.0, 1.5]$).
+Four conditions are maintained throughout: (C1)~$\Phi(0) > 0$ (i.e., $F < F_{\mathrm{crit}}$; analytic via IVT); (C2)~uniqueness of $S^*$, established analytically under C2-SC ($\beta(f+\mu)<\lambda$, which holds for all $f\in[0,0.10]$ independent of $b$, $p$, $\sigma$; see Step~1 of the Theorem~1 proof, EC~\S EC.1.3); (C3)~regularity $\Phi'(S^*) < 0$, a consequence of~(C1)--(C2), required for the implicit function theorem in Theorems~1--2; and (C4)~low-trust attractor existence $F^b > (u/\delta)\,h(W^*_{\mathrm{low}})$, verified numerically (Jacobian eigenvalues across $F \in [1.0, 1.5]$).
 \end{remark}
 
 \begin{remark}[Bifurcation Classification at $F_{\mathrm{crit}}$]\label{rem:bifurcation}
@@ -219,7 +219,7 @@ Suppose $\sigma > 1$, $p > 0$, and $F_0 < F_{\mathrm{crit}}$ (a surplus equilibr
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Two thresholds.} The permanent-collapse threshold follows directly from Theorem~1: for $F_0 + \Delta F \geq F_{\mathrm{crit}}$, equation~(\ref{ec:Phi}) at $S=0$ gives $\Phi(0) \leq 0$, so no surplus equilibrium exists. Therefore
+\textbf{Step 1: Two thresholds.} The permanent-collapse threshold follows directly from Theorem~1: for $F_0 + \Delta F \geq F_{\mathrm{crit}}$, the surplus residual $\Phi(S)$ (Lemma~\ref{lem:existence}) at $S=0$ gives $\Phi(0) \leq 0$, so no surplus equilibrium exists. Therefore
 \[
    \Delta F_{\mathrm{collapse}} = F_{\mathrm{crit}} - F_0
      = \Bigl(\frac{u}{\delta}\,h\!\Bigl(\frac{f}{f+\mu}\Bigr)\Bigr)^{1/b} - F_0.
@@ -252,8 +252,9 @@ For $f=0.01$ the simulated cliff (0.27) exceeds $\Delta F_{\mathrm{collapse}}$ (
 \end{proof}
 
 
-\subsection{Proof of Proposition 1 (Complementarity)}\label{sec:ec:proof4}
+\subsection{Proof of Proposition 4 (Complementarity)}\label{sec:ec:proof4}
 
+\setcounter{proposition}{3}
 \begin{proposition}[Digitalisation-Workforce Complementarity, restated]
 $\partial \Keff / \partial W = pK > 0$ and $\partial^2 \Keff / \partial W \partial K = p > 0$. Workforce well-being determines $F_{\max}(W) = (K^* h(W))^{1/b}$, which is strictly increasing in $W$.
 \end{proposition}
@@ -537,6 +538,10 @@ Bell RM, McCaffrey DF (2002) Bias reduction in standard errors for linear regres
 Bell DR, Gallino S, Moreno A (2018) Offline showrooms in omnichannel retail: Demand and operational benefits.
 \textit{Management Science} 64(4):1629--1651.
 
+\bibitem[Cameron et~al.(2008)]{cameron2008bootstrap}
+Cameron AC, Gelbach JB, Miller DL (2008) Bootstrap-based improvements for inference with clustered errors.
+\textit{Review of Economics and Statistics} 90(3):414--427.
+
 \bibitem[Demerouti et~al.(2001)]{demerouti2001job}
 Demerouti E, Bakker AB, Nachreiner F, Schaufeli WB (2001) The Job Demands-Resources model of burnout.
 \textit{Journal of Applied Psychology} 86(3):499--512.
@@ -576,10 +581,6 @@ Sirdeshmukh D, Singh J, Sabol B (2002) Consumer trust, value, and loyalty in rel
 \bibitem[Tucker(2007)]{tucker2007operational}
 Tucker AL (2007) An empirical study of system improvement by frontline employees in hospital units.
 \textit{Manufacturing \& Service Operations Management} 9(4):492--505.
-
-\bibitem[Cameron et~al.(2008)]{cameron2008bootstrap}
-Cameron AC, Gelbach JB, Miller DL (2008) Bootstrap-based improvements for inference with clustered errors.
-\textit{Review of Economics and Statistics} 90(3):414--427.
 
 \bibitem[Webb(2023)]{webb2023reworking}
 Webb MD (2023) Reworking wild bootstrap-based inference for clustered errors.
