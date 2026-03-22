@@ -352,7 +352,7 @@ Suppose $b > 1$ and $p > 0$. Define the digitalisation threshold
 which depends only on exogenous parameters $(u,\delta,p,f,\mu,b)$ and equals $K^*h(f/(f+\mu))^{1/b}$, the capacity multiplier evaluated at the boundary workforce level. Then:
 \begin{enumerate}
     \item[(i)] For $F < F_{\mathrm{crit}}$, the surplus equilibrium (unique under C2; Lemma~2, EC~\S EC.1.2) exists with $T^* > 0$ and $\mathrm{CLV}^* > \mathrm{CLV}_{\mathrm{low}}$ (the CLV at the low-trust attractor).
-    \item[(ii)] For $F \geq F_{\mathrm{crit}}$, no surplus equilibrium exists. All forward trajectories remain in a bounded compact set (Lemma~3, EC~\S EC.1.2), and the low-trust attractor is locally stable (EC Remark~1).
+    \item[(ii)] For $F \geq F_{\mathrm{crit}}$, no surplus equilibrium exists. All forward trajectories remain in a bounded compact set (Lemma~3, EC~\S EC.1.2), and the low-trust attractor is locally stable (EC Remark~1). Wide-basin convergence to this attractor is confirmed numerically (Tier~C; Remark~\ref{rem:transparency}).
 \end{enumerate}
 The threshold $F_{\mathrm{crit}}$ is decreasing in $p$ and increasing in $f$: the Trap binds earlier when workforce-technology coupling is strong, and is relaxed by workforce investment.
 \end{theorem}
@@ -426,6 +426,7 @@ Workforce investment $f$ raises $F_{\mathrm{crit}}$ and enlarges the safe upgrad
 
 \subsection{Proposition 4: Digitalisation-Workforce Complementarity}\label{sec:analysis:comp}
 
+% NB: manual counter set — update if theorems are added/removed above
 \setcounter{proposition}{3}
 \begin{proposition}[Digitalisation-Workforce Complementarity]\label{prop:complementarity}
 The marginal value of workforce improvement is strictly increasing in the technology base:
@@ -455,16 +456,17 @@ Figure~\ref{fig:complementarity} illustrates: the gap between a stressed firm ($
 {}
 \end{figure}
 
+% NB: manual counter set — update if theorems/propositions are added/removed above
 \setcounter{corollary}{4}
 \begin{corollary}[Budget-Constrained Trap]\label{cor:budget}
-Under a fixed budget constraint $c_F F + c_f f \leq B$, the CLV-maximising allocation always includes positive workforce investment $f^* > 0$: the all-$F$ corner is strictly dominated whenever the budget reaches or exceeds the Trap threshold.
+Under a fixed budget constraint $c_F F + c_f f \leq B$ with $B \geq B_{\min} - \varepsilon$ (where $B_{\min} = c_F \cdot F_{\mathrm{crit}}$), the CLV-maximising allocation includes positive workforce investment $f^* > 0$: the all-$F$ corner is strictly dominated analytically whenever the budget reaches or exceeds the Trap threshold, and computationally for $B$ throughout $[B_{\min}/2,\, B_{\min})$ across cost ratios $c_F/c_f \in [0.5, 5]$.
 \end{corollary}
 
 \noindent\textit{Proof.} See EC~\S EC.1.7. \Halmos
 
 \section{Computational Study}\label{sec:simulation}
 
-We illustrate the analytical results through calibrated simulations using the baseline parameters in Table~\ref{tab:params}. CLV follows \citet{gupta2004valuing}: $\mathrm{CLV} = w(T)/(1-\rho(T))$, where $\rho(T)$ is an annual retention probability and $w(T)$ an annualised per-customer margin, with $\rho(T) = 0.80 + 0.18T$ and $w(T) = 80(1 + 0.25\max(T-0.15,0))$. The endpoints $\rho(0)=0.80$ and $\rho(1)=0.98$ fall within the 70--90\% annual range in \citet{gupta2004valuing}; \pounds 80 is an illustrative annual margin for UK omnichannel grocery. All analytical results hold for any CLV increasing in trust (calibration in EC~\S EC.4.3). All three qualitative phenomena are robust across $b \in [1.1, 2.0]$, $\sigma \in [1.0, 3.0]$, and $p \in [0.25, 0.75]$ (EC Table~EC.3).
+We illustrate the analytical results through calibrated simulations using the baseline parameters in Table~\ref{tab:params}. CLV follows \citet{gupta2004valuing}: $\mathrm{CLV} = w(T)/(1-\rho(T))$, where $\rho(T)$ is an annual retention probability and $w(T)$ an annualised per-customer margin, with $\rho(T) = 0.80 + 0.18T$ and $w(T) = 80(1 + 0.25\max(T-0.15,0))$. The endpoints $\rho(0)=0.80$ and $\rho(1)=0.98$ fall within the 70--90\% annual range in \citet{gupta2004valuing}; \$80 is an illustrative annual margin for US omnichannel grocery. All analytical results hold for any CLV increasing in trust (calibration in EC~\S EC.4.3). All three qualitative phenomena are robust across $b \in [1.1, 2.0]$, $\sigma \in (1.0, 3.0]$, and $p \in [0.25, 0.75]$ (EC Table~EC.3; at $\sigma = 1$ the Burnout Cliff disappears).
 
 \subsection{The Hidden Cost of App Innovation (Figure~\ref{fig:hidden_cost})}\label{sec:sim:fig4_hidden}
 
@@ -505,7 +507,7 @@ Figure~\ref{fig:cliff} shows the three normalised CLV curves. For the neglected 
 % -----------------------------------------------------------------------
 \section{Empirical Evidence}\label{sec:empirics}
 
-We examine the model's predictions using three complementary identification strategies at different levels of aggregation: (i)~firm-level cross-sectional and event-study evidence using customer satisfaction and Glassdoor data ($N = 131$--$216$, 13--17 firms); (ii)~county-level panel evidence using Bureau of Labor Statistics (BLS) retail employment and wages ($N = 30{,}951$, 3{,}115 US counties). The firm-level analysis tests the Front-Stage Trap (inverted-U in e-commerce) and complementarity (technology--workforce interaction). The county-level analysis tests the Good Jobs Buffer at a different margin: whether counties with higher initial retail wages show more resilient retail employment as e-commerce penetration grows. An independent European sample ($N_c = 11$, $N = 20$) is reported in the EC (\S EC.5) for transparency.
+We examine the model's predictions using three complementary identification strategies at different levels of aggregation: (i)~a firm-level inverted-U test and event study using customer satisfaction data ($N = 131$ for the quadratic specification, 13 firms; $N = 108$ for the event study, 16 firms); (ii)~a county-level panel test using Bureau of Labor Statistics (BLS) retail employment and wages ($N = 30{,}951$, 3{,}115 US counties). The firm-level analysis tests the Front-Stage Trap (inverted-U and post-shock ACSI decline). A cross-sectional complementarity check (Glassdoor $\times$ technology interaction) provides a directional sign check but lacks statistical power ($N_c = 13$). The county-level analysis tests the Good Jobs Buffer at a different margin: whether counties with higher initial retail wages show more resilient retail employment as e-commerce penetration grows. An independent European sample ($N_c = 11$, $N = 20$) is reported in the EC (\S EC.5) for transparency.
 
 \subsection{Data and Samples}\label{sec:emp:data}
 
@@ -526,9 +528,9 @@ Table~\ref{tab:desc} reports descriptive statistics for both samples.
 \textbf{Variable} & \textbf{N} & \textbf{Mean} & \textbf{SD} & \textbf{Range} \\
 \midrule
 \multicolumn{5}{@{}l}{\textit{Panel A: Firm-level sample (13 firms, 2010--2024)}} \\[3pt]
-ACSI score & 131 & 76.3 & 5.2 & 62--87 \\
-Glassdoor rating (1--5) & 131 & 3.29 & 0.44 & 2.5--4.3 \\
-CapEx / Revenue (\%) & 131 & 3.8 & 1.9 & 1.0--9.2 \\
+ACSI score & 131 & 76.5 & 3.4 & 68--88 \\
+Glassdoor rating (1--5) & 131 & 3.23 & 0.30 & 2.7--3.9 \\
+CapEx / Revenue (\%, median) & 131 & 2.9 & --- & 0.9--14.1 \\
 \addlinespace
 \multicolumn{5}{@{}l}{\textit{Panel B: County-level sample (3{,}115 counties, 2015--2024)}} \\[3pt]
 Annual avg.\ retail employment & 30{,}951 & 5{,}035 & 15{,}458 & 18--423{,}900 \\
@@ -544,9 +546,9 @@ National e-commerce share (\%) & 10 & 11.8 & 3.0 & 7.4--16.1 \\
 
 \subsection{Firm-Level Results}\label{sec:emp:firm}
 
-\noindent\textit{Cross-sectional complementarity (Proposition~\ref{prop:complementarity}).} The between-effects (OLS) estimate of the standardised interaction $K^z \times W^z$ is positive ($+1.95$), consistent with the prediction that firms with jointly higher technology and workforce investment enjoy higher satisfaction. A one-standard-deviation joint increase in $K$ and $W$ is associated with a 1.95-point ACSI gain. The direction aligns with the complementarity evidence in \citet{aral2012three}. Within-firm estimates (firm FE) are negative, as expected given the low within-firm Glassdoor SD (30\% of total SD); the between-effects estimate is the appropriate estimand for a structural cross-firm relationship \citep{milgrom1990economics}.
+\noindent\textit{Cross-sectional complementarity (Proposition~\ref{prop:complementarity}).} The between-effects (OLS) estimate of the standardised interaction $K^z \times W^z$ is positive ($+1.95$, $p = 0.41$; $N = 131$, 13 firms). The sign is consistent with the prediction that firms with jointly higher technology and workforce investment enjoy higher satisfaction, and aligns directionally with \citet{aral2012three}. However, the coefficient is not statistically significant, reflecting the extreme power limitation of 13 firm clusters \citep{cameron2008bootstrap}. We treat this as a sign check, not a test. Within-firm estimates (firm FE) are negative, as expected given the low within-firm Glassdoor SD (30\% of total SD); the between-effects estimate is the appropriate estimand for a structural cross-firm relationship \citep{milgrom1990economics}.
 
-\noindent\textit{Inverted-U (Theorem~\ref{thm:trap}).} The quadratic specification yields $\hat{\beta}_2 = -0.028$ ($p = 0.028$ under $t(16)$), consistent with the predicted inverted-U. The turning point (7.9\% e-commerce share) corresponds to the mid-2010s transition, broadly consistent with $F_{\mathrm{crit}}$. The coefficient attenuates when workforce controls are included ($p = 0.31$), consistent with the model's prediction that e-commerce damages satisfaction \emph{through} workforce depletion.
+\noindent\textit{Inverted-U (Theorem~\ref{thm:trap}).} The quadratic specification ($N = 131$, 13 firms) yields $\hat{\beta}_2 = -0.028$ ($p = 0.028$ under $t(16)$), consistent with the predicted inverted-U. The estimated turning point (7.9\% e-commerce share) lies in the mid-2010s, qualitatively consistent with the model's prediction of a digitalisation ceiling, though we caution that the turning point is on the e-commerce share scale while $F_{\mathrm{crit}}$ is a dimensionless technology index --- the correspondence is directional, not quantitative. The coefficient attenuates when workforce controls are included ($p = 0.31$), consistent with the model's prediction that e-commerce damages satisfaction \emph{through} workforce depletion. A limitation common to both the inverted-U and complementarity specifications is the absence of instruments: cross-sectional OLS cannot exclude the possibility that unobserved management quality drives both higher Glassdoor ratings and higher ACSI \citep{ton2014good}. The event study partially mitigates this concern by exploiting within-firm temporal variation around exogenous technology shocks.
 
 \noindent\textit{Event study (Theorem~\ref{thm:trap}).} We exploit the staggered timing of major omnichannel launches (e.g., Walmart curbside 2017, Target Drive Up 2018, Kroger ClickList 2016) as firm-level technology shocks.  Using a $[-3, +3]$ year event window around each firm's launch ($N = 108$, 16 firms), a two-way FE specification with pre-shock capital expenditure as control yields a post-shock ACSI decline of $-0.71$ ($p = 0.037$ under $t(15)$), consistent with the Front-Stage Trap: major omnichannel deployments reduce customer satisfaction on average. Event-time coefficients for the level specification show near-zero and insignificant pre-trend coefficients at $t = -3$ and $t = -2$ (relative to $t = -1$), supporting the parallel-trends assumption for the basic difference-in-differences. Pre-trend coefficients for the workforce-moderation interaction are similarly insignificant. The workforce moderation (post $\times$ pre-Glassdoor) is not detectable ($p = 0.79$), consistent with the low within-firm Glassdoor variation rather than absence of the mechanism.
 
@@ -562,11 +564,66 @@ Because $\text{Ecom}_t$ is a national-level variable (identical across counties 
 
 \textit{Results.} The interaction is positive and significant ($\hat{\beta}_1 = 0.0026$, $t = 2.24$, $p = 0.025$; county and year FE, clustered at county). A county one SD above the mean in initial retail wage (${\approx}\$107$/week) retains 2.6 percentage points more retail employment per 10-point increase in e-commerce share, consistent with the Good Jobs Buffer operating through employment capacity. The long-difference specification (2015 vs.\ 2023) confirms: high-wage counties gained 2.1~pp more retail employment over the period ($t = 2.57$, $p = 0.010$).
 
-\textit{Robustness.} The result strengthens when COVID years are excluded ($\hat{\beta}_1 = 0.0031$, $p = 0.014$), holds in urban counties ($p = 0.006$), and is insignificant in rural counties ($p = 0.58$), consistent with the mechanism operating where retail employment is concentrated. A pre-period placebo (2015--2017, when e-commerce grew modestly) shows no effect ($p = 0.40$), confirming that the wage buffer activates only under substantial digital pressure. The effect operates through employment quantity, not wage levels: using wage growth as the dependent variable yields a null result ($p = 0.98$), consistent with the model's capacity-multiplier channel.
+\textit{Robustness.} The result strengthens when COVID years are excluded ($\hat{\beta}_1 = 0.0031$, $p = 0.014$), holds in urban counties ($p = 0.006$), and is insignificant in rural counties ($p = 0.58$). The urban--rural difference is consistent with the mechanism operating where retail employment is concentrated, though it could also reflect that the wage proxy captures urban labour-market dynamics (cost of living, competition) rather than workforce investment per se. A pre-period placebo (2015--2017, when e-commerce grew modestly) shows no effect ($p = 0.40$), confirming that the wage buffer activates only under substantial digital pressure. The effect operates through employment quantity, not wage levels: using wage growth as the dependent variable yields a null result ($p = 0.98$), consistent with the model's capacity-multiplier channel.
+
+A caveat on the role of COVID-19: the e-commerce share jumped from 10.7\% (2019) to 14.0\% (2020), contributing substantial variation to the interaction term. This COVID-driven acceleration represents forced adoption rather than strategic digital investment, which differs from the model's framing of $F$ as a managerial choice. The robustness of the result when COVID years are excluded ($p = 0.014$) mitigates this concern and confirms that the effect is not driven solely by pandemic-era variation.
+
+Tables~\ref{tab:reg_firm} and \ref{tab:reg_county} present the full regression results.
+
+\begin{table}
+\TABLE
+{Firm-level regression results.\label{tab:reg_firm}}
+{{\setlength{\tabcolsep}{4pt}\small
+\begin{tabular}{@{}p{0.28\textwidth}cccc@{}}
+\toprule
+& \multicolumn{2}{c}{\textit{Complementarity}} & \multicolumn{2}{c}{\textit{Inverted-U}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+& (1a) OLS & (1c) TWFE & (2b) Firm FE & (2c) + $W$ \\
+\midrule
+$K^z$ & $-0.92$ & $-0.33^{**}$ & & \\
+ & $(0.73)$ & $(0.13)$ & & \\[2pt]
+$W^z$ & $2.84^{***}$ & $2.00^{**}$ & & \\
+ & $(0.51)$ & $(0.68)$ & & \\[2pt]
+$K^z \times W^z$ & $1.95$ & $-0.56^{*}$ & & \\
+ & $(2.36)$ & $(0.31)$ & & \\[2pt]
+Ecom & & & $0.44^{*}$ & $0.03$ \\
+ & & & $(0.23)$ & $(0.27)$ \\[2pt]
+Ecom$^2$ & & & $-0.028^{**}$ & $-0.005$ \\
+ & & & $(0.012)$ & $(0.012)$ \\[2pt]
+Glassdoor & & & & $9.87^{***}$ \\
+ & & & & $(1.80)$ \\
+\midrule
+Firm FE & No & Yes & Yes & Yes \\
+Year FE & No & Yes & No & No \\
+$N$ & 131 & 131 & 216 & 190 \\
+Firms & 13 & 13 & 17 & 17 \\
+\bottomrule
+\end{tabular}
+}}{Dependent variable: ACSI score. Cluster-robust standard errors (at firm level) in parentheses; $p$-values use $t(G{-}1)$ degrees of freedom. $^{***}p < 0.01$; $^{**}p < 0.05$; $^{*}p < 0.10$. $K^z$ and $W^z$ are standardised CapEx/Revenue and Glassdoor overall, respectively. Ecom is national e-commerce share (\%). Turning point for (2b): 7.9\%. Attenuation of Ecom$^2$ in (2c) is consistent with the model's prediction that e-commerce affects satisfaction through workforce depletion.}\end{table}
+
+\begin{table}
+\TABLE
+{County-level regression results: Good Jobs Buffer.\label{tab:reg_county}}
+{{\setlength{\tabcolsep}{4pt}\small
+\begin{tabular}{@{}p{0.30\textwidth}ccccc@{}}
+\toprule
+& (1) Main & (2) Excl.\ COVID & (3) Urban & (4) Rural & (5) Placebo \\
+\midrule
+$W^z_{c,2015} \times \text{Ecom}_t$ & $0.0026^{**}$ & $0.0031^{**}$ & $0.0050^{***}$ & $0.0008$ & $0.0023$ \\
+ & $(0.0012)$ & $(0.0013)$ & $(0.0018)$ & $(0.0015)$ & $(0.0028)$ \\[2pt]
+\midrule
+County FE & Yes & Yes & Yes & Yes & Yes \\
+Year FE & Yes & Yes & Yes & Yes & Yes \\
+$N$ & 30{,}951 & 24{,}768 & 15{,}532 & 15{,}419 & 9{,}321 \\
+Counties & 3{,}115 & 3{,}115 & 1{,}557 & 1{,}558 & 3{,}115 \\
+$R^2_{\mathrm{within}}$ & 0.008 & & & & \\
+\bottomrule
+\end{tabular}
+}}{Dependent variable: $\ln E_{ct} - \ln E_{c,2015}$ (log employment growth relative to 2015 baseline). Standard errors clustered at county level in parentheses. $^{***}p < 0.01$; $^{**}p < 0.05$. $\text{Ecom}_t$ main effect absorbed by year FE (national variable); $W^z_{c,2015}$ absorbed by county FE (time-invariant). Column (2): excludes 2020--2021. Columns (3)--(4): split at median baseline employment. Column (5): 2015--2017 only (pre-period placebo).}\end{table}
 
 \subsection{Assessment}\label{sec:emp:assessment}
 
-Three findings across two levels of analysis support the model's qualitative predictions. First, the inverted-U between e-commerce and ACSI (Pattern~2, $p = 0.028$) and the post-shock ACSI decline in the event study ($p = 0.037$) both support the Front-Stage Trap. Second, the county-level wage--e-commerce interaction ($p = 0.025$, $N = 30{,}951$) provides a well-powered test of the Good Jobs Buffer at the employment-capacity margin. Third, the between-effects complementarity ($+1.95$) is directionally consistent but imprecisely estimated. The empirical contribution is one of convergent evidence across different identification strategies, levels of analysis, and outcome variables, subject to the limitations in \S\ref{sec:disc:limits}.
+Three empirical strategies across two levels of analysis support the model's qualitative predictions. First, the inverted-U between e-commerce and ACSI ($p = 0.028$) and the post-shock ACSI decline in the event study ($p = 0.037$) both support the Front-Stage Trap. Second, the county-level wage--e-commerce interaction ($p = 0.025$, $N = 30{,}951$, $R^2_{\mathrm{within}} = 0.008$) provides a well-powered test of the Good Jobs Buffer at the employment-capacity margin; the low $R^2$ is expected for a single interaction term in a fixed-effects panel and reflects a noisy reduced-form test of a structural model. The between-effects complementarity sign ($+1.95$, $p = 0.41$) is directionally consistent with Proposition~\ref{prop:complementarity} but provides no statistical evidence given the 13-firm sample. The empirical contribution is one of convergent evidence from the three significant tests, across different identification strategies, levels of analysis, and outcome variables, subject to the limitations in \S\ref{sec:disc:limits}.
 
 
 \section{Discussion}\label{sec:discussion}
@@ -580,7 +637,7 @@ The three theorems together provide the formal micro-foundation that connects \c
 
 \subsection{Limitations and Directions for Future Research}\label{sec:disc:limits}
 
-\textit{Model limitations.} The model treats $F$ as exogenous; endogenising it would enable optimal deployment sequencing. The omission of a direct $W \to D$ channel (whereby disengaged workers reduce throughput directly, independent of the service gap) makes our results a conservative lower bound on true complementarity. The linear form $h(W) = (1-p)+pW$ is a tractability choice; a concave specification (e.g., $h(W) = (1-p)+pW^\gamma$, $\gamma < 1$) would strengthen the Trap by making capability more sensitive to well-being at low $W$ levels.
+\textit{Model limitations.} The model treats $F$ as exogenous; endogenising it would enable optimal deployment sequencing. The demand function $D(T,F) = (1+aT)F^b$ grows without bound in $F$; it does not incorporate market saturation, which would moderate demand at very high digitalisation levels. The model's predictions are therefore most reliable near the operating range $F \in [F_0, 1.5\,F_{\mathrm{crit}}]$, where super-linear growth is empirically grounded. The omission of a direct $W \to D$ channel (whereby disengaged workers reduce throughput directly, independent of the service gap) makes our results a conservative lower bound on true complementarity. The linear form $h(W) = (1-p)+pW$ is a tractability choice; a concave specification (e.g., $h(W) = (1-p)+pW^\gamma$, $\gamma < 1$) would strengthen the Trap by making capability more sensitive to well-being at low $W$ levels.
 
 \textit{Empirical limitations.} Three concerns warrant emphasis.
 First, with only $N_c = 13$ firm clusters, the firm-level analysis is at the boundary of asymptotic validity \citep{cameron2008bootstrap}; the county-level analysis ($N_c = 3{,}115$) does not share this limitation but tests a different margin (employment resilience rather than customer satisfaction).
@@ -595,7 +652,7 @@ Standard operational dashboards measure the front-stage domain that invests in t
 
 Three results follow that, to our knowledge, no existing single formulation produces. The Front-Stage Trap (Theorem~\ref{thm:trap}): a computable digitalisation threshold $F_{\mathrm{crit}} \approx 1.11$ beyond which additional front-stage investment destroys CLV by overloading back-stage workers, a sign reversal impossible in single-domain models. The Good Jobs Buffer (Theorem~\ref{thm:buffer}): workforce investment raises CLV through a capacity-level channel confirmed exact by the $p{=}0$ counterfactual, which leaves CLV invariant to workforce spending and isolates the entire gain to service capacity. The Burnout Cliff (Theorem~\ref{thm:cliff}): the maximum safe upgrade size ranges from $\Delta F = 0.18$ for a workforce-neglecting firm to $\Delta F = 0.49$ for an investing firm, an approximately 172\% difference; the neglected firm retains approximately 37\% of the safe deployment headroom.
 
-These results give operations teams two computable numbers standard dashboards do not report: a digitalisation ceiling ($F_{\mathrm{crit}}$) and a maximum safe rollout size ($\Delta F_{\mathrm{collapse}}$). Three empirical strategies provide convergent support across different levels of analysis: an inverted-U between e-commerce and ACSI, a post-shock satisfaction decline following omnichannel launches, and county-level evidence that higher retail wages buffer employment against e-commerce growth ($N = 30{,}951$ US counties, $p = 0.025$). Store-level identification of $p$ using exogenous technology rollout events remains the most important empirical follow-up. The broader implication extends beyond omnichannel retail: wherever automated front-stage processes generate demand on human back-stage operations, workforce investment is a structural requirement, not a social concession.
+These results give operations teams two computable numbers standard dashboards do not report: a digitalisation ceiling ($F_{\mathrm{crit}}$) and a maximum safe rollout size ($\Delta F_{\mathrm{collapse}}$). Three empirical strategies provide convergent support across different levels of analysis: an inverted-U between e-commerce and ACSI, a post-shock satisfaction decline following omnichannel launches, and county-level evidence that higher retail wages buffer employment against e-commerce growth ($N = 30{,}951$ US counties, $p = 0.025$). Store-level identification of $p$ using exogenous technology rollout events remains the most important empirical follow-up. The broader implication extends beyond omnichannel retail: wherever automated front-stage processes generate demand on human back-stage operations, workforce investment is an operational prerequisite for digital strategy, not an optional cost line.
 
 
 % ============================================================
