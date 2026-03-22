@@ -1,10 +1,10 @@
 % ============================================================
 % Electronic Companion for:
 % "When Front-Stage Innovation Overloads Back-Stage Workers"
-% Submitted to Service Science
+% Submitted to M&SOM
 % ============================================================
 
-\documentclass[serv,dblanonrev]{informs4}
+\documentclass[msom,dblanonrev]{informs4}
 \usepackage{eqndefns-left}
 \RequirePackage{tgtermes}
 \RequirePackage{newtxtext}
@@ -81,15 +81,7 @@ The set $\Omega = \{(K, W, T) : K > 0,\; W \in [0,1],\; T \in [0,1]\}$ is forwar
 \end{lemma}
 
 \begin{proof}
-We verify each boundary by checking the sign of the directional derivative.
-
-\textit{Workforce well-being.} At $W = 0$: $\dot{W} = (\Gm + f)(1 - 0) - (\mu + \sigma\Gp)\cdot 0 = \Gm + f \geq 0$, since $\Gm \geq 0$ and $f \geq 0$. Hence $W$ cannot exit below zero. At $W = 1$: $\dot{W} = (\Gm + f)(1 - 1) - (\mu + \sigma\Gp)\cdot 1 = -(\mu + \sigma\Gp) \leq 0$, since $\mu > 0$ and $\sigma, \Gp \geq 0$. Hence $W$ cannot exit above one.
-
-\textit{Customer trust.} At $T = 0$: $\dot{T} = \beta\Gm(1 - 0) - \eta\beta\Gp\cdot 0 - \lambda\cdot 0 = \beta\Gm \geq 0$. At $T = 1$: $\dot{T} = \beta\Gm\cdot 0 - \eta\beta\Gp\cdot 1 - \lambda\cdot 1 = -(\eta\beta\Gp + \lambda) \leq 0$.
-
-\textit{Capability stock.} At $K = 0$: $\dot{K} = r\Gp W - \delta\cdot 0 + u = r\Gp W + u \geq u > 0$. Thus $K$ cannot reach zero while $u > 0$.
-
-In each case, the vector field points strictly into $\Omega$ (or is tangent to the boundary), so $\Omega$ is forward-invariant by the standard barrier argument. All state variables therefore remain in their economically meaningful domains for all $t \geq 0$.\Halmos
+At each boundary, the vector field points into $\Omega$: $\dot W|_{W=0} = \Gm + f \geq 0$; $\dot W|_{W=1} = -(\mu + \sigma\Gp) \leq 0$; $\dot T|_{T=0} = \beta\Gm \geq 0$; $\dot T|_{T=1} = -(\eta\beta\Gp + \lambda) \leq 0$; $\dot K|_{K=0} = r\Gp W + u > 0$. Forward invariance follows by the standard barrier argument.\Halmos
 \end{proof}
 
 \begin{remark}[Piecewise-Smooth Dynamics]\label{rem:pwsmooth}
@@ -109,48 +101,11 @@ For any $F < F_{\mathrm{crit}}$, a surplus equilibrium $(K^*, W^*, T^*)$ with $S
 \end{lemma}
 
 \begin{proof}
-At the surplus equilibrium, $\Gp = 0$ and $\Gm = S^*$, so from (\ref{ec:dK}): $K^* = u/\delta$, which depends only on exogenous parameters. The remaining equilibrium conditions yield:
-\[
-W^*(S) = \frac{S + f}{S + f + \mu}, \qquad T^*(S) = \frac{\beta S}{\beta S + \lambda}.
-\]
-Both are continuous, strictly increasing functions of $S$ on $(0, \infty)$, with $W^*(0) = f/(f+\mu) \in (0,1)$, $W^*(S) \to 1$ as $S \to \infty$, $T^*(0) = 0$, and $T^*(S) \to 1$ as $S \to \infty$.
-
-Define the surplus residual:
-\begin{align}\label{ec:Phi}
-\Phi(S) &= \frac{u}{\delta}\bigl[(1-p) + p\,W^*(S)\bigr] \notag\\
-  &\quad -\; \bigl(1 + a\,T^*(S)\bigr)F^b \;-\; S.
-\end{align}
-The equilibrium condition $S^* = K^*h(W^*) - D(T^*, F)$ is equivalent to $\Phi(S^*) = 0$.
-
-\textbf{Step 1 (Boundary behaviour).}
-\[
-\Phi(0) \;=\; \frac{u}{\delta}\Bigl[(1-p) + \frac{pf}{f+\mu}\Bigr] - F^b.
-\]
-This is strictly positive when $F < F_{\mathrm{crit}} = \bigl((u/\delta)\,h\bigl(f/(f+\mu)\bigr)\bigr)^{1/b}$, which is exactly the condition defining the surplus regime.
-
-As $S \to \infty$: $W^*(S) \to 1$ and $T^*(S) \to 1$, so $\Phi(S) \to (u/\delta) - (1+a)F^b - S \to -\infty$, since the linear term $-S$ dominates.
-
-\textbf{Step 2 (Continuity and existence).} Since $W^*(S)$ and $T^*(S)$ are continuous, $\Phi$ is continuous on $[0, \infty)$. By the Intermediate Value Theorem, $\Phi(0) > 0$ and $\Phi(S) \to -\infty$ imply the existence of at least one $S^* > 0$ with $\Phi(S^*) = 0$.
-
-\textbf{Step 3 (Uniqueness).} Differentiating (\ref{ec:Phi}): $\Phi'(S) = \tau_1(S) - \tau_2(S) - 1$, where $\tau_1(S) = (u/\delta)\,p\mu\,(S{+}f{+}\mu)^{-2}$ and $\tau_2(S) = aF^b\beta\lambda\,(\beta S{+}\lambda)^{-2}$ are both strictly positive and decreasing.
-
-\noindent\textit{Analytic sufficient condition (C2-SC): $\beta(f+\mu) < \lambda$.} Under C2-SC, the ratio $\tau_1(S)/\tau_2(S) \propto [(\beta S{+}\lambda)/(S{+}f{+}\mu)]^2$ is strictly decreasing in $S$: its derivative's numerator is proportional to $\beta(f{+}\mu)-\lambda < 0$. Since $\tau_2$ is strictly decreasing, $1/\tau_2$ is strictly increasing, so $1+1/\tau_2$ is strictly increasing. The equation $\Phi'(S)=0$ is equivalent to $\tau_1/\tau_2 = 1+1/\tau_2$: a strictly decreasing function equals a strictly increasing function, which has at most one solution. Combined with $\Phi(0)>0$ and $\Phi(S)\to-\infty$ (IVT gives existence), $\Phi$ therefore has exactly one positive root.
-
-C2-SC holds throughout the empirically relevant parameter space: $\beta(f{+}\mu) \leq 0.12{\times}0.15 = 0.018 < 0.025 = \lambda$ for all $f\in[0,0.10]$, independent of $b$, $p$, and $\sigma$. \Halmos
+At surplus equilibrium, $K^* = u/\delta$. The equilibrium conditions yield $W^*(S) = (S{+}f)/(S{+}f{+}\mu)$ and $T^*(S) = \beta S/(\beta S{+}\lambda)$, both continuous and strictly increasing in surplus $S$. Define the surplus residual $\Phi(S) = (u/\delta)[(1{-}p) + pW^*(S)] - (1{+}aT^*(S))F^b - S$. Then $\Phi(0) > 0$ when $F < F_{\mathrm{crit}}$, and $\Phi(S) \to -\infty$ as $S\to\infty$. Existence follows by IVT. For uniqueness, $\Phi'(S) = \tau_1(S) - \tau_2(S) - 1$ where $\tau_1, \tau_2 > 0$ are decreasing. Under C2-SC ($\beta(f{+}\mu) < \lambda$), the equation $\Phi'(S) = 0$ has at most one solution (a decreasing function equals an increasing function), so $\Phi$ has exactly one positive root. C2-SC holds for all $f \in [0, 0.10]$: $\beta(f{+}\mu) \leq 0.018 < 0.025 = \lambda$.\Halmos
 \end{proof}
 
 \begin{remark}[Low-Trust Interior Attractor]\label{rem:low_trust}
-The model admits a second, low-trust fixed point whenever $F$ is sufficiently large. At this attractor, $T^* = 0$ (since $dT/dt = -T(\eta\beta G + \lambda) < 0$ for all $T > 0$ when $G > 0$). With $T^* = 0$, demand is $D = F^b$, and the workforce equation (\ref{ec:dW}) at steady state with $\Gp = G^* > 0$, $\Gm = 0$ gives
-\[
-    W^*_{\mathrm{low}} \;=\; \frac{f}{f + \mu + \sigma\, G^*},
-\]
-which is strictly positive for $f > 0$. Substituting into the capability equation yields $K^*_{\mathrm{low}} = (r\,G^*\,W^*_{\mathrm{low}} + u)/\delta$, with $G^*$ determined self-consistently from $G^* = F^b - K^*_{\mathrm{low}}\,h(W^*_{\mathrm{low}})$.
-
-\textbf{Local stability.} The $3 \times 3$ Jacobian evaluated at the low-trust fixed point has all eigenvalues with strictly negative real parts, confirmed numerically across $F \in [1.0, 1.5]$. A sufficient condition for the stability of $W^*_{\mathrm{low}}$ is that the net depletion rate exceeds the sensing-driven recovery rate:
-\[
-    \mu + \sigma G^* \;>\; r\,W^*_{\mathrm{low}},
-\]
-which is satisfied at baseline (left side $\approx 0.29$, right side $\approx 0.06$ at $F = 1.2$) and holds robustly across the parameter space. The existence of this interior attractor jointly with the surplus equilibrium of Lemma~\ref{lem:existence} establishes the bistability invoked by Theorem~3.
+A second fixed point exists for large $F$, with $T^*{=}0$ and $W^*_{\mathrm{low}} = f/(f{+}\mu{+}\sigma G^*)$. The Jacobian has strictly negative eigenvalues (verified numerically for $F \in [1.0, 1.5]$). This interior attractor, jointly with the surplus equilibrium of Lemma~\ref{lem:existence}, establishes the bistability invoked by Theorem~3.
 \end{remark}
 
 \begin{lemma}[Forward-Boundedness of Trajectories]\label{lem:bounded}
@@ -514,6 +469,48 @@ The kink in $w(T)$ at $T = 0.15$ does not affect any analytical result: Theorem~
 % EC BIBLIOGRAPHY (subset of main paper references cited in EC)
 % ============================================================
 
+% -----------------------------------------------------------------------
+% EC.5: Empirical Appendix
+% -----------------------------------------------------------------------
+
+\section{Empirical Appendix}\label{sec:ec:empirics}
+{\small\setlength{\parskip}{2pt}
+This appendix supplements the empirical analysis in \S5 of the main paper.
+
+\textit{US data sources.}
+ACSI scores (0--100, \texttt{theacsi.org}); Glassdoor ratings (1--5, min 5 reviews/firm-year); SEC EDGAR 10-K financials via XBRL API; FRED series ECOMPCTSA (e-commerce share); BLS JOLTS (turnover/wages).
+
+\textit{EU data sources.}
+Trustpilot (1--5, complaint-biased); Glassdoor (1--5); Yahoo Finance (\texttt{yfinance}); UK ONS internet sales (J4MC); Eurostat (\texttt{isoc\_ec\_eseln2}).
+
+\textit{Variables.}
+$K{=}$CapEx/Revenue; $W{=}$Glassdoor overall; $T{=}$ACSI or Trustpilot (rescaled: $(s{-}1){\times}25$); $K{\times}W{=}$standardised interaction; Assets rank${=}$within-year percentile (currency-neutral).
+
+\textit{US merge.}
+EDGAR backbone (276 obs, 17 firms, 2008--2024); left-join ACSI, Glassdoor, macro. Complete: 131 obs (47\%). No duplicate keys.
+
+\textit{EU merge.}
+yfinance backbone (50 obs, 11 firms; 4 duplicate rows dropped). Trustpilot/Glassdoor merged with 1:1 validation. Complete: 20 obs (40\%). Fiscal-year offsets ${\leq}$3 months (Tesco Feb, Next Jan, ABF Sep, H\&M Nov).
+
+\textit{US robustness.}
+(i)~Between-effects: $K{\times}W{=}+1.95$, $p{=}0.41$;
+(ii)~Mundlak CRE;
+(iii)~Lagged $K_{t-1}{\times}W_{t-1}$;
+(iv)~COVID exclusion;
+(v)~Leave-one-out;
+(vi)~Wild bootstrap (9,999 reps);
+(vii)~CR3 with $\mathrm{df}{=}G{-}k{=}9$.
+
+\textit{EU robustness.}
+(i)~Currency-neutral controls (assets rank);
+(ii)~UK-only/Continental sub-samples;
+(iii)~Leave-one-out: $K{\times}W \in [-0.04, +0.82]$;
+(iv)~Wild bootstrap: $p{=}0.62$;
+(v)~CR2, $t(10)$: $p{=}0.045$;
+(vi)~Imbens--Kolesar $\mathrm{df}_{\mathrm{eff}}{=}7.2$, $p{=}0.055$.
+}% end \small
+
+{\small
 \begin{thebibliography}{99}
 
 \bibitem[Acimovic and Graves(2015)]{acimovic2015fulfillment}
@@ -531,6 +528,10 @@ Bakker AB, Demerouti E (2007) The Job Demands-Resources model: State of the art.
 \bibitem[Barlas(1996)]{barlas1996formal}
 Barlas Y (1996) Formal aspects of model validity and validation in system dynamics.
 \textit{System Dynamics Review} 12(3):183--210.
+
+\bibitem[Bell and McCaffrey(2002)]{bell2002bias}
+Bell RM, McCaffrey DF (2002) Bias reduction in standard errors for linear regression with multi-stage samples.
+\textit{Survey Methodology} 28(2):169--181.
 
 \bibitem[Bell et~al.(2018)]{bell2018inventory}
 Bell DR, Gallino S, Moreno A (2018) Offline showrooms in omnichannel retail: Demand and operational benefits.
@@ -576,6 +577,15 @@ Sirdeshmukh D, Singh J, Sabol B (2002) Consumer trust, value, and loyalty in rel
 Tucker AL (2007) An empirical study of system improvement by frontline employees in hospital units.
 \textit{Manufacturing \& Service Operations Management} 9(4):492--505.
 
+\bibitem[Cameron et~al.(2008)]{cameron2008bootstrap}
+Cameron AC, Gelbach JB, Miller DL (2008) Bootstrap-based improvements for inference with clustered errors.
+\textit{Review of Economics and Statistics} 90(3):414--427.
+
+\bibitem[Webb(2023)]{webb2023reworking}
+Webb MD (2023) Reworking wild bootstrap-based inference for clustered errors.
+\textit{Canadian Journal of Economics} 56(3):839--858.
+
 \end{thebibliography}
+}% end \small
 
 \end{document}

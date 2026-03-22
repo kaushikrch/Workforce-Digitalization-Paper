@@ -892,6 +892,14 @@ def plot_study2(res, save_path="fig2_basin_map.pdf"):
                 xytext=(firm_F+0.02, firm_W),
                 arrowprops=dict(arrowstyle='->', color='white', lw=2))
 
+    # Annotate F_crit on the separatrix
+    ax.annotate(r'$F_{\mathrm{crit}} \approx 1.11$',
+                xy=(1.11, 0.78), xytext=(1.30, 0.78),
+                fontsize=10, fontweight='bold', color='black',
+                arrowprops=dict(arrowstyle='->', color='black', lw=1.5),
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='white',
+                          edgecolor='black', alpha=0.9))
+
     ax.set_xlabel("Front-Stage Digitalisation $F$", fontsize=11)
     ax.set_ylabel("Initial Workforce Well-being $W_0$", fontsize=11)
     ax.set_title("Tipping Point Map: Basin of Attraction\n"
@@ -954,11 +962,13 @@ def plot_study4(res, save_path="fig5_burnout_cliff.pdf"):
         # Rapid-collapse diagnostic (dashed vertical, lighter)
         ax.axvline(rd['dF_rapid'], color=col, lw=0.8, linestyle=(0,(3,5)), alpha=0.55)
 
-    # Legend additions
-    v1 = mpatches.Patch(color='grey', alpha=0.8,
-                         label=r'$\Delta F_{\mathrm{collapse}}$ (permanent onset)')
-    v2 = mpatches.Patch(color='grey', alpha=0.35,
-                         label=r'$\Delta F_{\mathrm{rapid}}$ (instantaneous overload)')
+    # Legend: use Line2D objects matching actual plotted line styles
+    from matplotlib.lines import Line2D
+    v1 = Line2D([0], [0], color='black', lw=1.2, linestyle=':',
+                label=r'$\Delta F_{\mathrm{collapse}}$ (permanent onset)')
+    v2 = Line2D([0], [0], color='black', lw=0.8, linestyle=(0,(3,5)),
+                alpha=0.55,
+                label=r'$\Delta F_{\mathrm{rapid}}$ (instantaneous overload)')
     handles, labels_ = ax.get_legend_handles_labels()
     ax.legend(handles=handles + [v1, v2], fontsize=8, loc='lower left')
 
