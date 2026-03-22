@@ -501,7 +501,7 @@ The model yields three testable predictions at the firm--year level: (i)~a posit
 \subsection{Data and Sample}\label{sec:emp:data}
 
 \textit{US sample.}
-We construct a balanced panel of 13 publicly listed US retailers observed annually from 2010 to 2024. Customer satisfaction ($T$ proxy) is measured by the American Customer Satisfaction Index (ACSI; \citealp{mittal1998asymmetric}), a nationally representative survey scored 0--100 (source: \texttt{theacsi.org}). Workforce well-being ($W$ proxy) uses Glassdoor overall ratings (1--5 scale). Technology investment ($K$ proxy) is capital expenditure intensity (CapEx/Revenue) extracted from SEC EDGAR 10-K filings via the XBRL API. E-commerce share of retail sales is from the Federal Reserve Economic Data (FRED) series ECOMPCTSA. Revenue (size control), SGA intensity, and net margin are from EDGAR. After listwise deletion of missing observations, the regression sample contains 131 complete firm--year observations across 13 firms and 12 years.
+We construct a balanced panel of 13 publicly listed US retailers observed annually from 2010 to 2024. Customer satisfaction ($T$ proxy) is measured by the American Customer Satisfaction Index (ACSI; \citealp{mittal1998asymmetric}), a nationally representative survey scored 0--100 (source: \texttt{theacsi.org}). Workforce well-being ($W$ proxy) uses Glassdoor overall ratings (1--5 scale). Technology investment ($K$ proxy) is capital expenditure intensity (CapEx/Revenue) extracted from SEC EDGAR 10-K filings. E-commerce share of retail sales is from the Federal Reserve Economic Data series ECOMPCTSA. Revenue (size control), SGA intensity, and net margin are from EDGAR. After listwise deletion of missing observations, the regression sample contains 131 complete firm--year observations across 13 firms and 12 years.
 
 \textit{EU sample.}
 An independent replication panel covers 11 European retailers across six countries (UK, France, Germany, Spain, Sweden, Netherlands) from 2019 to 2023. Customer satisfaction uses Trustpilot scores (1--5 scale; rescaled to 0--100 for comparability). Glassdoor ratings proxy workforce well-being. Financial data are from Yahoo Finance. Because financials are reported in mixed currencies (GBP, EUR, SEK), we use within-year asset percentile rank as the size control in cross-sectional specifications and log revenue only in within-firm (fixed-effects) specifications where currency is absorbed. E-commerce share uses UK Office for National Statistics internet sales data for UK firms and Eurostat data for continental retailers. The complete panel contains 20 firm--year observations with all three proxies present.
@@ -533,7 +533,7 @@ Prediction: $\beta_2 > 0$ (workforce improvement matters more at high technology
 
 \medskip
 \noindent\textit{Inference corrections.}
-With only $G = 13$ (US) and $G = 11$ (EU) firm clusters, standard clustered standard errors are biased downward. Following \citet{cameron2008bootstrap}, we report $p$-values from the $t(G{-}1)$ distribution throughout and supplement with CR2 finite-sample corrections \citep{bell2002bias} and Webb six-point wild cluster bootstrap \citep{webb2023reworking} in the EC. All corrections are applied uniformly across both geographies.
+With only $N_c = 13$ (US) and $N_c = 11$ (EU) firm clusters, standard clustered standard errors are biased downward. Following \citet{cameron2008bootstrap}, we report $p$-values from the $t(N_c{-}1)$ distribution throughout and supplement with cluster-robust (CR2) finite-sample corrections \citep{bell2002bias} and Webb six-point wild cluster bootstrap \citep{webb2023reworking} in the EC. All corrections are applied uniformly across both geographies.
 
 \subsection{Results}\label{sec:emp:results}
 
@@ -541,7 +541,7 @@ Table~\ref{tab:us_results} reports the US results.
 
 \begin{table}[htbp]
 \TABLE
-{US regression results. Dependent variable: ACSI score (0--100). All $p$-values use $t(G{-}1)$ correction with $G = 13$--$17$ clusters. Significance: $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.\label{tab:us_results}}
+{US regression results. Dependent variable: ACSI score (0--100). All $p$-values use $t(N_c{-}1)$ correction with $N_c = 13$--$17$ clusters. Significance: $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.10$.\label{tab:us_results}}
 {\small
 \begin{tabular}{lcccc}
 \toprule
@@ -567,7 +567,7 @@ $N$ & 173 & 118 & 84 & \\
 \bottomrule
 \end{tabular}
 }
-{}
+{$N$ varies across tests because each requires different variable coverage: Test~1 requires ACSI, Glassdoor, and CapEx; Test~2 requires only ACSI and e-commerce share; Test~3 uses first-differenced variables, losing one observation per firm.}
 \end{table}
 
 \noindent\textit{Test 1 (Complementarity).} The cross-sectional (OLS) estimate of $\beta_3$ is positive ($+$1.95), consistent with the model's prediction that firms with jointly higher technology and workforce investment enjoy higher satisfaction. However, the within-firm estimates (Models 1b--1d) are negative and sometimes significant, suggesting that year-to-year co-movements in $K$ and $W$ within the same firm do not raise satisfaction. This reversal is consistent with low within-firm variation in Glassdoor ratings (within-firm SD is only 30\% of total SD): firm fixed effects absorb the cross-sectional signal that drives complementarity.
@@ -578,12 +578,12 @@ $N$ & 173 & 118 & 84 & \\
 
 \medskip
 \noindent\textit{EU replication.}
-The European sample provides an independent out-of-sample test. Using Trustpilot (1--5 scale) as the outcome, the between-effects estimate of $\beta_3$ is positive ($+$0.47) and significant under pooled cluster-robust inference (CR2: $p = 0.045$ at $t(10)$). However, the conservative HC3 between-effects estimate ($p = 0.53$) and Webb bootstrap ($p = 0.62$) do not reject zero, reflecting the extreme power limitation of $G = 11$ clusters. The qualitative sign consistency across geographies---positive $K \times W$ in cross-section---provides suggestive, though not conclusive, support for complementarity.
+The European sample provides an independent out-of-sample test. Using Trustpilot (1--5 scale) as the outcome, the between-effects estimate of $\beta_3$ is positive ($+$0.47) and significant under pooled cluster-robust inference (CR2: $p = 0.045$ at $t(10)$). However, the conservative HC3 between-effects estimate ($p = 0.53$) and Webb bootstrap ($p = 0.62$) do not reject zero, reflecting the extreme power limitation of $N_c = 11$ clusters. The qualitative sign consistency across geographies---positive $K \times W$ in cross-section---provides suggestive, though not conclusive, support for complementarity.
 
 \subsection{Limitations of the Empirical Analysis}\label{sec:emp:limits}
 
 Four limitations warrant emphasis.
-First, with $G \in \{11, 13\}$ clusters, clustered inference is at the boundary of asymptotic validity; we report wild bootstrap $p$-values in the EC for all key coefficients.
+First, with $N_c \in \{11, 13\}$ clusters, clustered inference is at the boundary of asymptotic validity; we report wild bootstrap $p$-values in the EC for all key coefficients.
 Second, Glassdoor ratings exhibit low within-firm temporal variation, making the complementarity interaction difficult to identify within firm over time; between-effects estimates (which exploit cross-sectional variation) are more informative but face omitted-variable concerns.
 Third, the EU outcome (Trustpilot) is complaint-biased and operates on a different scale than ACSI; while we rescale to 0--100 for coefficient comparability, measurement equivalence is not guaranteed.
 Fourth, the data are at the firm--year level; the model's predictions concern service-capacity dynamics that are most cleanly testable with store-level panel data and exogenous technology rollout events.
