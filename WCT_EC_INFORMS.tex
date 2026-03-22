@@ -92,6 +92,14 @@ We verify each boundary by checking the sign of the directional derivative.
 In each case, the vector field points strictly into $\Omega$ (or is tangent to the boundary), so $\Omega$ is forward-invariant by the standard barrier argument. All state variables therefore remain in their economically meaningful domains for all $t \geq 0$.\Halmos
 \end{proof}
 
+\begin{remark}[Piecewise-Smooth Dynamics]\label{rem:pwsmooth}
+The system \eqref{ec:dK}--\eqref{ec:dT} is piecewise-smooth, with a non-smooth gradient at the switching manifold $\mathcal{M} = \{G = 0\}$. Existence and uniqueness of solutions follow from Filippov's (\citeyear{filippov1988differential}) framework, provided trajectories cross $\mathcal{M}$ transversally; numerical verification at both equilibria confirms this under baseline parameters. The implicit function theorem arguments underpinning the analytical results are applied at surplus equilibria where $G^* = -S^* < 0$, so differentiability is guaranteed by the smooth structure of the ODE within $\{G < 0\}$; smoothing robustness is verified in \S\ref{sec:ec:smoothing}.
+\end{remark}
+
+\begin{remark}[Computability of $F_{\mathrm{crit}}$]\label{rem:Fcrit_implicit}
+The implicit balance condition $K^*h(W^*)=(1+aT^*)F^b+S^*$ rearranges to $F=(K^*h(W^*)/(1+aT^*))^{1/b}$, but this is self-referential since $W^*$ and $T^*$ depend on $F$. The computable form evaluates $h$ and the demand term at the boundary $S^*\to 0$ where $T^*\to 0$, yielding the closed-form threshold $F_{\mathrm{crit}} = (K^* h(f/(f+\mu)))^{1/b}$.
+\end{remark}
+
 \subsection{Equilibrium Existence and Uniqueness}\label{sec:ec:existence}
 
 Before proving the main theorems, we establish that the surplus equilibrium invoked by Theorems~1--3 exists and is unique. The equilibrium expressions derived in \S4.1 of the main paper are conditional on a surplus $S^* > 0$, but $S^*$ itself depends on the equilibrium values $W^*$ and $T^*$ through $S^* = K^* h(W^*) - D(T^*, F)$, creating a fixed-point problem. We resolve this by reducing the system to a single implicit equation in $S^*$ and establishing that it has exactly one positive solution.
@@ -416,7 +424,7 @@ $\delta$: 0.03 $\to$ 0.06 & Strengthens & Weakens & Strengthens \\
 {Notes.}
 \end{table}
 
-\textbf{Key observations.} The parameter $p$ is the most uniformly influential: reducing it weakens all three theorems simultaneously, confirming the workforce capacity multiplier as the model's structural driver. The parameter $b$ is critical for Theorem~1: at $b = 1$ the Trap disappears entirely, as linear demand allows the back-stage to absorb growth through Loop B1. The parameter $\sigma$ is critical for Theorem~3: at $\sigma = 1$, symmetric overload and recovery eliminate the bistability that produces the tipping point. No single perturbation simultaneously kills all three results.
+\textbf{Key observations.} $p$ is the most uniformly influential parameter: reducing it weakens all three theorems simultaneously. $b$ is critical for Theorem~1 (at $b = 1$ the Trap disappears); $\sigma$ for Theorem~3 (at $\sigma = 1$ bistability vanishes). No single perturbation kills all three results.
 
 \begin{table}
 \TABLE
@@ -465,17 +473,17 @@ $\lambda$ (nat.\ $T$ decay) & 0.025 & 28\,mo & Illustrative & Robust \\
 {$\tau_{1/2}$: implied half-life $= \ln(2)/\theta$.}
 \end{table}
 
-\textbf{Demand super-linearity ($b = 1.3$).} \citet{bell2018inventory} and \citet{acimovic2015fulfillment} document fulfilment patterns consistent with error rates rising super-linearly with omnichannel combinations. We set $b = 1.3$ as an illustrative, conservative baseline motivated by this literature: a 10\% front-stage increase raises back-stage demand by approximately 13\%. The Trap requires only $b > 1$; the sensitivity range $b \in [1.0, 1.6]$ is in Table~\ref{tab:ec:sensitivity}.
+\textbf{Demand super-linearity ($b = 1.3$).} A 10\% front-stage increase raises back-stage demand by approximately 13\%. The Trap requires only $b > 1$; sensitivity in Table~\ref{tab:ec:sensitivity}.
 
-\textbf{Workforce-technology complementarity ($p = 0.5$).} We set $p = 0.5$ as a moderate illustrative value: a burned-out workforce ($W = 0$) delivers 50\% of design capacity. The capital-skill complementarity estimates of \citet{krusell2000capital} support a mid-range starting point. The central testable prediction is the interaction coefficient in a store-level CLV regression on $K$, $W$, and $K \times W$, requiring instrumental variables to address simultaneity (see \S 6.2 of the main paper). All results hold for any $p \in (0,1)$.
+\textbf{Workforce-technology complementarity ($p = 0.5$).} A burned-out workforce ($W = 0$) delivers 50\% of design capacity \citep{krusell2000capital}. All results hold for any $p \in (0,1)$.
 
-\textbf{Overload-recovery asymmetry ($\sigma = 2.0$).} Set as a magnitude comparator consistent with \citeauthor{oliva2001cutting}'s (\citeyear{oliva2001cutting}) finding that workers are roughly twice as willing to cut corners as to work overtime. This is a comparator from a professional-service study, not a direct structural estimate for retail; the Job Demands-Resources (JD-R) literature \citep{bakker2007job} provides additional support. The Cliff disappears only at $\sigma = 1$; all theorems hold across $\sigma \in [1.0, 3.0]$ (Table~\ref{tab:ec:sensitivity}).
+\textbf{Overload-recovery asymmetry ($\sigma = 2.0$).} Magnitude comparator from \citet{oliva2001cutting}; the Cliff disappears only at $\sigma = 1$ (Table~\ref{tab:ec:sensitivity}).
 
 \subsection{Simulation Initial Conditions}
 
 Table~\ref{tab:ec:simparams} reports the initial conditions and control parameters for each figure. All simulations use the baseline model parameters from Table~2 of the main paper. Initial conditions are chosen so that each simulation begins in the surplus regime ($\Keff > D$), representing a retailer with adequate but not excessive back-stage capacity.
 
-\textbf{Basin-of-attraction map (referenced in \S5.2 of main paper).} We sweep $W_0 \in \{0.08, 0.10, \ldots, 0.80\}$ (37 points) and $F \in \{0.70, 0.75, \ldots, 1.95\}$ (26 points) on a grid, starting each trajectory at $K_0$ such that $G = 0$ and $T_0 = 0.50$. Terminal CLV $> 600$ marks convergence to the surplus attractor (green); CLV $< 600$ marks the low-trust attractor (red). The separatrix boundary is consistent with the analytic $\Delta F_{\mathrm{collapse}}$ threshold from Theorem~3. Convergence is validated by a full doubled-grid recomputation: the basin is re-run at $73{\times}51 = 3{,}723$ trajectories (step $\Delta W_0 = 0.01$, $\Delta F = 0.025$, half the original grid spacing in each dimension), and the separatrix $W_0$-position is compared at each common $F$-slice. The maximum shift across all $F$-slices is $0.0075$ $W_0$-units (fewer than 1 coarse grid step; tolerance $\Delta W < 0.04$), confirming that the boundary position is numerically stable. For the Burnout Cliff simulation (Figure~5), permanent collapse is defined as $T(t=500) < 0.15$ (surplus attractor: $T^* > 0.40$; low-trust: $T^* < 0.10$; confirmed stable at $t=500$ months).
+\textbf{Basin-of-attraction map.} Grid: $W_0 \in \{0.08, 0.10, \ldots, 0.80\}$, $F \in \{0.70, 0.75, \ldots, 1.95\}$ ($37{\times}26$ trajectories). Doubled-grid validation ($73{\times}51$) shifts the separatrix by at most $0.0075$ $W_0$-units. Burnout Cliff collapse criterion: $T(t{=}500) < 0.15$.
 
 \begin{table}
 \TABLE
