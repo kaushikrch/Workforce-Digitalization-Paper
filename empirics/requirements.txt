@@ -1,0 +1,13 @@
+# WCT Empirical Analysis — Python Dependencies
+# Install: pip install -r empirics/requirements.txt
+
+# Core data handling
+pandas>=1.5.0
+numpy>=1.23.0
+
+# Econometrics
+statsmodels>=0.13.0
+linearmodels>=5.0        # Panel data fixed effects (PanelOLS)
+
+# Optional: for enhanced LaTeX output
+# stargazer>=0.0.5       # Regression table formatting
