@@ -118,6 +118,30 @@ def assemble_panel(data_dir: str = "data",
     print(f"[PANEL] Universe: {len(universe)} firm-year observations "
           f"from EDGAR")
 
+    # --- Merge Validation ---
+    # Check for duplicate keys in each source
+    _dup_acsi = len(acsi) - len(acsi_idx)
+    _dup_gd = len(glassdoor) - len(glassdoor_idx)
+    _dup_ed = len(edgar) - len(edgar_idx)
+    if _dup_acsi or _dup_gd or _dup_ed:
+        print(f"[PANEL] WARNING: Duplicate (ticker,year) keys detected:")
+        if _dup_acsi: print(f"  ACSI: {_dup_acsi} duplicates dropped (last wins)")
+        if _dup_gd:   print(f"  Glassdoor: {_dup_gd} duplicates dropped")
+        if _dup_ed:   print(f"  EDGAR: {_dup_ed} duplicates dropped")
+
+    # Report pre-merge coverage
+    acsi_tickers = set(k[0] for k in acsi_idx)
+    gd_tickers = set(k[0] for k in glassdoor_idx)
+    ed_tickers = set(k[0] for k in edgar_idx)
+    all_tickers = acsi_tickers | gd_tickers | ed_tickers
+    triple = acsi_tickers & gd_tickers & ed_tickers
+    print(f"[PANEL] Merge coverage:")
+    print(f"  ACSI firms:      {len(acsi_tickers)}")
+    print(f"  Glassdoor firms: {len(gd_tickers)}")
+    print(f"  EDGAR firms:     {len(ed_tickers)}")
+    print(f"  All three:       {len(triple)} firms")
+    print(f"  Union:           {len(all_tickers)} firms")
+
     # Merge
     merged = []
     n_complete = 0

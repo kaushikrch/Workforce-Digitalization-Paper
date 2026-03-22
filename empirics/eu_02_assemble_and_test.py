@@ -66,19 +66,60 @@ def assemble_panel():
         if col not in ("company", "ticker", "country"):
             fin[col] = pd.to_numeric(fin[col], errors="coerce")
 
+    # --- Merge Validation: Check key uniqueness ---
+    print("\n  MERGE VALIDATION:")
+    for name, df, keys in [("Trustpilot", trust, ["ticker", "year"]),
+                            ("Glassdoor", gd, ["ticker", "year"]),
+                            ("Financials", fin, ["ticker", "year"])]:
+        dupes = df.duplicated(subset=keys, keep=False)
+        n_dup = dupes.sum()
+        if n_dup > 0:
+            print(f"    WARNING: {name} has {n_dup} duplicate (ticker,year) rows")
+            # Keep last occurrence (most recent data)
+            df.drop_duplicates(subset=keys, keep="last", inplace=True)
+            print(f"      → Kept last occurrence, now {len(df)} rows")
+        else:
+            print(f"    {name}: {len(df)} rows, keys unique ✓")
+
+    # --- Fiscal Year Alignment Validation ---
+    print("\n  FISCAL YEAR ALIGNMENT:")
+    # yfinance reports by fiscal year end date. Most EU retailers have
+    # calendar-year or near-calendar-year fiscal years, but some differ:
+    # Tesco: FY ends late Feb → FY2024 runs Mar2023-Feb2024, mapped to 2024
+    # Next: FY ends late Jan → similar offset
+    # ABF/Primark: FY ends Sep → FY2024 runs Sep2023-Sep2024, mapped to 2024
+    # H&M: FY ends Nov → FY2024 runs Dec2023-Nov2024
+    # All others: calendar year
+    fy_notes = {
+        "TSCO.L": "Feb year-end (1-month offset)",
+        "NXT.L": "Jan year-end (1-month offset)",
+        "ABF.L": "Sep year-end (3-month offset)",
+        "HM-B.ST": "Nov year-end (1-month offset)",
+    }
+    for ticker in fin.ticker.unique():
+        note = fy_notes.get(ticker, "Calendar year ✓")
+        print(f"    {ticker:10s}  {note}")
+    print("    Note: All offsets <3 months; annual Trustpilot/Glassdoor are ")
+    print("    calendar-year averages. Mismatch is minor and unavoidable.")
+
     # --- Merge Step 1: Financials as backbone ---
+    n_pre = len(fin)
     panel = fin.copy()
 
     # --- Merge Step 2: Trustpilot (T proxy) ---
     trust_cols = trust[["ticker", "year", "trustpilot_score",
                         "trustpilot_reviews"]].copy()
-    panel = panel.merge(trust_cols, on=["ticker", "year"], how="left")
+    panel = panel.merge(trust_cols, on=["ticker", "year"], how="left",
+                        validate="1:1")
+    assert len(panel) == n_pre, "Merge inflated rows (Trustpilot)"
 
     # --- Merge Step 3: Glassdoor (W proxy) ---
     gd_cols = gd[["ticker", "year", "glassdoor_overall",
                   "review_count"]].copy()
     gd_cols = gd_cols.rename(columns={"review_count": "gd_review_count"})
-    panel = panel.merge(gd_cols, on=["ticker", "year"], how="left")
+    panel = panel.merge(gd_cols, on=["ticker", "year"], how="left",
+                        validate="1:1")
+    assert len(panel) == n_pre, "Merge inflated rows (Glassdoor)"
 
     # --- Merge Step 4: Macro controls ---
     macro["year"] = pd.to_numeric(macro["year"], errors="coerce")
@@ -95,14 +136,25 @@ def assemble_panel():
     )
 
     # --- Computed variables ---
+    # NOTE: log_revenue is in mixed currencies (GBP/EUR/SEK). We use it
+    # ONLY as a within-firm size control (absorbed by firm FE in levels).
+    # For cross-sectional regressions (between-effects), we use
+    # log_assets_rank as a currency-neutral size proxy.
     panel["log_revenue"] = np.log(panel["revenue"].clip(lower=1))
     panel["log_assets"] = np.log(panel["assets"].clip(lower=1))
     panel["net_margin"] = panel["net_income"] / panel["revenue"]
     panel["ecom2"] = panel["ecom_share"] ** 2
 
+    # Currency-neutral size: within-year percentile rank of assets
+    # (rank is invariant to currency units)
+    panel["assets_rank"] = panel.groupby("year")["assets"].rank(
+        method="average", pct=True)
+    panel["revenue_rank"] = panel.groupby("year")["revenue"].rank(
+        method="average", pct=True)
+
     # Standardize
     for v in ["capex_intensity", "glassdoor_overall", "trustpilot_score",
-              "sga_intensity"]:
+              "sga_intensity", "net_margin"]:
         mu = panel[v].mean()
         sd = panel[v].std()
         if sd and sd > 0:
@@ -127,16 +179,26 @@ def assemble_panel():
     # Time trend
     panel["time_trend"] = panel["year"] - 2019
 
-    # Firm means (Mundlak)
-    for v in ["capex_intensity", "glassdoor_overall", "trustpilot_score"]:
+    # Year dummies (for explicit time FE in pooled regressions)
+    for yr in sorted(panel["year"].dropna().unique()):
+        panel[f"yr_{int(yr)}"] = (panel["year"] == yr).astype(int)
+
+    # Firm means (Mundlak CRE device)
+    for v in ["capex_intensity", "glassdoor_overall", "trustpilot_score",
+              "sga_intensity"]:
         panel[f"{v}_bar"] = panel.groupby("ticker")[v].transform("mean")
+
+    # Rescale Trustpilot to 0-100 for comparability with ACSI
+    # Linear map: 1→0, 5→100 → trustpilot_100 = (score - 1) * 25
+    panel["trustpilot_100"] = (panel["trustpilot_score"] - 1) * 25
 
     # --- Merge Diagnostics ---
     print("\n  MERGE DIAGNOSTICS:")
     print(f"  {'Variable':<25s} {'Non-null':>8s} {'% Complete':>10s} {'Firms':>6s}")
     print("  " + "-"*55)
-    for var in ["revenue", "capex_intensity", "trustpilot_score",
-                "glassdoor_overall", "ecom_share"]:
+    for var in ["revenue", "capex_intensity", "sga_intensity",
+                "net_margin", "trustpilot_score",
+                "glassdoor_overall", "ecom_share", "assets_rank"]:
         nn = panel[var].notna().sum()
         pct = 100 * nn / len(panel)
         firms = panel[panel[var].notna()].ticker.nunique()
@@ -307,46 +369,82 @@ def run(df, y, xs, method="fe", label="", cluster="ticker"):
 # -----------------------------------------------------------------------
 
 def run_core_tests(df):
-    """Run the three core WCT tests on European data."""
+    """Run the three core WCT tests on European data.
+
+    Key differences from US pipeline (for consistency):
+      - Size control: assets_rank (currency-neutral) for BE;
+        log_revenue for FE (absorbed by firm FE in levels)
+      - Additional controls: sga_intensity, net_margin
+      - Mundlak CRE specification added
+      - Trustpilot_100 (rescaled 0-100) used alongside raw 1-5
+    """
     print("\n" + "="*70)
     print("PHASE 3: CORE REPLICATION TESTS")
     print("="*70)
 
+    # Define control sets
+    # For between-effects: use assets_rank (currency-neutral percentile)
+    # For FE/pooled: log_revenue OK (currency differences absorbed by firm FE)
+    xs_be = ["capex_intensity_z", "glassdoor_overall_z", "K_x_W_z",
+             "assets_rank"]
+    xs_fe = ["capex_intensity_z", "glassdoor_overall_z", "K_x_W_z",
+             "log_revenue"]
+    xs_fe_ctrl = xs_fe + ["sga_intensity", "net_margin"]
+
     # --- Test 1: Complementarity (K×W) ---
-    # Use Trustpilot as T (outcome), Glassdoor as W, Capex as K
     print("\n" + "-"*60)
     print("TEST 1: COMPLEMENTARITY (K×W → Trustpilot)")
     print("-"*60)
     print("  Note: Trustpilot (1-5) replaces ACSI (0-100) as T proxy.")
+    print("  assets_rank used for BE (currency-neutral); log_revenue for FE.")
 
-    run(df, "trustpilot_score",
-        ["capex_intensity_z", "glassdoor_overall_z", "K_x_W_z", "log_revenue"],
+    # T1a: Between-effects with currency-neutral size control
+    run(df, "trustpilot_score", xs_be,
         "be", "T1a: Between-effects (main)")
 
-    run(df, "trustpilot_score",
-        ["capex_intensity_z", "glassdoor_overall_z", "K_x_W_z", "log_revenue"],
+    # T1b: Two-way FE (firm + year)
+    run(df, "trustpilot_score", xs_fe,
         "fe", "T1b: Two-way FE")
 
-    run(df, "trustpilot_score",
-        ["capex_intensity_z", "glassdoor_overall_z", "K_x_W_z", "log_revenue"],
-        "pooled", "T1c: Pooled OLS")
+    # T1c: Pooled OLS with clustered SE
+    run(df, "trustpilot_score", xs_fe,
+        "pooled", "T1c: Pooled OLS (clustered)")
+
+    # T1d: FE + additional controls (SGA, net margin) — matching US 1d
+    run(df, "trustpilot_score", xs_fe_ctrl,
+        "fe", "T1d: Two-way FE + controls")
+
+    # T1e: Mundlak CRE (Random Effects + firm means)
+    # This decomposes the K×W signal into between-firm and within-firm
+    xs_mundlak = xs_fe + ["capex_intensity_bar", "glassdoor_overall_bar"]
+    run(df, "trustpilot_score", xs_mundlak,
+        "re", "T1e: Mundlak CRE")
+
+    # T1f: Rescaled Trustpilot (0-100) for direct comparability with ACSI
+    run(df, "trustpilot_100", xs_be,
+        "be", "T1f: BE (Trustpilot 0-100 scale)")
 
     # --- Test 2: Front-Stage Trap (inverted-U in e-commerce) ---
     print("\n" + "-"*60)
     print("TEST 2: FRONT-STAGE TRAP (e-commerce → Trustpilot)")
     print("-"*60)
 
+    # T2a: FE (within-firm ecommerce variation)
     run(df, "trustpilot_score",
         ["ecom_share", "ecom2", "log_revenue"],
         "fe", "T2a: Quadratic ecom (FE)")
 
+    # T2b: Between-effects (cross-sectional ecommerce variation)
     run(df, "trustpilot_score",
-        ["ecom_share", "ecom2", "log_revenue"],
+        ["ecom_share", "ecom2", "assets_rank"],
         "be", "T2b: Quadratic ecom (Between)")
 
+    # T2c: Pooled OLS (avoids singularity in FE with few time periods)
+    # Note: FE with glassdoor_overall was singular due to collinearity;
+    # pooled OLS with cluster-robust SE is the appropriate alternative
     run(df, "trustpilot_score",
         ["ecom_share", "ecom2", "glassdoor_overall", "log_revenue"],
-        "fe", "T2c: Quadratic ecom + W (FE)")
+        "pooled", "T2c: Quadratic ecom + W (Pooled)")
 
     # --- Test 3: Good Jobs Buffer (ΔW × K → ΔT) ---
     print("\n" + "-"*60)
@@ -358,8 +456,13 @@ def run_core_tests(df):
     df_s["d_gd"] = df_s.groupby("ticker")["glassdoor_overall"].diff()
     df_s["d_gd_x_K"] = df_s["d_gd"] * df_s["capex_intensity"]
 
+    # T3a: FE with first-differences
     run(df_s, "d_trust", ["d_gd", "d_gd_x_K", "capex_intensity"],
         "fe", "T3a: ΔTrust ~ ΔGD×K (FE)")
+
+    # T3b: Pooled first-differences (avoids FE with sparse Δ)
+    run(df_s, "d_trust", ["d_gd", "d_gd_x_K", "capex_intensity"],
+        "pooled", "T3b: ΔTrust ~ ΔGD×K (Pooled)")
 
 
 # -----------------------------------------------------------------------
@@ -367,39 +470,49 @@ def run_core_tests(df):
 # -----------------------------------------------------------------------
 
 def run_robustness(df):
-    """Run robustness checks matching US analysis."""
+    """Run robustness checks matching US analysis.
+
+    Uses consistent control sets:
+      - BE specs: assets_rank (currency-neutral)
+      - FE/pooled specs: log_revenue (absorbed by firm FE)
+    """
     print("\n" + "="*70)
     print("PHASE 4: ROBUSTNESS BATTERY")
     print("="*70)
 
-    xs = ["capex_intensity_z", "glassdoor_overall_z", "K_x_W_z", "log_revenue"]
+    xs_be = ["capex_intensity_z", "glassdoor_overall_z", "K_x_W_z",
+             "assets_rank"]
+    xs_fe = ["capex_intensity_z", "glassdoor_overall_z", "K_x_W_z",
+             "log_revenue"]
 
     # R1: Lagged specification
     print("\n--- R1: Lagged K×W (t-1 → t) ---")
     run(df, "trustpilot_score",
         ["capex_intensity_z_L1", "glassdoor_overall_z_L1",
-         "K_x_W_z_L1", "log_revenue"],
+         "K_x_W_z_L1", "assets_rank"],
         "be", "R1a: Lagged BE")
 
     # R2: Exclude COVID
     print("\n--- R2: Exclude 2020-2021 ---")
     df_nc = df[~df.year.isin([2020, 2021])]
-    run(df_nc, "trustpilot_score", xs, "be", "R2a: Excl COVID (BE)")
+    run(df_nc, "trustpilot_score", xs_be, "be", "R2a: Excl COVID (BE)")
 
-    # R3: UK-only sub-sample
-    print("\n--- R3: UK-only sub-sample ---")
+    # R3: UK-only sub-sample (same currency → log_revenue OK)
+    print("\n--- R3: UK-only sub-sample (GBP only) ---")
     df_uk = df[df.country == "GB"]
-    run(df_uk, "trustpilot_score", xs, "be", "R3a: UK only (BE)")
-    run(df_uk, "trustpilot_score", xs, "fe", "R3b: UK only (FE)")
+    xs_uk = ["capex_intensity_z", "glassdoor_overall_z", "K_x_W_z",
+             "log_revenue"]
+    run(df_uk, "trustpilot_score", xs_uk, "be", "R3a: UK only (BE)")
+    run(df_uk, "trustpilot_score", xs_uk, "fe", "R3b: UK only (FE)")
 
-    # R4: Continental Europe only
+    # R4: Continental Europe only (EUR-zone + SEK)
     print("\n--- R4: Continental Europe only ---")
     df_eu = df[df.country != "GB"]
-    run(df_eu, "trustpilot_score", xs, "be", "R4a: Continental EU (BE)")
+    run(df_eu, "trustpilot_score", xs_be, "be", "R4a: Continental EU (BE)")
 
     # R5: Leave-one-out
     print("\n--- R5: Leave-one-out (Between-effects) ---")
-    core = df.dropna(subset=["trustpilot_score"] + xs + ["ticker", "year"])
+    core = df.dropna(subset=["trustpilot_score"] + xs_be + ["ticker", "year"])
     firms = sorted(core.ticker.unique())
     print(f"  {'Dropped':>12s}  {'b(K×W)':>10s}  {'p':>8s}")
     print("  " + "-"*35)
@@ -412,31 +525,31 @@ def run_robustness(df):
                 df_loo[f"{v}_z"] = (df_loo[v] - mu) / sd
         df_loo["K_x_W_z"] = df_loo["capex_intensity_z"] * df_loo["glassdoor_overall_z"]
 
-        sub = df_loo.dropna(subset=["trustpilot_score"] + xs + ["ticker", "year"])
+        sub = df_loo.dropna(subset=["trustpilot_score"] + xs_be + ["ticker", "year"])
         if sub.ticker.nunique() < 4:
             continue
-        panel = sub.set_index(["ticker", "year"])
-        Y = panel["trustpilot_score"]
-        X = sm.add_constant(panel[xs])
+        panel_sub = sub.set_index(["ticker", "year"])
+        Y = panel_sub["trustpilot_score"]
+        X = sm.add_constant(panel_sub[xs_be])
         try:
             res = BetweenOLS(Y, X).fit()
             b = res.params.get("K_x_W_z", np.nan)
             p = res.pvalues.get("K_x_W_z", np.nan)
-            name = EU_RETAILERS.get(firm, (firm,))[0] if firm in EU_RETAILERS else firm
+            name = firm  # ticker as name
             print(f"  {name:>12s}  {b:>10.4f}  {p:>8.4f} {sig(p)}")
         except Exception:
             pass
 
-    # R6: Wild cluster bootstrap
+    # R6: Wild cluster bootstrap (using currency-neutral controls)
     print("\n--- R6: Wild cluster bootstrap ---")
     firm_means = core.groupby("ticker").agg({
         "trustpilot_score": "mean", "capex_intensity_z": "mean",
         "glassdoor_overall_z": "mean", "K_x_W_z": "mean",
-        "log_revenue": "mean",
+        "assets_rank": "mean",
     }).reset_index()
 
     Y = firm_means["trustpilot_score"].values
-    X = sm.add_constant(firm_means[xs].values)
+    X = sm.add_constant(firm_means[xs_be].values)
     ols = sm.OLS(Y, X).fit()
     b_kxw = ols.params[3]
     resid = ols.resid
@@ -479,15 +592,27 @@ def run_robustness(df):
     print(f"  Placebo mean: {np.mean(placebo_coefs):.4f}")
     print(f"  Placebo p-value: {p_placebo:.4f} {sig(p_placebo)}")
 
-    # R8: Macro controls
-    print("\n--- R8: With macro controls ---")
+    # R8: Macro controls + time FE variants
+    print("\n--- R8: With macro controls and time FE ---")
     run(df, "trustpilot_score",
-        xs + ["ecom_share", "time_trend"],
+        xs_fe + ["ecom_share", "time_trend"],
         "pooled", "R8a: + ecom + trend (Pooled)")
+
+    # R8b: SGA and net_margin as additional controls
+    run(df, "trustpilot_score",
+        xs_fe + ["sga_intensity", "net_margin"],
+        "pooled", "R8b: + SGA + margin (Pooled)")
+
+    # R8c: Explicit year dummies (pooled with time FE)
+    yr_cols = [c for c in df.columns if c.startswith("yr_") and c != "yr_2022"]
+    if yr_cols:
+        run(df, "trustpilot_score",
+            xs_fe + yr_cols[:2],  # Use 1-2 year dummies to avoid collinearity
+            "pooled", "R8c: + Year dummies (Pooled)")
 
     # R9: Small-sample corrections
     print("\n--- R9: Small-Sample Corrections ---")
-    _run_small_sample_corrections(df, xs)
+    _run_small_sample_corrections(df, xs_be)
 
 
 def _run_small_sample_corrections(df, xs):
@@ -722,33 +847,52 @@ def compare_us_eu(eu_df):
     else:
         print("\n  [US results not found — run 06_regressions.py first]")
 
-    # EU between-effects
-    xs = ["capex_intensity_z", "glassdoor_overall_z", "K_x_W_z", "log_revenue"]
-    core = eu_df.dropna(subset=["trustpilot_score"] + xs + ["ticker", "year"])
+    # EU between-effects (currency-neutral: assets_rank)
+    xs_be = ["capex_intensity_z", "glassdoor_overall_z", "K_x_W_z",
+             "assets_rank"]
+    core = eu_df.dropna(subset=["trustpilot_score"] + xs_be + ["ticker", "year"])
     firm_means = core.groupby("ticker").agg({
-        "trustpilot_score": "mean", **{v: "mean" for v in xs}
+        "trustpilot_score": "mean",
+        "trustpilot_100": "mean",
+        **{v: "mean" for v in xs_be}
     }).reset_index()
 
+    from scipy.stats import t as t_dist_cmp
     Y = firm_means["trustpilot_score"].values
-    X = sm.add_constant(firm_means[xs].values)
-    res = sm.OLS(Y, X).fit()
+    X = sm.add_constant(firm_means[xs_be].values)
+    res = sm.OLS(Y, X).fit(cov_type="HC3")
+    G = len(firm_means); k = X.shape[1]
+    kxw_idx = 3  # K_x_W_z is 4th column (after const)
+    b_eu = res.params[kxw_idx]
+    t_eu = res.tvalues[kxw_idx]
+    p_eu = 2 * (1 - t_dist_cmp.cdf(abs(t_eu), G - k))
 
-    print(f"\n  EU Between-effects: b(K×W)={res.params[3]:.4f}, "
-          f"p={res.pvalues[3]:.4f}")
+    # Also compute on 0-100 scale for direct comparability
+    Y100 = firm_means["trustpilot_100"].values
+    res100 = sm.OLS(Y100, X).fit(cov_type="HC3")
+    b_eu100 = res100.params[kxw_idx]
 
+    print(f"\n  EU Between-effects (HC3, t(G-k)={G-k}):")
+    print(f"    Trustpilot 1-5:   b(K×W)={b_eu:.4f}, p={p_eu:.4f}")
+    print(f"    Trustpilot 0-100: b(K×W)={b_eu100:.4f} (rescaled)")
+
+    eu_nf = core.ticker.nunique()
+    kxw_sign = "Positive" if b_eu > 0 else "Negative"
     print(f"""
-  ┌─────────────────────────────────────────────────────────┐
-  │  CROSS-GEOGRAPHY COMPARISON                             │
-  ├──────────────┬───────────────┬───────────────────────────┤
-  │              │  US (ACSI)    │  EU (Trustpilot)          │
-  ├──────────────┼───────────────┼───────────────────────────┤
-  │  T proxy     │  ACSI 0-100   │  Trustpilot 1-5           │
-  │  W proxy     │  Glassdoor    │  Glassdoor/Kununu         │
-  │  K proxy     │  Capex/Rev    │  Capex/Rev (yfinance)     │
-  │  N firms     │  13           │  {core.ticker.nunique():>2d}                        │
-  │  K×W sign    │  Positive     │  {'Positive' if res.params[3]>0 else 'Negative'}                   │
-  │  K×W p-value │  0.003        │  {res.pvalues[3]:.3f}                     │
-  └──────────────┴───────────────┴───────────────────────────┘
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  CROSS-GEOGRAPHY COMPARISON                                      │
+  ├────────────────┬────────────────────┬────────────────────────────┤
+  │                │  US (ACSI)         │  EU (Trustpilot)           │
+  ├────────────────┼────────────────────┼────────────────────────────┤
+  │  T proxy       │  ACSI 0-100        │  Trustpilot 1-5 (→ 0-100) │
+  │  W proxy       │  Glassdoor         │  Glassdoor                 │
+  │  K proxy       │  Capex/Rev (EDGAR) │  Capex/Rev (yfinance)      │
+  │  Size control  │  log_revenue (USD) │  assets_rank (cur-neutral) │
+  │  N firms       │  13                │  {eu_nf:>2d}                         │
+  │  K×W sign      │  Positive          │  {kxw_sign:<26s} │
+  │  K×W p-value   │  t(G-1)-corrected  │  {p_eu:.4f} (HC3, t({G-k}))       │
+  │  SE correction │  HC1 → t(12)       │  HC3 → t({G-k})                  │
+  └────────────────┴────────────────────┴────────────────────────────┘
     """)
 
 

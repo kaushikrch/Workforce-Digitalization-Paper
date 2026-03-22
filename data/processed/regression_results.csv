@@ -3,35 +3,35 @@ complementarity,1a: OLS (no FE),capex_z,-0.918513,0.725756,-1.266,0.2057,,131
 complementarity,1a: OLS (no FE),gd_z,2.835881,0.514146,5.516,0.0,***,131
 complementarity,1a: OLS (no FE),K_x_W_z,1.953259,2.361957,0.827,0.4083,,131
 complementarity,1a: OLS (no FE),log_revenue,-0.611077,0.386406,-1.581,0.1138,,131
-complementarity,1b: Firm FE,capex_z,-0.303872,0.129236,-2.351,0.0204,**,131
-complementarity,1b: Firm FE,gd_z,2.148765,0.553603,3.881,0.0002,***,131
-complementarity,1b: Firm FE,K_x_W_z,-0.634186,0.247154,-2.566,0.0116,**,131
-complementarity,1b: Firm FE,log_revenue,-0.452266,0.19716,-2.294,0.0236,**,131
-complementarity,1c: Two-way FE (main),capex_z,-0.333806,0.132701,-2.515,0.0134,**,131
-complementarity,1c: Two-way FE (main),gd_z,1.999957,0.676376,2.957,0.0039,***,131
-complementarity,1c: Two-way FE (main),K_x_W_z,-0.561463,0.312496,-1.797,0.0753,*,131
-complementarity,1c: Two-way FE (main),log_revenue,-0.404791,0.226058,-1.791,0.0763,*,131
-complementarity,1d: Two-way FE + controls,capex_z,-0.767713,5.699655,-0.135,0.8933,,83
+complementarity,1b: Firm FE,capex_z,-0.303872,0.129236,-2.351,0.0366,**,131
+complementarity,1b: Firm FE,gd_z,2.148765,0.553603,3.881,0.0022,***,131
+complementarity,1b: Firm FE,K_x_W_z,-0.634186,0.247154,-2.566,0.0247,**,131
+complementarity,1b: Firm FE,log_revenue,-0.452266,0.19716,-2.294,0.0406,**,131
+complementarity,1c: Two-way FE (main),capex_z,-0.333806,0.132701,-2.515,0.0271,**,131
+complementarity,1c: Two-way FE (main),gd_z,1.999957,0.676376,2.957,0.012,**,131
+complementarity,1c: Two-way FE (main),K_x_W_z,-0.561463,0.312496,-1.797,0.0976,*,131
+complementarity,1c: Two-way FE (main),log_revenue,-0.404791,0.226058,-1.791,0.0986,*,131
+complementarity,1d: Two-way FE + controls,capex_z,-0.767713,5.699655,-0.135,0.8962,,83
 complementarity,1d: Two-way FE + controls,gd_z,3.182306,0.348258,9.138,0.0,***,83
-complementarity,1d: Two-way FE + controls,K_x_W_z,-0.764881,2.284861,-0.335,0.739,,83
-complementarity,1d: Two-way FE + controls,log_revenue,-0.908772,0.379656,-2.394,0.02,**,83
-complementarity,1d: Two-way FE + controls,sga_intensity,-0.510012,1.381856,-0.369,0.7134,,83
-complementarity,1d: Two-way FE + controls,net_margin,-3.294969,2.485045,-1.326,0.1902,,83
-front_stage_trap,2a: Linear (firm FE),ecom_share_pct,-0.128062,0.053377,-2.399,0.0174,**,216
-front_stage_trap,2a: Linear (firm FE),log_revenue,-0.165374,0.510889,-0.324,0.7465,,216
-front_stage_trap,2b: Quadratic (firm FE),ecom_share_pct,0.442775,0.228485,1.938,0.0541,*,216
-front_stage_trap,2b: Quadratic (firm FE),ecom2,-0.027931,0.01156,-2.416,0.0166,**,216
-front_stage_trap,2b: Quadratic (firm FE),log_revenue,-0.19147,0.488851,-0.392,0.6957,,216
-front_stage_trap,2c: Quad + Glassdoor,ecom_share_pct,0.028126,0.267123,0.105,0.9163,,190
-front_stage_trap,2c: Quad + Glassdoor,ecom2,-0.00547,0.012111,-0.452,0.6521,,190
-front_stage_trap,2c: Quad + Glassdoor,glassdoor_overall,9.87084,1.800388,5.483,0.0,***,190
-front_stage_trap,2c: Quad + Glassdoor,log_revenue,-0.287912,0.369079,-0.78,0.4364,,190
-good_jobs_buffer,3a: dACSI on dGlassdoor,d_glassdoor,4.979853,1.28674,3.87,0.0002,***,173
-good_jobs_buffer,3b: + dGD × Capex (main),d_glassdoor,7.123122,2.376128,2.998,0.0035,***,118
-good_jobs_buffer,3b: + dGD × Capex (main),d_gd_x_capex,-41.395321,32.052133,-1.291,0.1998,,118
-good_jobs_buffer,3b: + dGD × Capex (main),capex_intensity,0.924512,0.885297,1.044,0.2991,,118
-good_jobs_buffer,3c: + controls,d_glassdoor,10.0384,3.060905,3.28,0.0017,***,84
-good_jobs_buffer,3c: + controls,d_gd_x_capex,-132.366686,79.772543,-1.659,0.1023,,84
-good_jobs_buffer,3c: + controls,capex_intensity,-19.196577,17.510661,-1.096,0.2773,,84
-good_jobs_buffer,3c: + controls,log_revenue,-0.334886,0.545047,-0.614,0.5413,,84
-good_jobs_buffer,3c: + controls,sga_intensity,0.815084,0.680048,1.199,0.2354,,84
+complementarity,1d: Two-way FE + controls,K_x_W_z,-0.764881,2.284861,-0.335,0.7464,,83
+complementarity,1d: Two-way FE + controls,log_revenue,-0.908772,0.379656,-2.394,0.0436,**,83
+complementarity,1d: Two-way FE + controls,sga_intensity,-0.510012,1.381856,-0.369,0.7216,,83
+complementarity,1d: Two-way FE + controls,net_margin,-3.294969,2.485045,-1.326,0.2215,,83
+front_stage_trap,2a: Linear (firm FE),ecom_share_pct,-0.128062,0.053377,-2.399,0.029,**,216
+front_stage_trap,2a: Linear (firm FE),log_revenue,-0.165374,0.510889,-0.324,0.7504,,216
+front_stage_trap,2b: Quadratic (firm FE),ecom_share_pct,0.442775,0.228485,1.938,0.0705,*,216
+front_stage_trap,2b: Quadratic (firm FE),ecom2,-0.027931,0.01156,-2.416,0.028,**,216
+front_stage_trap,2b: Quadratic (firm FE),log_revenue,-0.19147,0.488851,-0.392,0.7005,,216
+front_stage_trap,2c: Quad + Glassdoor,ecom_share_pct,0.028126,0.267123,0.105,0.9175,,190
+front_stage_trap,2c: Quad + Glassdoor,ecom2,-0.00547,0.012111,-0.452,0.6576,,190
+front_stage_trap,2c: Quad + Glassdoor,glassdoor_overall,9.87084,1.800388,5.483,0.0001,***,190
+front_stage_trap,2c: Quad + Glassdoor,log_revenue,-0.287912,0.369079,-0.78,0.4467,,190
+good_jobs_buffer,3a: dACSI on dGlassdoor,d_glassdoor,4.979853,1.28674,3.87,0.0014,***,173
+good_jobs_buffer,3b: + dGD × Capex (main),d_glassdoor,7.123122,2.376128,2.998,0.0111,**,118
+good_jobs_buffer,3b: + dGD × Capex (main),d_gd_x_capex,-41.395321,32.052133,-1.291,0.2209,,118
+good_jobs_buffer,3b: + dGD × Capex (main),capex_intensity,0.924512,0.885297,1.044,0.3169,,118
+good_jobs_buffer,3c: + controls,d_glassdoor,10.0384,3.060905,3.28,0.0112,**,84
+good_jobs_buffer,3c: + controls,d_gd_x_capex,-132.366686,79.772543,-1.659,0.1356,,84
+good_jobs_buffer,3c: + controls,capex_intensity,-19.196577,17.510661,-1.096,0.3049,,84
+good_jobs_buffer,3c: + controls,log_revenue,-0.334886,0.545047,-0.614,0.556,,84
+good_jobs_buffer,3c: + controls,sga_intensity,0.815084,0.680048,1.199,0.265,,84

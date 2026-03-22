@@ -58,6 +58,12 @@ try:
 except ImportError:
     HAS_LM = False
 
+try:
+    from scipy.stats import t as t_dist
+    HAS_SCIPY = True
+except ImportError:
+    HAS_SCIPY = False
+
 
 def load_panel(filepath: str = "data/processed/wct_empirical_panel.csv"):
     """Load the assembled panel into a pandas DataFrame."""
@@ -97,18 +103,34 @@ def run_ols_with_fe(df: pd.DataFrame, y_col: str, x_cols: list,
     Run OLS regression with firm and/or year fixed effects.
 
     Uses linearmodels PanelOLS if available; otherwise dummies via statsmodels.
+
+    Small-sample corrections (applied when clustering):
+      - p-values recomputed using t(G-1) distribution where G = number of
+        clusters, following Cameron, Gelbach & Miller (2008)
+      - Reported alongside standard inference for transparency
+
     Returns a dict of results.
     """
     # Drop rows with missing values in relevant columns
     cols_needed = [y_col] + x_cols + [cluster_col, "year"]
     subset = df[cols_needed].dropna()
     n = len(subset)
+    n_firms = subset[cluster_col].nunique()
     if n < 30:
         print(f"  [{label}] Only {n} complete observations — skipping.")
         return {"label": label, "n": n, "status": "insufficient_data"}
 
-    print(f"  [{label}] N={n}, firms={subset[cluster_col].nunique()}, "
-          f"years={subset['year'].nunique()}")
+    # Determine effective df for p-value correction
+    # With G clusters, use t(G-1) instead of t(N-k) or z
+    uses_cluster = firm_fe  # we cluster whenever we have firm FE
+    df_eff = n_firms - 1 if uses_cluster and HAS_SCIPY else None
+
+    fe_note = ""
+    if df_eff is not None:
+        fe_note = f", p-vals: t({df_eff})"
+
+    print(f"  [{label}] N={n}, firms={n_firms}, "
+          f"years={subset['year'].nunique()}{fe_note}")
 
     if HAS_LM and firm_fe:
         # Use linearmodels PanelOLS for proper within-estimator
@@ -117,8 +139,6 @@ def run_ols_with_fe(df: pd.DataFrame, y_col: str, x_cols: list,
         X = panel_df[x_cols]
         X = sm.add_constant(X) if not firm_fe else X  # no constant with FE
 
-        effects = "entity" if (firm_fe and not year_fe) else "both" if (firm_fe and year_fe) else "time"
-
         model = PanelOLS(y, X, entity_effects=firm_fe,
                          time_effects=year_fe, check_rank=False)
         res = model.fit(cov_type="clustered", cluster_entity=True)
@@ -126,6 +146,8 @@ def run_ols_with_fe(df: pd.DataFrame, y_col: str, x_cols: list,
         result = {
             "label": label,
             "n": n,
+            "n_firms": n_firms,
+            "df_eff": df_eff,
             "r2_within": round(res.rsquared_within, 4),
             "r2_overall": round(res.rsquared_overall, 4) if hasattr(res, "rsquared_overall") else "",
             "status": "ok",
@@ -133,12 +155,19 @@ def run_ols_with_fe(df: pd.DataFrame, y_col: str, x_cols: list,
         }
         for var in x_cols:
             if var in res.params.index:
+                t_val = res.tstats[var]
+                # Recompute p-value using t(G-1)
+                if df_eff is not None and df_eff > 0:
+                    p_corrected = 2 * (1 - t_dist.cdf(abs(t_val), df_eff))
+                else:
+                    p_corrected = res.pvalues[var]
                 result["coefficients"][var] = {
                     "coef": round(res.params[var], 6),
                     "se": round(res.std_errors[var], 6),
-                    "t": round(res.tstats[var], 3),
-                    "p": round(res.pvalues[var], 4),
-                    "sig": _sig_stars(res.pvalues[var]),
+                    "t": round(t_val, 3),
+                    "p": round(float(p_corrected), 4),
+                    "p_raw": round(float(res.pvalues[var]), 4),
+                    "sig": _sig_stars(float(p_corrected)),
                 }
         return result
 
@@ -170,6 +199,8 @@ def run_ols_with_fe(df: pd.DataFrame, y_col: str, x_cols: list,
         result = {
             "label": label,
             "n": n,
+            "n_firms": n_firms,
+            "df_eff": df_eff,
             "r2": round(res.rsquared, 4),
             "r2_adj": round(res.rsquared_adj, 4),
             "status": "ok",
@@ -177,12 +208,18 @@ def run_ols_with_fe(df: pd.DataFrame, y_col: str, x_cols: list,
         }
         for var in x_cols:
             if var in res.params.index:
+                t_val = res.tvalues[var]
+                if df_eff is not None and df_eff > 0:
+                    p_corrected = 2 * (1 - t_dist.cdf(abs(t_val), df_eff))
+                else:
+                    p_corrected = res.pvalues[var]
                 result["coefficients"][var] = {
                     "coef": round(res.params[var], 6),
                     "se": round(res.bse[var], 6),
-                    "t": round(res.tvalues[var], 3),
-                    "p": round(res.pvalues[var], 4),
-                    "sig": _sig_stars(res.pvalues[var]),
+                    "t": round(float(t_val), 3),
+                    "p": round(float(p_corrected), 4),
+                    "p_raw": round(float(res.pvalues[var]), 4),
+                    "sig": _sig_stars(float(p_corrected)),
                 }
         return result
 
@@ -375,21 +412,26 @@ def test_good_jobs_buffer(df: pd.DataFrame) -> dict:
 def _print_results_table(results: list[dict], key_var: str, title: str):
     """Print a formatted regression results table."""
     print(f"\n--- {title} ---")
-    print(f"{'Model':<35} {'b':>10} {'SE':>10} {'t':>8} {'p':>8} {'Sig':>5} {'N':>6}")
-    print("-" * 90)
+    print(f"{'Model':<35} {'b':>10} {'SE':>10} {'t':>8} "
+          f"{'p[t(G-1)]':>10} {'Sig':>5} {'N':>6}")
+    print("-" * 92)
     for r in results:
         if r.get("status") != "ok":
             print(f"{r.get('label', '?'):<35} {'—':>10} {'':>10} {'':>8} "
-                  f"{'':>8} {'':>5} {r.get('n', 0):>6}  [{r.get('status')}]")
+                  f"{'':>10} {'':>5} {r.get('n', 0):>6}  [{r.get('status')}]")
             continue
         coeff = r.get("coefficients", {}).get(key_var, {})
         if coeff:
+            p_raw = coeff.get("p_raw", coeff["p"])
+            p_str = f"{coeff['p']:.4f}"
+            if p_raw != coeff["p"]:
+                p_str += f"({p_raw:.3f})"
             print(f"{r['label']:<35} {coeff['coef']:>10.5f} "
                   f"{coeff['se']:>10.5f} {coeff['t']:>8.3f} "
-                  f"{coeff['p']:>8.4f} {coeff['sig']:>5} {r['n']:>6}")
+                  f"{p_str:>10} {coeff['sig']:>5} {r['n']:>6}")
         else:
             print(f"{r['label']:<35} {'n/a':>10} {'':>10} {'':>8} "
-                  f"{'':>8} {'':>5} {r['n']:>6}")
+                  f"{'':>10} {'':>5} {r['n']:>6}")
     print()
 
 
