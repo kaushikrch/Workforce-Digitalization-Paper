@@ -1,2 +1,4 @@
 __pycache__/
 submission_package/
+data/bls_qcew/*.zip
+data/bls_qcew/qcew_retail_county.csv

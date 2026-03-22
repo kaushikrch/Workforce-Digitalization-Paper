@@ -1,0 +1,43 @@
+brand,year,acsi_score
+Walmart,2018,71
+Walmart,2019,71
+Walmart,2020,72
+Walmart,2021,73
+Walmart,2022,72
+Walmart,2023,73
+Walmart,2024,72
+Target,2018,77
+Target,2019,77
+Target,2020,77
+Target,2021,78
+Target,2022,77
+Target,2023,77
+Target,2024,78
+Kroger,2018,76
+Kroger,2019,76
+Kroger,2020,76
+Kroger,2021,77
+Kroger,2022,76
+Kroger,2023,76
+Kroger,2024,76
+Costco,2018,83
+Costco,2019,83
+Costco,2020,82
+Costco,2021,83
+Costco,2022,82
+Costco,2023,82
+Costco,2024,83
+Home Depot,2018,76
+Home Depot,2019,75
+Home Depot,2020,76
+Home Depot,2021,78
+Home Depot,2022,77
+Home Depot,2023,76
+Home Depot,2024,77
+Lowe's,2018,76
+Lowe's,2019,76
+Lowe's,2020,77
+Lowe's,2021,78
+Lowe's,2022,77
+Lowe's,2023,76
+Lowe's,2024,77
