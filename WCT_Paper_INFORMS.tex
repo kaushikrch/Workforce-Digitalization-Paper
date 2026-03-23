@@ -408,7 +408,7 @@ Suppose $\sigma > 1$, $p > 0$, and $F_0 < F_{\mathrm{crit}}$ (a surplus equilibr
          &= \Bigl(\frac{u}{\delta}\bigl[(1\!-\!p)+p\tfrac{f}{f+\mu}\bigr]\Bigr)^{\!1/b} \!-\, F_0.
     \end{align*}
     For $\Delta F < \Delta F_{\mathrm{collapse}}$, a new surplus equilibrium exists at the post-upgrade level. Whether a given trajectory reaches this equilibrium depends on its initial condition relative to the basin boundary (Figure~\ref{fig:bifurcation}); numerical verification confirms convergence from the pre-shock equilibrium initial condition across the parameter configurations studied (EC~\S EC.4.2).
-    \item[(ii)] \emph{Instantaneous-overload diagnostic.} A second, larger threshold marks the boundary above which demand turns positive at $t=0^+$:
+    \item[(ii)] \emph{Instantaneous-overload diagnostic.} A second, larger threshold marks the boundary above which the service gap turns positive at $t=0^+$:
     \begin{equation}\label{eq:DFrapid}
         \Delta F_{\mathrm{rapid}} \;=\; \frac{S_0}{b\cdot F_0^{b-1}\cdot(1+aT^*)},
     \end{equation}
@@ -546,7 +546,7 @@ Log employment growth (vs.\ 2015) & 30{,}951 & 0.00 & 0.12 & $-1.5$--$2.9$ \\
 National e-commerce share (\%) & 10 & 11.8 & 3.0 & 7.4--16.1 \\
 \bottomrule
 \end{tabular}
-}}{$^\dagger$CapEx/Revenue reports the median [IQR] rather than the mean and SD due to extreme outliers in the raw ratio (e.g., BBY 2012).}
+}}{$^\dagger$CapEx/Revenue reports the median [IQR] rather than the mean and SD due to extreme outliers in the raw ratio (e.g., BBY 2012). Panel~A describes the 13-firm subsample with joint ACSI, Glassdoor, and CapEx coverage (used for the complementarity test). The inverted-U and event-study specifications use a broader 17-firm and 16-firm ACSI-only sample ($N = 216$ and $N = 108$, respectively); descriptive statistics for these samples are available upon request.}
 \end{table}
 
 \subsection{Firm-Level Results}\label{sec:emp:firm}
@@ -555,7 +555,7 @@ National e-commerce share (\%) & 10 & 11.8 & 3.0 & 7.4--16.1 \\
 
 \noindent\textit{Inverted-U (Theorem~\ref{thm:trap}).} The quadratic specification ($N = 216$, 17 firms) yields $\hat{\beta}_2 = -0.028$ ($p = 0.028$ under $t(16)$), consistent with the predicted inverted-U. The estimated turning point (7.9\% e-commerce share) lies in the mid-2010s, qualitatively consistent with the model's prediction of a digitalisation ceiling, though we caution that the turning point is on the e-commerce share scale while $F_{\mathrm{crit}}$ is a dimensionless technology index --- the correspondence is directional, not quantitative. The coefficient attenuates when workforce controls are included ($p = 0.66$), consistent with the model's prediction that e-commerce damages satisfaction \emph{through} workforce depletion. A limitation common to both the inverted-U and complementarity specifications is the absence of instruments: cross-sectional OLS cannot exclude the possibility that unobserved management quality drives both higher Glassdoor ratings and higher ACSI \citep{ton2014good}. The event study partially mitigates this concern by exploiting within-firm temporal variation around exogenous technology shocks.
 
-\noindent\textit{Event study (Theorem~\ref{thm:trap}).} We exploit the staggered timing of major omnichannel launches (e.g., Walmart curbside 2017, Target Drive Up 2018, Kroger ClickList 2016) as firm-level technology shocks.  Using a $[-3, +3]$ year event window around each firm's launch ($N = 108$, 16 firms), a two-way FE specification with pre-shock capital expenditure as control yields a post-shock ACSI decline of $-0.71$ ($p = 0.037$ under $t(15)$), consistent with the Front-Stage Trap: major omnichannel deployments reduce customer satisfaction on average. Event-time coefficients for the level specification show near-zero and insignificant pre-trend coefficients at $t = -3$ and $t = -2$ (relative to $t = -1$), supporting the parallel-trends assumption for the basic difference-in-differences (EC Table~EC.5). Pre-trend coefficients for the workforce-moderation interaction are similarly insignificant (EC Table~EC.5). The workforce moderation (post $\times$ pre-Glassdoor) is not detectable ($p = 0.79$), consistent with the low within-firm Glassdoor variation rather than absence of the mechanism.
+\noindent\textit{Event study (Theorem~\ref{thm:trap}).} We exploit the staggered timing of major omnichannel launches (e.g., Walmart curbside 2017, Target Drive Up 2018, Kroger ClickList 2016) as firm-level technology shocks.  Using a $[-3, +3]$ year event window around each firm's launch ($N = 108$, 16 firms), a two-way FE specification with pre-shock capital expenditure as control yields a post-shock ACSI decline of $-0.71$ ($p = 0.037$ under $t(15)$), consistent with the Front-Stage Trap: major omnichannel deployments reduce customer satisfaction on average. Event-time coefficients for the level specification show near-zero and insignificant pre-trend coefficients at $t = -3$ and $t = -2$ (relative to $t = -1$), supporting the parallel-trends assumption for the basic difference-in-differences (EC Table~EC.7). Pre-trend coefficients for the workforce-moderation interaction are similarly insignificant (EC Table~EC.7). The workforce moderation (post $\times$ pre-Glassdoor) is not detectable ($p = 0.79$), consistent with the low within-firm Glassdoor variation rather than absence of the mechanism.
 
 \subsection{County-Level Good Jobs Buffer}\label{sec:emp:county}
 
@@ -622,10 +622,10 @@ County FE & Yes & Yes & Yes & Yes & Yes \\
 Year FE & Yes & Yes & Yes & Yes & Yes \\
 $N$ & 30{,}951 & 24{,}768 & 15{,}532 & 15{,}419 & 9{,}321 \\
 Counties & 3{,}115 & 3{,}115 & 1{,}557 & 1{,}558 & 3{,}115 \\
-$R^2_{\mathrm{within}}$ & 0.008 & & & & \\
+$R^2_{\mathrm{within}}$ & 0.008 & 0.013 & 0.042 & $-$0.000 & 0.001 \\
 \bottomrule
 \end{tabular}
-}}{Dependent variable: $\ln E_{ct} - \ln E_{c,2015}$ (log employment growth relative to 2015 baseline). Standard errors clustered at county level in parentheses. $^{***}p < 0.01$; $^{**}p < 0.05$. $\text{Ecom}_t$ main effect absorbed by year FE (national variable); $W^z_{c,2015}$ absorbed by county FE (time-invariant). Column (2): excludes 2020--2021. Columns (3)--(4): split at median baseline employment. Column (5): 2015--2017 only (pre-period placebo).}\end{table}
+}}{Dependent variable: $\ln E_{ct} - \ln E_{c,2015}$ (log employment growth relative to 2015 baseline). Standard errors clustered at county level in parentheses. $^{***}p < 0.01$; $^{**}p < 0.05$. $\text{Ecom}_t$ main effect absorbed by year FE (national variable); $W^z_{c,2015}$ absorbed by county FE (time-invariant). Column (2): excludes 2020--2021. Columns (3)--(4): split at median baseline employment. Column (5): 2015--2017 only (pre-period placebo; 24 county-year observations dropped due to missing BLS data in 2015--2017).}\end{table}
 
 \subsection{Assessment}\label{sec:emp:assessment}
 
@@ -674,9 +674,11 @@ All simulation code (\texttt{wct\_simulation.py}), empirical analysis scripts (\
 % BIBLIOGRAPHY
 % PRODUCTION NOTE: The references "EC Table~EC.3" (tab:ec:sensitivity, sensitivity
 % analysis table), "EC Table~EC.4" (tab:ec:sensitivity2, supplementary sensitivity
-% table), and "EC Table~EC.5" (tab:ec:pretrends, event-study pre-trends) in the body
+% table), and "EC Table~EC.7" (tab:ec:pretrends, event-study pre-trends) in the body
 % are hardcoded cross-document references. If any EC table is added, removed, or
 % reordered before final production, these body locations must be updated manually.
+% Current EC table order: EC.1 smooth, EC.2 mapping, EC.3 sensitivity,
+% EC.4 sensitivity2, EC.5 paramsource, EC.6 simparams, EC.7 pretrends.
 % ============================================================
 
 %\bibliographystyle{informs2014}
@@ -831,10 +833,6 @@ New York: Houghton Mifflin Harcourt.
 \bibitem[Tucker(2007)]{tucker2007operational}
 Tucker AL (2007) An empirical study of system improvement by frontline employees in hospital units.
 \textit{Manufacturing \& Service Operations Management} 9(4):492--505.
-
-\bibitem[Webb(2023)]{webb2023reworking}
-Webb MD (2023) Reworking wild bootstrap-based inference for clustered errors.
-\textit{Canadian Journal of Economics} 56(3):839--858.
 
 \end{thebibliography}
 
