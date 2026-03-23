@@ -308,10 +308,10 @@ The model generates two distinct long-run outcomes. The \emph{surplus equilibriu
 
 The technical characterisation of these two states is as follows. The surplus equilibrium exists for all $F < F_{\mathrm{crit}}$ and is unique under Condition C2 (EC Lemma~2, \S EC.1.2). When effective capability exceeds demand, define the operational surplus $S^* \equiv K^*h(W^*) - D(T^*,F) \geq 0$ as the excess of effective capability over demand at equilibrium. Equilibrium trust is an increasing function of $S^*$, saturating toward one as surplus grows: $T^* = \beta S^* / (\beta S^* + \lambda)$. Equilibrium well-being is similarly increasing in surplus and investment: $W^* = (S^* + f) / (S^* + f + \mu)$. The capability stock settles at $K^* = u/\delta$, determined entirely by the investment-depreciation balance. Full algebraic derivations are in EC~\S EC.1.2. Both $T^*$ and $W^*$ are increasing in $S^*$, so any improvement in effective capability propagates into higher trust and well-being at the equilibrium, creating the reinforcing dynamics that underpin the Good Jobs Buffer.
 
-The low-trust attractor is reached whenever demand persistently overwhelms capability. With $T^* \approx 0$, demand collapses to its digitalisation-driven floor and the workforce settles at a low but strictly positive well-being level, held above zero by the workforce investment rate $f$. Effective capability at this attractor falls short of demand, maintaining a persistent residual gap. The attractor exists whenever $F^b > (u/\delta)\,h(W^*_{\mathrm{low}})$ and is locally stable (EC Remark~1).
+The low-trust attractor is reached whenever demand persistently overwhelms capability. With $T^* \approx 0$, demand collapses to its digitalisation-driven floor and the workforce settles at a low but strictly positive well-being level, held above zero by the workforce investment rate $f$. Effective capability at this attractor falls short of demand, maintaining a persistent residual gap. The attractor exists whenever $F^b > (u/\delta)\,h(W^*_{\mathrm{low}})$ and is locally stable (EC Remark~3).
 
 \paragraph{Maintained conditions.}
-The formal results hold under four regularity conditions (C1)--(C4), verified analytically or numerically across the parameter space (EC Remark~3): surplus equilibrium existence, uniqueness, regularity, and low-trust attractor existence (EC~\S EC.1.2).
+The formal results hold under four regularity conditions (C1)--(C4), verified analytically or numerically across the parameter space (EC Remark~5): surplus equilibrium existence, uniqueness, regularity, and low-trust attractor existence (EC~\S EC.1.2).
 
 \begin{remark}[Analytical Transparency]\label{rem:transparency}
 The table below classifies each result by evidentiary basis: Tier~A (analytic for all valid parameters), Tier~B (analytic under C1--C4), or Tier~C (computational verification).
@@ -352,7 +352,7 @@ Suppose $b > 1$ and $p > 0$. Define the digitalisation threshold
 which depends only on exogenous parameters $(u,\delta,p,f,\mu,b)$ and equals $K^*h(f/(f+\mu))^{1/b}$, the capacity multiplier evaluated at the boundary workforce level. Then:
 \begin{enumerate}
     \item[(i)] For $F < F_{\mathrm{crit}}$, the surplus equilibrium (unique under C2; Lemma~2, EC~\S EC.1.2) exists with $T^* > 0$ and $\mathrm{CLV}^* > \mathrm{CLV}_{\mathrm{low}}$ (the CLV at the low-trust attractor).
-    \item[(ii)] For $F \geq F_{\mathrm{crit}}$, no surplus equilibrium exists. All forward trajectories remain in a bounded compact set (Lemma~3, EC~\S EC.1.2), and the low-trust attractor is locally stable (EC Remark~1). Wide-basin convergence to this attractor is confirmed numerically (Tier~C; Remark~\ref{rem:transparency}).
+    \item[(ii)] For $F \geq F_{\mathrm{crit}}$, no surplus equilibrium exists. All forward trajectories remain in a bounded compact set (Lemma~3, EC~\S EC.1.2), and the low-trust attractor is locally stable (EC Remark~3). Wide-basin convergence to this attractor is confirmed numerically (Tier~C; Remark~\ref{rem:transparency}).
 \end{enumerate}
 The threshold $F_{\mathrm{crit}}$ is decreasing in $p$ and increasing in $f$: the Trap binds earlier when workforce-technology coupling is strong, and is relaxed by workforce investment.
 \end{theorem}
@@ -402,7 +402,7 @@ The $p{=}0$ counterfactual in \S\ref{sec:sim:fig4_hidden} confirms this: disabli
 \begin{theorem}[Burnout Cliff]\label{thm:cliff}
 Suppose $\sigma > 1$, $p > 0$, and $F_0 < F_{\mathrm{crit}}$ (a surplus equilibrium exists at $F_0$). Under these conditions the system is bistable in a neighbourhood of $F_{\mathrm{crit}}$. Consider a firm at the surplus equilibrium that implements a step increase in $F$ from $F_0$ to $F_0 + \Delta F$. Two thresholds govern the outcome:
 \begin{enumerate}
-    \item[(i)] \emph{Permanent-collapse onset.} For $\Delta F \geq \Delta F_{\mathrm{collapse}}$, no surplus equilibrium exists at the post-upgrade level. The low-trust attractor is the only locally stable state (EC Remark~1); convergence to it is confirmed numerically across the studied initial conditions.
+    \item[(i)] \emph{Permanent-collapse onset.} For $\Delta F \geq \Delta F_{\mathrm{collapse}}$, no surplus equilibrium exists at the post-upgrade level. The low-trust attractor is the only locally stable state (EC Remark~3); convergence to it is confirmed numerically across the studied initial conditions.
     \begin{align*}
        \Delta F_{\mathrm{collapse}} &= F_{\mathrm{crit}} - F_0 \\
          &= \Bigl(\frac{u}{\delta}\bigl[(1\!-\!p)+p\tfrac{f}{f+\mu}\bigr]\Bigr)^{\!1/b} \!-\, F_0.
