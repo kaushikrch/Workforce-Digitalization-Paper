@@ -150,7 +150,7 @@ We show that the surplus equilibrium exists if and only if $F < F_{\mathrm{crit}
 \[
 \frac{dT}{dt} = -T(\eta\beta G + \lambda) < 0 \quad \text{for all } T > 0.
 \]
-Trust declines monotonically. Through Loop R2 ($W\!\downarrow \to h(W)\!\downarrow \to G\!\uparrow$), the gap widens, accelerating trust decline. The convexity of demand in $F$ ($\partial^2 D/\partial F^2 > 0$ for $b > 1$) ensures the gap widens super-linearly, making the collapse self-reinforcing under Loop R2; convergence to the low-trust attractor is confirmed numerically across the studied parameter configurations (Tier~C; main paper Remark~1).% NB: hardcoded remark number; update if main-paper Remark (Analytical Transparency) is renumbered. The system converges to the low-trust interior attractor (Remark~\ref{rem:low_trust}).
+Trust declines monotonically. Through Loop R2 ($W\!\downarrow \to h(W)\!\downarrow \to G\!\uparrow$), the gap widens, accelerating trust decline. The convexity of demand in $F$ ($\partial^2 D/\partial F^2 > 0$ for $b > 1$) ensures the gap widens super-linearly, making the collapse self-reinforcing under Loop R2; convergence to the low-trust attractor is confirmed numerically across the studied parameter configurations (Tier~C; main paper Remark~1). The system converges to the low-trust interior attractor (Remark~\ref{rem:low_trust}).
 
 \textbf{Boundary conditions.} When $b \leq 1$: demand is concave in $F$; the balancing loop B1 can compensate and the regime shift does not occur. When $p = 0$: $h(W) = 1$, severing Loop R2; the system may still experience trust decline through the direct overload channel but without the workforce-mediated amplification.
 \end{proof}
@@ -171,7 +171,7 @@ We show that each link in the chain $f \to W^* \to h(W^*) \to \Keff \to S^* \to 
   &= (S^*+f)(1-W^*) - \mu W^*.
 \end{align*}
 Solving: $W^* = (S^* + f)/(S^* + f + \mu)$.
-Differentiating: $\partial W^*/\partial f = \mu / (S^* + f + \mu)^2 > 0$. This is positive, decreasing in $f$ (diminishing returns), and increasing in $\mu$ (higher natural decay amplifies the marginal benefit of investment).
+Differentiating: $\partial W^*/\partial f = \mu / (S^* + f + \mu)^2 > 0$, positive and decreasing in $f$ (diminishing returns).
 
 \textbf{Link 2: $\partial h / \partial W = p > 0$.} By construction of $h(W) = (1-p) + pW$.
 
@@ -234,14 +234,13 @@ For $\Delta F < \Delta F_{\mathrm{collapse}}$, the post-upgrade $F_0+\Delta F < 
 \end{equation}
 At baseline: $\Delta F_{\mathrm{rapid}} = 0.401$. Since $\Delta F_{\mathrm{rapid}} > \Delta F_{\mathrm{collapse}}$ (0.401 vs.\ 0.310), the interval $[\Delta F_{\mathrm{collapse}},\Delta F_{\mathrm{rapid}})$ defines a \emph{slow-collapse zone}: the surplus equilibrium is gone, but $G(t_0^+) < 0$, so collapse proceeds through a gradual erosion of surplus rather than immediate overload. For $\Delta F \geq \Delta F_{\mathrm{rapid}}$, $G(t_0^+) > 0$ and collapse is rapid.
 
-\textbf{Step 3: Dynamics and timescales.} Under overload ($G > 0$), the tipping threshold $W_{\mathrm{tip}} = f/(f+\mu+\sigma G_0^+)$ marks the level below which depletion exceeds recovery. Two timescales govern speed: $\tau_{\mathrm{adapt}} = 1/r \approx 2.5$ mo (Loop B1) and $\tau_{\mathrm{deplete}} = 1/(\mu+\sigma G_0^+) \in [1.5,4]$ mo (Loop R3). Near $\Delta F_{\mathrm{collapse}}$, convergence to the low-trust attractor may require hundreds of months.
+\textbf{Step 3: Dynamics and timescales.} Under overload, the tipping threshold $W_{\mathrm{tip}} = f/(f+\mu+\sigma G_0^+)$ marks where depletion exceeds recovery. Two timescales govern speed: $\tau_{\mathrm{adapt}} = 1/r \approx 2.5$ mo and $\tau_{\mathrm{deplete}} = 1/(\mu+\sigma G_0^+) \in [1.5,4]$ mo. Near $\Delta F_{\mathrm{collapse}}$, convergence may require hundreds of months.
 
 \textbf{Step 4: Three zones.} $\Delta F_{\mathrm{collapse}}$ and $\Delta F_{\mathrm{rapid}}$ define: (i)~\emph{safe zone} ($\Delta F < \Delta F_{\mathrm{collapse}}$), where a surplus equilibrium exists; (ii)~\emph{slow-collapse zone} ($\Delta F_{\mathrm{collapse}} \leq \Delta F < \Delta F_{\mathrm{rapid}}$), where $G(t_0^+) < 0$ but no surplus equilibrium exists, so collapse is gradual; (iii)~\emph{rapid-collapse zone} ($\Delta F \geq \Delta F_{\mathrm{rapid}}$), where $G(t_0^+) > 0$ immediately. The ordering $\Delta F_{\mathrm{rapid}} > \Delta F_{\mathrm{collapse}}$ reverses at high $f$ ($f{=}0.10$: $\Delta F_{\mathrm{collapse}} = 0.49 > \Delta F_{\mathrm{rapid}} \approx 0.40$). Simulations ($t_{\mathrm{end}}{=}500$, collapse criterion $T(\infty) < 0.15$) confirm collapse boundaries across three workforce scenarios at $F_0{=}0.80$. Minor discrepancies between simulated and analytic thresholds reflect slow-convergence transients near the boundary and basin-boundary effects. The correct safety threshold is $\Delta F_{\mathrm{collapse}}$; $\Delta F_{\mathrm{rapid}}$ characterises collapse speed, not safety. \Halmos
 \end{proof}
 
 
 \subsection{Proof of Proposition 4 (Complementarity)}\label{sec:ec:proof4}
-
 \setcounter{proposition}{3}
 \begin{proposition}[Digitalisation-Workforce Complementarity, restated]
 $\partial \Keff / \partial W = pK > 0$ and $\partial^2 \Keff / \partial W \partial K = p > 0$. Workforce well-being determines $F_{\max}(W) = (K^* h(W))^{1/b}$, which is strictly increasing in $W$.
@@ -308,7 +307,7 @@ $\varepsilon = 0.010$ & 1.100 & $-0.63$ \\
 $\varepsilon = 0.050$ & 1.078 & $-2.62$ \\
 \bottomrule
 \end{tabular}}
-{}
+{The smoothing bandwidth $\varepsilon$ replaces exact $[\cdot]^+$ operators with $\tfrac{1}{2}(x + \sqrt{x^2 + \varepsilon^2})$. All three theorems are qualitatively invariant for $\varepsilon \leq 0.01$.}
 \end{table}
 
 
@@ -393,7 +392,7 @@ $\delta$: 0.03 $\to$ 0.06 & Strengthens & Weakens & Strengthens \\
 
 \subsection{Parameter Sources}
 
-All time units are months. Rate parameters are expressed in months$^{-1}$; implied half-lives are $\ln(2)/\theta$. The calibration follows the partial-model testing and pattern-oriented fitting protocol of \citet{homer1993partial} and satisfies the validity criteria of \citet{barlas1996formal}. Three parameters warrant additional discussion beyond Table~\ref{tab:ec:paramsource}; the remaining seven are fully documented there.
+All time units are months; rate parameters are in months$^{-1}$ with half-lives $\ln(2)/\theta$. The calibration follows \citet{homer1993partial} and \citet{barlas1996formal}. Three parameters warrant additional discussion beyond Table~\ref{tab:ec:paramsource}.
 
 \begin{table}
 \TABLE
@@ -406,7 +405,7 @@ Parameter & Base & $\tau_{1/2}$ & Basis & Sensitivity \\
 $b$ (demand super-lin.) & 1.30 & -- & \citet{bell2018inventory}; \citet{acimovic2015fulfillment} & Trap requires $b>1$; robust \\
 $a$ (trust--demand) & 0.40 & -- & \citet{mcknight2002developing}; \citet{sirdeshmukh2002consumer} & Weakens Trap at $a{=}0.2$; holds \\
 $p$ (complementarity) & 0.50 & -- & Illustrative; \citet{krusell2000capital} & All 3 weaken at $p{=}0.25$ \\
-$\sigma$ (overload asym.) & 2.00 & -- & \citeauthor{oliva2001cutting} (\citeyear{oliva2001cutting}) & Cliff disappears at $\sigma{=}1$ \\
+$\sigma$ (overload asym.) & 2.00 & -- & \citeauthor{oliva2001cutting} (\citeyear{oliva2001cutting}); \citet{bakker2007job} & Cliff disappears at $\sigma{=}1$ \\
 $\eta$ (trust erosion asym.) & 2.00 & -- & \citet{sirdeshmukh2002consumer} & Weakens Trap at $\eta{=}1$ \\
 $r$ (sensing-adapt.) & 0.40 & 1.7\,mo & \citet{tucker2007operational}; \citet{argote1990learning} & Robust \\
 $\delta$ (depreciation) & 0.03 & 23\,mo & Illustrative & Robust ($\pm50\%$) \\
@@ -439,11 +438,11 @@ Fig. & $(K_0, W_0, T_0)$ & $F_0$ & $u$ & $f$ & $t_{\max}$ & Notes \\
 2 & balance$^{\dagger}$ & varies & 0.05 & 0.03 & 500 & $37{\times}26$ grid; CLV thr.\ $=600$ \\
 3 & \multicolumn{5}{c}{Analytical: $F_{\max}(W)=(K^* h(W))^{1/b}$; $K^*=u/\delta$} & Boundary formula \\
 4 & $(1.60, 0.55, 0.50)$ & 0.80 & 0.05 & varies & 120 & Three scenarios (A,B,C) \\
-5 & $(K^*\!,W^*\!,T^*)$ & 0.80 & --- & 0.01--0.10 & 500 & 61-pt $\Delta F$ sweep \\
+5 & $(K^*\!,W^*\!,T^*)$ & 0.80 & $0.05^{\ddagger}$ & 0.01--0.10 & 500 & 61-pt $\Delta F$ sweep \\
 EC & eq.~IC at $F{=}0.85$ & 0.85 & 0.05 & 0.00--0.20 & 120 & Study~3: Thm~2 decomp.; $p{=}0$ counterfactual confirms structural-zero \\
 \bottomrule
 \end{tabular}}}
-{$^{\dagger}$Balance manifold: $K_0 h(W_0)=(1{+}a{\cdot}0.5)F^b$, $T_0{=}0.50$. Grid: $37{\times}26$ (962~pts). Collapse: $T(500){<}0.15$.}
+{$^{\dagger}$Balance manifold: $K_0 h(W_0)=(1{+}a{\cdot}0.5)F^b$, $T_0{=}0.50$. Grid: $37{\times}26$ (962~pts). Collapse: $T(500){<}0.15$. $^{\ddagger}$Inherited from the starting equilibrium ($u = 0.05$).}
 \end{table}
 
 \subsection{CLV Functional Form}
@@ -466,26 +465,17 @@ This appendix supplements the empirical analysis in \S5 of the main paper.
 \subsection*{US Data and Robustness}
 
 \textit{US data sources.}
-ACSI scores (0--100, \texttt{theacsi.org}); Glassdoor ratings (1--5, min 5 reviews/firm-year); SEC EDGAR 10-K financials via XBRL API; FRED series ECOMPCTSA (e-commerce share); BLS JOLTS (turnover/wages).
-
-\textit{Variables.}
-$K{=}$CapEx/Revenue; $W{=}$Glassdoor overall; $T{=}$ACSI (0--100); $K{\times}W{=}$standardised interaction.
+Customer satisfaction uses ACSI scores (0--100; \texttt{theacsi.org}); workforce well-being uses Glassdoor overall ratings (1--5; minimum five reviews per firm--year); financial data are from SEC EDGAR 10-K filings (XBRL API); e-commerce share from FRED (ECOMPCTSA); labour-market controls from BLS JOLTS. Model proxies: $K =$ CapEx/Revenue, $W =$ Glassdoor overall, $T =$ ACSI, $K \times W =$ standardised interaction.
 
 \textit{US merge.}
-EDGAR backbone (276 obs, 17 firms, 2008--2024); left-join ACSI, Glassdoor, macro. Complete: 131 obs (47\%). No duplicate keys.
+The panel is constructed from an EDGAR backbone of 276 observations across 17 firms (2008--2024), left-joined with ACSI, Glassdoor, and macro controls, yielding 131 complete firm--year observations (47\% coverage). All merges enforce one-to-one key uniqueness.
 
 \textit{US robustness.}
-(i)~Between-effects: $K{\times}W{=}+1.95$, $p{=}0.41$;
-(ii)~Mundlak CRE;
-(iii)~Lagged $K_{t-1}{\times}W_{t-1}$;
-(iv)~COVID exclusion;
-(v)~Leave-one-out;
-(vi)~Wild bootstrap (9,999 reps);
-(vii)~CR3 with $\mathrm{df}{=}G{-}k{=}9$.
+Seven checks supplement the core results: (i)~between-effects ($K \times W = +1.95$, $p = 0.41$); (ii)~Mundlak CRE; (iii)~lagged $K_{t-1} \times W_{t-1}$; (iv)~COVID exclusion; (v)~leave-one-out; (vi)~wild bootstrap (9{,}999 reps); (vii)~CR3 with $\mathrm{df} = G - k = 9$.
 
 \subsection*{Event-Study Pre-Trends}
 
-Table~\ref{tab:ec:pretrends} reports event-time coefficients from the level DID and moderation specifications (\S5.2; $N = 108$, 16 firms). Pre-period coefficients ($t=-3$, $t=-2$) are insignificant in both specifications, supporting parallel trends.
+Table~\ref{tab:ec:pretrends} reports event-time coefficients (\S5.2; $N = 108$, 16 firms). Pre-period coefficients are insignificant in both specifications, supporting parallel trends.
 
 \begin{table}[htbp]
 \TABLE
@@ -511,17 +501,10 @@ $t = +3$ & $-0.900$ & $-1.69$ & 0.113 & $-1.033$ & $-0.05$ & 0.961 \\
 
 \subsection*{EU Replication (Exploratory)}
 
-An independent panel covers 11 European retailers (UK, France, Germany, Spain, Sweden, Netherlands; 2019--2023; $N{=}20$ complete firm--year observations). Customer satisfaction uses Trustpilot (1--5); workforce well-being uses Glassdoor; financials from Yahoo Finance with within-year asset percentile rank as currency-neutral size control. E-commerce share from UK ONS (J4MC) and Eurostat (\texttt{isoc\_ec\_eseln2}).
+An independent panel covers 11 European retailers (UK, France, Germany, Spain, Sweden, Netherlands; 2019--2023; $N{=}20$ complete firm--year observations). Customer satisfaction uses Trustpilot (1--5); workforce well-being uses Glassdoor; financials from Yahoo Finance with asset percentile rank as currency-neutral control. E-commerce share from UK ONS (J4MC) and Eurostat (\texttt{isoc\_ec\_eseln2}).
 
 \textit{EU results.}
-The between-effects estimate of $\beta_3$ ($K{\times}W$) is positive ($+$0.47; CR2: $p = 0.045$ at $t(10)$). However, HC3 ($p = 0.53$) and Webb bootstrap \citep{webb2023reworking} ($p = 0.62$) do not reject zero, reflecting $N_c = 11$ clusters \citep{cameron2008bootstrap}. This sample is below standard thresholds for panel regression and is reported as an exploratory out-of-sample check.
-
-\textit{EU robustness.}
-(i)~Currency-neutral controls (assets rank);
-(ii)~UK-only/Continental sub-samples;
-(iii)~Leave-one-out: $K{\times}W \in [-0.04, +0.82]$;
-(iv)~Wild bootstrap: $p{=}0.62$;
-(v)~Imbens--Kolesar $\mathrm{df}_{\mathrm{eff}}{=}7.2$, $p{=}0.055$.
+The between-effects $\beta_3$ ($K{\times}W$) is positive ($+$0.47; CR2: $p = 0.045$) but fails robustness checks (HC3: $p = 0.53$; Webb bootstrap \citep{webb2023reworking}: $p = 0.62$), reflecting $N_c = 11$ clusters \citep{cameron2008bootstrap}. Reported as exploratory. Additional checks: currency-neutral controls; UK-only/Continental splits; leave-one-out ($K{\times}W \in [-0.04, +0.82]$); Imbens--Kolesar $\mathrm{df}_{\mathrm{eff}}{=}7.2$, $p{=}0.055$.
 }% end \small
 
 {\footnotesize\setlength{\bibsep}{1pt}
@@ -534,6 +517,10 @@ Acimovic J, Graves SC (2015) Making better fulfillment decisions on the fly in a
 \bibitem[Argote and Epple(1990)]{argote1990learning}
 Argote L, Epple D (1990) Learning curves in manufacturing.
 \textit{Science} 247(4945):920--924.
+
+\bibitem[Bakker and Demerouti(2007)]{bakker2007job}
+Bakker AB, Demerouti E (2007) The Job Demands-Resources model: State of the art.
+\textit{Journal of Managerial Psychology} 22(3):309--328.
 
 \bibitem[Barlas(1996)]{barlas1996formal}
 Barlas Y (1996) Formal aspects of model validity and validation in system dynamics.

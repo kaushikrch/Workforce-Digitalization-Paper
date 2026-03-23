@@ -67,7 +67,7 @@ Digital investment in omnichannel retail generates back-stage demand on workers 
 We formalise this gap as a parsimonious dynamic model and derive three analytically characterised results.
 (i)~A computable digitalisation ceiling exists beyond which additional front-stage investment destroys customer lifetime value by overloading back-stage workers; revenue metrics continue rising even as lifetime value collapses.
 (ii)~The entire return to workforce investment flows through service capacity, invisible to dashboards that treat payroll as a cost line.
-(iii)~The system is bistable: the neglected firm faces a safe rollout window approximately 37\% the size of its investing peer.
+(iii)~The system is bistable: at our baseline calibration, the neglected firm faces a safe rollout window approximately 37\% the size of its investing peer.
 Three empirical strategies provide directionally consistent evidence across different identification strategies. A statistically significant inverted-U between e-commerce share and customer satisfaction, and a post-shock decline in the American Customer Satisfaction Index following major omnichannel launches, support the digitalisation ceiling. County-level wage and employment data from the Bureau of Labor Statistics ($N = 30{,}951$ county--year observations across 3{,}115 US counties, 2015--2024) support a labour-market analogue of the Good Jobs Buffer: counties with higher initial retail wages show significantly more resilient employment as e-commerce grows ($p = 0.025$).
 
 \noindent\textbf{Managerial implications.}
@@ -90,7 +90,7 @@ What is missing is a formal account of the mechanism. The empirical literature e
 
 This paper formalises the economic structure of this problem as a parsimonious dynamic model. Technology and workforce are not independent inputs to service capability but strategic complements \citep{milgrom1990economics, bainbridge1983ironies, kremer1993oring}. The central modelling innovation is the \emph{workforce capacity multiplier}: effective service capability is the product of the technology stock and a workforce engagement index. When front-stage demand grows faster than back-stage workforce capacity, a service gap opens that depletes workforce well-being, which reduces effective capability, which widens the gap further: a reinforcing deterioration that single-domain models cannot generate.
 
-Three formally characterised results follow. A \emph{Front-Stage Trap} (Theorem~\ref{thm:trap}): a computable digitalisation threshold exists beyond which additional front-stage investment reduces customer lifetime value by overloading back-stage workers. A \emph{Good Jobs Buffer} (Theorem~\ref{thm:buffer}): the return to workforce investment flows through a capacity-level channel that is invisible to dashboards measuring only operational sensing. A \emph{Burnout Cliff} (Theorem~\ref{thm:cliff}): the system exhibits bistability, and a firm that neglects its workforce faces a safe deployment window approximately 37\% the size of one that invests in its people. A fourth result, Proposition~\ref{prop:complementarity}, establishes that the marginal value of workforce investment is increasing in digitalisation level. Workforce investment is therefore not a social concession but a structural requirement of digital strategy.
+Three formally characterised results follow. A \emph{Front-Stage Trap} (Theorem~\ref{thm:trap}): a computable digitalisation threshold exists beyond which additional front-stage investment reduces customer lifetime value by overloading back-stage workers. A \emph{Good Jobs Buffer} (Theorem~\ref{thm:buffer}): the return to workforce investment flows through a capacity-level channel that is invisible to dashboards measuring only operational sensing. A \emph{Burnout Cliff} (Theorem~\ref{thm:cliff}): the system exhibits bistability, and at baseline calibration, a firm that neglects its workforce faces a safe deployment window approximately 37\% the size of one that invests in its people. A fourth result, Proposition~\ref{prop:complementarity}, establishes that the marginal value of workforce investment is increasing in digitalisation level. Workforce investment is therefore not a social concession but a structural requirement of digital strategy.
 
 
 % ============================================================
@@ -102,10 +102,10 @@ Three formally characterised results follow. A \emph{Front-Stage Trap} (Theorem~
 This paper sits at the intersection of three research streams. We review each and identify the gaps the model addresses.
 
 \paragraph{Service quality erosion.}\label{sec:lit:erosion}
-The foundational insight that service quality can erode endogenously under demand pressure originates with \citet{oliva2001cutting}, whose system-dynamics model \citep{sterman2000business} produces death spirals in which workers cut corners under demand pressure. Their finding that workers are roughly twice as willing to cut corners as to work overtime grounds the overload-asymmetry parameter $\sigma$ in the present model. Subsequent work extends the logic to capability erosion \citep{rahmandad2016capability, repenning2001nobody}, e-commerce growth \citep{oliva2003limits}, and regulatory compliance \citep{martinez2014drift}; \citet{kc2009impact} confirm that sustained high workload degrades service outcomes empirically, and \citet{corbett2024wellbeing} calls for formal dynamic models of workforce well-being in operations. \textbf{Gap~1:} no model in this tradition treats workforce well-being as a positive capability multiplier. \textbf{Gap~2:} no Oliva--Sterman extension adds customer trust, a front-/back-stage split, or digital scaling.
+The foundational insight that service quality can erode endogenously under demand pressure originates with \citet{oliva2001cutting}, whose system-dynamics model \citep{sterman2000business} produces death spirals in which workers cut corners under demand pressure. Their finding that workers are roughly twice as willing to cut corners as to work overtime grounds the overload-asymmetry parameter $\sigma$ in the present model. Subsequent work extends the logic to capability erosion \citep{rahmandad2016capability, repenning2001nobody}, e-commerce growth \citep{oliva2003limits}, and regulatory compliance \citep{martinez2014drift}; \citet{kc2009impact} confirm that sustained high workload degrades service outcomes empirically, and \citet{corbett2024wellbeing} calls for formal dynamic models of workforce well-being in operations; \citet{kc2009impact} provide empirical evidence that sustained workload degrades outcomes, underscoring the need for such models. \textbf{Gap~1:} no model in this tradition treats workforce well-being as a positive capability multiplier. \textbf{Gap~2:} no Oliva--Sterman extension adds customer trust, a front-/back-stage split, or digital scaling.
 
 \paragraph{Workforce investment and retail performance.}\label{sec:lit:workforce}
-A substantial empirical literature documents the link between workforce practices and performance. The Good Jobs Strategy \citep{ton2014good} identifies four operational choices that drive outperformance; causal evidence comes from field experiments showing that responsible scheduling raises productivity and sales \citep{kesavan2022doing} and that profit-maximising staffing exceeds prevailing practice \citep{fisher2021staffing, dube2020minimum}. The conceptual mechanism is the \emph{service profit chain} \citep{heskett1994putting}, which has not been formalised as a dynamic model with computable boundary conditions. The Job Demands-Resources model \citep{bakker2007job, demerouti2001job} provides the micro-foundation: overload depletes well-being faster than equivalent surplus restores it, and productivity responses scale with engagement \citep{mas2009peers}. These two features (asymmetric overload and engagement-scaled sensitivity) underpin the workforce dynamics in \S\ref{sec:model:dynamics}. \textbf{Gap~3:} no dynamic model formalises the Good Jobs Strategy or the service profit chain with computable boundary conditions.
+A substantial empirical literature documents the workforce-performance link. The Good Jobs Strategy \citep{ton2014good} identifies four operational choices that drive outperformance; causal evidence shows that responsible scheduling raises productivity \citep{kesavan2022doing} and that profit-maximising staffing exceeds prevailing practice \citep{fisher2021staffing, dube2020minimum}. The conceptual mechanism is the \emph{service profit chain} \citep{heskett1994putting}, which has not been formalised as a dynamic model with computable boundary conditions. The Job Demands-Resources model \citep{bakker2007job, demerouti2001job} provides the micro-foundation: overload depletes well-being faster than equivalent surplus restores it, and productivity responses scale with engagement \citep{mas2009peers}. These two features (asymmetric overload and engagement-scaled sensitivity) underpin the workforce dynamics in \S\ref{sec:model:dynamics}. \textbf{Gap~3:} no dynamic model formalises the Good Jobs Strategy or the service profit chain with computable boundary conditions.
 
 \paragraph{Omnichannel capability.}\label{sec:lit:omni}
 Digitalisation creates considerable challenges for retail logistics, with fulfilment complexity scaling super-linearly as channel combinations increase \citep{hubner2021digitalization, saghiri2017toward, bell2018inventory, acimovic2015fulfillment}. Automation shifts the operator's role toward exception handling \citep{bainbridge1983ironies}, making the quality of residual human tasks more consequential for overall output \citep{gans2026oring}. Technology--workforce strategic complementarity \citep{milgrom1990economics, aral2012three} motivates the model's central structural assumption that the marginal value of workforce engagement rises with the technology base (\S\ref{sec:model:stocks}). \textbf{Gap~4:} no model formalises front-to-back cross-domain overload. \textbf{Gap~5:} the digitalisation-workforce cross-partial has not been derived for services.
@@ -144,14 +144,14 @@ Sections~\ref{sec:model:stocks}--\ref{sec:model:loops} formalise the workforce c
 
 \subsection{Stocks and Effective Capability}\label{sec:model:stocks}
 
-Three state variables evolve jointly: $K(t) > 0$, the back-stage technology stock (installed infrastructure, warehouse management systems, and process standardisation); $W(t) \in (0,1)$, an index of workforce well-being (engagement, energy, and cognitive capacity among pickers, drivers, and click-and-collect associates); and $T(t) \in (0,1)$, customer trust (the customer base's aggregate confidence that the retailer will deliver reliably). All three are dimensionless and normalised to their natural operating ranges. Throughout, starred variables ($K^*$, $W^*$, $T^*$) denote steady-state equilibrium values; the pre-shock (baseline) digitalisation level is written $F_0$; and $\Delta F$ denotes an upgrade step, the increase in $F$ from $F_0$.
+Three state variables evolve jointly: $K(t) > 0$, the back-stage technology stock (installed infrastructure, warehouse management systems, and process standardisation); $W(t) \in (0,1)$, an index of workforce well-being (engagement, energy, and cognitive capacity among pickers, drivers, and click-and-collect associates); and $T(t) \in (0,1)$, customer trust (the customer base's aggregate confidence that the retailer will deliver reliably). All three are dimensionless and normalised to their natural operating ranges. Throughout, starred variables ($K^*$, $W^*$, $T^*$) denote steady-state equilibrium values; $F_0$ is the pre-shock digitalisation level; $\Delta F = F - F_0$ is the upgrade step.
 
 The central structural innovation is the \emph{effective capability}. A warehouse management system or substitution-handling process can only deliver its designed performance if the workforce operating it has the capacity to do so. Effective capability is therefore not the technology stock alone but its product with a workforce engagement multiplier:
 \begin{align}\label{eq:Keff}
     \Keff(t) &\;=\; K(t) \cdot h\bigl(W(t)\bigr), \notag\\
     h(W) &= (1-p) + pW, \quad p \in (0,1).
 \end{align}
-Effective capability is the product of the technology stock and a workforce capacity multiplier $h(W)$. The multiplier ranges from $h(0) = 1-p$ (at zero well-being, the workforce delivers only the irreducible, automation-driven fraction $1-p$ of the technology's designed potential) to $h(1) = 1$ (a fully engaged workforce realises the technology's full design capacity). The cross-partial
+Effective capability is the product of the technology stock and a workforce capacity multiplier $h(W)$, ranging from $h(0) = 1-p$ (zero well-being: only the automation-driven fraction is realised) to $h(1) = 1$ (full design capacity). The cross-partial
 \begin{equation}\label{eq:cross_partial}
     \frac{\partial^2 \Keff}{\partial K\, \partial W} \;=\; p \;>\; 0
 \end{equation}
@@ -198,7 +198,7 @@ Trust builds through reliable service and erodes faster when reliability fails \
 \begin{equation}\label{eq:dT}
     \frac{dT}{dt} \;=\; \beta\,\Gm\,(1 - T) \;-\; \eta\,\beta\,\Gp\, T \;-\; \lambda\, T,
 \end{equation}
-where $\beta > 0$ is the trust-update rate, $\eta > 1$ is the erosion asymmetry, and $\lambda > 0$ is natural trust decay. We set $\eta = 2.0$, consistent with the asymmetric coefficients reported by \citet{sirdeshmukh2002consumer} (approximately 2.5:1 depletion-to-enhancement ratio).
+where $\beta > 0$ is the trust-update rate, $\eta > 1$ is the erosion asymmetry, and $\lambda > 0$ is natural trust decay. We conservatively set $\eta = 2.0$, below the approximately 2.5:1 depletion-to-enhancement ratio reported by \citet{sirdeshmukh2002consumer}.
 
 The system (\ref{eq:dK})--(\ref{eq:dT}) is piecewise-smooth; existence and uniqueness of solutions follow from \citeauthor{filippov1988differential}'s (\citeyear{filippov1988differential}) framework (details and smoothing robustness in EC~\S EC.1.1 and EC.1.8).
 
@@ -206,7 +206,22 @@ The system (\ref{eq:dK})--(\ref{eq:dT}) is piecewise-smooth; existence and uniqu
 
 The state space $K > 0$, $W \in [0,1]$, $T \in [0,1]$ is forward-invariant for all $t \geq 0$; the verification via directional derivatives at each boundary is given in EC~\S EC.1.1.
 
-Observable field proxies include: app feature index for front-stage capability ($F$), employee engagement composite for workforce well-being ($W$), net promoter score for customer trust ($T$), and on-time fulfilment shortfall for the service gap ($G$). Parameter calibration details are in EC~\S EC.4.
+Table~\ref{tab:proxies} maps each model variable to the empirical proxy used in \S\ref{sec:empirics}. Parameter calibration details are in EC~\S EC.4.
+
+\begin{table}
+\TABLE
+{Model-to-data mapping.\label{tab:proxies}}
+{{\setlength{\tabcolsep}{4pt}\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Model variable} & \textbf{Empirical proxy} & \textbf{Justification} \\
+\midrule
+$F$ (digital depth) & E-commerce share (FRED ECOMPCTSA) & National digital penetration index \\
+$W$ (workforce well-being) & Glassdoor overall rating (1--5) & Composite employee engagement \\
+$T$ (customer trust) & ACSI score (0--100) & Aggregate customer confidence \\
+$K$ (technology stock) & CapEx / Revenue & Back-stage capital intensity \\
+\bottomrule
+\end{tabular}}}{}\end{table}
 
 
 \subsection{Feedback-Loop Architecture}\label{sec:model:loops}
@@ -311,7 +326,7 @@ The technical characterisation of these two states is as follows. The surplus eq
 The low-trust attractor is reached whenever demand persistently overwhelms capability. With $T^* \approx 0$, demand collapses to its digitalisation-driven floor and the workforce settles at a low but strictly positive well-being level, held above zero by the workforce investment rate $f$. Effective capability at this attractor falls short of demand, maintaining a persistent residual gap. The attractor exists whenever $F^b > (u/\delta)\,h(W^*_{\mathrm{low}})$ and is locally stable (EC Remark~3).
 
 \paragraph{Maintained conditions.}
-The formal results hold under four regularity conditions (C1)--(C4), verified analytically or numerically across the parameter space (EC Remark~5): surplus equilibrium existence, uniqueness, regularity, and low-trust attractor existence (EC~\S EC.1.2).
+The formal results hold under four regularity conditions (C1)--(C4), verified analytically or numerically across the parameter space (EC Remark~5): surplus equilibrium existence, uniqueness, regularity, and low-trust attractor existence (EC~\S EC.1.2). The coexistence of surplus equilibrium and low-trust attractor constitutes bistability; the transition at $F_{\mathrm{crit}}$ where these two states coalesce is classified as a saddle-node (fold) bifurcation (EC Remark~5).
 
 \begin{remark}[Analytical Transparency]\label{rem:transparency}
 The table below classifies each result by evidentiary basis: Tier~A (analytic for all valid parameters), Tier~B (analytic under C1--C4), or Tier~C (computational verification).
@@ -351,21 +366,20 @@ Suppose $b > 1$ and $p > 0$. Define the digitalisation threshold
 \end{equation}
 which depends only on exogenous parameters $(u,\delta,p,f,\mu,b)$ and equals $K^*h(f/(f+\mu))^{1/b}$, the capacity multiplier evaluated at the boundary workforce level. Then:
 \begin{enumerate}
-    \item[(i)] For $F < F_{\mathrm{crit}}$, the surplus equilibrium (unique under C2; Lemma~2, EC~\S EC.1.2) exists with $T^* > 0$ and $\mathrm{CLV}^* > \mathrm{CLV}_{\mathrm{low}}$ (the CLV at the low-trust attractor).
+    \item[(i)] For $F < F_{\mathrm{crit}}$, the surplus equilibrium (unique under C2; Lemma~2, EC~\S EC.1.2) exists with $T^* > 0$ and $\mathrm{CLV}^* > \mathrm{CLV}_{\mathrm{low}}$\footnote{CLV is formally calibrated in \S\ref{sec:simulation}; the theorems require only that CLV is increasing in $T^*$, which holds for any standard customer-lifetime-value functional.} (the CLV at the low-trust attractor).
     \item[(ii)] For $F \geq F_{\mathrm{crit}}$, no surplus equilibrium exists. All forward trajectories remain in a bounded compact set (Lemma~3, EC~\S EC.1.2), and the low-trust attractor is locally stable (EC Remark~3). Wide-basin convergence to this attractor is confirmed numerically (Tier~C; Remark~\ref{rem:transparency}).
 \end{enumerate}
 The threshold $F_{\mathrm{crit}}$ is decreasing in $p$ and increasing in $f$: the Trap binds earlier when workforce-technology coupling is strong, and is relaxed by workforce investment.
 \end{theorem}
 
 \noindent\textit{Proof sketch.}
-The surplus equilibrium requires $\Phi(0) > 0$ (where $\Phi(S) \equiv K^*h(W^*(S)) - D(T^*(S),F) - S$ is the surplus residual; full construction in EC~\S EC.1.2), which holds if and only if $F < F_{\mathrm{crit}}$. At $F = F_{\mathrm{crit}}$, the surplus $S^* = 0$ and the equilibrium ceases to exist. For $F > F_{\mathrm{crit}}$, $G > 0$, activating overload depletion of $W$ through Eq.~(\ref{eq:dW}), which reduces $h(W)$, which further widens $G$ through Loop R2. The reinforcing dynamics drive the system toward the low-trust attractor. That trajectories remain bounded for all $t$ follows from Lemma~3 (EC~\S EC.1.2): under overload, $\dot{K} \leq C(F) - \delta K$ where $C(F) = r(1+a)F^b + u$ is a demand-capacity bound, giving $K(t)\leq\max(K_0,\,C(F)/\delta)$ by Gronwall's lemma; together with $W,T\in[0,1]$ by construction, the state space is forward-invariant and compact. Full proof in EC~\S EC.1.3. \Halmos
+The surplus equilibrium requires $\Phi(0) > 0$ (where $\Phi(S) \equiv K^*h(W^*(S)) - D(T^*(S),F) - S$ is the surplus residual; full construction in EC~\S EC.1.2), which holds if and only if $F < F_{\mathrm{crit}}$. At $F = F_{\mathrm{crit}}$, the surplus $S^* = 0$ and the equilibrium ceases to exist. For $F > F_{\mathrm{crit}}$, $G > 0$, activating overload depletion of $W$ through Eq.~(\ref{eq:dW}), which reduces $h(W)$, which further widens $G$ through Loop R2. The reinforcing dynamics drive the system toward the low-trust attractor. Boundedness follows from Lemma~3 (EC~\S EC.1.2): $\dot{K} \leq C(F) - \delta K$ by Gronwall's lemma, and $W,T\in[0,1]$ by construction. Full proof in EC~\S EC.1.3. \Halmos
 
 \medskip
 At the calibrated baseline, $F_{\mathrm{crit}} \approx 1.11$, corresponding to roughly a 40\% increase in digital feature complexity above $F_0 = 0.80$. Figure~\ref{fig:bifurcation} maps the regime structure: green cells converge to the surplus attractor (high CLV); red cells converge to the low-trust attractor (CLV $\approx 400$). The cross-domain CLV sign reversal requires $b > 1$ (super-linear demand) and $p > 0$ (workforce-contingent threshold); at $p = 0$ the threshold reduces to $(u/\delta)^{1/b}$ and no longer responds to workforce investment.
 
 \begin{figure}
 \FIGURE
-% Production filename: fig2_basin_map.png
 {\includegraphics[width=0.75\textwidth]{fig2_basin_map.pdf}}
 {Basin-of-attraction map. Green cells converge to the surplus attractor (high CLV) for $F < F_{\mathrm{crit}} \approx 1.11$; red cells converge to the low-trust attractor for $F \geq F_{\mathrm{crit}}$. Doubled-grid validation confirms boundary stability (EC~\S EC.4.2).\label{fig:bifurcation}}
 {}
@@ -395,12 +409,12 @@ The return decomposes into a direct capacity effect and an indirect trust effect
 Since $W^* = (S^* + f)/(S^* + f + \mu)$ at the surplus equilibrium, differentiating gives $\partial W^*/\partial f = \mu/(S^* + f + \mu)^2 > 0$: workforce investment raises steady-state well-being. Higher $W^*$ raises $h(W^*) = (1-p) + pW^*$, which increases $\Keff = K^* \cdot h(W^*)$, which widens the surplus $S^*$, which raises $T^* = \beta S^*/(\beta S^* + \lambda)$, which raises CLV. Each link is strictly positive: $\partial h/\partial W = p > 0$, $\partial S/\partial h = K^* > 0$, $\partial T^*/\partial S^* > 0$, $\partial\,\mathrm{CLV}/\partial T^* > 0$. The chain-rule product is therefore positive, and diminishing returns follow from the concavity of $W^*$ in $f$. Full proof in EC~\S EC.1.4. \Halmos
 
 \medskip
-The $p{=}0$ counterfactual in \S\ref{sec:sim:fig4_hidden} confirms this: disabling the workforce multiplier leaves equilibrium CLV exactly invariant to workforce spending. The entire CLV return flows through service capacity, not the operational sensing channel. Standard dashboards, which record technology and workforce returns in separate ledgers, structurally underestimate the financial return to workforce investment.
+The $p{=}0$ counterfactual in \S\ref{sec:sim:fig4_hidden} confirms this: disabling the workforce multiplier leaves equilibrium CLV exactly invariant to workforce spending. The entire CLV return flows through service capacity, not the operational sensing channel: the indirect sensing channel contributes less than 1\% of the total CLV uplift across all tested $p$ values (EC Table~EC.4). Standard dashboards, which record technology and workforce returns in separate ledgers, structurally underestimate the financial return to workforce investment.
 
 \subsection{Theorem 3: The Burnout Cliff}\label{sec:analysis:cliff}
 
 \begin{theorem}[Burnout Cliff]\label{thm:cliff}
-Suppose $\sigma > 1$, $p > 0$, and $F_0 < F_{\mathrm{crit}}$ (a surplus equilibrium exists at $F_0$). Under these conditions the system is bistable in a neighbourhood of $F_{\mathrm{crit}}$. Consider a firm at the surplus equilibrium that implements a step increase in $F$ from $F_0$ to $F_0 + \Delta F$. Two thresholds govern the outcome:
+Suppose $\sigma > 1$, $p > 0$, and $F_0 < F_{\mathrm{crit}}$ (a surplus equilibrium exists at $F_0$). Under these conditions the system is bistable in a neighbourhood of $F_{\mathrm{crit}}$ (EC Remark~5). Consider a firm at the surplus equilibrium that implements a step increase in $F$ from $F_0$ to $F_0 + \Delta F$. Two thresholds govern the outcome:
 \begin{enumerate}
     \item[(i)] \emph{Permanent-collapse onset.} For $\Delta F \geq \Delta F_{\mathrm{collapse}}$, no surplus equilibrium exists at the post-upgrade level. The low-trust attractor is the only locally stable state (EC Remark~3); convergence to it is confirmed numerically across the studied initial conditions.
     \begin{align*}
@@ -418,7 +432,7 @@ The safe zone is $\Delta F < \Delta F_{\mathrm{collapse}}$; $\Delta F_{\mathrm{r
 \end{theorem}
 
 \noindent\textit{Proof sketch.}
-Part (i) follows directly from Theorem~\ref{thm:trap}: for $F_0+\Delta F \geq F_{\mathrm{crit}}$, no surplus equilibrium exists; for $\Delta F < \Delta F_{\mathrm{collapse}}$, a new surplus equilibrium exists at $F_0+\Delta F$, and numerical verification confirms that trajectories originating at the pre-shock surplus equilibrium converge to this new surplus equilibrium across the parameter configurations studied (EC~\S EC.4.2). For Part~(ii), setting the first-order demand increment $\Delta D \approx (1+aT^*)\,b\,F_0^{b-1}\,\Delta F$ equal to the pre-upgrade surplus $S_0$ gives $\Delta F_{\mathrm{rapid}}$. Under overload the workforce tipping threshold (the $W$ level below which depletion rate exceeds recovery rate) is $W_{\mathrm{tip}} = f/(f + \mu + \sigma G_0^+)$; when $\Delta F < \Delta F_{\mathrm{rapid}}$, $G_0^+ = 0$ at $t_0^+$ and the system crosses $W_{\mathrm{tip}}$ through a slow transient, consistent with the slow-collapse zone. Full proof in EC \S EC.1.5. \Halmos
+Part (i) follows directly from Theorem~\ref{thm:trap}: for $F_0+\Delta F \geq F_{\mathrm{crit}}$, no surplus equilibrium exists; for $\Delta F < \Delta F_{\mathrm{collapse}}$, a new surplus equilibrium exists at $F_0+\Delta F$, and numerical verification confirms that trajectories originating at the pre-shock surplus equilibrium converge to this new surplus equilibrium across the parameter configurations studied (EC~\S EC.4.2). For Part~(ii), setting the first-order demand increment $\Delta D \approx (1+aT^*)\,b\,F_0^{b-1}\,\Delta F$ equal to the pre-upgrade surplus $S_0$ gives $\Delta F_{\mathrm{rapid}}$. When $\Delta F < \Delta F_{\mathrm{rapid}}$, $G_0^+ = 0$ at $t_0^+$ and the system crosses the workforce tipping threshold through a slow transient, consistent with the slow-collapse zone. Full proof in EC \S EC.1.5. \Halmos
 
 \medskip
 Workforce investment $f$ raises $F_{\mathrm{crit}}$ and enlarges the safe upgrade zone. Before each deployment phase, the firm should compute $\Delta F_{\mathrm{collapse}} = F_{\mathrm{crit}}(f) - F_0$ as a hard ceiling on planned upgrade size; this ceiling is set entirely by $f$.
@@ -426,8 +440,6 @@ Workforce investment $f$ raises $F_{\mathrm{crit}}$ and enlarges the safe upgrad
 
 \subsection{Proposition 4: Digitalisation-Workforce Complementarity}\label{sec:analysis:comp}
 
-% NB: FRAGILE manual counter set — current assumption: 3 theorems precede this
-% proposition.  Update if any theorem, proposition, or lemma is added/removed above.
 \setcounter{proposition}{3}
 \begin{proposition}[Digitalisation-Workforce Complementarity]\label{prop:complementarity}
 The marginal value of workforce improvement is strictly increasing in the technology base:
@@ -441,7 +453,7 @@ Equivalently, workforce well-being determines the maximum sustainable digitalisa
 \begin{equation}\label{eq:Fmax}
     F_{\max}(W) \;=\; \bigl(K^* \cdot h(W)\bigr)^{1/b},
 \end{equation}
-which is strictly increasing in $W$ for $p > 0$. The full implicit differentiation accounting for $T^*(W,F)$ dependence at interior equilibria (where $S^* > 0$) yields a correction term of order $O(aS^*)$ that vanishes as $S^* \to 0$; the formula (\ref{eq:Fmax}) is therefore exact at the boundary and an upper bound on $F_{\max}$ in the interior: trust-elevated demand means true safe capacity is somewhat lower than this formula implies (EC \S EC.1.6).
+which is strictly increasing in $W$ for $p > 0$. The full implicit differentiation accounting for $T^*(W,F)$ dependence at interior equilibria (where $S^* > 0$) yields a correction term of order $O(aS^*)$ that vanishes as $S^* \to 0$; the formula (\ref{eq:Fmax}) is therefore exact at the boundary and an upper bound on $F_{\max}$ in the interior: trust-elevated demand means true safe capacity is approximately 8\% lower than this formula implies at baseline trust levels (EC \S EC.1.6).
 \end{proposition}
 
 \noindent\textit{Proof.} The cross-partial follows directly from $\Keff = K[(1-p)+pW]$. The $F_{\max}$ formula identifies $F_{\mathrm{crit}}$ at $S^*\to 0$, where $T^*\to 0$, giving $(K^*h(W))^{1/b}$, strictly increasing in $W$ since $h'(W)=p>0$; with the full $T^*(W,F)$ correction this is exact at the boundary and an upper bound in the interior (EC~\S EC.1.6). \Halmos
@@ -454,14 +466,11 @@ Figure~\ref{fig:complementarity} illustrates: the gap between a stressed firm ($
 
 \begin{figure}
 \FIGURE
-% Production filename: fig3_complementarity.png
 {\includegraphics[width=0.75\textwidth]{fig3_complementarity.pdf}}
 {Digitalisation-workforce complementarity. The healthy firm ($W=0.70$) sustains 23\% higher $F_{\max}$ than the stressed firm ($W=0.30$), arising entirely from workforce investment.\label{fig:complementarity}}
 {}
 \end{figure}
 
-% NB: FRAGILE manual counter set — current assumption: 3 theorems + 1 proposition
-% precede this corollary.  Update if any theorem/proposition is added/removed above.
 \setcounter{corollary}{4}
 \begin{corollary}[Budget-Constrained Trap]\label{cor:budget}
 Under a fixed budget constraint $c_F F + c_f f \leq B$ with $B \geq B_{\min} - \varepsilon$ (where $B_{\min} = c_F \cdot F_{\mathrm{crit}}$), the CLV-maximising allocation includes positive workforce investment $f^* > 0$: the all-$F$ corner is strictly dominated analytically whenever the budget reaches or exceeds the Trap threshold, and computationally for $B$ throughout $[B_{\min}/2,\, B_{\min})$ across cost ratios $c_F/c_f \in [0.5, 5]$.
@@ -481,7 +490,6 @@ All three appear profitable on front-stage metrics (panel~a), yet CLV diverges s
 
 \begin{figure}
 \FIGURE
-% Production filename: fig4_hidden_cost.png
 {\includegraphics[width=\textwidth]{fig4_hidden_cost.pdf}}
 {The hidden cost of app innovation. Panel~(a): the demand-volume index $F \cdot D(T(t),F(t))$ rises for all three scenarios, masking divergent back-stage outcomes. Panel~(b): CLV diverges sharply by month~24. Panels~(c,d): workforce collapse precedes trust collapse in the no-investment scenario.\label{fig:hidden_cost}}
 {}
@@ -500,7 +508,6 @@ Figure~\ref{fig:cliff} shows the three normalised CLV curves. For the neglected 
 
 \begin{figure}
 \FIGURE
-% Production filename: fig5_burnout_cliff.png
 {\includegraphics[width=0.75\textwidth]{fig5_burnout_cliff.pdf}}
 {The Burnout Cliff. Normalised terminal CLV versus upgrade size $\Delta F$ for three workforce-investment levels. Dotted verticals: $\Delta F_{\mathrm{collapse}}$ (0.18, 0.31, 0.49). The neglected firm ($f=0.01$) exhausts its safe zone at $\Delta F=0.18$; the invested firm ($f=0.10$) retains headroom to $\Delta F=0.49$.\label{fig:cliff}}
 {}
@@ -512,7 +519,7 @@ Figure~\ref{fig:cliff} shows the three normalised CLV curves. For the neglected 
 % -----------------------------------------------------------------------
 \section{Empirical Evidence}\label{sec:empirics}
 
-We examine the model's predictions using three complementary identification strategies at different levels of aggregation: (i)~a firm-level inverted-U test and event study using customer satisfaction data ($N = 216$ for the quadratic specification, 17 firms; $N = 108$ for the event study, 16 firms with Amazon excluded for lack of a discrete launch event); (ii)~a county-level panel test using Bureau of Labor Statistics (BLS) retail employment and wages ($N = 30{,}951$, 3{,}115 US counties). The firm-level analysis tests the Front-Stage Trap (inverted-U and post-shock ACSI decline). A cross-sectional complementarity check (Glassdoor $\times$ technology interaction) provides a directional sign check but lacks statistical power ($N_c = 13$). The county-level analysis tests the Good Jobs Buffer at a different margin: whether counties with higher initial retail wages show more resilient retail employment as e-commerce penetration grows. An independent European sample ($N_c = 11$, $N = 20$) is reported in the EC (\S EC.5) as an exploratory out-of-sample check.
+We examine three observational patterns implied by the model's predictions, using complementary identification strategies at different levels of aggregation: (i)~a firm-level inverted-U test and event study using customer satisfaction data ($N = 216$ for the quadratic specification, 17 firms; $N = 108$ for the event study, 16 firms\footnote{Amazon is excluded from the event study because its omnichannel transition was gradual and continuous rather than marked by a discrete launch event, making event-time identification infeasible.}); (ii)~a county-level panel test using Bureau of Labor Statistics (BLS) retail employment and wages ($N = 30{,}951$, 3{,}115 US counties). The firm-level analysis tests the Front-Stage Trap (inverted-U and post-shock ACSI decline). A cross-sectional complementarity check (Glassdoor $\times$ technology interaction) provides a directional sign check but lacks statistical power ($N_c = 13$). The county-level analysis tests the Good Jobs Buffer at a different margin: whether counties with higher initial retail wages show more resilient retail employment as e-commerce penetration grows. An independent European sample ($N_c = 11$, $N = 20$) is reported in the EC (\S EC.5) as an exploratory out-of-sample check.
 
 \subsection{Data and Samples}\label{sec:emp:data}
 
@@ -553,7 +560,11 @@ National e-commerce share (\%) & 10 & 11.8 & 3.0 & 7.4--16.1 \\
 
 \noindent\textit{Cross-sectional complementarity (Proposition~\ref{prop:complementarity}).} The between-effects (OLS) estimate of the standardised interaction $K^z \times W^z$ is positive ($+1.95$, $p = 0.41$; $N = 131$, 13 firms). The sign is consistent with the prediction that firms with jointly higher technology and workforce investment enjoy higher satisfaction, and aligns directionally with \citet{aral2012three}. However, the coefficient is not statistically significant, reflecting the extreme power limitation of 13 firm clusters \citep{cameron2008bootstrap}. We treat this as a sign check, not a test. Within-firm estimates (firm FE) are negative, as expected given the low within-firm Glassdoor SD (30\% of total SD); the between-effects estimate is the appropriate estimand for a structural cross-firm relationship \citep{milgrom1990economics}.
 
-\noindent\textit{Inverted-U (Theorem~\ref{thm:trap}).} The quadratic specification ($N = 216$, 17 firms) yields $\hat{\beta}_2 = -0.028$ ($p = 0.028$ under $t(16)$), consistent with the predicted inverted-U. The estimated turning point (7.9\% e-commerce share) lies in the mid-2010s, qualitatively consistent with the model's prediction of a digitalisation ceiling, though we caution that the turning point is on the e-commerce share scale while $F_{\mathrm{crit}}$ is a dimensionless technology index; the correspondence is directional, not quantitative. The coefficient attenuates when workforce controls are included ($p = 0.66$), consistent with the model's prediction that e-commerce damages satisfaction \emph{through} workforce depletion. A limitation common to both the inverted-U and complementarity specifications is the absence of instruments: cross-sectional OLS cannot exclude the possibility that unobserved management quality drives both higher Glassdoor ratings and higher ACSI \citep{ton2014good}. The event study partially mitigates this concern by exploiting within-firm temporal variation around exogenous technology shocks.
+\noindent\textit{Inverted-U (Theorem~\ref{thm:trap}).} We estimate the quadratic specification
+\begin{equation}\label{eq:invU}
+    \mathrm{ACSI}_{it} = \alpha_i + \beta_1\,\mathrm{Ecom}_t + \beta_2\,\mathrm{Ecom}_t^2 + \mathbf{X}_{it}\theta + \varepsilon_{it},
+\end{equation}
+where $\alpha_i$ are firm fixed effects, $\mathrm{Ecom}_t$ is national e-commerce share, and $\mathbf{X}_{it}$ includes workforce controls where indicated. The specification ($N = 216$, 17 firms) yields $\hat{\beta}_2 = -0.028$ ($p = 0.028$ under $t(16)$), consistent with the predicted inverted-U. The estimated turning point (7.9\% e-commerce share) lies in the mid-2010s, qualitatively consistent with the model's prediction of a digitalisation ceiling, though we caution that the turning point is on the e-commerce share scale while $F_{\mathrm{crit}}$ is a dimensionless technology index; the correspondence is directional, not quantitative. The coefficient attenuates when workforce controls are included ($p = 0.66$), consistent with the model's prediction that e-commerce damages satisfaction \emph{through} workforce depletion. A limitation common to both the inverted-U and complementarity specifications is the absence of instruments: cross-sectional OLS cannot exclude the possibility that unobserved management quality drives both higher Glassdoor ratings and higher ACSI \citep{ton2014good}. The event study partially mitigates this concern by exploiting within-firm temporal variation around exogenous technology shocks.
 
 \noindent\textit{Event study (Theorem~\ref{thm:trap}).} We exploit the staggered timing of major omnichannel launches (e.g., Walmart curbside 2017, Target Drive Up 2018, Kroger ClickList 2016) as firm-level technology shocks.  Using a $[-3, +3]$ year event window around each firm's launch ($N = 108$, 16 firms), a two-way FE specification with pre-shock capital expenditure as control yields a post-shock ACSI decline of $-0.71$ ($p = 0.037$ under $t(15)$), consistent with the Front-Stage Trap: major omnichannel deployments reduce customer satisfaction on average. Event-time coefficients for the level specification show near-zero and insignificant pre-trend coefficients at $t = -3$ and $t = -2$ (relative to $t = -1$), supporting the parallel-trends assumption for the basic difference-in-differences (EC Table~EC.7). Pre-trend coefficients for the workforce-moderation interaction are similarly insignificant (EC Table~EC.7). The workforce moderation (post $\times$ pre-Glassdoor) is not detectable ($p = 0.79$), consistent with the low within-firm Glassdoor variation rather than absence of the mechanism.
 
@@ -636,7 +647,7 @@ Three empirical strategies across two levels of analysis support the model's qua
 
 \subsection{Contributions and Managerial Implications}\label{sec:disc:theory}
 
-The three theorems together provide the formal micro-foundation that connects \citeauthor{ton2014good}'s (\citeyear{ton2014good}) four operational choices to each other through the dynamics of $\Keff$. Her prescription to ``operate with slack'' corresponds to the positive workforce investment rate $f$: operational slack keeps $W$ from depleting under moderate overload, and Theorem~\ref{thm:buffer} quantifies the CLV return to doing so. ``Standardise and empower'' corresponds to a lower overload sensitivity $\sigma$: well-designed processes reduce the per-unit depletion rate and enlarge the safe upgrade zone of Theorem~\ref{thm:cliff}. ``Offer less'' maps directly onto keeping $F$ below $F_{\mathrm{crit}}$: the model gives this demand-side lever a computable threshold rather than a qualitative prescription. ``Cross-train'' maps onto a higher complementarity parameter $p$: cross-trained workers raise effective capability $h(W)$ at any given engagement level, increasing the marginal return to both technology and workforce investment simultaneously (Proposition~\ref{prop:complementarity}). The model extends Oliva--Sterman with customer trust, a front-/back-stage domain split, and digital scaling: three extensions absent from the quality-erosion framework, now formalised in a single model that, to the best of our knowledge, provides the first dynamic formalisation of the service profit chain \citep{heskett1994putting} and Good Jobs Strategy \citep{ton2014good} with computable boundary conditions.
+The three theorems together provide the formal micro-foundation that connects \citeauthor{ton2014good}'s (\citeyear{ton2014good}) four operational choices to each other through the dynamics of $\Keff$. Her prescription to ``operate with slack'' corresponds to the positive workforce investment rate $f$: operational slack keeps $W$ from depleting under moderate overload, and Theorem~\ref{thm:buffer} quantifies the CLV return to doing so. ``Standardise and empower'' corresponds to a lower overload sensitivity $\sigma$: well-designed processes reduce the per-unit depletion rate and enlarge the safe upgrade zone of Theorem~\ref{thm:cliff}. ``Offer less'' maps onto keeping $F$ below $F_{\mathrm{crit}}$: the model gives this demand-side lever a computable threshold rather than a qualitative prescription. (Ton's prescription targets SKU variety and product-range complexity; in this model, $F$ indexes front-stage digital feature complexity. The mechanisms are analogous---both increase back-stage demand---though not identical.) ``Cross-train'' maps onto a higher complementarity parameter $p$: cross-trained workers raise effective capability $h(W)$ at any given engagement level, increasing the marginal return to both technology and workforce investment simultaneously (Proposition~\ref{prop:complementarity}). The model extends Oliva--Sterman with customer trust, a front-/back-stage domain split, and digital scaling: three extensions absent from the quality-erosion framework, now formalised in a single model that, to the best of our knowledge, provides the first dynamic formalisation of the service profit chain \citep{heskett1994putting} and Good Jobs Strategy \citep{ton2014good} with computable boundary conditions.
 
 \medskip
 \noindent\textbf{Managerial implications.} Three implications follow. First, the maximum safe rollout speed is a workforce constraint (Theorem~\ref{thm:cliff}): the firm should verify that $\Delta F_{\mathrm{collapse}} = F_{\mathrm{crit}}(f) - F_0$ exceeds the planned upgrade size. Second, workforce well-being is a leading indicator: $W$ reaches crisis levels 6--21 months before trust does (EC Table~EC.4). Third, the more digital the firm becomes, the more it should invest in its people (Proposition~\ref{prop:complementarity}): conventional ROI calculations underestimate returns because the dominant capacity-multiplier channel is invisible in standard dashboards (Theorem~\ref{thm:buffer}).
@@ -656,9 +667,9 @@ Third, the county-level analysis uses retail wages as a workforce-investment pro
 
 Standard operational dashboards measure the front-stage domain that invests in technology, not the back-stage workforce that fulfils the resulting demand and absorbs the consequences. This disconnect is not merely a measurement problem; it is a structural feature of omnichannel operations that makes cross-domain value destruction structurally predictable from two observable managerial choices: the workforce investment rate $f$ and the digitalisation level $F$. This paper provides the formal instrument for both.
 
-Three results follow that, to our knowledge, no existing single formulation produces. The Front-Stage Trap (Theorem~\ref{thm:trap}): a computable digitalisation threshold $F_{\mathrm{crit}} \approx 1.11$ beyond which additional front-stage investment destroys CLV by overloading back-stage workers, a sign reversal impossible in single-domain models. The Good Jobs Buffer (Theorem~\ref{thm:buffer}): workforce investment raises CLV through a capacity-level channel confirmed exact by the $p{=}0$ counterfactual, which leaves CLV invariant to workforce spending and isolates the entire gain to service capacity. The Burnout Cliff (Theorem~\ref{thm:cliff}): the maximum safe upgrade size ranges from $\Delta F = 0.18$ for a workforce-neglecting firm to $\Delta F = 0.49$ for an investing firm, an approximately 172\% difference; the neglected firm retains approximately 37\% of the safe deployment headroom.
+Three results follow that, to our knowledge, no existing single formulation produces. The Front-Stage Trap (Theorem~\ref{thm:trap}): a computable digitalisation threshold $F_{\mathrm{crit}} \approx 1.11$ beyond which additional front-stage investment destroys CLV by overloading back-stage workers, a sign reversal impossible in single-domain models. The Good Jobs Buffer (Theorem~\ref{thm:buffer}): workforce investment raises CLV through a capacity-level channel confirmed exact by the $p{=}0$ counterfactual, which leaves CLV invariant to workforce spending and isolates the entire gain to service capacity. The Burnout Cliff (Theorem~\ref{thm:cliff}): the maximum safe upgrade size ranges from $\Delta F = 0.18$ for a workforce-neglecting firm to $\Delta F = 0.49$ for an investing firm, an approximately 172\% difference; at baseline calibration, the neglected firm retains approximately 37\% of the safe deployment headroom.
 
-These results give operations teams two computable numbers standard dashboards do not report: a digitalisation ceiling ($F_{\mathrm{crit}}$) and a maximum safe rollout size ($\Delta F_{\mathrm{collapse}}$). Three empirical strategies provide directionally consistent evidence across different levels of analysis and identification strategies: an inverted-U between e-commerce and ACSI, a post-shock satisfaction decline following omnichannel launches, and county-level evidence that higher retail wages buffer employment against e-commerce growth ($N = 30{,}951$ county--year observations, 3{,}115 counties, $p = 0.025$). Store-level identification of $p$ using exogenous technology rollout events remains the most important empirical follow-up. The broader implication extends beyond omnichannel retail: wherever automated front-stage processes generate demand on human back-stage operations, workforce investment is an operational prerequisite for digital strategy, not an optional cost line.
+These results give operations teams two computable numbers standard dashboards do not report: a digitalisation ceiling ($F_{\mathrm{crit}}$) and a maximum safe rollout size ($\Delta F_{\mathrm{collapse}}$). Three empirical strategies provide directionally consistent evidence across different levels of analysis and identification strategies: an inverted-U between e-commerce and ACSI, a post-shock satisfaction decline following omnichannel launches, and county-level evidence that higher retail wages buffer employment against e-commerce growth ($N = 30{,}951$ county--year observations, 3{,}115 counties, $p = 0.025$). Store-level identification of $p$ using exogenous technology rollout events remains the most important empirical follow-up. The broader implication extends beyond omnichannel retail: wherever automated front-stage processes generate demand on human back-stage operations, workforce investment is an operational prerequisite for digital strategy, not an optional cost line. The capacity-multiplier structure applies wherever technology adoption generates hidden back-stage load---healthcare, financial services, logistics---and the core mechanism is the same: front-stage automation that looks productive on its own ledger can destroy system-level value when the workforce constraint is ignored.
 
 
 % ============================================================
@@ -672,13 +683,6 @@ All simulation code (\texttt{wct\_simulation.py}), empirical analysis scripts (\
 
 % ============================================================
 % BIBLIOGRAPHY
-% PRODUCTION NOTE: The references "EC Table~EC.3" (tab:ec:sensitivity, sensitivity
-% analysis table), "EC Table~EC.4" (tab:ec:sensitivity2, supplementary sensitivity
-% table), and "EC Table~EC.7" (tab:ec:pretrends, event-study pre-trends) in the body
-% are hardcoded cross-document references. If any EC table is added, removed, or
-% reordered before final production, these body locations must be updated manually.
-% Current EC table order: EC.1 smooth, EC.2 mapping, EC.3 sensitivity,
-% EC.4 sensitivity2, EC.5 paramsource, EC.6 simparams, EC.7 pretrends.
 % ============================================================
 
 %\bibliographystyle{informs2014}
@@ -748,7 +752,7 @@ Fornell C, Johnson MD, Anderson EW, Cha J, Bryant BE (1996) The American Custome
 
 \bibitem[Gans and Goldfarb(2026)]{gans2026oring}
 Gans JS, Goldfarb A (2026) O-ring automation.
-NBER Working Paper No.\ 34639. National Bureau of Economic Research, Cambridge, MA.
+NBER Working Paper No.\ 34639. National Bureau of Economic Research, Cambridge, MA. Accessed March 2026.
 
 \bibitem[Gupta et~al.(2004)]{gupta2004valuing}
 Gupta S, Lehmann DR, Stuart JA (2004) Valuing customers.
