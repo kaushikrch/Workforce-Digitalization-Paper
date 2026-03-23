@@ -243,6 +243,27 @@ def main():
             p_v = 2 * (1 - t_dist.cdf(abs(t_v), n_pt - 1))
             print(f"    {v}: b={b:.3f}, t={t_v:.3f}, p={p_v:.3f}")
 
+    # ── Save event-time coefficients to CSV for EC table ──
+    if len(wpt) >= 30:
+        rows = []
+        for t in range(-3, 4):
+            if t == -1:
+                rows.append({'event_time': t, 'level_coef': 0.0, 'level_t': None,
+                             'level_p': None, 'mod_coef': 0.0, 'mod_t': None, 'mod_p': None})
+                continue
+            b_lev = r_pt_level.params[f'evt_{t}']
+            t_lev = r_pt_level.tstats[f'evt_{t}']
+            p_lev = 2 * (1 - t_dist.cdf(abs(t_lev), n_pt - 1))
+            b_mod = r_pt.params[f'evt_{t}_xW']
+            t_mod = r_pt.tstats[f'evt_{t}_xW']
+            p_mod = 2 * (1 - t_dist.cdf(abs(t_mod), n_pt - 1))
+            rows.append({'event_time': t, 'level_coef': b_lev, 'level_t': t_lev,
+                         'level_p': p_lev, 'mod_coef': b_mod, 'mod_t': t_mod, 'mod_p': p_mod})
+        out_df = pd.DataFrame(rows)
+        outpath = project_root / 'data' / 'processed' / 'event_study_results.csv'
+        out_df.to_csv(outpath, index=False)
+        print(f"\nEvent-time coefficients saved to {outpath}")
+
     print("\n[DONE] Event study complete.")
 
 if __name__ == '__main__':
