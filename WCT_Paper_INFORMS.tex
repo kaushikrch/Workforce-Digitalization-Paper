@@ -206,22 +206,7 @@ The system (\ref{eq:dK})--(\ref{eq:dT}) is piecewise-smooth; existence and uniqu
 
 The state space $K > 0$, $W \in [0,1]$, $T \in [0,1]$ is forward-invariant for all $t \geq 0$; the verification via directional derivatives at each boundary is given in EC~\S EC.1.1.
 
-Table~\ref{tab:proxies} maps each model variable to the empirical proxy used in \S\ref{sec:empirics}. Parameter calibration details are in EC~\S EC.4.
-
-\begin{table}
-\TABLE
-{Model-to-data mapping.\label{tab:proxies}}
-{{\setlength{\tabcolsep}{4pt}\small
-\begin{tabular}{@{}lll@{}}
-\toprule
-\textbf{Model variable} & \textbf{Empirical proxy} & \textbf{Justification} \\
-\midrule
-$F$ (digital depth) & E-commerce share (FRED ECOMPCTSA) & National digital penetration index \\
-$W$ (workforce well-being) & Glassdoor overall rating (1--5) & Composite employee engagement \\
-$T$ (customer trust) & ACSI score (0--100) & Aggregate customer confidence \\
-$K$ (technology stock) & CapEx / Revenue & Back-stage capital intensity \\
-\bottomrule
-\end{tabular}}}{}\end{table}
+Parameter calibration details are in EC~\S EC.4.
 
 
 \subsection{Feedback-Loop Architecture}\label{sec:model:loops}
@@ -443,10 +428,10 @@ Workforce investment $f$ raises $F_{\mathrm{crit}}$ and enlarges the safe upgrad
 \setcounter{proposition}{3}
 \begin{proposition}[Digitalisation-Workforce Complementarity]\label{prop:complementarity}
 The marginal value of workforce improvement is strictly increasing in the technology base:
-\begin{align}\label{eq:complementarity}
-    \frac{\partial \Keff}{\partial W} &= p \cdot K, \\
-    \frac{\partial^2 \Keff}{\partial W\,\partial K} &= p > 0. \notag
-\end{align}
+\begin{equation}\label{eq:complementarity}
+    \frac{\partial \Keff}{\partial W} = p \cdot K, \qquad
+    \frac{\partial^2 \Keff}{\partial W\,\partial K} = p > 0.
+\end{equation}
 Since maintaining surplus at higher $F$ requires higher effective capability $\Keff$ (that is, either higher $K^*$ through increased $u$, or higher $h(W^*)$ through increased $f$), the equilibrium return to workforce investment increases with digitalisation level.
 
 Equivalently, workforce well-being determines the maximum sustainable digitalisation level. At the regime boundary ($S^* \to 0$), the equilibrium trust approaches zero ($T^* \to 0$; see Lemma~2, EC~\S EC.1.2), so:
@@ -522,6 +507,23 @@ Figure~\ref{fig:cliff} shows the three normalised CLV curves. For the neglected 
 We examine three observational patterns implied by the model's predictions, using complementary identification strategies at different levels of aggregation: (i)~a firm-level inverted-U test and event study using customer satisfaction data ($N = 216$ for the quadratic specification, 17 firms; $N = 108$ for the event study, 16 firms\footnote{Amazon is excluded from the event study because its omnichannel transition was gradual and continuous rather than marked by a discrete launch event, making event-time identification infeasible.}); (ii)~a county-level panel test using Bureau of Labor Statistics (BLS) retail employment and wages ($N = 30{,}951$, 3{,}115 US counties). The firm-level analysis tests the Front-Stage Trap (inverted-U and post-shock ACSI decline). A cross-sectional complementarity check (Glassdoor $\times$ technology interaction) provides a directional sign check but lacks statistical power ($N_c = 13$). The county-level analysis tests the Good Jobs Buffer at a different margin: whether counties with higher initial retail wages show more resilient retail employment as e-commerce penetration grows. An independent European sample ($N_c = 11$, $N = 20$) is reported in the EC (\S EC.5) as an exploratory out-of-sample check.
 
 \subsection{Data and Samples}\label{sec:emp:data}
+
+Table~\ref{tab:proxies} maps each model variable to its empirical proxy.
+
+\begin{table}
+\TABLE
+{Model-to-data mapping.\label{tab:proxies}}
+{{\setlength{\tabcolsep}{4pt}\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Model variable} & \textbf{Empirical proxy} & \textbf{Justification} \\
+\midrule
+$F$ (digital depth) & E-commerce share (FRED ECOMPCTSA) & National digital penetration index \\
+$W$ (workforce well-being) & Glassdoor overall rating (1--5) & Composite employee engagement \\
+$T$ (customer trust) & ACSI score (0--100) & Aggregate customer confidence \\
+$K$ (technology stock) & CapEx / Revenue & Back-stage capital intensity \\
+\bottomrule
+\end{tabular}}}{}\end{table}
 
 \textit{Firm-level sample.}
 We assemble an annual panel of 17 publicly listed US retailers from 2008 to 2024 using SEC EDGAR 10-K filings. Customer satisfaction ($T$ proxy) is measured by the American Customer Satisfaction Index (ACSI; \citealp{fornell1996acsi}; $N = 216$, 17 firms). Workforce well-being ($W$ proxy) uses Glassdoor overall ratings (1--5 scale) \citep{corbett2024wellbeing}. Technology investment ($K$ proxy) is capital expenditure as a share of revenue. E-commerce share is from the Federal Reserve (FRED series ECOMPCTSA). The inverted-U specification requires only ACSI and e-commerce ($N = 216$, 17 firms); the complementarity specification additionally requires Glassdoor and CapEx, yielding 131 complete firm--year observations across 13 firms after listwise deletion.
