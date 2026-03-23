@@ -150,7 +150,7 @@ We show that the surplus equilibrium exists if and only if $F < F_{\mathrm{crit}
 \[
 \frac{dT}{dt} = -T(\eta\beta G + \lambda) < 0 \quad \text{for all } T > 0.
 \]
-Trust declines monotonically. Through Loop R2 ($W\!\downarrow \to h(W)\!\downarrow \to G\!\uparrow$), the gap widens, accelerating trust decline. The convexity of demand in $F$ ($\partial^2 D/\partial F^2 > 0$ for $b > 1$) ensures the gap widens super-linearly, making the collapse self-reinforcing under Loop R2; convergence to the low-trust attractor is confirmed numerically across the studied parameter configurations (Tier~C; main paper Remark~\ref{rem:transparency}). The system converges to the low-trust interior attractor (Remark~\ref{rem:low_trust}).
+Trust declines monotonically. Through Loop R2 ($W\!\downarrow \to h(W)\!\downarrow \to G\!\uparrow$), the gap widens, accelerating trust decline. The convexity of demand in $F$ ($\partial^2 D/\partial F^2 > 0$ for $b > 1$) ensures the gap widens super-linearly, making the collapse self-reinforcing under Loop R2; convergence to the low-trust attractor is confirmed numerically across the studied parameter configurations (Tier~C; main paper Remark~1).% NB: hardcoded remark number; update if main-paper Remark (Analytical Transparency) is renumbered. The system converges to the low-trust interior attractor (Remark~\ref{rem:low_trust}).
 
 \textbf{Boundary conditions.} When $b \leq 1$: demand is concave in $F$; the balancing loop B1 can compensate and the regime shift does not occur. When $p = 0$: $h(W) = 1$, severing Loop R2; the system may still experience trust decline through the direct overload channel but without the workforce-mediated amplification.
 \end{proof}
@@ -535,7 +535,7 @@ Trustpilot (1--5, complaint-biased); Glassdoor (1--5); Yahoo Finance (\texttt{yf
 yfinance backbone (50 obs, 11 firms; 4 duplicate rows dropped). Trustpilot/Glassdoor merged with 1:1 validation. Complete: 20 obs (40\%). Fiscal-year offsets ${\leq}$3 months (Tesco Feb, Next Jan, ABF Sep, H\&M Nov).
 
 \textit{EU results.}
-Using Trustpilot (1--5 scale) as the outcome, the between-effects estimate of $\beta_3$ is positive ($+$0.47) and significant under pooled cluster-robust inference (CR2: $p = 0.045$ at $t(10)$). However, the conservative HC3 between-effects estimate ($p = 0.53$) and Webb bootstrap ($p = 0.62$) do not reject zero, reflecting the extreme power limitation of $N_c = 11$ clusters \citep{cameron2008bootstrap}. The qualitative sign consistency across geographies---positive $K \times W$ in cross-section---provides suggestive, though not conclusive, support for complementarity. With only $N{=}20$ observations and $N_c{=}11$ clusters, this sample is below any standard threshold for panel regression and is reported as an exploratory out-of-sample check rather than for inferential purposes.
+Using Trustpilot (1--5 scale) as the outcome, the between-effects estimate of $\beta_3$ is positive ($+$0.47) and significant under pooled cluster-robust inference (CR2: $p = 0.045$ at $t(10)$). However, the conservative HC3 between-effects estimate ($p = 0.53$) and Webb bootstrap \citep{webb2023reworking} ($p = 0.62$) do not reject zero, reflecting the extreme power limitation of $N_c = 11$ clusters \citep{cameron2008bootstrap}. The qualitative sign consistency across geographies---positive $K \times W$ in cross-section---provides suggestive, though not conclusive, support for complementarity. With only $N{=}20$ observations and $N_c{=}11$ clusters, this sample is below any standard threshold for panel regression and is reported as an exploratory out-of-sample check rather than for inferential purposes.
 
 \textit{EU robustness.}
 (i)~Currency-neutral controls (assets rank);
@@ -557,17 +557,9 @@ Acimovic J, Graves SC (2015) Making better fulfillment decisions on the fly in a
 Argote L, Epple D (1990) Learning curves in manufacturing.
 \textit{Science} 247(4945):920--924.
 
-\bibitem[Bakker and Demerouti(2007)]{bakker2007job}
-Bakker AB, Demerouti E (2007) The Job Demands-Resources model: State of the art.
-\textit{Journal of Managerial Psychology} 22(3):309--328.
-
 \bibitem[Barlas(1996)]{barlas1996formal}
 Barlas Y (1996) Formal aspects of model validity and validation in system dynamics.
 \textit{System Dynamics Review} 12(3):183--210.
-
-\bibitem[Bell and McCaffrey(2002)]{bell2002bias}
-Bell RM, McCaffrey DF (2002) Bias reduction in standard errors for linear regression with multi-stage samples.
-\textit{Survey Methodology} 28(2):169--181.
 
 \bibitem[Bell et~al.(2018)]{bell2018inventory}
 Bell DR, Gallino S, Moreno A (2018) Offline showrooms in omnichannel retail: Demand and operational benefits.
