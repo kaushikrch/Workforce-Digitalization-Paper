@@ -578,10 +578,10 @@ The firm-level data cannot deliver a well-powered test of the capacity-multiplie
 
 \textit{Design.} The model predicts that workforce investment $f$ buffers the negative effects of digitalisation on service capacity (Theorem~\ref{thm:buffer}). The county-level test maps this prediction to an observable analogue: do counties with higher initial retail wages (a proxy for local workforce-investment conditions) show more resilient retail employment as national e-commerce penetration grows? Three mapping choices warrant explicit acknowledgement. First, the outcome is employment resilience, not customer lifetime value; the county test identifies a labour-market analogue of the capacity-multiplier channel rather than the customer-satisfaction channel central to Theorem~\ref{thm:buffer}. Second, county-level retail wages reflect local labour-market conditions (including minimum-wage floors, union density, and regional cost of living) beyond any individual firm's workforce investment $f$; they are a noisy proxy for the model's control variable. Third, national e-commerce share $\text{Ecom}_t$ is a macro trend common to all counties, whereas the model's digitalisation level $F$ is a firm-level choice. Despite these distinctions, the qualitative prediction is preserved: higher workforce investment should buffer against digitalisation-induced capacity loss, and the county-level test provides a well-powered setting in which to evaluate this prediction. Initial retail wage is measured in 2015 (before the e-commerce acceleration), standardised cross-sectionally. The interaction $W_{c,2015}^z \times \text{Ecom}_t$ captures whether high-wage counties differentially maintain employment under digital pressure:
 \begin{equation}\label{eq:county}
-\begin{split}
+\begin{aligned}
 \ln E_{ct} - \ln E_{c,2015} &= \alpha_c + \gamma_t \\
   &\quad + \beta_1 \bigl(W_{c,2015}^z \times \mathrm{Ecom}_t\bigr) + \varepsilon_{ct}.
-\end{split}
+\end{aligned}
 \end{equation}
 Because $\text{Ecom}_t$ is a national-level variable (identical across counties within each year), its main effect is perfectly collinear with the year fixed effects $\gamma_t$ and is therefore absorbed by them. Likewise, $W_{c,2015}^z$ is time-invariant and absorbed by the county fixed effects $\alpha_c$. The coefficient $\beta_1$ thus identifies the \emph{differential} effect of e-commerce growth on counties with higher initial retail wages, which is the quantity of interest for the Good Jobs Buffer.
 
