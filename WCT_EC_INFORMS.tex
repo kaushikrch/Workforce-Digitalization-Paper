@@ -12,7 +12,7 @@
 \RequirePackage{bm}
 \RequirePackage{endnotes}
 
-\OneAndAHalfSpacedXII
+\DoubleSpacedXI
 
 % Natbib setup for author-date style
 \usepackage{natbib}
@@ -122,7 +122,7 @@ By Gronwall's lemma, $K(t) \leq \max(K_0,\, C(F)/\delta)$ for all $t \geq 0$. Un
 \end{proof}
 
 \begin{remark}[Scope of global convergence]\label{rem:global_conv}
-Lemma~\ref{lem:bounded} ensures all trajectories remain in a bounded compact set, a necessary condition for LaSalle's invariance principle. Which attractor a trajectory reaches depends on its initial condition relative to the basin boundary (Figure~2, main paper). For $F \geq F_{\mathrm{crit}}$, only the low-trust attractor is stable (Remark~\ref{rem:low_trust}). A complete global Lyapunov proof is left to future work: the principal obstacle is the switching manifold $\mathcal{M} = \{G=0\}$, at which the vector field is discontinuous and the standard LaSalle invariance argument does not apply directly. A complete proof would require either a Filippov-specific Lyapunov construction~\citep{filippov1988differential} or a smooth-approximation argument; both are non-trivial for three-dimensional piecewise-smooth systems and constitute a natural extension of the present framework.
+Lemma~\ref{lem:bounded} ensures all trajectories remain in a bounded compact set. Which attractor a trajectory reaches depends on its initial condition relative to the basin boundary (Figure~2, main paper). For $F \geq F_{\mathrm{crit}}$, only the low-trust attractor is stable (Remark~\ref{rem:low_trust}). A complete global Lyapunov proof is left to future work; the principal obstacle is the switching manifold $\{G{=}0\}$ where the standard LaSalle argument does not apply directly, requiring Filippov-specific Lyapunov construction~\citep{filippov1988differential}.
 \end{remark}
 
 \begin{remark}[Maintained Conditions]\label{rem:conditions}
@@ -130,7 +130,7 @@ Four conditions are maintained throughout: (C1)~$\Phi(0) > 0$ (i.e., $F < F_{\ma
 \end{remark}
 
 \begin{remark}[Bifurcation Classification at $F_{\mathrm{crit}}$]\label{rem:bifurcation}
-The transition at $F_{\mathrm{crit}}$ is a saddle-node (fold) bifurcation in the effective one-dimensional dynamics of the surplus variable $S$: the stable surplus equilibrium and the separating saddle coalesce and disappear as $F \nearrow F_{\mathrm{crit}}$. The Jacobian of the full system at the surplus equilibrium has one eigenvalue $-\delta < 0$ (decoupled $K$-equation) and two eigenvalues from the $(W,T)$ sub-system with strictly negative real parts throughout $F \in [0, F_{\mathrm{crit}}]$, confirmed numerically (baseline: two complex-conjugate eigenvalues with real part $\approx -0.07$; constant term of the characteristic polynomial $\approx 0.021 > 0$ at $F = 0.90$). No Hopf bifurcation occurs: both eigenvalues retain strictly negative real parts up to and including the limit $S^* \to 0$ (constant term $\to 0.004 > 0$ at $F_{\mathrm{crit}}$). The zero eigenvalue of the full system at $F_{\mathrm{crit}}$ belongs to the one-dimensional manifold along which $S^*$ vanishes, consistent with a saddle-node in the reduced dynamics.
+The transition at $F_{\mathrm{crit}}$ is a saddle-node (fold) bifurcation in the surplus variable $S$: the stable surplus equilibrium and the separating saddle coalesce as $F \nearrow F_{\mathrm{crit}}$. The $(W,T)$ sub-system eigenvalues retain strictly negative real parts throughout $F \in [0, F_{\mathrm{crit}}]$ (baseline: complex-conjugate pair with $\mathrm{Re} \approx -0.07$; characteristic polynomial constant term $>0$ up to $F_{\mathrm{crit}}$), ruling out Hopf bifurcation.
 \end{remark}
 
 \subsection{Proof of Theorem 1 (Front-Stage Trap)}\label{sec:ec:proof1}
@@ -234,21 +234,9 @@ For $\Delta F < \Delta F_{\mathrm{collapse}}$, the post-upgrade $F_0+\Delta F < 
 \end{equation}
 At baseline: $\Delta F_{\mathrm{rapid}} = 0.401$. Since $\Delta F_{\mathrm{rapid}} > \Delta F_{\mathrm{collapse}}$ (0.401 vs.\ 0.310), the interval $[\Delta F_{\mathrm{collapse}},\Delta F_{\mathrm{rapid}})$ defines a \emph{slow-collapse zone}: the surplus equilibrium is gone, but $G(t_0^+) < 0$, so collapse proceeds through a gradual erosion of surplus rather than immediate overload. For $\Delta F \geq \Delta F_{\mathrm{rapid}}$, $G(t_0^+) > 0$ and collapse is rapid.
 
-\textbf{Steps 3--4: Well-being dynamics and timescales.} Under overload ($G > 0$), the tipping threshold $W_{\mathrm{tip}} = f/(f+\mu+\sigma G_0^+)$ marks the level below which depletion exceeds recovery. In the slow-collapse zone ($G_0^+ = 0$ at $t_0^+$), $W_{\mathrm{tip}}$ is crossed gradually as surplus erodes. Two timescales govern speed: $\tau_{\mathrm{adapt}} = 1/r \approx 2.5$ mo (Loop B1) and $\tau_{\mathrm{deplete}} = 1/(\mu+\sigma G_0^+) \in [1.5,4]$ mo (Loop R3). Near $\Delta F_{\mathrm{collapse}}$, both are comparable, so convergence to the low-trust attractor may require hundreds of months (explaining why simulated cliffs for low-$f$ scenarios exceed the analytic threshold — a slow-convergence artefact, not a model error).
+\textbf{Step 3: Dynamics and timescales.} Under overload ($G > 0$), the tipping threshold $W_{\mathrm{tip}} = f/(f+\mu+\sigma G_0^+)$ marks the level below which depletion exceeds recovery. Two timescales govern speed: $\tau_{\mathrm{adapt}} = 1/r \approx 2.5$ mo (Loop B1) and $\tau_{\mathrm{deplete}} = 1/(\mu+\sigma G_0^+) \in [1.5,4]$ mo (Loop R3). Near $\Delta F_{\mathrm{collapse}}$, convergence to the low-trust attractor may require hundreds of months.
 
-\textbf{Step 5: Three-threshold characterisation and numerical verification.} Starting from the surplus equilibrium $(K^*, W^*, T^*)$ at $F_0$, a step upgrade $\Delta F$ produces the following structure. Let $\Delta F_{\mathrm{collapse}} = F_{\mathrm{crit}}(f) - F_0$ be the saddle-node threshold (Theorem~1) and let $\Delta F_{\mathrm{rapid}} = S_0 / [b F_0^{b-1}(1+aT^*)]$ be the instantaneous-overload threshold. At the baseline scenario ($f=0.03$: $0.401 > 0.310$), $\Delta F_{\mathrm{rapid}} > \Delta F_{\mathrm{collapse}}$ and they define three distinct zones:
-\begin{itemize}
-    \item \textbf{Safe zone} ($\Delta F < \Delta F_{\mathrm{collapse}}$): surplus equilibrium exists at $F_0+\Delta F$; trajectories recover after transient overload.
-    \item \textbf{Slow-collapse zone} ($\Delta F_{\mathrm{collapse}} \leq \Delta F < \Delta F_{\mathrm{rapid}}$): surplus equilibrium gone; $G(t_0^+) < 0$, so collapse proceeds gradually; convergence to the low-trust attractor may require hundreds of months near the boundary.
-    \item \textbf{Rapid-collapse zone} ($\Delta F \geq \Delta F_{\mathrm{rapid}}$): $G(t_0^+) > 0$ immediately; the death spiral begins from $t=0^+$.
-\end{itemize}
-\noindent\textit{Note on ordering.} The ordering $\Delta F_{\mathrm{rapid}} > \Delta F_{\mathrm{collapse}}$ depends on $f$; it reverses at high $f$ (e.g., $f=0.10$: $\Delta F_{\mathrm{collapse}} = 0.49 > \Delta F_{\mathrm{rapid}} \approx 0.40$), where the slow-collapse zone disappears.
-Simulations ($t_{\mathrm{end}}=500$ months, collapse criterion $T(\infty) < 0.15$; the gap between the two attractors renders this threshold unambiguous) confirm collapse boundaries for three workforce-investment scenarios starting from their surplus equilibria at $F_0=0.80$:
-
-
-For $f=0.01$ the simulated cliff (0.27) exceeds $\Delta F_{\mathrm{collapse}}$ (0.179): the surplus equilibrium disappears at $\Delta F=0.179$, but the trajectory takes $>500$ months to converge for $\Delta F \in [0.179, 0.26]$, reflecting the long transients of the slow-collapse zone. For $f=0.03$, the simulated cliff (0.29) falls slightly \emph{below} $\Delta F_{\mathrm{collapse}}$ (0.310), consistent with basin-boundary effects: the trajectory escapes the surplus attractor's basin for $\Delta F \in [0.29, 0.31)$ even though the equilibrium formally exists.
-
-\noindent\textit{Note on the two-threshold interpretation.} The Burnout Cliff involves two distinct thresholds that are easily conflated. $\Delta F_{\mathrm{collapse}} = F_{\mathrm{crit}}(f) - F_0$ is the \emph{safety boundary}: the maximum upgrade size beyond which no surplus equilibrium exists and permanent collapse is certain. $\Delta F_{\mathrm{rapid}}$ is a \emph{diagnostic}: the upgrade size above which the service gap turns positive at $t = 0^+$, triggering an immediate death spiral rather than a slow erosion. Because $\Delta F_{\mathrm{rapid}} > \Delta F_{\mathrm{collapse}}$ at the baseline scenario (0.40 vs.\ 0.31), a firm in the zone $\Delta F \in [\Delta F_{\mathrm{collapse}}, \Delta F_{\mathrm{rapid}})$ is already in permanent-collapse territory but experiences only gradual deterioration, making the collapse invisible on a standard fiscal-quarter horizon. The correct safety threshold is $\Delta F_{\mathrm{collapse}}$; $\Delta F_{\mathrm{rapid}}$ characterises collapse speed, not safety. \Halmos
+\textbf{Step 4: Three zones.} $\Delta F_{\mathrm{collapse}}$ and $\Delta F_{\mathrm{rapid}}$ define: (i)~\emph{safe zone} ($\Delta F < \Delta F_{\mathrm{collapse}}$), where a surplus equilibrium exists; (ii)~\emph{slow-collapse zone} ($\Delta F_{\mathrm{collapse}} \leq \Delta F < \Delta F_{\mathrm{rapid}}$), where $G(t_0^+) < 0$ but no surplus equilibrium exists, so collapse is gradual; (iii)~\emph{rapid-collapse zone} ($\Delta F \geq \Delta F_{\mathrm{rapid}}$), where $G(t_0^+) > 0$ immediately. The ordering $\Delta F_{\mathrm{rapid}} > \Delta F_{\mathrm{collapse}}$ reverses at high $f$ ($f{=}0.10$: $\Delta F_{\mathrm{collapse}} = 0.49 > \Delta F_{\mathrm{rapid}} \approx 0.40$). Simulations ($t_{\mathrm{end}}{=}500$, collapse criterion $T(\infty) < 0.15$) confirm collapse boundaries across three workforce scenarios at $F_0{=}0.80$. Minor discrepancies between simulated and analytic thresholds reflect slow-convergence transients near the boundary and basin-boundary effects. The correct safety threshold is $\Delta F_{\mathrm{collapse}}$; $\Delta F_{\mathrm{rapid}}$ characterises collapse speed, not safety. \Halmos
 \end{proof}
 
 
@@ -304,7 +292,7 @@ In Case~1 and near $B_{\min}$ in Case~2, $f^* > 0$ follows analytically; the int
 
 \subsection{Smoothing Robustness}\label{sec:ec:smoothing}
 
-The theoretical analysis uses the exact piecewise-smooth operators $[\cdot]^+ = \max(\cdot, 0)$. Table~\ref{tab:ec:smooth} verifies that replacing $[G]^+$ with a tanh-smoothed approximation $[G]^+_\varepsilon = G/2 + G\tanh(G/\varepsilon)/2$ across bandwidths $\varepsilon \in \{0.001, 0.005, 0.01, 0.05\}$ shifts $F_{\mathrm{crit}}$ by less than 1\% for practically relevant bandwidths ($\varepsilon \leq 0.01$), confirming that all three theorems are invariant to smoothing in this range.
+Table~\ref{tab:ec:smooth} verifies that replacing the exact piecewise-smooth operators $[\cdot]^+$ with a tanh-smoothed approximation shifts $F_{\mathrm{crit}}$ by less than 1\% for $\varepsilon \leq 0.01$, confirming that all three theorems are invariant to smoothing.
 
 \begin{table}
 \TABLE
@@ -347,12 +335,11 @@ Trust stock $T$ & No O\&S counterpart & Collapses to demand at $\beta \to \infty
 {}
 \end{table}
 
-The $(1-W)$ saturation factor replaces O-S's nonlinear lookup table; qualitative behaviour is identical. The 2:1 overload asymmetry ($\sigma = 2$) transfers exactly and, with the three restrictions lifted, generates Loops R1, R2, and the cross-domain Front-Stage Trap.
-
+The $(1-W)$ saturation factor replaces O-S's nonlinear lookup table; qualitative behaviour is identical. With the three restrictions lifted, the model generates Loops R1, R2, and the cross-domain Front-Stage Trap.
 
 \section{Sensitivity Analysis}\label{sec:ec:sensitivity}
 
-Table~\ref{tab:ec:sensitivity} reports how each theorem's qualitative result responds to $\pm 50\%$ perturbations of each parameter from its baseline value. For each perturbation, we recompute the relevant threshold ($F_{\mathrm{crit}}$, $\partial\,\mathrm{CLV}^*/\partial f$, or $\Delta F_{\mathrm{collapse}}$) and record whether the theorem's qualitative prediction holds, weakens, strengthens, or disappears.
+Table~\ref{tab:ec:sensitivity} reports how each theorem's qualitative result responds to $\pm 50\%$ perturbations of each parameter from its baseline value.
 
 \begin{table}
 \TABLE
@@ -439,9 +426,7 @@ $\lambda$ (nat.\ $T$ decay) & 0.025 & 28\,mo & Illustrative & Robust \\
 
 \subsection{Simulation Initial Conditions}
 
-Table~\ref{tab:ec:simparams} reports the initial conditions and control parameters for each figure. All simulations use the baseline model parameters from Table~2 of the main paper. Initial conditions are chosen so that each simulation begins in the surplus regime ($\Keff > D$), representing a retailer with adequate but not excessive back-stage capacity.
-
-\textbf{Basin-of-attraction map.} Grid: $W_0 \in \{0.08, 0.10, \ldots, 0.80\}$, $F \in \{0.70, 0.75, \ldots, 1.95\}$ ($37{\times}26$ trajectories). Doubled-grid validation ($73{\times}51$) shifts the separatrix by at most $0.0075$ $W_0$-units. Burnout Cliff collapse criterion: $T(t{=}500) < 0.15$.
+Table~\ref{tab:ec:simparams} reports initial conditions for each figure. All simulations use baseline parameters from Table~2 of the main paper, starting in the surplus regime ($\Keff > D$). Basin-of-attraction grid: $37{\times}26$ trajectories; doubled-grid validation ($73{\times}51$) shifts the separatrix by at most $0.0075$ $W_0$-units.
 
 \begin{table}
 \TABLE
@@ -463,9 +448,7 @@ EC & eq.~IC at $F{=}0.85$ & 0.85 & 0.05 & 0.00--0.20 & 120 & Study~3: Thm~2 deco
 
 \subsection{CLV Functional Form}
 
-We model CLV using the geometric-series structure of \citet{gupta2004valuing}: $\mathrm{CLV} = w(T) / (1 - \rho(T))$, where $\rho(T)$ is an annual retention probability and $w(T)$ an annualised per-customer margin. We adopt the specification $\rho(T) = 0.80 + 0.18T$ and $w(T) = 80(1 + 0.25\max(T-0.15, 0))$. The retention endpoints ($\rho(0) = 0.80$, $\rho(1) = 0.98$) match the 70--90\% annual range in \citet{gupta2004valuing}; \$80 is an illustrative annual margin for US omnichannel grocery. The model's analytical results require only that CLV is increasing in $T$, which holds for any $\rho'(T) > 0$, $w'(T) \geq 0$.
-
-The kink in $w(T)$ at $T = 0.15$ does not affect any analytical result: Theorem~2 requires only $\partial\,\mathrm{CLV}/\partial T^* > 0$, which holds everywhere since $\partial\,\mathrm{CLV}/\partial T^* \geq w(T^*)\rho'(T^*)/(1-\rho(T^*))^2 > 0$ even at the kink. A softplus replacement produces CLV values within 0.5\% and qualitatively identical outputs.
+We model CLV using the geometric-series structure of \citet{gupta2004valuing}: $\mathrm{CLV} = w(T) / (1 - \rho(T))$, where $\rho(T) = 0.80 + 0.18T$ is an annual retention probability and $w(T) = 80(1 + 0.25\max(T-0.15, 0))$ an annualised per-customer margin. The retention endpoints ($\rho(0) = 0.80$, $\rho(1) = 0.98$) match the 70--90\% annual range in \citet{gupta2004valuing}; \$80 is an illustrative annual margin for US omnichannel grocery. The model's analytical results require only $\partial\,\mathrm{CLV}/\partial T^* > 0$, which holds everywhere since $\partial\,\mathrm{CLV}/\partial T^* \geq w(T^*)\rho'(T^*)/(1-\rho(T^*))^2 > 0$.
 
 
 % ============================================================
@@ -502,7 +485,7 @@ EDGAR backbone (276 obs, 17 firms, 2008--2024); left-join ACSI, Glassdoor, macro
 
 \subsection*{Event-Study Pre-Trends}
 
-Table~\ref{tab:ec:pretrends} reports event-time coefficients from the level DID and workforce-moderation specifications described in \S5.2 of the main paper ($N = 108$, 16 firms, $[-3,+3]$ window around each firm's omnichannel launch). Pre-period coefficients ($t=-3$, $t=-2$) are uniformly small and insignificant in both specifications, supporting the parallel-trends assumption.
+Table~\ref{tab:ec:pretrends} reports event-time coefficients from the level DID and moderation specifications (\S5.2; $N = 108$, 16 firms). Pre-period coefficients ($t=-3$, $t=-2$) are insignificant in both specifications, supporting parallel trends.
 
 \begin{table}[htbp]
 \TABLE
@@ -528,27 +511,20 @@ $t = +3$ & $-0.900$ & $-1.69$ & 0.113 & $-1.033$ & $-0.05$ & 0.961 \\
 
 \subsection*{EU Replication (Exploratory)}
 
-An independent replication panel covers 11 European retailers across six countries (UK, France, Germany, Spain, Sweden, Netherlands) from 2019 to 2023. Customer satisfaction uses Trustpilot scores (1--5 scale; rescaled to 0--100 for comparability). Glassdoor ratings proxy workforce well-being. Financial data are from Yahoo Finance. Because financials are reported in mixed currencies (GBP, EUR, SEK), we use within-year asset percentile rank as the size control in cross-sectional specifications and log revenue only in within-firm (fixed-effects) specifications where currency is absorbed. E-commerce share uses UK Office for National Statistics internet sales data for UK firms and Eurostat data for continental retailers. The complete panel contains 20 firm--year observations with all three proxies present.
-
-\textit{EU data sources.}
-Trustpilot (1--5, complaint-biased); Glassdoor (1--5); Yahoo Finance (\texttt{yfinance}); UK ONS internet sales (J4MC); Eurostat (\texttt{isoc\_ec\_eseln2}). Assets rank${=}$within-year percentile (currency-neutral).
-
-\textit{EU merge.}
-yfinance backbone (50 obs, 11 firms; 4 duplicate rows dropped). Trustpilot/Glassdoor merged with 1:1 validation. Complete: 20 obs (40\%). Fiscal-year offsets ${\leq}$3 months (Tesco Feb, Next Jan, ABF Sep, H\&M Nov).
+An independent panel covers 11 European retailers (UK, France, Germany, Spain, Sweden, Netherlands; 2019--2023; $N{=}20$ complete firm--year observations). Customer satisfaction uses Trustpilot (1--5); workforce well-being uses Glassdoor; financials from Yahoo Finance with within-year asset percentile rank as currency-neutral size control. E-commerce share from UK ONS (J4MC) and Eurostat (\texttt{isoc\_ec\_eseln2}).
 
 \textit{EU results.}
-Using Trustpilot (1--5 scale) as the outcome, the between-effects estimate of $\beta_3$ is positive ($+$0.47) and significant under pooled cluster-robust inference (CR2: $p = 0.045$ at $t(10)$). However, the conservative HC3 between-effects estimate ($p = 0.53$) and Webb bootstrap \citep{webb2023reworking} ($p = 0.62$) do not reject zero, reflecting the extreme power limitation of $N_c = 11$ clusters \citep{cameron2008bootstrap}. The qualitative sign consistency across geographies (positive $K \times W$ in cross-section) provides suggestive, though not conclusive, support for complementarity. With only $N{=}20$ observations and $N_c{=}11$ clusters, this sample is below any standard threshold for panel regression and is reported as an exploratory out-of-sample check rather than for inferential purposes.
+The between-effects estimate of $\beta_3$ ($K{\times}W$) is positive ($+$0.47; CR2: $p = 0.045$ at $t(10)$). However, HC3 ($p = 0.53$) and Webb bootstrap \citep{webb2023reworking} ($p = 0.62$) do not reject zero, reflecting $N_c = 11$ clusters \citep{cameron2008bootstrap}. This sample is below standard thresholds for panel regression and is reported as an exploratory out-of-sample check.
 
 \textit{EU robustness.}
 (i)~Currency-neutral controls (assets rank);
 (ii)~UK-only/Continental sub-samples;
 (iii)~Leave-one-out: $K{\times}W \in [-0.04, +0.82]$;
 (iv)~Wild bootstrap: $p{=}0.62$;
-(v)~CR2, $t(10)$: $p{=}0.045$;
-(vi)~Imbens--Kolesar $\mathrm{df}_{\mathrm{eff}}{=}7.2$, $p{=}0.055$.
+(v)~Imbens--Kolesar $\mathrm{df}_{\mathrm{eff}}{=}7.2$, $p{=}0.055$.
 }% end \small
 
-{\small
+{\footnotesize\setlength{\bibsep}{1pt}
 \begin{thebibliography}{99}
 
 \bibitem[Acimovic and Graves(2015)]{acimovic2015fulfillment}
