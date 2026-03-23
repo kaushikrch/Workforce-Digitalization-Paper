@@ -262,7 +262,7 @@ $\partial \Keff / \partial W = pK > 0$ and $\partial^2 \Keff / \partial W \parti
 \begin{proof}
 \textbf{Part 1: Cross-partial.} From $\Keff = K \cdot [(1-p) + pW]$: $\partial \Keff / \partial W = pK$ and $\partial^2 \Keff / \partial W \partial K = p$. Both are strictly positive for $p > 0$.
 
-\textbf{Part 2: $F_{\max}(W)$ at the regime boundary.} $F_{\max}(W)$ is defined as the value of $F$ at which the surplus equilibrium of Lemma~1 ceases to exist, i.e., at which $S^* = 0$. From Lemma~1, at $S^* = 0$:
+\textbf{Part 2: $F_{\max}(W)$ at the regime boundary.} $F_{\max}(W)$ is defined as the value of $F$ at which the surplus equilibrium of Lemma~\ref{lem:existence} ceases to exist, i.e., at which $S^* = 0$. From Lemma~\ref{lem:existence}, at $S^* = 0$:
 \[
 T^*(S) = \frac{\beta S}{\beta S + \lambda} \;\xrightarrow{S \to 0}\; 0.
 \]
@@ -537,7 +537,7 @@ Trustpilot (1--5, complaint-biased); Glassdoor (1--5); Yahoo Finance (\texttt{yf
 yfinance backbone (50 obs, 11 firms; 4 duplicate rows dropped). Trustpilot/Glassdoor merged with 1:1 validation. Complete: 20 obs (40\%). Fiscal-year offsets ${\leq}$3 months (Tesco Feb, Next Jan, ABF Sep, H\&M Nov).
 
 \textit{EU results.}
-Using Trustpilot (1--5 scale) as the outcome, the between-effects estimate of $\beta_3$ is positive ($+$0.47) and significant under pooled cluster-robust inference (CR2: $p = 0.045$ at $t(10)$). However, the conservative HC3 between-effects estimate ($p = 0.53$) and Webb bootstrap \citep{webb2023reworking} ($p = 0.62$) do not reject zero, reflecting the extreme power limitation of $N_c = 11$ clusters \citep{cameron2008bootstrap}. The qualitative sign consistency across geographies---positive $K \times W$ in cross-section---provides suggestive, though not conclusive, support for complementarity. With only $N{=}20$ observations and $N_c{=}11$ clusters, this sample is below any standard threshold for panel regression and is reported as an exploratory out-of-sample check rather than for inferential purposes.
+Using Trustpilot (1--5 scale) as the outcome, the between-effects estimate of $\beta_3$ is positive ($+$0.47) and significant under pooled cluster-robust inference (CR2: $p = 0.045$ at $t(10)$). However, the conservative HC3 between-effects estimate ($p = 0.53$) and Webb bootstrap \citep{webb2023reworking} ($p = 0.62$) do not reject zero, reflecting the extreme power limitation of $N_c = 11$ clusters \citep{cameron2008bootstrap}. The qualitative sign consistency across geographies (positive $K \times W$ in cross-section) provides suggestive, though not conclusive, support for complementarity. With only $N{=}20$ observations and $N_c{=}11$ clusters, this sample is below any standard threshold for panel regression and is reported as an exploratory out-of-sample check rather than for inferential purposes.
 
 \textit{EU robustness.}
 (i)~Currency-neutral controls (assets rank);
