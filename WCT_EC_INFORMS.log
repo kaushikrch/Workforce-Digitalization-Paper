@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.22)  24 MAR 2026 08:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.22)  24 MAR 2026 09:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -881,17 +881,17 @@ any ini-tial con-di-tion
  []
 
 [3] [4] [5] [6] [7] [8] [9] [10] [11]
-Underfull \hbox (badness 2253) in paragraph at lines 417--417
+Underfull \hbox (badness 2253) in paragraph at lines 418--418
 []|\OT1/qtm/m/n/8 McKnight et al. (2002); Sird-esh-mukh
  []
 
 
-Underfull \hbox (badness 2401) in paragraph at lines 417--417
+Underfull \hbox (badness 2401) in paragraph at lines 418--418
 []|\OT1/qtm/m/n/8 Demerouti et al. (2001); Dub[]e et al.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--417
+Underfull \hbox (badness 10000) in paragraph at lines 418--418
 []|\OT1/qtm/m/n/8 Primary lag driver (EC
  []
 
@@ -899,43 +899,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 417--417
 Underfull \vbox (badness 1546) has occurred while \output is active []
 
  [12]
-Underfull \hbox (badness 2050) in paragraph at lines 445--445
+Underfull \hbox (badness 2050) in paragraph at lines 446--446
 \OML/cmm/m/it/8 p[]\OT1/cmr/m/n/8 0$ \OT1/qtm/m/n/8 coun-ter-fac-tual con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
+Underfull \hbox (badness 10000) in paragraph at lines 446--446
 []|$\OT1/cmr/m/n/8 37[]26$ \OT1/qtm/m/n/8 grid;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
+Underfull \hbox (badness 10000) in paragraph at lines 446--446
 []|\OT1/qtm/m/n/8 Boundary for-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
+Underfull \hbox (badness 10000) in paragraph at lines 446--446
 []|\OT1/qtm/m/n/8 Three sce-nar-ios
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
+Underfull \hbox (badness 10000) in paragraph at lines 446--446
 \OT1/qtm/m/n/8 decomp.; $\OML/cmm/m/it/8 p[]\OT1/cmr/m/n/8 0$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
+Underfull \hbox (badness 10000) in paragraph at lines 446--446
 \OT1/qtm/m/n/8 coun-ter-fac-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--445
+Underfull \hbox (badness 10000) in paragraph at lines 446--446
 \OT1/qtm/m/n/8 tual con-firms
  []
 
 [13]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 4
-68.
+69.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [14] [15]
@@ -983,7 +983,7 @@ ype1/public/tex-gyre/qtmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/c
 ourier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on WCT_EC_INFORMS.pdf (17 pages, 421367 bytes).
+Output written on WCT_EC_INFORMS.pdf (17 pages, 421419 bytes).
 PDF statistics:
  257 PDF objects out of 1000 (max. 8388607)
  151 compressed objects within 2 object streams
