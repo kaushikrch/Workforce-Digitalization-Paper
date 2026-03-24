@@ -275,18 +275,15 @@ Since $T^*(S^*)$ is increasing in $S^*$ and $dS^*/dW > 0$ (Theorem~2, Link~2--Li
 
 \subsection{Proof of Corollary 5 (Budget-Constrained Trap)}\label{sec:ec:proof5}
 
+% Counter sync: preserve Corollary 5 numbering in restated theorem.
+\setcounter{corollary}{4}
+\begin{corollary}[Budget-Constrained Trap, restated]
+Under a fixed budget $c_F F + c_f f \leq B$ with $B \geq B_{\min} - \varepsilon$ (where $B_{\min} = c_F \cdot F_{\mathrm{crit}}$), the CLV-maximising allocation includes $f^* > 0$: the all-$F$ corner is strictly dominated.
+\end{corollary}
+
 \begin{proof}
-Let $B_{\min} \equiv c_F \cdot F_{\mathrm{crit}}$ denote the budget at which the all-$F$ corner exactly attains the Trap threshold.
-
-\textit{Case 1: $B \geq B_{\min}$.} The all-$F$ corner allocates $F = B/c_F \geq F_{\mathrm{crit}}$, where Theorem~1 implies $\partial\,\mathrm{CLV}/\partial F \leq 0$ (the surplus equilibrium has ceased to exist and the system is at or beyond the Trap threshold). Theorem~2 simultaneously guarantees $\partial\,\mathrm{CLV}^*/\partial f > 0$ for all $f \geq 0$. Therefore, reallocating the marginal dollar from $F$ to $f$ produces a strict first-order gain in CLV. The all-$F$ corner is strictly dominated and the optimum satisfies $f^* > 0$ and $F^* < B/c_F$.
-
-\textit{Case 2: $B < B_{\min}$.} The all-$F$ corner allocates $F = B/c_F < F_{\mathrm{crit}}$, so the Trap is not binding and a surplus equilibrium exists. Theorem~2 guarantees $\partial\,\mathrm{CLV}^*/\partial f > 0$, so the all-$F$ corner ($f = 0$) forgoes a positive return to workforce investment.
-
-\textit{Near-$B_{\min}$ sub-case (analytic).} The per-dollar returns to $F$ and $f$ are continuous in $F$ on $\{F < F_{\mathrm{crit}}\}$: both follow from the explicit equilibrium formulae for $W^*(S)$, $T^*(S)$, and Theorems~1--2 via the implicit function theorem. At $B = B_{\min}$ (i.e., $F = F_{\mathrm{crit}}$), Case~1 establishes $\partial\,\mathrm{CLV}/\partial F = 0$ analytically while $\partial\,\mathrm{CLV}^*/\partial f > 0$ (Theorem~2). By continuity, strict dominance of $f$ over $F$ per dollar persists throughout a neighbourhood $B \in (B_{\min}-\varepsilon, B_{\min})$ for some $\varepsilon > 0$.
-
-\textit{Interior sub-case (computational).} For $B \in [B_{\min}/2,\, B_{\min}-\varepsilon)$, strict dominance of $f$ holds computationally across cost ratios $c_F/c_f \in [0.5, 5]$ (at baseline values of all other parameters; the range spans realistic investment cost structures).
-
-In Case~1 and near $B_{\min}$ in Case~2, $f^* > 0$ follows analytically; the interior of Case~2 is a computational finding. \Halmos
+Let $B_{\min} \equiv c_F \cdot F_{\mathrm{crit}}$. \textit{Case 1} ($B \geq B_{\min}$): The all-$F$ corner sets $F \geq F_{\mathrm{crit}}$, so Theorem~1 gives $\partial\,\mathrm{CLV}/\partial F \leq 0$ while Theorem~2 gives $\partial\,\mathrm{CLV}^*/\partial f > 0$; reallocating the marginal dollar to $f$ yields a strict CLV gain.
+\textit{Case 2} ($B < B_{\min}$): A surplus equilibrium exists. Theorem~2 guarantees $\partial\,\mathrm{CLV}^*/\partial f > 0$, so the all-$F$ corner forgoes a positive return. Near $B_{\min}$, per-dollar returns are continuous (IFT on $W^*(S)$, $T^*(S)$), and Case~1's strict dominance persists in a neighbourhood $B \in (B_{\min}{-}\varepsilon, B_{\min})$. For $B \in [B_{\min}/2, B_{\min}{-}\varepsilon)$, dominance holds computationally across $c_F/c_f \in [0.5, 5]$ at baseline values of all other parameters. \Halmos
 \end{proof}
 
 
@@ -332,10 +329,8 @@ $(\mu + \sigma\,\Gp)\,W$ & Corner-cutting + fatigue & Overload and decay deplete
 Trust stock $T$ & No O\&S counterpart & Collapses to demand at $\beta \to \infty$, $\lambda = 0$ \\
 \bottomrule
 \end{tabular}}
-{}
-\end{table}
-
-The $(1-W)$ saturation factor replaces O-S's nonlinear lookup table; qualitative behaviour is identical. With the three restrictions lifted, the model generates Loops R1, R2, and the cross-domain Front-Stage Trap.
+{Under the three restrictions ($p{=}0$, $a{=}0$, $F$ constant), the WCT trust stock collapses into the demand function, recovering the O\&S perceived-quality attractiveness mechanism. The $(1{-}W)$ saturation factor replaces O-S's nonlinear lookup table.}
+\end{table}; qualitative behaviour is identical. With the three restrictions lifted, the model generates Loops R1, R2, and the cross-domain Front-Stage Trap.
 
 \section{Sensitivity Analysis}\label{sec:ec:sensitivity}
 
@@ -393,30 +388,7 @@ $\delta$: 0.03 $\to$ 0.06 & Strengthens & Weakens & Strengthens \\
 
 \subsection{Parameter Sources}
 
-All time units are months; rate parameters are in months$^{-1}$ with half-lives $\ln(2)/\theta$. The calibration follows \citet{homer1993partial} and \citet{barlas1996formal}. Three parameters warrant additional discussion beyond Table~\ref{tab:ec:paramsource}.
-
-\begin{table}
-\TABLE
-{Parameter calibration summary.\label{tab:ec:paramsource}}
-{{\footnotesize\setlength{\tabcolsep}{3pt}%
-\begin{tabular}{@{}lp{0.06\textwidth}cp{0.28\textwidth}p{0.26\textwidth}@{}}
-\toprule
-Parameter & Base & $\tau_{1/2}$ & Basis & Sensitivity \\
-\midrule
-$b$ (demand super-lin.) & 1.30 & -- & \citet{bell2018inventory}; \citet{acimovic2015fulfillment} & Trap requires $b>1$; robust \\
-$a$ (trust--demand) & 0.40 & -- & \citet{mcknight2002developing}; \citet{sirdeshmukh2002consumer} & Weakens Trap at $a{=}0.2$; holds \\
-$p$ (complementarity) & 0.50 & -- & Illustrative; \citet{krusell2000capital} & All 3 weaken at $p{=}0.25$ \\
-$\sigma$ (overload asym.) & 2.00 & -- & \citeauthor{oliva2001cutting} (\citeyear{oliva2001cutting}); \citet{bakker2007job} & Cliff disappears at $\sigma{=}1$ \\
-$\eta$ (trust erosion asym.) & 2.00 & -- & \citet{sirdeshmukh2002consumer} & Weakens Trap at $\eta{=}1$ \\
-$r$ (sensing-adapt.) & 0.40 & 1.7\,mo & \citet{tucker2007operational}; \citet{argote1990learning} & Robust \\
-$\delta$ (depreciation) & 0.03 & 23\,mo & Illustrative & Robust ($\pm50\%$) \\
-$\beta$ (trust-update) & 0.12 & 5.8\,mo & Illustrative & Primary lag driver (EC Tab.~EC.4) \\
-$\mu$ (nat.\ $W$ decay) & 0.05 & 14\,mo & \citet{demerouti2001job}; \citet{dube2020minimum} & Robust \\
-$\lambda$ (nat.\ $T$ decay) & 0.025 & 28\,mo & Illustrative & Robust \\
-\bottomrule
-\end{tabular}}}
-{$\tau_{1/2}$: implied half-life $= \ln(2)/\theta$.}
-\end{table}
+All time units are months; rate parameters are in months$^{-1}$ with half-lives $\ln(2)/\theta$. The calibration follows \citet{homer1993partial} and \citet{barlas1996formal}; baseline values, timescales, kill conditions, and empirical anchors are reported in Table~2 of the main paper. Three parameters warrant additional discussion.
 
 \textbf{Demand super-linearity ($b = 1.3$).} A 10\% front-stage increase raises back-stage demand by approximately 13\%. The Trap requires only $b > 1$; sensitivity in Table~\ref{tab:ec:sensitivity}.
 
@@ -443,7 +415,7 @@ Fig. & $(K_0, W_0, T_0)$ & $F_0$ & $u$ & $f$ & $t_{\max}$ & Notes \\
 EC & eq.~IC at $F{=}0.85$ & 0.85 & 0.05 & 0.00--0.20 & 120 & Study~3: Thm~2 decomp.; $p{=}0$ counterfactual confirms structural-zero \\
 \bottomrule
 \end{tabular}}}
-{$^{\dagger}$Balance manifold: $K_0 h(W_0)=(1{+}a{\cdot}0.5)F^b$, $T_0{=}0.50$. Grid: $37{\times}26$ (962~pts). Collapse: $T(500){<}0.15$. $^{\ddagger}$Inherited from the starting equilibrium ($u = 0.05$).}
+{$^{\dagger}$Balance manifold: $K_0 h(W_0)=(1{+}a{\cdot}0.5)F^b$, $T_0{=}0.50$; collapse criterion: $T(500){<}0.15$. $^{\ddagger}$Inherited from equilibrium.}
 \end{table}
 
 \subsection{CLV Functional Form}
@@ -472,7 +444,7 @@ The US firm-level panel assembles four longitudinal data sources. Customer satis
 The panel is constructed using EDGAR financial data as the backbone (276 firm--year observations across 17 firms, 2008--2024). ACSI, Glassdoor, and macro controls are then left-joined to this backbone using firm--year keys. All merges enforce one-to-one key uniqueness; no duplicate keys were detected. The resulting panel contains 131 complete firm--year observations with non-missing values for all four key variables, representing 47\% coverage of the full backbone. The complementarity specification therefore uses 131 observations across 13 firms; the inverted-U and event-study specifications, which require only ACSI and e-commerce share, use 216 and 108 observations across 17 and 16 firms, respectively.
 
 \textit{US robustness checks.}
-Seven robustness checks supplement the core results. (i)~Between-effects OLS ($K^z \times W^z = +1.95$, $p = 0.41$), reported as the structural estimand in the main text. (ii)~Mundlak correlated random effects, which adds within-firm means as controls. (iii)~One-year lag specification using $K_{t-1}^z \times W_{t-1}^z$ to address reverse causality. (iv)~COVID exclusion (dropping 2020--2021). (v)~Leave-one-out sensitivity, cycling each of the 13 firms out of the sample. (vi)~Wild cluster bootstrap with 9{,}999 replications using the six-point Webb weights \citep{webb2023reworking}. (vii)~CR3 small-sample correction with $\mathrm{df} = G - k = 9$. Results are qualitatively stable across all seven checks; the between-effects estimate remains positive throughout.
+Seven checks supplement the core results: (i)~between-effects OLS, (ii)~Mundlak CRE, (iii)~one-year lag ($K_{t-1}^z \times W_{t-1}^z$), (iv)~COVID exclusion, (v)~leave-one-out, (vi)~wild cluster bootstrap (9{,}999 reps, Webb six-point weights; \citealp{webb2023reworking}), and (vii)~CR3 small-sample correction ($\mathrm{df} = G{-}k = 9$). All checks preserve the positive between-effects sign.
 
 \subsection*{Event-Study Pre-Trends}
 
@@ -500,12 +472,15 @@ $t = +3$ & $-0.900$ & $-1.69$ & 0.113 & $-1.033$ & $-0.05$ & 0.961 \\
 }}{Dependent variable: ACSI score. Firm FE; cluster-robust SEs with $p$-values from $t(15)$. Reference period: $t = -1$. Level DID: event-time dummies only. Moderation: interaction of event-time dummies with pre-shock standardised Glassdoor ($W^z_{\mathrm{pre}}$). All pre-period coefficients ($t = -3$, $t = -2$) are insignificant in both specifications.}
 \end{table}
 
+\subsection*{Event-Study Launch Identification}
+
+The event study identifies the launch year as the fiscal year in which each firm's primary omnichannel fulfilment service (curbside pickup, click-and-collect, or same-day delivery) reached nationwide or near-nationwide availability. Launch years are identified from company press releases, investor presentations, and 10-K disclosures. Representative examples: Kroger ClickList (2016), Walmart Grocery Pickup (2017), Target Drive Up (2018), Albertsons Drive Up \& Go (2017), Costco same-day (2017). Amazon is excluded because its omnichannel transition was gradual. The complete 16-firm launch mapping is documented in the replication code (\texttt{09\_event\_study.py}).
+
 \subsection*{EU Replication (Exploratory)}
 
-An independent panel covers 11 European retailers (UK, France, Germany, Spain, Sweden, Netherlands; 2019--2023; $N{=}20$ complete firm--year observations). Customer satisfaction uses Trustpilot (1--5); workforce well-being uses Glassdoor; financials from Yahoo Finance with asset percentile rank as currency-neutral control. E-commerce share from UK ONS (J4MC) and Eurostat (\texttt{isoc\_ec\_eseln2}).
+An independent panel of 11 European retailers (UK, France, Germany, Spain, Sweden, Netherlands; 2019--2023; $N{=}20$) uses Trustpilot for satisfaction, Glassdoor for well-being, and Yahoo Finance for financials (asset percentile rank as currency-neutral control). E-commerce share from UK ONS and Eurostat.
 
-\textit{EU results.}
-The between-effects $\beta_3$ ($K{\times}W$) is positive ($+$0.47; CR2: $p = 0.045$) but fails robustness checks (HC3: $p = 0.53$; Webb bootstrap \citep{webb2023reworking}: $p = 0.62$), reflecting $N_c = 11$ clusters \citep{cameron2008bootstrap}. These results are reported as exploratory. Additional robustness checks include currency-neutral controls (asset percentile rank), UK-only and Continental sub-samples, leave-one-out sensitivity (interaction estimates ranging from $-0.04$ to $+0.82$), and Imbens--Kolesar small-sample correction ($\mathrm{df}_{\mathrm{eff}}{=}7.2$, $p{=}0.055$).
+The between-effects interaction is positive ($+$0.47; CR2: $p = 0.045$) but fails robustness (HC3: $p = 0.53$; Webb bootstrap: $p = 0.62$), reflecting $N_c = 11$ clusters \citep{cameron2008bootstrap, webb2023reworking}. Additional checks (currency-neutral controls, UK-only/Continental splits, leave-one-out with $K{\times}W \in [-0.04, +0.82]$, Imbens--Kolesar $\mathrm{df}_{\mathrm{eff}}{=}7.2$, $p{=}0.055$) are reported as exploratory.
 }% end \small
 
 {\footnotesize\setlength{\bibsep}{1pt}
