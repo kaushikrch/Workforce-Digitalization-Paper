@@ -465,13 +465,13 @@ This appendix supplements the empirical analysis in \S5 of the main paper.
 \subsection*{US Data and Robustness}
 
 \textit{US data sources.}
-Customer satisfaction uses ACSI scores (0--100; \texttt{theacsi.org}); workforce well-being uses Glassdoor overall ratings (1--5; minimum five reviews per firm--year); financial data are from SEC EDGAR 10-K filings (XBRL API); e-commerce share from FRED (ECOMPCTSA); labour-market controls from BLS JOLTS. Model proxies: $K =$ CapEx/Revenue, $W =$ Glassdoor overall, $T =$ ACSI, $K \times W =$ standardised interaction.
+The US firm-level panel assembles four longitudinal data sources. Customer satisfaction is measured by the American Customer Satisfaction Index (ACSI; scores 0--100 sourced from \texttt{theacsi.org}). Workforce well-being is proxied by Glassdoor overall ratings (1--5 scale), restricted to firm--years with at least five employee reviews to ensure representativeness. Financial data, including capital expenditure and revenue, are drawn from SEC EDGAR 10-K filings accessed via the XBRL API. National e-commerce penetration uses the Federal Reserve FRED series ECOMPCTSA; labour-market controls use BLS JOLTS vacancy rates. The empirical proxies map to model variables as follows: $K =$ CapEx/Revenue (technology stock), $W =$ Glassdoor overall rating (workforce well-being), $T =$ ACSI score (customer trust), and the interaction $K^z \times W^z$ uses standardised values.
 
-\textit{US merge.}
-The panel is constructed from an EDGAR backbone of 276 observations across 17 firms (2008--2024), left-joined with ACSI, Glassdoor, and macro controls, yielding 131 complete firm--year observations (47\% coverage). All merges enforce one-to-one key uniqueness.
+\textit{US panel construction.}
+The panel is constructed using EDGAR financial data as the backbone (276 firm--year observations across 17 firms, 2008--2024). ACSI, Glassdoor, and macro controls are then left-joined to this backbone using firm--year keys. All merges enforce one-to-one key uniqueness; no duplicate keys were detected. The resulting panel contains 131 complete firm--year observations with non-missing values for all four key variables, representing 47\% coverage of the full backbone. The complementarity specification therefore uses 131 observations across 13 firms; the inverted-U and event-study specifications, which require only ACSI and e-commerce share, use 216 and 108 observations across 17 and 16 firms, respectively.
 
-\textit{US robustness.}
-Seven checks supplement the core results: (i)~between-effects ($K \times W = +1.95$, $p = 0.41$); (ii)~Mundlak CRE; (iii)~lagged $K_{t-1} \times W_{t-1}$; (iv)~COVID exclusion; (v)~leave-one-out; (vi)~wild bootstrap (9{,}999 reps); (vii)~CR3 with $\mathrm{df} = G - k = 9$.
+\textit{US robustness checks.}
+Seven robustness checks supplement the core results. (i)~Between-effects OLS ($K^z \times W^z = +1.95$, $p = 0.41$), reported as the structural estimand in the main text. (ii)~Mundlak correlated random effects, which adds within-firm means as controls. (iii)~One-year lag specification using $K_{t-1}^z \times W_{t-1}^z$ to address reverse causality. (iv)~COVID exclusion (dropping 2020--2021). (v)~Leave-one-out sensitivity, cycling each of the 13 firms out of the sample. (vi)~Wild cluster bootstrap with 9{,}999 replications using the six-point Webb weights \citep{webb2023reworking}. (vii)~CR3 small-sample correction with $\mathrm{df} = G - k = 9$. Results are qualitatively stable across all seven checks; the between-effects estimate remains positive throughout.
 
 \subsection*{Event-Study Pre-Trends}
 
@@ -530,9 +530,17 @@ Barlas Y (1996) Formal aspects of model validity and validation in system dynami
 Bell DR, Gallino S, Moreno A (2018) Offline showrooms in omnichannel retail: Demand and operational benefits.
 \textit{Management Science} 64(4):1629--1651.
 
+\bibitem[Callaway and Sant'Anna(2021)]{callaway2021difference}
+Callaway B, Sant'Anna PHC (2021) Difference-in-differences with multiple time periods.
+\textit{Journal of Econometrics} 225(2):200--230.
+
 \bibitem[Cameron et~al.(2008)]{cameron2008bootstrap}
 Cameron AC, Gelbach JB, Miller DL (2008) Bootstrap-based improvements for inference with clustered errors.
 \textit{Review of Economics and Statistics} 90(3):414--427.
+
+\bibitem[Edmans(2011)]{edmans2011does}
+Edmans A (2011) Does the stock market fully value intangibles? Employee satisfaction and equity prices.
+\textit{Journal of Financial Economics} 101(3):621--640.
 
 \bibitem[Demerouti et~al.(2001)]{demerouti2001job}
 Demerouti E, Bakker AB, Nachreiner F, Schaufeli WB (2001) The Job Demands-Resources model of burnout.
