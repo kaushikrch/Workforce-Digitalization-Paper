@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.22)  24 MAR 2026 07:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.22)  24 MAR 2026 08:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1011,9 +1011,9 @@ Underfull \hbox (badness 1142) in paragraph at lines 149--153
  effec-tive capa-bil-ity\OT1/qtm/m/n/11 . A ware-house man-age-ment sys-tem or
  []
 
-[6] [7] [8]
+[6] [7] [8] [9]
 \cldbox=\box90
- [9]
+
 Underfull \hbox (badness 1024) in paragraph at lines 300--300
 []|\OT1/qtm/m/n/9 Oliva and Ster-man (2001);
  []
@@ -1128,13 +1128,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 24027 strings out of 476106
- 506905 string characters out of 5793933
- 1957975 words of memory out of 5000000
- 45560 multiletter control sequences out of 15000+600000
+ 24030 strings out of 476106
+ 506983 string characters out of 5793933
+ 1958975 words of memory out of 5000000
+ 45563 multiletter control sequences out of 15000+600000
  669887 words of font info for 154 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 108i,19n,113p,1779b,722s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,19n,113p,1799b,722s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -1160,7 +1160,7 @@ public/tex-gyre/qtmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvet
 ic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on WCT_Paper_INFORMS.pdf (32 pages, 560872 bytes).
+Output written on WCT_Paper_INFORMS.pdf (32 pages, 562252 bytes).
 PDF statistics:
  567 PDF objects out of 1000 (max. 8388607)
  224 compressed objects within 3 object streams
