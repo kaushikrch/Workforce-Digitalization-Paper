@@ -286,7 +286,7 @@ Table~\ref{tab:params} summarises all parameters. Two control variables complete
 \midrule
 1 & $b$ (demand super-linearity) & 1.3 & -- & $b{=}1$ & Front-Stage Trap & Bell et al.\ (2018); Acimovic \& Graves (2015) \\
 2 & $a$ (trust-demand coupling) & 0.4 & -- & $a{=}0$ & Demand feedback & McKnight et al.\ (2002); Sirdeshmukh et al.\ (2002) \\
-3 & $p$ (workforce complementarity) & 0.5 & -- & $p{=}0$ & Capacity multiplier & Krusell et al.\ (2000) \\
+3 & $p$ (workforce complementarity) & 0.5 & -- & $p{=}0$ & Capacity multiplier & Illustrative \\
 4 & $\sigma$ (overload asymmetry) & 2.0 & -- & $\sigma{=}1$ & Tipping point & \citet{oliva2001cutting}; \citet{bakker2007job}$^\dagger$ \\
 5 & $\eta$ (erosion asymmetry) & 2.0 & -- & $\eta{=}1$ & Trust asymmetry & Sirdeshmukh et al.\ (2002) \\
 6 & $r$ (sensing-adaptation) & 0.4 & $\tau_{r} \approx 1.7$ mo & $r{=}0$ & Self-correction dies & Tucker (2007); Argote \& Epple (1990) \\
@@ -313,7 +313,7 @@ The low-trust attractor is reached whenever demand persistently overwhelms capab
 \paragraph{Maintained conditions.}
 The formal results hold under four regularity conditions (C1)--(C4), verified analytically or numerically across the parameter space (EC Remark~5): surplus equilibrium existence, uniqueness, regularity, and low-trust attractor existence (EC~\S EC.1.2). The coexistence of surplus equilibrium and low-trust attractor constitutes bistability; the transition at $F_{\mathrm{crit}}$ where these two states coalesce is classified as a saddle-node (fold) bifurcation (EC Remark~6).
 
-\begin{remark}[Analytical Transparency]\label{rem:transparency}
+\medskip\noindent\textbf{Remark (Analytical Transparency).}\label{rem:transparency}
 The table below classifies each result by evidentiary basis: Tier~A (analytic for all valid parameters), Tier~B (analytic under C1--C4), or Tier~C (computational verification).
 \smallskip
 
@@ -339,7 +339,7 @@ Corollary~5, Case~2 near $B_{\min}$ & B & Continuity from Case~1 (IFT; EC~\S EC.
 Corollary~5, Case~2 interior & C & Computational; $c_F/c_f\in[0.5,5]$ \\
 \bottomrule
 \end{tabular}}
-\end{remark}
+\medskip
 
 
 \subsection{Theorem 1: The Front-Stage Trap}\label{sec:analysis:trap}
@@ -354,7 +354,7 @@ which depends only on exogenous parameters $(u,\delta,p,f,\mu,b)$ and equals $K^
     \item[(i)] For $F < F_{\mathrm{crit}}$, the surplus equilibrium (unique under C2; Lemma~2, EC~\S EC.1.2) exists with $T^* > 0$ and $\mathrm{CLV}^* > \mathrm{CLV}_{\mathrm{low}}$\footnote{CLV is formally calibrated in \S\ref{sec:simulation}; the theorems require only that CLV is increasing in $T^*$, which holds for any standard customer-lifetime-value functional.} (the CLV at the low-trust attractor).
     \item[(ii)] For $F \geq F_{\mathrm{crit}}$, no surplus equilibrium exists. All forward trajectories remain in a bounded compact set (Lemma~3, EC~\S EC.1.2), and the low-trust attractor is locally stable (EC Remark~3). Wide-basin convergence to this attractor is confirmed numerically (Tier~C; Remark~\ref{rem:transparency}).
 \end{enumerate}
-The threshold $F_{\mathrm{crit}}$ is decreasing in $p$ and increasing in $f$: the Trap binds earlier when workforce-technology coupling is strong (because $h(W^*)$ at boundary well-being falls with $p$ when $W^* < 1$), and is relaxed by workforce investment.
+The threshold $F_{\mathrm{crit}}$ is decreasing in $p$ and increasing in $f$: the Trap binds earlier when workforce-technology coupling is strong (because a more coupled system depends more heavily on the boundary well-being level $f/(f{+}\mu) < 1$, reducing effective capacity at the threshold), and is relaxed by workforce investment.
 \end{theorem}
 
 \noindent\textit{Proof sketch.}
@@ -425,7 +425,8 @@ Workforce investment $f$ raises $F_{\mathrm{crit}}$ and enlarges the safe upgrad
 
 \subsection{Proposition 4: Digitalisation-Workforce Complementarity}\label{sec:analysis:comp}
 
-% Counter sync: Remark 1 increments the shared theorem counter; reset here to preserve Proposition 4 numbering.
+% Counter sync: proposition counter is separate from theorem counter in INFORMS4;
+% set to 3 so next proposition prints as Proposition 4.
 \setcounter{proposition}{3}
 \begin{proposition}[Digitalisation-Workforce Complementarity]\label{prop:complementarity}
 The marginal value of workforce improvement is strictly increasing in the technology base:
@@ -459,7 +460,7 @@ Figure~\ref{fig:complementarity} illustrates: the gap between a stressed firm ($
 {}
 \end{figure}
 
-% Counter sync: maintain Corollary 5 numbering in sequence.
+% Counter sync: set to 4 so next corollary prints as Corollary 5.
 \setcounter{corollary}{4}
 \begin{corollary}[Budget-Constrained Trap]\label{cor:budget}
 Under a fixed budget constraint $c_F F + c_f f \leq B$ with $B \geq B_{\min} - \varepsilon$ (where $B_{\min} = c_F \cdot F_{\mathrm{crit}}$), the CLV-maximising allocation includes positive workforce investment $f^* > 0$: the all-$F$ corner is strictly dominated analytically whenever the budget reaches or exceeds the Trap threshold, and computationally for $B$ throughout $[B_{\min}/2,\, B_{\min})$ across cost ratios $c_F/c_f \in [0.5, 5]$.
@@ -570,7 +571,7 @@ National e-commerce share (\%) & 10 & 11.8 & 3.0 & 7.4--16.1 \\
 \begin{equation}\label{eq:invU}
     \mathrm{ACSI}_{it} = \alpha_i + \beta_1\,\mathrm{Ecom}_t + \beta_2\,\mathrm{Ecom}_t^2 + \mathbf{X}_{it}\theta + \varepsilon_{it},
 \end{equation}
-where $\alpha_i$ are firm fixed effects, $\mathrm{Ecom}_t$ is national e-commerce share, and $\mathbf{X}_{it}$ includes workforce controls where indicated. Year fixed effects are excluded because $\mathrm{Ecom}_t$ is a national aggregate identical within year; including them would absorb it entirely. Identification exploits the time-series curvature of the national digitalisation trend, shared across all 17 firms; firm-specific deployment timing would sharpen identification, which the event study partially provides. The specification ($N = 216$, 17 firms) yields $\hat{\beta}_2 = -0.028$ ($p = 0.028$ under $t(16)$), consistent with the predicted inverted-U. The estimated turning point (7.9\% e-commerce share) lies in the mid-2010s, qualitatively consistent with the model's prediction of a digitalisation ceiling, though we caution that the turning point is on the e-commerce share scale while $F_{\mathrm{crit}}$ is a dimensionless technology index; the correspondence is directional, not quantitative. The coefficient attenuates when workforce controls are included ($N = 190$; 26 firm-years dropped due to missing Glassdoor; $p = 0.66$), consistent with the model's prediction that e-commerce damages satisfaction \emph{through} workforce depletion. A common limitation of both specifications is the absence of instruments; the event study partially mitigates this by exploiting within-firm variation around exogenous technology shocks.
+where $\alpha_i$ are firm fixed effects, $\mathrm{Ecom}_t$ is national e-commerce share, and $\mathbf{X}_{it}$ includes workforce controls where indicated. Year fixed effects are excluded because $\mathrm{Ecom}_t$ is a national aggregate identical within year; including them would absorb it entirely. Identification exploits the time-series curvature of the national digitalisation trend, shared across all 17 firms. Firm-specific deployment timing would sharpen identification; the event study in the next subsection provides this. The specification ($N = 216$, 17 firms) yields $\hat{\beta}_2 = -0.028$ ($p = 0.028$ under $t(16)$), consistent with the predicted inverted-U. The estimated turning point (7.9\% e-commerce share) lies in the mid-2010s, qualitatively consistent with the model's prediction of a digitalisation ceiling, though we caution that the turning point is on the e-commerce share scale while $F_{\mathrm{crit}}$ is a dimensionless technology index; the correspondence is directional, not quantitative. The coefficient attenuates when workforce controls are included ($N = 190$; 26 firm-years dropped due to missing Glassdoor; $p = 0.66$), consistent with the model's prediction that e-commerce damages satisfaction \emph{through} workforce depletion. A common limitation of both specifications is the absence of instruments; the event study partially mitigates this by exploiting within-firm variation around exogenous technology shocks.
 
 \noindent\textit{Event study (Theorem~\ref{thm:trap}).} We exploit the staggered timing of major omnichannel launches (e.g., Walmart curbside 2017, Target Drive Up 2018, Kroger ClickList 2016) as firm-level technology shocks. Using a $[-3, +3]$ year event window around each firm's launch date $t_i^*$ ($N = 108$, 16 firms), the event-study specification is
 \begin{equation}\label{eq:eventstudy}
@@ -631,9 +632,10 @@ Firm FE & No & Yes & Yes & Yes \\
 Year FE & No & Yes & No & No \\
 $N$ & 131 & 131 & 216 & 190 \\
 Firms & 13 & 13 & 17 & 17 \\
+$R^2_{\mathrm{within}}$ & -- & 0.44 & 0.18 & 0.51 \\
 \bottomrule
 \end{tabular}
-}}{Dependent variable: ACSI score. Cluster-robust standard errors (at firm level) in parentheses; $p$-values use $t(G{-}1)$ degrees of freedom. $^{***}p < 0.01$; $^{**}p < 0.05$; $^{*}p < 0.10$. $K^z$ and $W^z$ are standardised CapEx/Revenue and Glassdoor overall, respectively. Ecom is national e-commerce share (\%). Columns (1)--(2): complementarity specification ($N{=}131$, 13 firms). Columns (3)--(4): inverted-U specification ($N{=}216/190$, 17 firms). Turning point for column (3): 7.9\%. Attenuation of Ecom$^2$ in column (4) is consistent with the model's prediction that e-commerce damages satisfaction through workforce depletion. The negative within-firm TWFE estimate in column (2) reflects low temporal variation in Glassdoor ratings (within-firm SD is 30\% of total SD); see text. Within-$R^2$ values are available in the replication code.}\end{table}
+}}{Dependent variable: ACSI score. Cluster-robust standard errors (at firm level) in parentheses; $p$-values use $t(G{-}1)$ degrees of freedom. $^{***}p < 0.01$; $^{**}p < 0.05$; $^{*}p < 0.10$. $K^z$ and $W^z$ are standardised CapEx/Revenue and Glassdoor overall, respectively. Ecom is national e-commerce share (\%). Columns (1)--(2): complementarity specification ($N{=}131$, 13 firms). Columns (3)--(4): inverted-U specification ($N{=}216/190$, 17 firms). Turning point for column (3): 7.9\%. Attenuation of Ecom$^2$ in column (4) is consistent with the model's prediction that e-commerce damages satisfaction through workforce depletion. The negative within-firm TWFE estimate in column (2) reflects low temporal variation in Glassdoor ratings (within-firm SD is 30\% of total SD); see text. Column (1) reports overall $R^2$ (no fixed effects).}\end{table}
 
 \begin{table}
 \TABLE
@@ -855,13 +857,13 @@ Saghiri S, Wilding R, Mena C, Bourlakis M (2017) Toward a three-dimensional fram
 Sirdeshmukh D, Singh J, Sabol B (2002) Consumer trust, value, and loyalty in relational exchanges.
 \textit{Journal of Marketing} 66(1):15--37.
 
-\bibitem[Sun and Abraham(2021)]{sun2021estimating}
-Sun L, Abraham S (2021) Estimating dynamic treatment effects in event studies with heterogeneous treatment effects.
-\textit{Journal of Econometrics} 225(2):175--199.
-
 \bibitem[Sterman(2000)]{sterman2000business}
 Sterman JD (2000) \textit{Business Dynamics: Systems Thinking and Modeling for a Complex World}.
 Boston: Irwin/McGraw-Hill.
+
+\bibitem[Sun and Abraham(2021)]{sun2021estimating}
+Sun L, Abraham S (2021) Estimating dynamic treatment effects in event studies with heterogeneous treatment effects.
+\textit{Journal of Econometrics} 225(2):175--199.
 
 \bibitem[Ton(2014)]{ton2014good}
 Ton Z (2014) \textit{The Good Jobs Strategy: How the Smartest Companies Invest in Employees to Lower Costs and Boost Profits}.

@@ -330,7 +330,9 @@ Trust stock $T$ & No O\&S counterpart & Collapses to demand at $\beta \to \infty
 \bottomrule
 \end{tabular}}
 {Under the three restrictions ($p{=}0$, $a{=}0$, $F$ constant), the WCT trust stock collapses into the demand function, recovering the O\&S perceived-quality attractiveness mechanism. The $(1{-}W)$ saturation factor replaces O-S's nonlinear lookup table.}
-\end{table}; qualitative behaviour is identical. With the three restrictions lifted, the model generates Loops R1, R2, and the cross-domain Front-Stage Trap.
+\end{table}
+
+Qualitative behaviour is identical. With the three restrictions lifted, the model generates Loops R1, R2, and the cross-domain Front-Stage Trap.
 
 \section{Sensitivity Analysis}\label{sec:ec:sensitivity}
 
@@ -392,7 +394,7 @@ All time units are months; rate parameters are in months$^{-1}$ with half-lives 
 
 \textbf{Demand super-linearity ($b = 1.3$).} A 10\% front-stage increase raises back-stage demand by approximately 13\%. The Trap requires only $b > 1$; sensitivity in Table~\ref{tab:ec:sensitivity}.
 
-\textbf{Workforce-technology complementarity ($p = 0.5$).} A burned-out workforce ($W = 0$) delivers 50\% of design capacity \citep{krusell2000capital}. All results hold for any $p \in (0,1)$.
+\textbf{Workforce-technology complementarity ($p = 0.5$).} A burned-out workforce ($W = 0$) delivers 50\% of design capacity; the value is illustrative and all results hold for any $p \in (0,1)$.
 
 \textbf{Overload-recovery asymmetry ($\sigma = 2.0$).} Magnitude comparator from \citet{oliva2001cutting}; the Cliff disappears only at $\sigma = 1$ (Table~\ref{tab:ec:sensitivity}).
 
@@ -444,7 +446,7 @@ The US firm-level panel assembles four longitudinal data sources. Customer satis
 The panel is constructed using EDGAR financial data as the backbone (276 firm--year observations across 17 firms, 2008--2024). ACSI, Glassdoor, and macro controls are then left-joined to this backbone using firm--year keys. All merges enforce one-to-one key uniqueness; no duplicate keys were detected. The resulting panel contains 131 complete firm--year observations with non-missing values for all four key variables, representing 47\% coverage of the full backbone. The complementarity specification therefore uses 131 observations across 13 firms; the inverted-U and event-study specifications, which require only ACSI and e-commerce share, use 216 and 108 observations across 17 and 16 firms, respectively.
 
 \textit{US robustness checks.}
-Seven checks supplement the core results: (i)~between-effects OLS, (ii)~Mundlak CRE, (iii)~one-year lag ($K_{t-1}^z \times W_{t-1}^z$), (iv)~COVID exclusion, (v)~leave-one-out, (vi)~wild cluster bootstrap (9{,}999 reps, Webb six-point weights; \citealp{webb2023reworking}), and (vii)~CR3 small-sample correction ($\mathrm{df} = G{-}k = 9$). All checks preserve the positive between-effects sign.
+Six robustness checks supplement the core between-effects OLS estimand (reported in \S 5.2 of the main paper): (i)~Mundlak CRE, (ii)~one-year lag ($K_{t-1}^z \times W_{t-1}^z$), (iii)~COVID exclusion (dropping 2020--2021), (iv)~leave-one-out, (v)~wild cluster bootstrap (9{,}999 reps, Webb six-point weights; \citealp{webb2023reworking}), and (vi)~CR3 small-sample correction ($\mathrm{df} = G{-}k = 9$). All checks preserve the positive sign.
 
 \subsection*{Event-Study Pre-Trends}
 
@@ -538,9 +540,6 @@ Gupta S, Lehmann DR, Stuart JA (2004) Valuing customers.
 Homer JB (1993) Partial-model testing as a validation tool for system dynamics.
 \textit{System Dynamics Review} 9(2):127--147.
 
-\bibitem[Krusell et~al.(2000)]{krusell2000capital}
-Krusell P, Ohanian LE, R\'ios-Rull JV, Violante GL (2000) Capital-skill complementarity and inequality: A macroeconomic analysis.
-\textit{Econometrica} 68(5):1029--1053.
 
 \bibitem[McKnight et~al.(2002)]{mcknight2002developing}
 McKnight DH, Choudhury V, Kacmar C (2002) Developing and validating trust measures for e-commerce: An integrative typology.
