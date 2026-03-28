@@ -1,0 +1,39 @@
+brand,technology,year,source
+Walmart,e_commerce_launch,2000,walmart.com launched 2000
+Walmart,mobile_app,2011,Walmart app launched 2011
+Walmart,grocery_pickup,2015,"Walmart Grocery Pickup pilot 2015, scaled 2017+"
+Walmart,bopis,2017,BOPIS (pickup towers) rolled out 2017
+Walmart,grocery_delivery,2018,Walmart Grocery Delivery launched 2018
+Walmart,walmart_plus,2020,Walmart+ membership launched Sept 2020
+Walmart,self_checkout_expansion,2019,Major self-checkout expansion 2019-2020
+Walmart,automated_fulfillment,2022,Market Fulfillment Centers (MFC) with Symbotic 2022
+Target,e_commerce_launch,2004,target.com relaunch (was Amazon-run until 2011)
+Target,mobile_app,2012,Target app launched ~2012
+Target,bopis,2018,Order Pickup / Drive Up launched 2018 after Shipt acquisition
+Target,same_day_delivery,2018,"Shipt acquired Dec 2017, same-day delivery 2018"
+Target,curbside_pickup,2018,Drive Up (curbside) launched 2018
+Target,target_circle,2019,Target Circle loyalty program 2019
+Target,sortation_centers,2022,Target sortation centers for last-mile 2022
+Kroger,e_commerce_launch,2014,ClickList online grocery ordering pilot 2014
+Kroger,mobile_app,2012,Kroger app launched ~2012
+Kroger,grocery_pickup,2014,ClickList curbside grocery pickup 2014
+Kroger,grocery_delivery,2018,Kroger delivery via Instacart partnership 2018
+Kroger,automated_fulfillment,2021,Ocado-powered Customer Fulfillment Centers 2021
+Kroger,kroger_boost,2022,Kroger Boost membership launched 2022
+Costco,e_commerce_launch,2001,costco.com launched early 2000s
+Costco,mobile_app,2014,Costco app launched ~2014
+Costco,grocery_delivery,2017,Costco delivery via Instacart partnership 2017
+Costco,bopis,2020,Costco curbside pickup limited rollout during COVID 2020
+Costco,self_checkout_expansion,2018,Self-checkout expansion 2018+
+Home Depot,e_commerce_launch,2005,homedepot.com e-commerce ~2005
+Home Depot,mobile_app,2010,Home Depot app launched ~2010
+Home Depot,bopis,2011,BOPIS (buy online pickup in store) launched 2011
+Home Depot,curbside_pickup,2020,Curbside pickup launched during COVID 2020
+Home Depot,automated_locker_pickup,2019,Automated lockers for online order pickup 2019
+Home Depot,delivery_flatbed,2018,One-day delivery / flatbed distribution investment 2018
+Lowe's,e_commerce_launch,2006,lowes.com e-commerce ~2006
+Lowe's,mobile_app,2011,Lowe's app launched ~2011
+Lowe's,bopis,2014,BOPIS rolled out 2014
+Lowe's,curbside_pickup,2020,Curbside pickup launched during COVID 2020
+Lowe's,lowe_bot,2016,LoweBot autonomous robot pilot 2016
+Lowe's,digital_twin_stores,2022,NVIDIA Omniverse digital twin stores 2022

@@ -1,0 +1,199 @@
+company,ticker,year,glassdoor_overall,glassdoor_worklife,glassdoor_culture,glassdoor_mgmt,review_count
+Costco,COST,2012,3.8,,,,800
+Costco,COST,2013,3.9,,,,900
+Costco,COST,2014,3.9,,,,1000
+Costco,COST,2015,3.9,,,,1100
+Costco,COST,2016,3.8,,,,1200
+Costco,COST,2017,3.8,,,,1300
+Costco,COST,2018,3.9,,,,1400
+Costco,COST,2019,3.9,,,,1500
+Costco,COST,2020,3.9,,,,1600
+Costco,COST,2021,3.8,,,,1700
+Costco,COST,2022,3.8,,,,1800
+Costco,COST,2023,3.8,,,,1900
+Nordstrom,JWN,2012,3.6,,,,500
+Nordstrom,JWN,2013,3.6,,,,550
+Nordstrom,JWN,2014,3.5,,,,600
+Nordstrom,JWN,2015,3.5,,,,650
+Nordstrom,JWN,2016,3.5,,,,700
+Nordstrom,JWN,2017,3.5,,,,750
+Nordstrom,JWN,2018,3.4,,,,800
+Nordstrom,JWN,2019,3.4,,,,850
+Nordstrom,JWN,2020,3.3,,,,900
+Nordstrom,JWN,2021,3.3,,,,950
+Nordstrom,JWN,2022,3.2,,,,1000
+Nordstrom,JWN,2023,3.2,,,,1050
+Target,TGT,2012,3.3,,,,2000
+Target,TGT,2013,3.3,,,,2200
+Target,TGT,2014,3.2,,,,2400
+Target,TGT,2015,3.3,,,,2600
+Target,TGT,2016,3.3,,,,2800
+Target,TGT,2017,3.4,,,,3000
+Target,TGT,2018,3.5,,,,3200
+Target,TGT,2019,3.5,,,,3400
+Target,TGT,2020,3.5,,,,3600
+Target,TGT,2021,3.5,,,,3800
+Target,TGT,2022,3.4,,,,4000
+Target,TGT,2023,3.4,,,,4200
+Home Depot,HD,2012,3.5,,,,1500
+Home Depot,HD,2013,3.5,,,,1700
+Home Depot,HD,2014,3.5,,,,1900
+Home Depot,HD,2015,3.4,,,,2100
+Home Depot,HD,2016,3.4,,,,2300
+Home Depot,HD,2017,3.5,,,,2500
+Home Depot,HD,2018,3.5,,,,2700
+Home Depot,HD,2019,3.5,,,,2900
+Home Depot,HD,2020,3.5,,,,3100
+Home Depot,HD,2021,3.4,,,,3300
+Home Depot,HD,2022,3.4,,,,3500
+Home Depot,HD,2023,3.3,,,,3700
+Lowe's,LOW,2012,3.3,,,,1000
+Lowe's,LOW,2013,3.3,,,,1100
+Lowe's,LOW,2014,3.2,,,,1200
+Lowe's,LOW,2015,3.3,,,,1300
+Lowe's,LOW,2016,3.3,,,,1400
+Lowe's,LOW,2017,3.3,,,,1500
+Lowe's,LOW,2018,3.3,,,,1600
+Lowe's,LOW,2019,3.3,,,,1700
+Lowe's,LOW,2020,3.4,,,,1800
+Lowe's,LOW,2021,3.3,,,,1900
+Lowe's,LOW,2022,3.2,,,,2000
+Lowe's,LOW,2023,3.2,,,,2100
+Best Buy,BBY,2012,3.3,,,,800
+Best Buy,BBY,2013,3.3,,,,900
+Best Buy,BBY,2014,3.4,,,,1000
+Best Buy,BBY,2015,3.5,,,,1100
+Best Buy,BBY,2016,3.6,,,,1200
+Best Buy,BBY,2017,3.6,,,,1300
+Best Buy,BBY,2018,3.6,,,,1400
+Best Buy,BBY,2019,3.6,,,,1500
+Best Buy,BBY,2020,3.6,,,,1600
+Best Buy,BBY,2021,3.6,,,,1700
+Best Buy,BBY,2022,3.5,,,,1800
+Best Buy,BBY,2023,3.5,,,,1900
+Kroger,KR,2012,3.0,,,,1000
+Kroger,KR,2013,3.0,,,,1100
+Kroger,KR,2014,3.0,,,,1200
+Kroger,KR,2015,3.1,,,,1300
+Kroger,KR,2016,3.1,,,,1400
+Kroger,KR,2017,3.1,,,,1500
+Kroger,KR,2018,3.1,,,,1600
+Kroger,KR,2019,3.1,,,,1700
+Kroger,KR,2020,3.2,,,,1800
+Kroger,KR,2021,3.1,,,,1900
+Kroger,KR,2022,3.0,,,,2000
+Kroger,KR,2023,3.0,,,,2100
+Macy's,M,2012,3.2,,,,600
+Macy's,M,2013,3.2,,,,700
+Macy's,M,2014,3.1,,,,800
+Macy's,M,2015,3.1,,,,900
+Macy's,M,2016,3.1,,,,1000
+Macy's,M,2017,3.1,,,,1100
+Macy's,M,2018,3.1,,,,1200
+Macy's,M,2019,3.0,,,,1300
+Macy's,M,2020,3.0,,,,1400
+Macy's,M,2021,3.0,,,,1500
+Macy's,M,2022,3.0,,,,1600
+Macy's,M,2023,2.9,,,,1700
+Kohl's,KSS,2012,3.3,,,,500
+Kohl's,KSS,2013,3.2,,,,550
+Kohl's,KSS,2014,3.2,,,,600
+Kohl's,KSS,2015,3.2,,,,650
+Kohl's,KSS,2016,3.2,,,,700
+Kohl's,KSS,2017,3.2,,,,750
+Kohl's,KSS,2018,3.3,,,,800
+Kohl's,KSS,2019,3.2,,,,850
+Kohl's,KSS,2020,3.2,,,,900
+Kohl's,KSS,2021,3.1,,,,950
+Kohl's,KSS,2022,3.1,,,,1000
+Kohl's,KSS,2023,3.0,,,,1050
+Gap,GPS,2012,3.3,,,,400
+Gap,GPS,2013,3.3,,,,450
+Gap,GPS,2014,3.2,,,,500
+Gap,GPS,2015,3.2,,,,550
+Gap,GPS,2016,3.2,,,,600
+Gap,GPS,2017,3.1,,,,650
+Gap,GPS,2018,3.1,,,,700
+Gap,GPS,2019,3.1,,,,750
+Gap,GPS,2020,3.2,,,,800
+Gap,GPS,2021,3.2,,,,850
+Gap,GPS,2022,3.2,,,,900
+Gap,GPS,2023,3.2,,,,950
+TJX,TJX,2012,3.3,,,,400
+TJX,TJX,2013,3.3,,,,450
+TJX,TJX,2014,3.4,,,,500
+TJX,TJX,2015,3.4,,,,550
+TJX,TJX,2016,3.4,,,,600
+TJX,TJX,2017,3.4,,,,650
+TJX,TJX,2018,3.4,,,,700
+TJX,TJX,2019,3.4,,,,750
+TJX,TJX,2020,3.3,,,,800
+TJX,TJX,2021,3.3,,,,850
+TJX,TJX,2022,3.3,,,,900
+TJX,TJX,2023,3.3,,,,950
+Walmart,WMT,2012,3.1,,,,5000
+Walmart,WMT,2013,3.1,,,,5500
+Walmart,WMT,2014,3.0,,,,6000
+Walmart,WMT,2015,3.1,,,,6500
+Walmart,WMT,2016,3.2,,,,7000
+Walmart,WMT,2017,3.2,,,,7500
+Walmart,WMT,2018,3.3,,,,8000
+Walmart,WMT,2019,3.3,,,,8500
+Walmart,WMT,2020,3.4,,,,9000
+Walmart,WMT,2021,3.4,,,,9500
+Walmart,WMT,2022,3.3,,,,10000
+Walmart,WMT,2023,3.2,,,,10500
+Dollar General,DG,2015,2.8,,,,300
+Dollar General,DG,2016,2.9,,,,400
+Dollar General,DG,2017,2.9,,,,500
+Dollar General,DG,2018,2.9,,,,600
+Dollar General,DG,2019,3.0,,,,700
+Dollar General,DG,2020,3.0,,,,800
+Dollar General,DG,2021,2.9,,,,900
+Dollar General,DG,2022,2.8,,,,1000
+Dollar General,DG,2023,2.7,,,,1100
+Dollar Tree,DLTR,2015,2.7,,,,250
+Dollar Tree,DLTR,2016,2.8,,,,300
+Dollar Tree,DLTR,2017,2.8,,,,350
+Dollar Tree,DLTR,2018,2.8,,,,400
+Dollar Tree,DLTR,2019,2.7,,,,450
+Dollar Tree,DLTR,2020,2.7,,,,500
+Dollar Tree,DLTR,2021,2.7,,,,550
+Dollar Tree,DLTR,2022,2.6,,,,600
+Dollar Tree,DLTR,2023,2.6,,,,650
+CVS,CVS,2012,3.0,,,,1000
+CVS,CVS,2013,3.0,,,,1100
+CVS,CVS,2014,3.0,,,,1200
+CVS,CVS,2015,2.9,,,,1300
+CVS,CVS,2016,2.9,,,,1400
+CVS,CVS,2017,2.9,,,,1500
+CVS,CVS,2018,2.9,,,,1600
+CVS,CVS,2019,2.9,,,,1700
+CVS,CVS,2020,2.9,,,,1800
+CVS,CVS,2021,2.8,,,,1900
+CVS,CVS,2022,2.8,,,,2000
+CVS,CVS,2023,2.7,,,,2100
+Walgreens,WBA,2012,3.1,,,,800
+Walgreens,WBA,2013,3.1,,,,900
+Walgreens,WBA,2014,3.0,,,,1000
+Walgreens,WBA,2015,3.0,,,,1100
+Walgreens,WBA,2016,3.0,,,,1200
+Walgreens,WBA,2017,3.0,,,,1300
+Walgreens,WBA,2018,3.0,,,,1400
+Walgreens,WBA,2019,2.9,,,,1500
+Walgreens,WBA,2020,2.9,,,,1600
+Walgreens,WBA,2021,2.9,,,,1700
+Walgreens,WBA,2022,2.8,,,,1800
+Walgreens,WBA,2023,2.8,,,,1900
+Amazon,AMZN,2012,3.4,,,,2000
+Amazon,AMZN,2013,3.4,,,,2500
+Amazon,AMZN,2014,3.4,,,,3000
+Amazon,AMZN,2015,3.4,,,,3500
+Amazon,AMZN,2016,3.4,,,,4000
+Amazon,AMZN,2017,3.4,,,,4500
+Amazon,AMZN,2018,3.4,,,,5000
+Amazon,AMZN,2019,3.4,,,,5500
+Amazon,AMZN,2020,3.4,,,,6000
+Amazon,AMZN,2021,3.3,,,,6500
+Amazon,AMZN,2022,3.3,,,,7000
+Amazon,AMZN,2023,3.3,,,,7500

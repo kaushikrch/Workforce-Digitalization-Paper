@@ -1,0 +1,15 @@
+# WCT Empirical Analysis — Python Dependencies
+# Install: pip install -r empirics/requirements.txt
+# Tested with Python 3.11
+
+# Core data handling
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+
+# Econometrics
+statsmodels>=0.14
+linearmodels>=5.3        # Panel data fixed effects (PanelOLS)
+
+# Simulation and plotting (wct_simulation.py)
+matplotlib>=3.7

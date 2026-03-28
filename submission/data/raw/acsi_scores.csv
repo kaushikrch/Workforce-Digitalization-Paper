@@ -1,0 +1,225 @@
+company,ticker,year,acsi_score,industry
+Walmart,WMT,2010,71,Department and Discount Stores
+Walmart,WMT,2011,71,Department and Discount Stores
+Walmart,WMT,2012,71,Department and Discount Stores
+Walmart,WMT,2013,72,Department and Discount Stores
+Walmart,WMT,2014,72,Department and Discount Stores
+Walmart,WMT,2015,68,Department and Discount Stores
+Walmart,WMT,2016,72,Department and Discount Stores
+Walmart,WMT,2017,72,Department and Discount Stores
+Walmart,WMT,2018,73,Department and Discount Stores
+Walmart,WMT,2019,74,Department and Discount Stores
+Walmart,WMT,2020,75,Department and Discount Stores
+Walmart,WMT,2021,75,Department and Discount Stores
+Walmart,WMT,2022,73,Department and Discount Stores
+Walmart,WMT,2023,73,Department and Discount Stores
+Target,TGT,2010,77,Department and Discount Stores
+Target,TGT,2011,77,Department and Discount Stores
+Target,TGT,2012,78,Department and Discount Stores
+Target,TGT,2013,79,Department and Discount Stores
+Target,TGT,2014,77,Department and Discount Stores
+Target,TGT,2015,78,Department and Discount Stores
+Target,TGT,2016,78,Department and Discount Stores
+Target,TGT,2017,77,Department and Discount Stores
+Target,TGT,2018,77,Department and Discount Stores
+Target,TGT,2019,77,Department and Discount Stores
+Target,TGT,2020,78,Department and Discount Stores
+Target,TGT,2021,77,Department and Discount Stores
+Target,TGT,2022,77,Department and Discount Stores
+Target,TGT,2023,78,Department and Discount Stores
+Costco,COST,2010,82,Department and Discount Stores
+Costco,COST,2011,83,Department and Discount Stores
+Costco,COST,2012,84,Department and Discount Stores
+Costco,COST,2013,83,Department and Discount Stores
+Costco,COST,2014,84,Department and Discount Stores
+Costco,COST,2015,83,Department and Discount Stores
+Costco,COST,2016,83,Department and Discount Stores
+Costco,COST,2017,82,Department and Discount Stores
+Costco,COST,2018,83,Department and Discount Stores
+Costco,COST,2019,83,Department and Discount Stores
+Costco,COST,2020,82,Department and Discount Stores
+Costco,COST,2021,81,Department and Discount Stores
+Costco,COST,2022,81,Department and Discount Stores
+Costco,COST,2023,82,Department and Discount Stores
+Nordstrom,JWN,2010,80,Department and Discount Stores
+Nordstrom,JWN,2011,81,Department and Discount Stores
+Nordstrom,JWN,2012,82,Department and Discount Stores
+Nordstrom,JWN,2013,81,Department and Discount Stores
+Nordstrom,JWN,2014,80,Department and Discount Stores
+Nordstrom,JWN,2015,80,Department and Discount Stores
+Nordstrom,JWN,2016,81,Department and Discount Stores
+Nordstrom,JWN,2017,81,Department and Discount Stores
+Nordstrom,JWN,2018,81,Department and Discount Stores
+Nordstrom,JWN,2019,79,Department and Discount Stores
+Nordstrom,JWN,2020,78,Department and Discount Stores
+Nordstrom,JWN,2021,77,Department and Discount Stores
+Nordstrom,JWN,2022,77,Department and Discount Stores
+Nordstrom,JWN,2023,76,Department and Discount Stores
+Macy's,M,2010,76,Department and Discount Stores
+Macy's,M,2011,76,Department and Discount Stores
+Macy's,M,2012,77,Department and Discount Stores
+Macy's,M,2013,77,Department and Discount Stores
+Macy's,M,2014,76,Department and Discount Stores
+Macy's,M,2015,76,Department and Discount Stores
+Macy's,M,2016,77,Department and Discount Stores
+Macy's,M,2017,76,Department and Discount Stores
+Macy's,M,2018,76,Department and Discount Stores
+Macy's,M,2019,76,Department and Discount Stores
+Macy's,M,2020,75,Department and Discount Stores
+Macy's,M,2021,76,Department and Discount Stores
+Macy's,M,2022,75,Department and Discount Stores
+Macy's,M,2023,74,Department and Discount Stores
+Home Depot,HD,2010,76,Specialty Retail Stores
+Home Depot,HD,2011,77,Specialty Retail Stores
+Home Depot,HD,2012,78,Specialty Retail Stores
+Home Depot,HD,2013,78,Specialty Retail Stores
+Home Depot,HD,2014,78,Specialty Retail Stores
+Home Depot,HD,2015,77,Specialty Retail Stores
+Home Depot,HD,2016,78,Specialty Retail Stores
+Home Depot,HD,2017,77,Specialty Retail Stores
+Home Depot,HD,2018,78,Specialty Retail Stores
+Home Depot,HD,2019,78,Specialty Retail Stores
+Home Depot,HD,2020,76,Specialty Retail Stores
+Home Depot,HD,2021,75,Specialty Retail Stores
+Home Depot,HD,2022,74,Specialty Retail Stores
+Home Depot,HD,2023,73,Specialty Retail Stores
+Lowe's,LOW,2010,78,Specialty Retail Stores
+Lowe's,LOW,2011,77,Specialty Retail Stores
+Lowe's,LOW,2012,78,Specialty Retail Stores
+Lowe's,LOW,2013,79,Specialty Retail Stores
+Lowe's,LOW,2014,78,Specialty Retail Stores
+Lowe's,LOW,2015,78,Specialty Retail Stores
+Lowe's,LOW,2016,78,Specialty Retail Stores
+Lowe's,LOW,2017,78,Specialty Retail Stores
+Lowe's,LOW,2018,78,Specialty Retail Stores
+Lowe's,LOW,2019,79,Specialty Retail Stores
+Lowe's,LOW,2020,78,Specialty Retail Stores
+Lowe's,LOW,2021,76,Specialty Retail Stores
+Lowe's,LOW,2022,76,Specialty Retail Stores
+Lowe's,LOW,2023,75,Specialty Retail Stores
+Best Buy,BBY,2010,74,Specialty Retail Stores
+Best Buy,BBY,2011,74,Specialty Retail Stores
+Best Buy,BBY,2012,73,Specialty Retail Stores
+Best Buy,BBY,2013,74,Specialty Retail Stores
+Best Buy,BBY,2014,76,Specialty Retail Stores
+Best Buy,BBY,2015,77,Specialty Retail Stores
+Best Buy,BBY,2016,78,Specialty Retail Stores
+Best Buy,BBY,2017,78,Specialty Retail Stores
+Best Buy,BBY,2018,78,Specialty Retail Stores
+Best Buy,BBY,2019,79,Specialty Retail Stores
+Best Buy,BBY,2020,79,Specialty Retail Stores
+Best Buy,BBY,2021,78,Specialty Retail Stores
+Best Buy,BBY,2022,77,Specialty Retail Stores
+Best Buy,BBY,2023,77,Specialty Retail Stores
+Amazon,AMZN,2010,87,Internet Retail
+Amazon,AMZN,2011,86,Internet Retail
+Amazon,AMZN,2012,85,Internet Retail
+Amazon,AMZN,2013,88,Internet Retail
+Amazon,AMZN,2014,86,Internet Retail
+Amazon,AMZN,2015,83,Internet Retail
+Amazon,AMZN,2016,83,Internet Retail
+Amazon,AMZN,2017,82,Internet Retail
+Amazon,AMZN,2018,82,Internet Retail
+Amazon,AMZN,2019,82,Internet Retail
+Amazon,AMZN,2020,83,Internet Retail
+Amazon,AMZN,2021,78,Internet Retail
+Amazon,AMZN,2022,79,Internet Retail
+Amazon,AMZN,2023,79,Internet Retail
+Kroger,KR,2010,76,Supermarkets
+Kroger,KR,2011,76,Supermarkets
+Kroger,KR,2012,77,Supermarkets
+Kroger,KR,2013,78,Supermarkets
+Kroger,KR,2014,77,Supermarkets
+Kroger,KR,2015,77,Supermarkets
+Kroger,KR,2016,77,Supermarkets
+Kroger,KR,2017,76,Supermarkets
+Kroger,KR,2018,76,Supermarkets
+Kroger,KR,2019,76,Supermarkets
+Kroger,KR,2020,77,Supermarkets
+Kroger,KR,2021,76,Supermarkets
+Kroger,KR,2022,75,Supermarkets
+Kroger,KR,2023,74,Supermarkets
+CVS,CVS,2010,76,Health and Personal Care Stores
+CVS,CVS,2011,76,Health and Personal Care Stores
+CVS,CVS,2012,76,Health and Personal Care Stores
+CVS,CVS,2013,75,Health and Personal Care Stores
+CVS,CVS,2014,75,Health and Personal Care Stores
+CVS,CVS,2015,74,Health and Personal Care Stores
+CVS,CVS,2016,74,Health and Personal Care Stores
+CVS,CVS,2017,75,Health and Personal Care Stores
+CVS,CVS,2018,75,Health and Personal Care Stores
+CVS,CVS,2019,74,Health and Personal Care Stores
+CVS,CVS,2020,74,Health and Personal Care Stores
+CVS,CVS,2021,74,Health and Personal Care Stores
+CVS,CVS,2022,73,Health and Personal Care Stores
+CVS,CVS,2023,73,Health and Personal Care Stores
+Walgreens,WBA,2010,76,Health and Personal Care Stores
+Walgreens,WBA,2011,76,Health and Personal Care Stores
+Walgreens,WBA,2012,75,Health and Personal Care Stores
+Walgreens,WBA,2013,75,Health and Personal Care Stores
+Walgreens,WBA,2014,74,Health and Personal Care Stores
+Walgreens,WBA,2015,73,Health and Personal Care Stores
+Walgreens,WBA,2016,73,Health and Personal Care Stores
+Walgreens,WBA,2017,74,Health and Personal Care Stores
+Walgreens,WBA,2018,74,Health and Personal Care Stores
+Walgreens,WBA,2019,73,Health and Personal Care Stores
+Walgreens,WBA,2020,73,Health and Personal Care Stores
+Walgreens,WBA,2021,73,Health and Personal Care Stores
+Walgreens,WBA,2022,72,Health and Personal Care Stores
+Walgreens,WBA,2023,71,Health and Personal Care Stores
+Dollar General,DG,2015,74,Department and Discount Stores
+Dollar General,DG,2016,75,Department and Discount Stores
+Dollar General,DG,2017,75,Department and Discount Stores
+Dollar General,DG,2018,76,Department and Discount Stores
+Dollar General,DG,2019,76,Department and Discount Stores
+Dollar General,DG,2020,75,Department and Discount Stores
+Dollar General,DG,2021,74,Department and Discount Stores
+Dollar General,DG,2022,73,Department and Discount Stores
+Dollar General,DG,2023,72,Department and Discount Stores
+Dollar Tree,DLTR,2015,74,Department and Discount Stores
+Dollar Tree,DLTR,2016,75,Department and Discount Stores
+Dollar Tree,DLTR,2017,76,Department and Discount Stores
+Dollar Tree,DLTR,2018,76,Department and Discount Stores
+Dollar Tree,DLTR,2019,74,Department and Discount Stores
+Dollar Tree,DLTR,2020,73,Department and Discount Stores
+Dollar Tree,DLTR,2021,73,Department and Discount Stores
+Dollar Tree,DLTR,2022,72,Department and Discount Stores
+Dollar Tree,DLTR,2023,71,Department and Discount Stores
+Kohl's,KSS,2010,78,Department and Discount Stores
+Kohl's,KSS,2011,78,Department and Discount Stores
+Kohl's,KSS,2012,77,Department and Discount Stores
+Kohl's,KSS,2013,77,Department and Discount Stores
+Kohl's,KSS,2014,77,Department and Discount Stores
+Kohl's,KSS,2015,76,Department and Discount Stores
+Kohl's,KSS,2016,76,Department and Discount Stores
+Kohl's,KSS,2017,76,Department and Discount Stores
+Kohl's,KSS,2018,77,Department and Discount Stores
+Kohl's,KSS,2019,77,Department and Discount Stores
+Kohl's,KSS,2020,77,Department and Discount Stores
+Kohl's,KSS,2021,76,Department and Discount Stores
+Kohl's,KSS,2022,75,Department and Discount Stores
+Kohl's,KSS,2023,74,Department and Discount Stores
+TJX,TJX,2014,78,Department and Discount Stores
+TJX,TJX,2015,78,Department and Discount Stores
+TJX,TJX,2016,79,Department and Discount Stores
+TJX,TJX,2017,79,Department and Discount Stores
+TJX,TJX,2018,80,Department and Discount Stores
+TJX,TJX,2019,80,Department and Discount Stores
+TJX,TJX,2020,79,Department and Discount Stores
+TJX,TJX,2021,78,Department and Discount Stores
+TJX,TJX,2022,78,Department and Discount Stores
+TJX,TJX,2023,77,Department and Discount Stores
+Gap,GPS,2010,76,Specialty Retail Stores
+Gap,GPS,2011,75,Specialty Retail Stores
+Gap,GPS,2012,75,Specialty Retail Stores
+Gap,GPS,2013,74,Specialty Retail Stores
+Gap,GPS,2014,75,Specialty Retail Stores
+Gap,GPS,2015,75,Specialty Retail Stores
+Gap,GPS,2016,75,Specialty Retail Stores
+Gap,GPS,2017,74,Specialty Retail Stores
+Gap,GPS,2018,74,Specialty Retail Stores
+Gap,GPS,2019,75,Specialty Retail Stores
+Gap,GPS,2020,76,Specialty Retail Stores
+Gap,GPS,2021,76,Specialty Retail Stores
+Gap,GPS,2022,75,Specialty Retail Stores
+Gap,GPS,2023,75,Specialty Retail Stores

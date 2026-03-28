@@ -1,0 +1,157 @@
+brand,year,cumulative_tech_adopted,total_tech_tracked,digitalization_pct
+Walmart,2000,1,8,12.5
+Walmart,2001,1,8,12.5
+Walmart,2002,1,8,12.5
+Walmart,2003,1,8,12.5
+Walmart,2004,1,8,12.5
+Walmart,2005,1,8,12.5
+Walmart,2006,1,8,12.5
+Walmart,2007,1,8,12.5
+Walmart,2008,1,8,12.5
+Walmart,2009,1,8,12.5
+Walmart,2010,1,8,12.5
+Walmart,2011,2,8,25.0
+Walmart,2012,2,8,25.0
+Walmart,2013,2,8,25.0
+Walmart,2014,2,8,25.0
+Walmart,2015,3,8,37.5
+Walmart,2016,3,8,37.5
+Walmart,2017,4,8,50.0
+Walmart,2018,5,8,62.5
+Walmart,2019,6,8,75.0
+Walmart,2020,7,8,87.5
+Walmart,2021,7,8,87.5
+Walmart,2022,8,8,100.0
+Walmart,2023,8,8,100.0
+Walmart,2024,8,8,100.0
+Walmart,2025,8,8,100.0
+Target,2000,0,7,0.0
+Target,2001,0,7,0.0
+Target,2002,0,7,0.0
+Target,2003,0,7,0.0
+Target,2004,1,7,14.3
+Target,2005,1,7,14.3
+Target,2006,1,7,14.3
+Target,2007,1,7,14.3
+Target,2008,1,7,14.3
+Target,2009,1,7,14.3
+Target,2010,1,7,14.3
+Target,2011,1,7,14.3
+Target,2012,2,7,28.6
+Target,2013,2,7,28.6
+Target,2014,2,7,28.6
+Target,2015,2,7,28.6
+Target,2016,2,7,28.6
+Target,2017,2,7,28.6
+Target,2018,5,7,71.4
+Target,2019,6,7,85.7
+Target,2020,6,7,85.7
+Target,2021,6,7,85.7
+Target,2022,7,7,100.0
+Target,2023,7,7,100.0
+Target,2024,7,7,100.0
+Target,2025,7,7,100.0
+Kroger,2000,0,6,0.0
+Kroger,2001,0,6,0.0
+Kroger,2002,0,6,0.0
+Kroger,2003,0,6,0.0
+Kroger,2004,0,6,0.0
+Kroger,2005,0,6,0.0
+Kroger,2006,0,6,0.0
+Kroger,2007,0,6,0.0
+Kroger,2008,0,6,0.0
+Kroger,2009,0,6,0.0
+Kroger,2010,0,6,0.0
+Kroger,2011,0,6,0.0
+Kroger,2012,1,6,16.7
+Kroger,2013,1,6,16.7
+Kroger,2014,3,6,50.0
+Kroger,2015,3,6,50.0
+Kroger,2016,3,6,50.0
+Kroger,2017,3,6,50.0
+Kroger,2018,4,6,66.7
+Kroger,2019,4,6,66.7
+Kroger,2020,4,6,66.7
+Kroger,2021,5,6,83.3
+Kroger,2022,6,6,100.0
+Kroger,2023,6,6,100.0
+Kroger,2024,6,6,100.0
+Kroger,2025,6,6,100.0
+Costco,2000,0,5,0.0
+Costco,2001,1,5,20.0
+Costco,2002,1,5,20.0
+Costco,2003,1,5,20.0
+Costco,2004,1,5,20.0
+Costco,2005,1,5,20.0
+Costco,2006,1,5,20.0
+Costco,2007,1,5,20.0
+Costco,2008,1,5,20.0
+Costco,2009,1,5,20.0
+Costco,2010,1,5,20.0
+Costco,2011,1,5,20.0
+Costco,2012,1,5,20.0
+Costco,2013,1,5,20.0
+Costco,2014,2,5,40.0
+Costco,2015,2,5,40.0
+Costco,2016,2,5,40.0
+Costco,2017,3,5,60.0
+Costco,2018,4,5,80.0
+Costco,2019,4,5,80.0
+Costco,2020,5,5,100.0
+Costco,2021,5,5,100.0
+Costco,2022,5,5,100.0
+Costco,2023,5,5,100.0
+Costco,2024,5,5,100.0
+Costco,2025,5,5,100.0
+Home Depot,2000,0,6,0.0
+Home Depot,2001,0,6,0.0
+Home Depot,2002,0,6,0.0
+Home Depot,2003,0,6,0.0
+Home Depot,2004,0,6,0.0
+Home Depot,2005,1,6,16.7
+Home Depot,2006,1,6,16.7
+Home Depot,2007,1,6,16.7
+Home Depot,2008,1,6,16.7
+Home Depot,2009,1,6,16.7
+Home Depot,2010,2,6,33.3
+Home Depot,2011,3,6,50.0
+Home Depot,2012,3,6,50.0
+Home Depot,2013,3,6,50.0
+Home Depot,2014,3,6,50.0
+Home Depot,2015,3,6,50.0
+Home Depot,2016,3,6,50.0
+Home Depot,2017,3,6,50.0
+Home Depot,2018,4,6,66.7
+Home Depot,2019,5,6,83.3
+Home Depot,2020,6,6,100.0
+Home Depot,2021,6,6,100.0
+Home Depot,2022,6,6,100.0
+Home Depot,2023,6,6,100.0
+Home Depot,2024,6,6,100.0
+Home Depot,2025,6,6,100.0
+Lowe's,2000,0,6,0.0
+Lowe's,2001,0,6,0.0
+Lowe's,2002,0,6,0.0
+Lowe's,2003,0,6,0.0
+Lowe's,2004,0,6,0.0
+Lowe's,2005,0,6,0.0
+Lowe's,2006,1,6,16.7
+Lowe's,2007,1,6,16.7
+Lowe's,2008,1,6,16.7
+Lowe's,2009,1,6,16.7
+Lowe's,2010,1,6,16.7
+Lowe's,2011,2,6,33.3
+Lowe's,2012,2,6,33.3
+Lowe's,2013,2,6,33.3
+Lowe's,2014,3,6,50.0
+Lowe's,2015,3,6,50.0
+Lowe's,2016,4,6,66.7
+Lowe's,2017,4,6,66.7
+Lowe's,2018,4,6,66.7
+Lowe's,2019,4,6,66.7
+Lowe's,2020,5,6,83.3
+Lowe's,2021,5,6,83.3
+Lowe's,2022,6,6,100.0
+Lowe's,2023,6,6,100.0
+Lowe's,2024,6,6,100.0
+Lowe's,2025,6,6,100.0

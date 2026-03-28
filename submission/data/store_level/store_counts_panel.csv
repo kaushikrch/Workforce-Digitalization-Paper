@@ -1,0 +1,61 @@
+brand,year,us_store_count
+Walmart,2015,4627
+Walmart,2016,4672
+Walmart,2017,4761
+Walmart,2018,4769
+Walmart,2019,4756
+Walmart,2020,4743
+Walmart,2021,4735
+Walmart,2022,4717
+Walmart,2023,4717
+Walmart,2024,4700
+Target,2015,1792
+Target,2016,1802
+Target,2017,1822
+Target,2018,1844
+Target,2019,1868
+Target,2020,1897
+Target,2021,1926
+Target,2022,1948
+Target,2023,1956
+Target,2024,1963
+Kroger,2015,2774
+Kroger,2016,2796
+Kroger,2017,2782
+Kroger,2018,2764
+Kroger,2019,2757
+Kroger,2020,2742
+Kroger,2021,2726
+Kroger,2022,2719
+Kroger,2023,2710
+Kroger,2024,2700
+Costco,2015,480
+Costco,2016,498
+Costco,2017,519
+Costco,2018,535
+Costco,2019,546
+Costco,2020,558
+Costco,2021,572
+Costco,2022,583
+Costco,2023,591
+Costco,2024,600
+Home Depot,2015,1977
+Home Depot,2016,1980
+Home Depot,2017,2284
+Home Depot,2018,2287
+Home Depot,2019,2291
+Home Depot,2020,2296
+Home Depot,2021,2300
+Home Depot,2022,2316
+Home Depot,2023,2324
+Home Depot,2024,2335
+Lowe's,2015,1793
+Lowe's,2016,1816
+Lowe's,2017,1840
+Lowe's,2018,1749
+Lowe's,2019,1727
+Lowe's,2020,1728
+Lowe's,2021,1737
+Lowe's,2022,1738
+Lowe's,2023,1738
+Lowe's,2024,1746
