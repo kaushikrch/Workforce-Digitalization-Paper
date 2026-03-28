@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.22)  28 MAR 2026 09:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.3.22)  28 MAR 2026 10:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1020,11 +1020,6 @@ Underfull \hbox (badness 1142) in paragraph at lines 155--159
 [6] [7] [8]
 \cldbox=\box90
  [9]
-Underfull \hbox (badness 1024) in paragraph at lines 306--306
-[]|\OT1/qtm/m/n/9 Oliva and Ster-man (2001);
- []
-
-
 Underfull \hbox (badness 7064) in paragraph at lines 306--306
 []|\OT1/qtm/m/n/9 Tucker (2007); Argote &
  []
@@ -1156,7 +1151,7 @@ public/tex-gyre/qtmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvet
 ic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on WCT_Paper_INFORMS.pdf (32 pages, 562235 bytes).
+Output written on WCT_Paper_INFORMS.pdf (32 pages, 563362 bytes).
 PDF statistics:
  567 PDF objects out of 1000 (max. 8388607)
  224 compressed objects within 3 object streams
