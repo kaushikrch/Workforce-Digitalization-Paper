@@ -272,6 +272,10 @@ where
 Since $T^*(S^*)$ is increasing in $S^*$ and $dS^*/dW > 0$ (Theorem~2, Link~2--Link~3), the correction term $-K^* h(W) a\,(dT^*/dW)/(1+aT^*)^2$ is negative, meaning the interior-equilibrium slope $dF_{\max}/dW$ is somewhat smaller than the boundary-formula slope $(p/b)\,(K^*)^{1/b}[h(W)]^{1/b-1}$. However, the sign remains positive: $dF_{\max}/dW > 0$ for all $p > 0$, $K^* > 0$. The boundary formula therefore provides a conservative upper bound on the interior slope: the interior slope is smaller (by approximately 8\% at baseline parameters), so the formula overstates how rapidly $F_{\max}$ increases with $W$ at positive trust levels. \Halmos
 \end{proof}
 
+\begin{remark}[Concave Capacity Multiplier]
+The constant cross-partial $\partial^2 \Keff / \partial W\,\partial K = p$ is an immediate consequence of the linear specification $h(W) = (1-p) + pW$. Under a concave alternative $h(W) = (1-p) + pW^\gamma$ ($\gamma < 1$), the cross-partial becomes $p\gamma W^{\gamma-1}$, which is state-dependent: complementarity is stronger when the workforce is depleted (low~$W$), precisely when it matters most operationally. The linear form therefore understates the complementarity effect under overload, making the main-paper result a conservative bound. Section~6.2 of the main paper discusses additional implications of concave~$h$.
+\end{remark}
+
 
 \subsection{Proof of Corollary 5 (Budget-Constrained Trap)}\label{sec:ec:proof5}
 
@@ -477,6 +481,10 @@ $t = +3$ & $-0.900$ & $-1.69$ & 0.113 & $-1.033$ & $-0.05$ & 0.961 \\
 \subsection*{Event-Study Launch Identification}
 
 The event study identifies the launch year as the fiscal year in which each firm's primary omnichannel fulfilment service (curbside pickup, click-and-collect, or same-day delivery) reached nationwide or near-nationwide availability. Launch years are identified from company press releases, investor presentations, and 10-K disclosures. Representative examples: Kroger ClickList (2016), Walmart Grocery Pickup (2017), Target Drive Up (2018), Albertsons Drive Up \& Go (2017), Costco same-day (2017). Amazon is excluded because its omnichannel transition was gradual. The complete 16-firm launch mapping is documented in the replication code (\texttt{09\_event\_study.py}).
+
+\subsection*{State Minimum Wage Check}
+
+A natural concern is that the county-wage buffer reflects state minimum wage policy rather than employer-level workforce investment. We test this by interacting the state minimum wage (standardised, time-varying, 2015--2024) with national e-commerce share in the county panel specification. The minimum wage interaction is not significant ($\hat{\beta}_1 = -0.0005$, $p = 0.22$; county and year FE, clustered at state, 53 clusters). In a horse-race specification including both the county-wage and state-MW interactions, the county-wage coefficient strengthens ($\hat{\beta}_1 = 0.0029$, $p = 0.020$) while the MW coefficient is marginally negative ($\hat{\beta}_1 = -0.0007$, $p = 0.063$). These results confirm that the Good Jobs Buffer operates through employer-level wage decisions above the mandated floor, consistent with the model's $f$ as a firm-level choice rather than a regulatory instrument. The MW change specification ($\Delta\mathrm{MW}$ since 2015 interacted with e-commerce) is similarly insignificant ($p = 0.23$).
 
 \subsection*{EU Replication (Exploratory)}
 

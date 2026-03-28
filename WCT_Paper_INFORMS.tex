@@ -219,11 +219,7 @@ Parameter calibration details are in EC~\S EC.4.
 
 Figure~\ref{fig:loops} shows the causal-loop architecture of the three ODEs, using the conventions of \citet{sterman2000business}. The diagram contains four feedback loops, each traceable from the state-variable arrows.
 
-\textbf{Loop R1} ($T \to D \to G \to T$) has regime-dependent polarity. Under surplus, it is balancing: trust-driven demand growth is absorbed by excess capacity. Under overload, it turns reinforcing: trust loss reduces demand, but capacity collapses faster, widening the gap.
-\textbf{Loop R2} ($G \to W \to \Keff \to G$) is reinforcing: a wider service gap depletes the workforce, which reduces effective capability, which widens the gap further. This is the deterioration loop behind the Front-Stage Trap.
-\textbf{Loop R3} ($W \to \Keff \to G \to W$) is also reinforcing: it is the escalation channel behind the Burnout Cliff.
-\textbf{Loop B1} ($G \to K \to \Keff \to G$) is balancing: sensing investment closes the gap, but only when the workforce has the capacity to act (see the $r\Gp W$ term in Eq.~\ref{eq:dK}).
-Loops R2 and R3 are novel to this model. They have no counterpart in \citeauthor{oliva2001cutting}'s (\citeyear{oliva2001cutting}) two-loop structure (which contains only B1 and a variant of R1), and they are the source of the regime-dependent instability that drives all three theorems.
+\textbf{R1} ($T \!\to\! D \!\to\! G \!\to\! T$) has regime-dependent polarity: balancing under surplus, reinforcing under overload (capacity collapses faster than demand falls). \textbf{R2} ($G \!\to\! W \!\to\! \Keff \!\to\! G$) and \textbf{R3} ($W \!\to\! \Keff \!\to\! G \!\to\! W$) are both reinforcing: the service gap depletes the workforce, reducing effective capability and widening the gap further. R2 drives the Front-Stage Trap; R3 drives the Burnout Cliff. \textbf{B1} ($G \!\to\! K \!\to\! \Keff \!\to\! G$) is balancing: sensing investment closes the gap, but only when the workforce has the capacity to act ($r\Gp W$ in Eq.~\ref{eq:dK}). Loops R2 and R3, created by the capacity multiplier $h(W)$, are novel to this model and have no counterpart in \citeauthor{oliva2001cutting}'s (\citeyear{oliva2001cutting}) two-loop structure.
 
 \newsavebox{\cldbox}
 \savebox{\cldbox}{%
@@ -320,29 +316,26 @@ The low-trust attractor is reached whenever demand persistently overwhelms capab
 The formal results hold under four regularity conditions (C1)--(C4), verified analytically or numerically across the parameter space (EC Remark~5): surplus equilibrium existence, uniqueness, regularity, and low-trust attractor existence (EC~\S EC.1.2). The coexistence of surplus equilibrium and low-trust attractor constitutes bistability; the transition at $F_{\mathrm{crit}}$ where these two states coalesce is classified as a saddle-node (fold) bifurcation (EC Remark~6).
 
 \begin{remark}[Analytical Transparency]\label{rem:transparency}
-The table below classifies each result by evidentiary basis: Tier~A (analytic for all valid parameters), Tier~B (analytic under C1--C4), or Tier~C (computational verification).
+The table below classifies each result by evidentiary basis (Tier~A: analytic for all valid parameters; Tier~B: analytic under C1--C4; Tier~C: computational) and maps it to the empirical evidence in \S\ref{sec:empirics}.
 \smallskip
 
 \noindent
 {\small\renewcommand{\arraystretch}{0.92}%
-\begin{tabular}{@{}p{0.38\textwidth}p{0.08\textwidth}p{0.42\textwidth}@{}}
+\begin{tabular}{@{}p{0.24\textwidth}p{0.06\textwidth}p{0.30\textwidth}p{0.30\textwidth}@{}}
 \toprule
-\textbf{Result} & \textbf{Tier} & \textbf{Basis} \\
+\textbf{Result} & \textbf{Tier} & \textbf{Analytical basis} & \textbf{Empirical support (\S\ref{sec:empirics})} \\
 \midrule
-Thm~1(i): equilibrium existence/nonexistence & A & Analytic (IVT + $\Phi(0)$ sign) \\
-Thm~1(ii): trajectories bounded & A & Analytic (Gronwall; Lemma~3) \\
-Thm~1(ii): wide-basin convergence & C & Numerical grid, $K_0=K^*$ slice \\
-Lemma~2 (uniqueness of $S^*$) & B & Analytic under C2-SC ($\beta(f{+}\mu)<\lambda$; holds throughout parameter space; EC~\S EC.1.2) \\
-Thm~2: $\partial\,\mathrm{CLV}^*/\partial f > 0$ (sign) & B & IFT chain; GE feedback correction sign analytic \\
-Thm~2: GE feedback magnitude (${\approx}0.09$) & C & Confirmed across 100 configurations \\
-Thm~3(i): $\Delta F_{\mathrm{collapse}}$ threshold & A & Direct from Thm~1 \\
-Thm~3(i): convergence from pre-shock IC & C & Numerical; basin-dependent \\
-Prop~4 cross-partial & A & Analytic ($\Keff = Kh(W)$) \\
-Prop~4 $F_{\max}(W)$ boundary formula & A & Exact at $S^*\to 0$ \\
-Prop~4 $F_{\max}(W)$ interior upper bound & B & Analytic sign; ${\approx}8\%$ correction numeric \\
-Corollary~5, Case~1 & B & Thm~1 + Thm~2 directly \\
-Corollary~5, Case~2 near $B_{\min}$ & B & Continuity from Case~1 (IFT; EC~\S EC.1.7) \\
-Corollary~5, Case~2 interior & C & Computational; $c_F/c_f\in[0.5,5]$ \\
+Thm~1(i): existence/nonexistence & A & IVT + $\Phi(0)$ sign & Inverted-U ($p{=}0.028$); event study ($p{=}0.037$) \\
+Thm~1(ii): bounded trajectories & A & Gronwall; Lemma~3 & -- \\
+Thm~1(ii): wide-basin convergence & C & Numerical grid & -- \\
+Thm~2: $\partial\,\mathrm{CLV}^*/\partial f > 0$ & B & IFT chain; GE sign analytic & County employment ($p{=}0.025$); establishments ($p{<}0.001$) \\
+Thm~2: GE magnitude & C & 100 configurations & -- \\
+Thm~3(i): $\Delta F_{\mathrm{collapse}}$ & A & Direct from Thm~1 & Estab.\ exit pattern ($p{<}0.001$, indirect) \\
+Thm~3(i): convergence & C & Numerical; basin-dep.\ & -- \\
+Prop~4: cross-partial & A & $\Keff = Kh(W)$ & Sign check ($+1.95$, $p{=}0.41$) \\
+Prop~4: $F_{\max}(W)$ boundary & A & Exact at $S^*{\to}0$ & -- \\
+Cor~5, Case~1 & B & Thm~1 + Thm~2 & Not tested \\
+Cor~5, Case~2 & B/C & IFT / computational & Not tested \\
 \bottomrule
 \end{tabular}}
 \end{remark}
@@ -451,10 +444,7 @@ A practical corollary follows: workforce well-being sets a ceiling on how far di
 which is strictly increasing in $W$ for $p > 0$. The full implicit differentiation accounting for $T^*(W,F)$ dependence at interior equilibria (where $S^* > 0$) yields a correction term of order $O(aS^*)$ that vanishes as $S^* \to 0$; the formula (\ref{eq:Fmax}) is therefore exact at the boundary and an upper bound on $F_{\max}$ in the interior: trust-elevated demand means true safe capacity is approximately 8\% lower than this formula implies at baseline trust levels (EC \S EC.1.6).
 \end{proposition}
 
-\noindent\textit{Proof.} The cross-partial follows directly from $\Keff = K[(1-p)+pW]$. The $F_{\max}$ formula identifies $F_{\mathrm{crit}}$ at $S^*\to 0$, where $T^*\to 0$, giving $(K^*h(W))^{1/b}$, strictly increasing in $W$ since $h'(W)=p>0$; with the full $T^*(W,F)$ correction this is exact at the boundary and an upper bound in the interior (EC~\S EC.1.6). \Halmos
-
-\medskip
-\noindent\textit{Remark.} The constant cross-partial $\partial^2 \Keff / \partial W\,\partial K = p$ is an immediate consequence of the linear specification $h(W) = (1-p) + pW$. Under a concave alternative $h(W) = (1-p) + pW^\gamma$ ($\gamma < 1$), the cross-partial becomes $p\gamma W^{\gamma-1}$, which is state-dependent: complementarity is stronger when the workforce is depleted (low~$W$), precisely when it matters most operationally. The linear form therefore understates the complementarity effect under overload, making our result a conservative bound. Section~\ref{sec:disc:limits} discusses additional implications of concave~$h$.
+\noindent\textit{Proof.} The cross-partial follows directly from $\Keff = K[(1-p)+pW]$. The $F_{\max}$ formula identifies $F_{\mathrm{crit}}$ at $S^*\to 0$, where $T^*\to 0$, giving $(K^*h(W))^{1/b}$, strictly increasing in $W$ since $h'(W)=p>0$; with the full $T^*(W,F)$ correction this is exact at the boundary and an upper bound in the interior (EC~\S EC.1.6). The linear $h(W)$ understates complementarity under overload; a concave alternative strengthens the result (EC~\S EC.1.6). \Halmos
 
 \medskip
 Figure~\ref{fig:complementarity} illustrates: the gap between a stressed firm ($W = 0.30$, $F_{\max} \approx 1.063$) and a healthy one ($W = 0.70$, $F_{\max} \approx 1.307$) is 23\%, arising entirely from workforce investment.
@@ -598,7 +588,7 @@ A caveat on staggered treatment timing: recent work \citep{callaway2021differenc
 
 The firm-level data cannot deliver a well-powered test of the capacity-multiplier channel. We therefore test an \emph{analogue} of the Good Jobs Buffer at a different margin (employment resilience rather than customer satisfaction) using BLS county-level data, where the dramatically larger sample ($N = 30{,}951$) provides the statistical power that the firm-level analysis lacks.
 
-\textit{Design.} The model predicts that workforce investment $f$ buffers the negative effects of digitalisation on service capacity (Theorem~\ref{thm:buffer}). The county-level test maps this prediction to an observable analogue: do counties with higher initial retail wages (a proxy for local workforce-investment conditions) show more resilient retail employment as national e-commerce penetration grows? Three mapping choices warrant acknowledgement: the outcome is employment resilience (not CLV); county wages are a noisy proxy for individual-firm $f$ (reflecting local labour-market conditions including minimum wages and cost of living); and $\text{Ecom}_t$ is a national macro trend whereas $F$ is a firm-level choice. Despite these distinctions, the qualitative prediction---higher workforce investment buffers against digitalisation-induced capacity loss---is preserved. Initial retail wage is measured in 2015 (before the e-commerce acceleration), standardised cross-sectionally. The interaction $W_{c,2015}^z \times \text{Ecom}_t$ captures whether high-wage counties differentially maintain employment under digital pressure:
+\textit{Design.} The model predicts that workforce investment $f$ buffers the negative effects of digitalisation on service capacity (Theorem~\ref{thm:buffer}). The county-level test maps this prediction to an observable analogue: do counties with higher initial retail wages (a proxy for local workforce-investment conditions) show more resilient retail employment as national e-commerce penetration grows? We test two dependent variables: log employment growth (intensive margin) and log establishment-count growth (extensive margin). Establishment exit is the most observable real-world consequence of permanent capacity collapse (Theorem~\ref{thm:cliff}): a retailer that can no longer sustain service quality closes its location.\footnote{State minimum wages do not generate the buffer effect (interaction with e-commerce: $p = 0.22$, clustered at state level). In a specification including both the county-wage and state-MW interactions, the county-wage coefficient strengthens ($p = 0.020$) while the MW coefficient is marginally negative ($p = 0.063$). The buffer thus reflects employer-level wage decisions above the mandated floor, consistent with the model's $f$ as a firm-level choice (EC~\S EC.5).} Three mapping choices warrant acknowledgement: the outcome is employment and establishment resilience (not CLV); county wages are a noisy proxy for individual-firm $f$ (reflecting local labour-market conditions); and $\text{Ecom}_t$ is a national macro trend whereas $F$ is a firm-level choice. Despite these distinctions, the qualitative prediction that higher workforce investment buffers against digitalisation-induced capacity loss is preserved. Initial retail wage is measured in 2015 (before the e-commerce acceleration), standardised cross-sectionally. The interaction $W_{c,2015}^z \times \text{Ecom}_t$ captures whether high-wage counties differentially maintain employment and establishments under digital pressure:
 \begin{equation}\label{eq:county}
 \begin{aligned}
 \ln E_{ct} - \ln E_{c,2015} &= \alpha_c + \gamma_t \\
@@ -607,7 +597,9 @@ The firm-level data cannot deliver a well-powered test of the capacity-multiplie
 \end{equation}
 Because $\text{Ecom}_t$ is a national-level variable (identical across counties within each year), its main effect is perfectly collinear with the year fixed effects $\gamma_t$ and is therefore absorbed by them. Likewise, $W_{c,2015}^z$ is time-invariant and absorbed by the county fixed effects $\alpha_c$. The coefficient $\beta_1$ thus identifies the \emph{differential} effect of e-commerce growth on counties with higher initial retail wages, which is the quantity of interest for the Good Jobs Buffer.
 
-\textit{Results.} The interaction is positive and significant ($\hat{\beta}_1 = 0.0026$, $t = 2.24$, $p = 0.025$; county and year FE, clustered at county). A county one SD above the mean in initial retail wage (${\approx}\$110$/week) retains 2.6 percentage points more retail employment per 10-point increase in e-commerce share, consistent with the Good Jobs Buffer operating through employment capacity. The long-difference specification (2015 vs.\ 2023) confirms: high-wage counties gained 2.1~pp more retail employment over the period ($t = 2.57$, $p = 0.010$).
+\textit{Results.} The interaction is positive and significant for both margins. On the intensive margin (employment), $\hat{\beta}_1 = 0.0026$ ($t = 2.24$, $p = 0.025$; county and year FE, clustered at county): a county one SD above the mean in initial retail wage (${\approx}\$110$/week) retains 2.6 percentage points more retail employment per 10-point increase in e-commerce share. The long-difference specification (2015 vs.\ 2023) confirms: high-wage counties gained 2.1~pp more retail employment over the period ($t = 2.57$, $p = 0.010$).
+
+On the extensive margin, the buffer is stronger. The establishment-count interaction is $\hat{\beta}_1 = 0.0042$ ($t = 4.64$, $p < 0.001$), 63\% larger than the employment coefficient. A county one SD above the mean retains 4.2 percentage points more retail establishments per 10-point increase in e-commerce share. The urban effect is pronounced ($p < 0.001$; 1,557 counties); the rural effect is not significant ($p = 0.17$), mirroring the employment-margin pattern. The decomposition shows that surviving establishments in high-wage counties are somewhat smaller (employment per establishment: $\hat{\beta}_1 = -0.0017$, $p = 0.036$), consistent with the buffer preserving smaller retail businesses that would otherwise exit.
 
 \textit{Robustness.} The result strengthens when COVID years are excluded ($\hat{\beta}_1 = 0.0031$, $p = 0.014$), holds in urban counties ($p = 0.006$), and is insignificant in rural counties ($p = 0.58$). A pre-period placebo (2015--2017) shows no effect ($p = 0.40$), confirming the buffer activates only under substantial digital pressure. The effect operates through employment quantity, not wages (wage-growth outcome: $p = 0.98$), consistent with the capacity-multiplier channel.
 
@@ -655,21 +647,27 @@ $R^2_{\mathrm{within}}$ & -- & 0.44 & 0.18 & 0.51 \\
 \toprule
 & (1) Main & (2) Excl.\ COVID & (3) Urban & (4) Rural & (5) Placebo \\
 \midrule
+\multicolumn{6}{@{}l}{\textit{Panel A: Employment growth (intensive margin)}} \\[3pt]
 $W^z_{c,2015} \times \text{Ecom}_t$ & $0.0026^{**}$ & $0.0031^{**}$ & $0.0050^{***}$ & $0.0008$ & $0.0023$ \\
  & $(0.0011)$ & $(0.0013)$ & $(0.0018)$ & $(0.0014)$ & $(0.0027)$ \\[2pt]
+$R^2_{\mathrm{within}}$ & 0.008 & 0.013 & 0.042 & $-$0.000 & 0.001 \\
+\addlinespace
+\multicolumn{6}{@{}l}{\textit{Panel B: Establishment growth (extensive margin)}} \\[3pt]
+$W^z_{c,2015} \times \text{Ecom}_t$ & $0.0042^{***}$ & $0.0045^{***}$ & $0.0071^{***}$ & $0.0018$ & $0.0019$ \\
+ & $(0.0009)$ & $(0.0010)$ & $(0.0014)$ & $(0.0013)$ & $(0.0024)$ \\[2pt]
+$R^2_{\mathrm{within}}$ & 0.031 & 0.037 & 0.089 & $-$0.001 & 0.000 \\
 \midrule
 County FE & Yes & Yes & Yes & Yes & Yes \\
 Year FE & Yes & Yes & Yes & Yes & Yes \\
 $N$ & 30{,}951 & 24{,}768 & 15{,}532 & 15{,}419 & 9{,}321 \\
 Counties & 3{,}115 & 3{,}115 & 1{,}557 & 1{,}558 & 3{,}115 \\
-$R^2_{\mathrm{within}}$ & 0.008 & 0.013 & 0.042 & $-$0.000 & 0.001 \\
 \bottomrule
 \end{tabular}
-}}{Dependent variable: $\ln E_{ct} - \ln E_{c,2015}$ (log employment growth relative to 2015 baseline). Standard errors clustered at county level in parentheses. $^{***}p < 0.01$; $^{**}p < 0.05$. $\text{Ecom}_t$ main effect absorbed by year FE (national variable); $W^z_{c,2015}$ absorbed by county FE (time-invariant). Column (2): excludes 2020--2021. Columns (3)--(4): split at median baseline employment. Column (5): 2015--2017 only (pre-period placebo; 24 county-year observations dropped due to missing BLS data in 2015--2017). Negative within-$R^2$ in column (4) indicates the interaction term does not improve fit beyond fixed effects in the rural subsample, consistent with the buffer mechanism operating primarily in urban retail markets.}\end{table}
+}}{Dependent variables: Panel~A uses $\ln E_{ct} - \ln E_{c,2015}$ (log employment growth); Panel~B uses $\ln \mathrm{Estab}_{ct} - \ln \mathrm{Estab}_{c,2015}$ (log establishment-count growth). Both are relative to 2015. Standard errors clustered at county level in parentheses. $^{***}p < 0.01$; $^{**}p < 0.05$. $\text{Ecom}_t$ main effect absorbed by year FE; $W^z_{c,2015}$ absorbed by county FE. Column (2): excludes 2020--2021. Columns (3)--(4): split at median baseline employment. Column (5): 2015--2017 pre-period placebo. The extensive margin (Panel~B) shows a 63\% larger coefficient and substantially higher within-$R^2$ than the intensive margin.}\end{table}
 
 \subsection{Assessment}\label{sec:emp:assessment}
 
-Three empirical strategies support the model's qualitative predictions. The inverted-U ($p = 0.028$) and the post-shock ACSI decline ($p = 0.037$) both support the Front-Stage Trap (Theorem~\ref{thm:trap}). The county-level wage--e-commerce interaction ($p = 0.025$, $N = 30{,}951$) provides a well-powered test of the Good Jobs Buffer (Theorem~\ref{thm:buffer}); the low within-$R^2$ (0.008) is expected for a single interaction net of 3{,}115 county and 10 year fixed effects, comparable to \citet{chetty2009salience}. The complementarity sign ($+1.95$, $p = 0.41$) is directionally consistent with Proposition~\ref{prop:complementarity} but underpowered. The Burnout Cliff (Theorem~\ref{thm:cliff}) and Budget-Constrained Trap (Corollary~\ref{cor:budget}) are validated computationally but not tested on real data; direct testing requires high-frequency firm-level deployment data not available in this sample. The contribution is directionally consistent evidence across different identification strategies, levels, and outcomes, subject to \S\ref{sec:disc:limits}.
+Three empirical strategies support the model's qualitative predictions. The inverted-U ($p = 0.028$) and the post-shock ACSI decline ($p = 0.037$) both support the Front-Stage Trap (Theorem~\ref{thm:trap}). The county-level wage--e-commerce interaction provides a well-powered test of the Good Jobs Buffer (Theorem~\ref{thm:buffer}) on two margins: employment ($p = 0.025$) and establishment counts ($p < 0.001$, $N = 30{,}951$). The extensive-margin result is the strongest in the paper; the low within-$R^2$ in Panel~A (0.008) is expected for a single interaction net of 3{,}115 county and 10 year fixed effects, comparable to \citet{chetty2009salience}, and rises to 0.031 for establishments. The complementarity sign ($+1.95$, $p = 0.41$) is directionally consistent with Proposition~\ref{prop:complementarity} but underpowered. The county establishment-exit pattern ($p < 0.001$) provides an observational signature consistent with the permanent-collapse prediction of Theorem~\ref{thm:cliff}, though it cannot distinguish bistability from gradual secular decline; the Budget-Constrained Trap (Corollary~\ref{cor:budget}) remains validated computationally only. The contribution is directionally consistent evidence across different identification strategies, levels, and outcomes, subject to \S\ref{sec:disc:limits}.
 
 
 \section{Discussion}\label{sec:discussion}
