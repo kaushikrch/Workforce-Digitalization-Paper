@@ -84,9 +84,9 @@ The model supplies two computable numbers absent from standard dashboards: a dig
 
 Omnichannel grocery retailers have invested heavily in digital capabilities in recent years \citep{hubner2021digitalization, bijmolt2021challenges}, enabling customers to build baskets across channels, reserve items for same-day collection, and track substitutions in real time. Yet as digital engagement has grown, retailers have encountered a structural asymmetry in how costs and returns are measured. Technology investment registers as successful in the front-stage domain where it is evaluated, while the back-stage workforce that must fulfil the digitally generated demand absorbs consequences that appear nowhere in the technology business case \citep{corbett2024wellbeing}.
 
-The asymmetry is structural, not incidental. Front-stage digital capabilities generate customer journeys that multiply handoff complexity far faster than order volume grows \citep{saghiri2017toward}, placing distinctive operational demands on back-stage workers (pickers, drivers, click-and-collect associates). The empirical literature confirms the scale of these consequences: workforce investment generates returns that are both large and invisible to standard metrics \citep{fisher2021staffing, kesavan2022doing}, and firms that invest in workforce capacity outperform on both operational and financial measures \citep{ton2014good}, yet the causal chain runs through mechanisms that standard dashboards do not monitor.
+The asymmetry is structural, not incidental. Front-stage digital capabilities multiply handoff complexity far faster than order volume grows \citep{saghiri2017toward}, placing distinctive demands on back-stage workers. Workforce investment generates returns that are large and invisible to standard metrics \citep{fisher2021staffing, kesavan2022doing, ton2014good}, yet the causal chain runs through mechanisms that dashboards do not monitor.
 
-What is missing is a formal account of the mechanism. The empirical literature establishes that workforce investment pays off; it does not characterise \emph{when} additional front-stage investment begins to destroy rather than create value, \emph{how fast} a firm can scale digitalisation before the back-stage workforce is overwhelmed, or \emph{what dynamic relationship} connects technology investment, workforce well-being, and customer trust over time. These are not questions that regression analysis on historical data can answer: they require a model that treats workforce well-being and customer trust as co-evolving state variables responding to a controllable investment sequence (see~\S\ref{sec:lit:erosion}).
+What is missing is a formal account of the mechanism. The empirical literature establishes that workforce investment pays off; it does not characterise \emph{when} front-stage investment begins to destroy value, \emph{how fast} a firm can scale digitalisation before the workforce is overwhelmed, or \emph{what dynamic relationship} connects technology, well-being, and trust. These questions require a model of co-evolving state variables responding to a controllable investment sequence (see~\S\ref{sec:lit:erosion}).
 
 This paper formalises the economic structure of this problem as a parsimonious dynamic model. Technology and workforce are not independent inputs to service capability but strategic complements \citep{milgrom1990economics, bainbridge1983ironies}; in the spirit of \citet{kremer1993oring}, where the weakest link constrains system output, the capacity multiplier formalises the dependence of technology delivery on workforce engagement. The model nests the quality-erosion framework of \citet{oliva2001cutting} as a special case (EC~\S EC.2). The central modelling innovation is the \emph{workforce capacity multiplier}: effective service capability is the product of the technology stock and a workforce engagement index. When front-stage demand grows faster than back-stage workforce capacity, a service gap opens that depletes workforce well-being, which reduces effective capability, which widens the gap further: a reinforcing deterioration that single-domain models cannot generate.
 
@@ -107,7 +107,11 @@ The foundational insight that service quality can erode endogenously under deman
 \textbf{Gap~1:} no model in this tradition treats workforce well-being as a positive capability multiplier. \textbf{Gap~2:} no Oliva--Sterman extension adds customer trust, a front-/back-stage split, or digital scaling.
 
 \paragraph{Workforce investment and retail performance.}\label{sec:lit:workforce}
-A substantial empirical literature documents the workforce-performance link. The Good Jobs Strategy \citep{ton2014good} identifies four operational choices that drive outperformance; causal evidence shows that responsible scheduling raises productivity \citep{kesavan2022doing} and that profit-maximising staffing exceeds prevailing practice \citep{fisher2021staffing, dube2020minimum}. The conceptual mechanism is the \emph{service profit chain} \citep{heskett1994putting}, which has not been formalised as a dynamic model with computable boundary conditions. The Job Demands-Resources model \citep{bakker2007job, demerouti2001job} provides the micro-foundation: overload depletes well-being faster than equivalent surplus restores it, and productivity responses scale with engagement \citep{mas2009peers}. These two features (asymmetric overload and engagement-scaled sensitivity) underpin the workforce dynamics in \S\ref{sec:model:dynamics}. \textbf{Gap~3:} no dynamic model formalises the Good Jobs Strategy or the service profit chain with computable boundary conditions.
+A substantial empirical literature documents the workforce-performance link. The Good Jobs Strategy \citep{ton2014good} identifies four operational choices that drive outperformance; causal evidence shows that responsible scheduling raises productivity \citep{kesavan2022doing} and that profit-maximising staffing exceeds prevailing practice \citep{fisher2021staffing, dube2020minimum}. The conceptual mechanism is the \emph{service profit chain} \citep{heskett1994putting}, which has not been formalised as a dynamic model with computable boundary conditions. The Job Demands-Resources (JD-R) model \citep{bakker2007job, demerouti2001job} provides the micro-foundation: overload depletes well-being faster than equivalent surplus restores it, and productivity scales with engagement \citep{mas2009peers}.
+
+Prospect theory \citep{kahneman1979prospect, tversky1992advances} provides a deeper behavioural foundation: losses loom larger than equivalent gains by $\lambda \approx 2.25$, and both domains exhibit diminishing sensitivity. Applied to the workforce, overload-induced depletion is experienced more intensely than equivalent recovery---a prediction remarkably consistent with the 2:1 asymmetry in \citet{oliva2001cutting} and the JD-R model. Loss aversion thus independently grounds the parameter $\sigma > 1$ central to Theorems~1 and 3.
+
+\textbf{Gap~3:} no dynamic model formalises the Good Jobs Strategy or the service profit chain with computable boundary conditions.
 
 \paragraph{Omnichannel capability.}\label{sec:lit:omni}
 Digitalisation creates considerable challenges for retail logistics, with fulfilment complexity scaling super-linearly as channel combinations increase \citep{hubner2021digitalization, saghiri2017toward, bell2018inventory, acimovic2015fulfillment}. Automation shifts the operator's role toward exception handling \citep{bainbridge1983ironies}, making the quality of residual human tasks more consequential for overall output \citep{gans2026oring}. Technology--workforce strategic complementarity \citep{milgrom1990economics, aral2012three} motivates the model's central structural assumption that the marginal value of workforce engagement rises with the technology base (\S\ref{sec:model:stocks}). \textbf{Gap~4:} no model formalises front-to-back cross-domain overload. \textbf{Gap~5:} the digitalisation-workforce cross-partial has not been derived for services.
@@ -193,7 +197,7 @@ Well-being rises under surplus capacity and direct investment; it falls through 
 \begin{equation}\label{eq:dW}
     \frac{dW}{dt} = \bigl(\Gm + f\bigr)(1 - W) - \bigl(\mu + \sigma\,\Gp\bigr) W.
 \end{equation}
-Two grouped terms ensure $W(t) \in [0,1]$. The first drives $W$ upward (vanishing at $W = 1$): capability surplus and direct workforce investment raise well-being with diminishing returns, consistent with the JD-R model \citep{bakker2007job}. The second drives $W$ downward (vanishing at $W = 0$): natural decay ($\mu$) and overload erosion ($\sigma\,\Gp$) deplete well-being, with $\sigma > 1$ reflecting the asymmetry documented by \citet{oliva2001cutting}. All three theorems hold for any $\sigma > 1$ (EC Table~EC.3).
+Two grouped terms ensure $W(t) \in [0,1]$. The first drives $W$ upward (vanishing at $W = 1$): capability surplus and direct workforce investment raise well-being with diminishing returns, consistent with the JD-R model \citep{bakker2007job}. The second drives $W$ downward (vanishing at $W = 0$): natural decay ($\mu$) and overload erosion ($\sigma\,\Gp$) deplete well-being, with $\sigma > 1$ reflecting the asymmetry documented by \citet{oliva2001cutting} and independently predicted by the loss-aversion ratio $\lambda \approx 2.25$ from prospect theory \citep{tversky1992advances}. All three theorems hold for any $\sigma > 1$ (EC Table~EC.3).
 
 \paragraph{Customer trust.}
 Trust builds through reliable service and erodes faster when reliability fails \citep{sirdeshmukh2002consumer, mittal1998asymmetric}:
@@ -289,7 +293,7 @@ Table~\ref{tab:params} summarises all parameters. Two control variables complete
 1 & $b$ (demand super-linearity) & 1.3 & -- & $b{=}1$ & Front-Stage Trap & Bell et al.\ (2018); Acimovic \& Graves (2015) \\
 2 & $a$ (trust-demand coupling) & 0.4 & -- & $a{=}0$ & Demand feedback & McKnight et al.\ (2002); Sirdeshmukh et al.\ (2002) \\
 3 & $p$ (workforce complementarity) & 0.5 & -- & $p{=}0$ & Capacity multiplier & Illustrative \\
-4 & $\sigma$ (overload asymmetry) & 2.0 & -- & $\sigma{=}1$ & Tipping point & \citet{oliva2001cutting}; \citet{bakker2007job}$^\dagger$ \\
+4 & $\sigma$ (overload asymmetry) & 2.0 & -- & $\sigma{=}1$ & Tipping point & \citet{oliva2001cutting}; PT $\lambda{\approx}2.25$$^\dagger$ \\
 5 & $\eta$ (erosion asymmetry) & 2.0 & -- & $\eta{=}1$ & Trust asymmetry & Sirdeshmukh et al.\ (2002) \\
 6 & $r$ (sensing-adaptation) & 0.4 & $\tau_{r} \approx 1.7$ mo & $r{=}0$ & Self-correction dies & Tucker (2007); Argote \& Epple (1990) \\
 7 & $\delta$ (depreciation) & 0.03 & $\tau_{\delta} \approx 23$ mo & -- & -- & Illustrative (EC \S EC.4) \\
@@ -573,11 +577,11 @@ National e-commerce share (\%) & 10 & 11.8 & 3.0 & 7.4--16.1 \\
 \begin{equation}\label{eq:invU}
     \mathrm{ACSI}_{it} = \alpha_i + \beta_1\,\mathrm{Ecom}_t + \beta_2\,\mathrm{Ecom}_t^2 + \mathbf{X}_{it}\theta + \varepsilon_{it},
 \end{equation}
-where $\alpha_i$ are firm fixed effects, $\mathrm{Ecom}_t$ is national e-commerce share, and $\mathbf{X}_{it}$ includes workforce controls where indicated. Year fixed effects are excluded because $\mathrm{Ecom}_t$ is a national aggregate identical within year; including them would absorb it entirely. Identification exploits the time-series curvature of the national digitalisation trend, shared across all 17 firms. Firm-specific deployment timing would sharpen identification; the event study in the next subsection provides this.
+where $\alpha_i$ are firm fixed effects, $\mathrm{Ecom}_t$ is national e-commerce share, and $\mathbf{X}_{it}$ includes workforce controls where indicated. Year fixed effects are excluded because $\mathrm{Ecom}_t$ is a national aggregate identical within year; including them would absorb it entirely. Identification exploits the time-series curvature of the national digitalisation trend, shared across all 17 firms. Firm-specific deployment timing would sharpen identification; the event study provides this. As a supplementary check, replacing $\mathrm{Ecom}_t$ with a firm-specific digitalization index (cumulative technology adoption percentage; $N = 84$, 6 firms with joint coverage) yields a significant inverted-U ($\hat{\beta}_2 = -0.00061$, $p = 0.039$, firm FE; turning point at 51\% adoption), confirming the non-monotonicity with firm-level variation.
 
 The specification ($N = 216$, 17 firms) yields $\hat{\beta}_2 = -0.028$ ($p = 0.028$ under $t(16)$), consistent with the predicted inverted-U. The estimated turning point (7.9\% e-commerce share) lies in the mid-2010s, qualitatively consistent with a digitalisation ceiling, though the correspondence is directional, not quantitative.
 
-The coefficient attenuates when workforce controls are included ($N = 190$; 26 firm-years dropped due to missing Glassdoor; $p = 0.66$), consistent with the prediction that e-commerce damages satisfaction \emph{through} workforce depletion. A common limitation of both specifications is the absence of instruments; the event study partially mitigates this.
+The coefficient attenuates when workforce controls are included ($N = 190$; $p = 0.66$). A Baron-Kenny mediation analysis confirms the mechanism: Glassdoor mediates approximately 81\% of the total e-commerce--ACSI relationship, and the direct effect becomes insignificant ($p = 0.70$) once workforce well-being is controlled. This is consistent with the model's core prediction that digitalisation damages satisfaction \emph{through} workforce depletion, not through a direct channel.
 
 \noindent\textit{Event study (Theorem~\ref{thm:trap}).} We exploit the staggered timing of major omnichannel launches (e.g., Walmart curbside 2017, Target Drive Up 2018, Kroger ClickList 2016) as firm-level technology shocks. Using a $[-3, +3]$ year event window around each firm's launch date $t_i^*$ ($N = 108$, 16 firms), the event-study specification is
 \begin{equation}\label{eq:eventstudy}
@@ -679,11 +683,11 @@ The three theorems together provide the formal micro-foundation that connects \c
 
 \subsection{Limitations and Directions for Future Research}\label{sec:disc:limits}
 
-\textit{Model limitations.} The model treats $F$ as exogenous; endogenising it would enable optimal deployment sequencing. The HJB formulation is non-trivial: the switching manifold $\{G{=}0\}$ is endogenous (its location depends on the state trajectory, so the co-state jump cannot be precomputed), requiring viscosity-solution techniques \citep{filippov1988differential}. The demand function grows without bound in $F$ and does not incorporate market saturation; predictions are most reliable near $F_{\mathrm{crit}}$. Omitting a direct $W \to D$ throughput channel makes our complementarity results a conservative lower bound. A concave $h(W)$ (e.g., $h = (1{-}p)+pW^\gamma$, $\gamma < 1$) would strengthen the results; the linear form is a conservative tractability choice.
+\textit{Model limitations.} $F$ is exogenous; the HJB formulation for optimal deployment is non-trivial because the switching manifold $\{G{=}0\}$ is endogenous \citep{filippov1988differential}. Demand grows without bound in $F$ (no market saturation); predictions are most reliable near $F_{\mathrm{crit}}$. Omitting a direct $W \to D$ channel and using linear $h(W)$ both make results conservative; a concave $h(W) = (1{-}p)+pW^\gamma$ ($\gamma < 1$), motivated by prospect theory's diminishing sensitivity, would strengthen them.
 
-\textit{Empirical limitations.} With only $N_c = 13$ firm clusters, the firm-level analysis is at the boundary of asymptotic validity \citep{cameron2008bootstrap}; the county-level analysis ($N_c = 3{,}115$) does not share this limitation but tests a different margin. Glassdoor ratings exhibit low within-firm temporal variation (within-firm SD is 30\% of total SD), making the interaction difficult to identify within firm; store-level data would sharpen identification. The county interaction cannot fully distinguish the Good Jobs Buffer from the alternative that high-wage counties are embedded in locally non-tradeable retail; definitive separation requires store-level data.
+\textit{Empirical limitations.} With $N_c = 13$ firm clusters, firm-level power is limited \citep{cameron2008bootstrap}; county-level power ($N_c = 3{,}115$) does not share this limitation. Glassdoor's low within-firm variation (SD 30\% of total) limits the interaction's within-firm identification. The county interaction cannot fully separate the Good Jobs Buffer from non-tradeable-retail embedding; store-level data would resolve both.
 
-\textit{Extensions.} Three, in order of expected impact: (i)~store-level identification of $p$ using technology rollout timing as instruments; (ii)~a competitive multi-firm extension where workforce poaching creates strategic complementarity; (iii)~stochastic demand forcing, which would transform the Burnout Cliff into a probabilistic threshold.
+\textit{Extensions.} Store-level identification of $p$; competitive multi-firm extension with workforce poaching; stochastic demand forcing (probabilistic Burnout Cliff).
 
 \section{Conclusion}\label{sec:conclusion}
 
@@ -796,6 +800,10 @@ Heskett JL, Jones TO, Loveman GW, Sasser Jr WE, Schlesinger LA (1994) Putting th
 Heskett JL, Sasser Jr WE, Schlesinger LA (1997) \textit{The Service Profit Chain: How Leading Companies Link Profit and Growth to Loyalty, Satisfaction, and Value}.
 New York: Free Press.
 
+\bibitem[Kahneman and Tversky(1979)]{kahneman1979prospect}
+Kahneman D, Tversky A (1979) Prospect theory: An analysis of decision under risk.
+\textit{Econometrica} 47(2):263--291.
+
 \bibitem[H{\"u}bner et~al.(2021)]{hubner2021digitalization}
 H{\"u}bner A, Amorim P, Fransoo JC, Honhon D, Kuhn H, Martinez~de~Albeniz V, Robb D (2021) Digitalization and omnichannel retailing: Innovative OR approaches for retail operations.
 \textit{European Journal of Operational Research} 294(3):817--819.
@@ -867,6 +875,10 @@ Sun L, Abraham S (2021) Estimating dynamic treatment effects in event studies wi
 \bibitem[Ton(2014)]{ton2014good}
 Ton Z (2014) \textit{The Good Jobs Strategy: How the Smartest Companies Invest in Employees to Lower Costs and Boost Profits}.
 New York: Houghton Mifflin Harcourt.
+
+\bibitem[Tversky and Kahneman(1992)]{tversky1992advances}
+Tversky A, Kahneman D (1992) Advances in prospect theory: Cumulative representation of uncertainty.
+\textit{Journal of Risk and Uncertainty} 5(4):297--323.
 
 \bibitem[Tucker(2007)]{tucker2007operational}
 Tucker AL (2007) An empirical study of system improvement by frontline employees in hospital units.
