@@ -109,7 +109,7 @@ The foundational insight that service quality can erode endogenously under deman
 \paragraph{Workforce investment and retail performance.}\label{sec:lit:workforce}
 A substantial empirical literature documents the workforce-performance link. The Good Jobs Strategy \citep{ton2014good} identifies four operational choices that drive outperformance; causal evidence shows that responsible scheduling raises productivity \citep{kesavan2022doing} and that profit-maximising staffing exceeds prevailing practice \citep{fisher2021staffing, dube2020minimum}. The conceptual mechanism is the \emph{service profit chain} \citep{heskett1994putting}, which has not been formalised as a dynamic model with computable boundary conditions. The Job Demands-Resources (JD-R) model \citep{bakker2007job, demerouti2001job} provides the micro-foundation: overload depletes well-being faster than equivalent surplus restores it, and productivity scales with engagement \citep{mas2009peers}.
 
-Prospect theory \citep{kahneman1979prospect, tversky1992advances} provides a deeper behavioural foundation: losses loom larger than equivalent gains by $\lambda \approx 2.25$, and both domains exhibit diminishing sensitivity. Applied to the workforce, overload-induced depletion is experienced more intensely than equivalent recovery---a prediction remarkably consistent with the 2:1 asymmetry in \citet{oliva2001cutting} and the JD-R model. Loss aversion thus independently grounds the parameter $\sigma > 1$ central to Theorems~1 and 3.
+Prospect theory \citep{kahneman1979prospect, tversky1992advances} provides a deeper behavioural foundation: losses loom larger than equivalent gains by a factor of approximately 2.25, and both domains exhibit diminishing sensitivity. Applied to the workforce, overload-induced depletion is experienced more intensely than equivalent recovery---a prediction remarkably consistent with the 2:1 asymmetry in \citet{oliva2001cutting} and the JD-R model. Loss aversion thus independently grounds the parameter $\sigma > 1$ central to Theorem~3 (and strengthens Theorem~1).
 
 \textbf{Gap~3:} no dynamic model formalises the Good Jobs Strategy or the service profit chain with computable boundary conditions.
 
@@ -197,7 +197,7 @@ Well-being rises under surplus capacity and direct investment; it falls through 
 \begin{equation}\label{eq:dW}
     \frac{dW}{dt} = \bigl(\Gm + f\bigr)(1 - W) - \bigl(\mu + \sigma\,\Gp\bigr) W.
 \end{equation}
-Two grouped terms ensure $W(t) \in [0,1]$. The first drives $W$ upward (vanishing at $W = 1$): capability surplus and direct workforce investment raise well-being with diminishing returns, consistent with the JD-R model \citep{bakker2007job}. The second drives $W$ downward (vanishing at $W = 0$): natural decay ($\mu$) and overload erosion ($\sigma\,\Gp$) deplete well-being, with $\sigma > 1$ reflecting the asymmetry documented by \citet{oliva2001cutting} and independently predicted by the loss-aversion ratio $\lambda \approx 2.25$ from prospect theory \citep{tversky1992advances}. All three theorems hold for any $\sigma > 1$ (EC Table~EC.3).
+Two grouped terms ensure $W(t) \in [0,1]$. The first drives $W$ upward (vanishing at $W = 1$): capability surplus and direct workforce investment raise well-being with diminishing returns, consistent with the JD-R model \citep{bakker2007job}. The second drives $W$ downward (vanishing at $W = 0$): natural decay ($\mu$) and overload erosion ($\sigma\,\Gp$) deplete well-being, with $\sigma > 1$ reflecting the asymmetry documented by \citet{oliva2001cutting} and independently predicted by the loss-aversion ratio (${\approx}2.25$) from prospect theory \citep{tversky1992advances}. All three theorems hold for any $\sigma > 1$ (EC Table~EC.3).
 
 \paragraph{Customer trust.}
 Trust builds through reliable service and erodes faster when reliability fails \citep{sirdeshmukh2002consumer, mittal1998asymmetric}:
@@ -303,7 +303,7 @@ Table~\ref{tab:params} summarises all parameters. Two control variables complete
 + & $\lambda$ (natural $T$ decay) & 0.025 & $\tau_{\lambda} \approx 28$ mo & $\lambda{=}0$ & $T$ experiential only & Illustrative (EC \S EC.4) \\
 \bottomrule
 \end{tabular}
-}}{All time units are months. Timescales are $\ln(2)/\theta$ (half-life). Eight free parameters (rows~1--8); $\mu$ and $\lambda$ govern natural decay. ``Illustrative'' parameters are calibrated within empirically informed ranges (EC~\S EC.4). $^\dagger$Magnitude comparator from service industry evidence; see \S\ref{sec:model:dynamics}. $^\ddagger$Loss-aversion ratio $\lambda \approx 2.25$ \citep{tversky1992advances} independently predicts $\sigma \approx 2$. Direct estimation of $b$ and $p$ from retailer panel data is the primary empirical extension (\S\ref{sec:disc:limits}).}\end{table}
+}}{All time units are months. Timescales are $\ln(2)/\theta$ (half-life). Eight free parameters (rows~1--8); $\mu$ and $\lambda$ govern natural decay. ``Illustrative'' parameters are calibrated within empirically informed ranges (EC~\S EC.4). $^\dagger$Magnitude comparator from service industry evidence; see \S\ref{sec:model:dynamics}. $^\ddagger$Loss-aversion ratio $\approx 2.25$ \citep{tversky1992advances} independently predicts $\sigma \approx 2$. Direct estimation of $b$ and $p$ from retailer panel data is the primary empirical extension (\S\ref{sec:disc:limits}).}\end{table}
 \section{Analytical Results}\label{sec:analysis}
 
 Four results follow from the model, each identifying a phenomenon that single-domain frameworks cannot produce. Theorems~\ref{thm:trap}--\ref{thm:cliff} characterise three such phenomena; Proposition~\ref{prop:complementarity} establishes digitalisation-workforce complementarity. Full proofs are in the Electronic Companion (\S EC.1); here we provide proof sketches.
@@ -590,7 +590,7 @@ The coefficient attenuates when workforce controls are included ($N = 190$; $p =
     &\quad + \mathbf{X}_{it}\theta + \varepsilon_{it},
 \end{aligned}
 \end{equation}
-where $\alpha_i$ are firm fixed effects, $\gamma_t$ are year fixed effects, $\tau = t - t_i^*$ is event time, $\delta_{-1} = 0$ is the omitted reference period, and $\mathbf{X}_{it}$ includes pre-shock capital expenditure as a control. The averaged post-shock coefficient ($\bar{\delta}_{+1,+3}$) yields an ACSI decline of $-0.71$ ($p = 0.037$ under $t(15)$); $t=0$ is excluded because it captures transition noise (partial rollout, announcement effects); the $t=0$ coefficient is itself significant ($-0.37$, $p = 0.043$; EC Table~EC.6). The result is consistent with the Front-Stage Trap. Event-time coefficients for the level specification show near-zero and insignificant pre-trend coefficients at $t = -3$ and $t = -2$ (relative to $t = -1$), supporting the parallel-trends assumption for the basic difference-in-differences (EC Table~EC.6). Pre-trend coefficients for the workforce-moderation interaction are similarly insignificant (EC Table~EC.6). The workforce moderation (post $\times$ pre-Glassdoor) is not detectable ($p = 0.79$), consistent with the low within-firm Glassdoor variation rather than absence of the mechanism.
+where $\alpha_i$ are firm fixed effects, $\gamma_t$ are year fixed effects, $\tau = t - t_i^*$ is event time, $\delta_{-1} = 0$ is the omitted reference period, and $\mathbf{X}_{it}$ includes pre-shock capital expenditure as a control. A pooled post-shock indicator (a single dummy for all $\tau \geq 0$ periods, estimated separately from the event-time specification above) yields an ACSI decline of $-0.71$ ($p = 0.037$ under $t(15)$); $t=0$ is excluded from the pooled estimate because it captures transition noise (partial rollout, announcement effects), though the $t=0$ coefficient in the event-time specification is itself significant ($-0.37$, $p = 0.043$; EC Table~EC.6). The pooled estimate is more powerful than the individual year dummies (EC Table~EC.6: $\delta_{+1}=-0.17$, $\delta_{+2}=-0.30$, $\delta_{+3}=-0.90$, each individually insignificant but jointly yielding $-0.71$ when constrained equal). The result is consistent with the Front-Stage Trap. Event-time coefficients for the level specification show near-zero and insignificant pre-trend coefficients at $t = -3$ and $t = -2$ (relative to $t = -1$), supporting the parallel-trends assumption for the basic difference-in-differences (EC Table~EC.6). Pre-trend coefficients for the workforce-moderation interaction are similarly insignificant (EC Table~EC.6). The workforce moderation (post $\times$ pre-Glassdoor) is not detectable ($p = 0.79$), consistent with the low within-firm Glassdoor variation rather than absence of the mechanism.
 
 A caveat on staggered treatment timing: recent work \citep{callaway2021difference, sun2021estimating} shows that TWFE estimators with heterogeneous staggered treatment can be biased. Two features limit this concern here: the sample is small ($N_c = 16$ firms) with launches concentrated in 2016--2019, limiting cohort heterogeneity; and the target estimand is the average post-shock effect, which TWFE recovers consistently under modest heterogeneity. With only 16 treated firms, cohort-specific ATTs from Callaway-Sant'Anna or Sun-Abraham would be highly imprecise; we rely on standard TWFE under our maintained assumption of limited treatment-effect heterogeneity across 2016--2019 launch cohorts, supported by the pre-trend evidence.
 
@@ -800,13 +800,13 @@ Heskett JL, Jones TO, Loveman GW, Sasser Jr WE, Schlesinger LA (1994) Putting th
 Heskett JL, Sasser Jr WE, Schlesinger LA (1997) \textit{The Service Profit Chain: How Leading Companies Link Profit and Growth to Loyalty, Satisfaction, and Value}.
 New York: Free Press.
 
-\bibitem[Kahneman and Tversky(1979)]{kahneman1979prospect}
-Kahneman D, Tversky A (1979) Prospect theory: An analysis of decision under risk.
-\textit{Econometrica} 47(2):263--291.
-
 \bibitem[H{\"u}bner et~al.(2021)]{hubner2021digitalization}
 H{\"u}bner A, Amorim P, Fransoo JC, Honhon D, Kuhn H, Martinez~de~Albeniz V, Robb D (2021) Digitalization and omnichannel retailing: Innovative OR approaches for retail operations.
 \textit{European Journal of Operational Research} 294(3):817--819.
+
+\bibitem[Kahneman and Tversky(1979)]{kahneman1979prospect}
+Kahneman D, Tversky A (1979) Prospect theory: An analysis of decision under risk.
+\textit{Econometrica} 47(2):263--291.
 
 \bibitem[KC and Terwiesch(2009)]{kc2009impact}
 KC D, Terwiesch C (2009) Impact of workload on service time and patient safety: An econometric analysis of hospital operations.
