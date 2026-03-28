@@ -10,6 +10,14 @@ Inputs (from data/raw/):
 
 Output: data/processed/wct_empirical_panel.csv
   A clean, merged firm × year panel ready for regression analysis.
+  (25 columns: core financials, ACSI, Glassdoor, macro controls)
+
+  data/processed/wct_empirical_panel_v2.csv
+  Extended panel with 9 additional EDGAR technology-investment columns from
+  03b_fetch_tech_invest.py: cap_software_gross, cap_software_net,
+  intangibles_net, rd_expense, emp_liab_current, cap_software_gross_rev,
+  intangibles_net_rev, emp_liab_current_rev, tech_K_rev.
+  Used by 08_robustness.py for technology-capital specifications.
 
 Key constructed variables:
   - acsi_score:         Customer satisfaction (T proxy), 0-100

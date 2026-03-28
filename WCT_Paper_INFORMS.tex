@@ -68,7 +68,7 @@ We formalise this gap as a parsimonious dynamic model and derive three analytica
 (i)~A computable digitalisation ceiling exists beyond which additional front-stage investment destroys customer lifetime value by overloading back-stage workers; front-stage demand metrics continue rising even as lifetime value collapses.
 (ii)~The entire return to workforce investment flows through service capacity, invisible to dashboards that treat payroll as a cost line.
 (iii)~The system is bistable: at our baseline calibration, the neglected firm faces a safe rollout window approximately 37\% the size of its investing peer.
-Three empirical strategies provide directionally consistent evidence across different identification strategies. A statistically significant inverted-U between e-commerce share and customer satisfaction, and a post-shock decline in the American Customer Satisfaction Index following major omnichannel launches, support the digitalisation ceiling. County-level wage and employment data from the Bureau of Labor Statistics ($N = 30{,}951$ county--year observations across 3{,}115 US counties, 2015--2024) support a labour-market analogue of the Good Jobs Buffer: counties with higher initial retail wages show significantly more resilient employment as e-commerce grows ($p = 0.025$).
+Three empirical strategies provide directionally consistent evidence across different identification strategies. A statistically significant inverted-U between e-commerce share and customer satisfaction, and a post-shock decline in the American Customer Satisfaction Index following major omnichannel launches, support the digitalisation ceiling. County-level data from the Bureau of Labor Statistics ($N = 30{,}951$ county--year observations across 3{,}115 US counties, 2015--2024) support a labour-market analogue of the Good Jobs Buffer on two margins: counties with higher initial retail wages show significantly more resilient employment ($p = 0.025$) and establishment counts ($p < 0.001$) as e-commerce grows, though the extensive margin has a pre-existing trend that limits causal attribution.
 
 \noindent\textbf{Managerial implications.}
 The model supplies two computable numbers absent from standard dashboards: a digitalisation ceiling and a maximum safe rollout size. Both are workforce-contingent, making workforce investment a structural requirement of digital strategy rather than a social concession.
@@ -321,23 +321,24 @@ The table below classifies each result by evidentiary basis (Tier~A: analytic fo
 
 \noindent
 {\small\renewcommand{\arraystretch}{0.92}%
-\begin{tabular}{@{}p{0.24\textwidth}p{0.06\textwidth}p{0.30\textwidth}p{0.30\textwidth}@{}}
+\begin{tabular}{@{}p{0.23\textwidth}p{0.05\textwidth}p{0.29\textwidth}p{0.33\textwidth}@{}}
 \toprule
 \textbf{Result} & \textbf{Tier} & \textbf{Analytical basis} & \textbf{Empirical support (\S\ref{sec:empirics})} \\
 \midrule
-Thm~1(i): existence/nonexistence & A & IVT + $\Phi(0)$ sign & Inverted-U ($p{=}0.028$); event study ($p{=}0.037$) \\
-Thm~1(ii): bounded trajectories & A & Gronwall; Lemma~3 & -- \\
-Thm~1(ii): wide-basin convergence & C & Numerical grid & -- \\
-Thm~2: $\partial\,\mathrm{CLV}^*/\partial f > 0$ & B & IFT chain; GE sign analytic & County employment ($p{=}0.025$); establishments ($p{<}0.001$) \\
+Thm~1(i): existence & A & IVT + $\Phi(0)$ sign & Inv-U ($p{=}.028$); event study ($p{=}.037$) \\
+Thm~1(ii): bounded traj.\ & A & Gronwall; Lemma~3 & -- \\
+Thm~1(ii): basin conv.\ & C & Numerical grid & -- \\
+Thm~2: $\partial\,\mathrm{CLV}^*/\partial f > 0$ & B & IFT; GE sign analytic & County empl.\ ($p{=}.025$); estab.\ ($p{<}.001$)$^\dagger$ \\
 Thm~2: GE magnitude & C & 100 configurations & -- \\
-Thm~3(i): $\Delta F_{\mathrm{collapse}}$ & A & Direct from Thm~1 & Estab.\ exit pattern ($p{<}0.001$, indirect) \\
+Thm~3(i): $\Delta F_{\mathrm{collapse}}$ & A & Direct from Thm~1 & Estab.\ exit ($p{<}.001$, indirect)$^\dagger$ \\
 Thm~3(i): convergence & C & Numerical; basin-dep.\ & -- \\
-Prop~4: cross-partial & A & $\Keff = Kh(W)$ & Sign check ($+1.95$, $p{=}0.41$) \\
-Prop~4: $F_{\max}(W)$ boundary & A & Exact at $S^*{\to}0$ & -- \\
-Cor~5, Case~1 & B & Thm~1 + Thm~2 & Not tested \\
-Cor~5, Case~2 & B/C & IFT / computational & Not tested \\
+Prop~4: cross-partial & A & $\Keff = Kh(W)$ & Sign ($+1.95$, $p{=}.41$; underpowered) \\
+Prop~4: $F_{\max}(W)$ & A & Exact at $S^*{\to}0$ & -- \\
+Cor~5 & B/C & IFT / computational & Not tested \\
 \bottomrule
 \end{tabular}}
+
+\noindent{\scriptsize $^\dagger$Establishment-margin placebo is significant ($p{=}.012$); see Table~\ref{tab:reg_county} and \S\ref{sec:emp:county}.}
 \end{remark}
 
 
@@ -601,7 +602,7 @@ Because $\text{Ecom}_t$ is a national-level variable (identical across counties 
 
 On the extensive margin, the buffer is stronger. The establishment-count interaction is $\hat{\beta}_1 = 0.0042$ ($t = 4.64$, $p < 0.001$), 63\% larger than the employment coefficient. A county one SD above the mean retains 4.2 percentage points more retail establishments per 10-point increase in e-commerce share. The urban effect is pronounced ($p < 0.001$; 1,557 counties); the rural effect is not significant ($p = 0.17$), mirroring the employment-margin pattern. The decomposition shows that surviving establishments in high-wage counties are somewhat smaller (employment per establishment: $\hat{\beta}_1 = -0.0017$, $p = 0.036$), consistent with the buffer preserving smaller retail businesses that would otherwise exit.
 
-\textit{Robustness.} The result strengthens when COVID years are excluded ($\hat{\beta}_1 = 0.0031$, $p = 0.014$), holds in urban counties ($p = 0.006$), and is insignificant in rural counties ($p = 0.58$). A pre-period placebo (2015--2017) shows no effect ($p = 0.40$), confirming the buffer activates only under substantial digital pressure. The effect operates through employment quantity, not wages (wage-growth outcome: $p = 0.98$), consistent with the capacity-multiplier channel.
+\textit{Robustness.} For employment (Panel~A), the result strengthens when COVID years are excluded ($\hat{\beta}_1 = 0.0031$, $p = 0.014$), holds in urban counties ($p = 0.006$), and is insignificant in rural counties ($p = 0.58$). A pre-period placebo (2015--2017) shows no effect ($p = 0.40$), confirming the buffer activates only under substantial digital pressure. The effect operates through employment quantity, not wages (wage-growth outcome: $p = 0.98$), consistent with the capacity-multiplier channel. For establishments (Panel~B), the pattern is similar: robust to COVID exclusion ($p < 0.001$), concentrated in urban counties ($p < 0.001$), and insignificant in rural counties ($p = 0.17$). However, the establishment placebo is significant ($p = 0.012$), indicating that high-wage counties were already gaining establishments relative to low-wage counties before the main e-commerce acceleration. The extensive-margin result therefore reflects a combination of the e-commerce buffer and a secular agglomeration advantage; the employment-margin result, whose placebo is clean, provides the sharper causal test.
 
 A COVID caveat: the e-commerce share jump from 10.7\% (2019) to 14.0\% (2020) represents forced adoption rather than strategic choice. The result's robustness when COVID years are excluded ($p = 0.014$) confirms the effect is not driven solely by pandemic-era variation.
 
@@ -652,10 +653,10 @@ $W^z_{c,2015} \times \text{Ecom}_t$ & $0.0026^{**}$ & $0.0031^{**}$ & $0.0050^{*
  & $(0.0011)$ & $(0.0013)$ & $(0.0018)$ & $(0.0014)$ & $(0.0027)$ \\[2pt]
 $R^2_{\mathrm{within}}$ & 0.008 & 0.013 & 0.042 & $-$0.000 & 0.001 \\
 \addlinespace
-\multicolumn{6}{@{}l}{\textit{Panel B: Establishment growth (extensive margin)}} \\[3pt]
-$W^z_{c,2015} \times \text{Ecom}_t$ & $0.0042^{***}$ & $0.0045^{***}$ & $0.0071^{***}$ & $0.0018$ & $0.0019$ \\
- & $(0.0009)$ & $(0.0010)$ & $(0.0014)$ & $(0.0013)$ & $(0.0024)$ \\[2pt]
-$R^2_{\mathrm{within}}$ & 0.031 & 0.037 & 0.089 & $-$0.001 & 0.000 \\
+\multicolumn{6}{@{}l}{\textit{Panel B: Establishment growth (extensive margin)$^\dagger$}} \\[3pt]
+$W^z_{c,2015} \times \text{Ecom}_t$ & $0.0042^{***}$ & $0.0045^{***}$ & $0.0071^{***}$ & $0.0018$ & $0.0044^{**}$ \\
+ & $(0.0009)$ & $(0.0010)$ & $(0.0014)$ & $(0.0013)$ & $(0.0018)$ \\[2pt]
+$R^2_{\mathrm{within}}$ & 0.031 & 0.037 & 0.089 & $-$0.001 & 0.005 \\
 \midrule
 County FE & Yes & Yes & Yes & Yes & Yes \\
 Year FE & Yes & Yes & Yes & Yes & Yes \\
@@ -663,11 +664,11 @@ $N$ & 30{,}951 & 24{,}768 & 15{,}532 & 15{,}419 & 9{,}321 \\
 Counties & 3{,}115 & 3{,}115 & 1{,}557 & 1{,}558 & 3{,}115 \\
 \bottomrule
 \end{tabular}
-}}{Dependent variables: Panel~A uses $\ln E_{ct} - \ln E_{c,2015}$ (log employment growth); Panel~B uses $\ln \mathrm{Estab}_{ct} - \ln \mathrm{Estab}_{c,2015}$ (log establishment-count growth). Both are relative to 2015. Standard errors clustered at county level in parentheses. $^{***}p < 0.01$; $^{**}p < 0.05$. $\text{Ecom}_t$ main effect absorbed by year FE; $W^z_{c,2015}$ absorbed by county FE. Column (2): excludes 2020--2021. Columns (3)--(4): split at median baseline employment. Column (5): 2015--2017 pre-period placebo. The extensive margin (Panel~B) shows a 63\% larger coefficient and substantially higher within-$R^2$ than the intensive margin.}\end{table}
+}}{Dependent variables: Panel~A uses $\ln E_{ct} - \ln E_{c,2015}$ (log employment growth); Panel~B uses $\ln \mathrm{Estab}_{ct} - \ln \mathrm{Estab}_{c,2015}$ (log establishment-count growth). Both are relative to 2015. Standard errors clustered at county level in parentheses. $^{***}p < 0.01$; $^{**}p < 0.05$. $\text{Ecom}_t$ main effect absorbed by year FE; $W^z_{c,2015}$ absorbed by county FE. Column (2): excludes 2020--2021. Columns (3)--(4): split at median baseline employment. Column (5): 2015--2017 pre-period placebo. $^\dagger$Panel~B placebo is significant ($p = 0.012$), indicating a pre-existing trend in establishment counts favouring high-wage counties; the extensive-margin coefficient should be interpreted with this caveat (see text).}\end{table}
 
 \subsection{Assessment}\label{sec:emp:assessment}
 
-Three empirical strategies support the model's qualitative predictions. The inverted-U ($p = 0.028$) and the post-shock ACSI decline ($p = 0.037$) both support the Front-Stage Trap (Theorem~\ref{thm:trap}). The county-level wage--e-commerce interaction provides a well-powered test of the Good Jobs Buffer (Theorem~\ref{thm:buffer}) on two margins: employment ($p = 0.025$) and establishment counts ($p < 0.001$, $N = 30{,}951$). The extensive-margin result is the strongest in the paper; the low within-$R^2$ in Panel~A (0.008) is expected for a single interaction net of 3{,}115 county and 10 year fixed effects, comparable to \citet{chetty2009salience}, and rises to 0.031 for establishments. The complementarity sign ($+1.95$, $p = 0.41$) is directionally consistent with Proposition~\ref{prop:complementarity} but underpowered. The county establishment-exit pattern ($p < 0.001$) provides an observational signature consistent with the permanent-collapse prediction of Theorem~\ref{thm:cliff}, though it cannot distinguish bistability from gradual secular decline; the Budget-Constrained Trap (Corollary~\ref{cor:budget}) remains validated computationally only. The contribution is directionally consistent evidence across different identification strategies, levels, and outcomes, subject to \S\ref{sec:disc:limits}.
+Three empirical strategies support the model's qualitative predictions. The inverted-U ($p = 0.028$) and the post-shock ACSI decline ($p = 0.037$) both support the Front-Stage Trap (Theorem~\ref{thm:trap}). The county-level wage--e-commerce interaction provides a well-powered test of the Good Jobs Buffer (Theorem~\ref{thm:buffer}) on two margins: employment ($p = 0.025$) and establishment counts ($p < 0.001$, $N = 30{,}951$). The low within-$R^2$ in Panel~A (0.008) is expected for a single interaction net of 3{,}115 county and 10 year fixed effects, comparable to \citet{chetty2009salience}, and rises to 0.031 for establishments. The establishment-margin coefficient is 63\% larger, though the significant pre-trend in the placebo ($p = 0.012$) means the extensive-margin result partly reflects secular agglomeration; the employment margin, whose placebo is clean, is the sharper causal test. The complementarity sign ($+1.95$, $p = 0.41$) is directionally consistent with Proposition~\ref{prop:complementarity} but underpowered. The Burnout Cliff (Theorem~\ref{thm:cliff}) and Budget-Constrained Trap (Corollary~\ref{cor:budget}) are validated computationally; the county establishment pattern is directionally consistent with permanent collapse but cannot distinguish bistability from secular decline. The contribution is directionally consistent evidence across different identification strategies, levels, and outcomes, subject to \S\ref{sec:disc:limits}.
 
 
 \section{Discussion}\label{sec:discussion}
@@ -683,7 +684,7 @@ The three theorems together provide the formal micro-foundation that connects \c
 
 \textit{Model limitations.} $F$ is exogenous; the HJB formulation for optimal deployment is non-trivial because the switching manifold $\{G{=}0\}$ is endogenous \citep{filippov1988differential}. Demand grows without bound in $F$ (no market saturation); predictions are most reliable near $F_{\mathrm{crit}}$. Omitting a direct $W \to D$ channel and using linear $h(W)$ both make results conservative; a concave $h(W) = (1{-}p)+pW^\gamma$ ($\gamma < 1$), motivated by prospect theory's diminishing sensitivity, would strengthen them.
 
-\textit{Empirical limitations.} With $N_c = 13$ firm clusters, firm-level power is limited \citep{cameron2008bootstrap}; county-level power ($N_c = 3{,}115$) does not share this limitation. Glassdoor's low within-firm variation (SD 30\% of total) limits the interaction's within-firm identification. The county interaction cannot fully separate the Good Jobs Buffer from non-tradeable-retail embedding; store-level data would resolve both.
+\textit{Empirical limitations.} With $N_c = 13$ firm clusters, firm-level power is limited \citep{cameron2008bootstrap}; county-level power ($N_c = 3{,}115$) does not share this limitation. Glassdoor ratings are voluntary and subject to self-selection; the low within-firm variation (SD 30\% of total) further limits the interaction's within-firm identification. The county interaction cannot fully separate the Good Jobs Buffer from non-tradeable-retail embedding; the establishment-margin pre-trend (Table~\ref{tab:reg_county}, Panel~B placebo) reinforces this concern. Store-level data would resolve both. The empirical section reports multiple specifications across three identification strategies; primary hypotheses (Theorems~1--2) were derived from the model before estimation, and all specifications are reported to permit reader assessment.
 
 \textit{Extensions.} Store-level identification of $p$; competitive multi-firm extension with workforce poaching; stochastic demand forcing (probabilistic Burnout Cliff).
 
