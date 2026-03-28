@@ -273,7 +273,7 @@ Since $T^*(S^*)$ is increasing in $S^*$ and $dS^*/dW > 0$ (Theorem~2, Link~2--Li
 \end{proof}
 
 \begin{remark}[Concave Capacity Multiplier]
-The constant cross-partial $\partial^2 \Keff / \partial W\,\partial K = p$ is an immediate consequence of the linear specification $h(W) = (1-p) + pW$. Under a concave alternative $h(W) = (1-p) + pW^\gamma$ ($\gamma < 1$), the cross-partial becomes $p\gamma W^{\gamma-1}$, which is state-dependent: complementarity is stronger when the workforce is depleted (low~$W$), precisely when it matters most operationally. The linear form therefore understates the complementarity effect under overload, making the main-paper result a conservative bound. Section~6.2 of the main paper discusses additional implications of concave~$h$.
+The constant cross-partial $\partial^2 \Keff / \partial W\,\partial K = p$ is an immediate consequence of the linear specification $h(W) = (1-p) + pW$. Under a concave alternative $h(W) = (1-p) + pW^\gamma$ ($\gamma < 1$), the cross-partial becomes $p\gamma W^{\gamma-1}$, which is state-dependent: complementarity is stronger when the workforce is depleted (low~$W$), precisely when it matters most operationally. The linear form therefore understates the complementarity effect under overload, making the main-paper result a conservative bound. Section~7.2 of the main paper discusses additional implications of concave~$h$.
 \end{remark}
 
 
@@ -439,7 +439,7 @@ We model CLV using the geometric-series structure of \citet{gupta2004valuing}: $
 
 \section{Empirical Appendix}\label{sec:ec:empirics}
 {\small\setlength{\parskip}{2pt}
-This appendix supplements the empirical analysis in \S5 of the main paper.
+This appendix supplements the empirical analysis in \S6 of the main paper.
 
 \subsection*{US Data and Robustness}
 
@@ -450,7 +450,7 @@ The US firm-level panel assembles four longitudinal data sources. Customer satis
 The panel is constructed using EDGAR financial data as the backbone (276 firm--year observations across 17 firms, 2008--2024). ACSI, Glassdoor, and macro controls are then left-joined to this backbone using firm--year keys. All merges enforce one-to-one key uniqueness; no duplicate keys were detected. The resulting panel contains 131 complete firm--year observations with non-missing values for all four key variables, representing 47\% coverage of the full backbone. The complementarity specification therefore uses 131 observations across 13 firms; the inverted-U and event-study specifications, which require only ACSI and e-commerce share, use 216 and 108 observations across 17 and 16 firms, respectively.
 
 \textit{US robustness checks.}
-Six robustness checks supplement the core between-effects OLS estimand (reported in \S 5.2 of the main paper): (i)~Mundlak CRE, (ii)~one-year lag ($K_{t-1}^z \times W_{t-1}^z$), (iii)~COVID exclusion (dropping 2020--2021), (iv)~leave-one-out, (v)~wild cluster bootstrap (9{,}999 reps, Webb six-point weights; \citealp{webb2023reworking}), and (vi)~CR3 small-sample correction ($\mathrm{df} = G{-}k = 9$). All checks preserve the positive sign.
+Six robustness checks supplement the core between-effects OLS estimand (reported in \S 6.2 of the main paper): (i)~Mundlak CRE, (ii)~one-year lag ($K_{t-1}^z \times W_{t-1}^z$), (iii)~COVID exclusion (dropping 2020--2021), (iv)~leave-one-out, (v)~wild cluster bootstrap (9{,}999 reps, Webb six-point weights; \citealp{webb2023reworking}), and (vi)~CR3 small-sample correction ($\mathrm{df} = G{-}k = 9$). All checks preserve the positive sign.
 
 \subsection*{Event-Study Pre-Trends}
 
