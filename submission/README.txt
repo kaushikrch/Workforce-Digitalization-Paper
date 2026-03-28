@@ -65,6 +65,11 @@ DATA SOURCES
 
 Firm-level:
   - ACSI scores: theacsi.org (2008-2024, 17 firms)
+    Manually compiled from ACSI annual press releases and industry
+    benchmark reports (theacsi.org/industries/). Values verified against
+    published sector reports for Retail Trade and E-Commerce. Compilation
+    date: January 2025. The script 01_fetch_acsi.py documents each score
+    with its source year and company.
   - Glassdoor ratings: glassdoor.com (2010-2023, 16 firms)
   - Financial data: SEC EDGAR XBRL API (2008-2024, 17 firms)
   - E-commerce share: FRED series ECOMPCTSA
